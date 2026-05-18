@@ -77,7 +77,7 @@
     font-size:19px; letter-spacing:-.5px; color:currentColor;
     display:flex; align-items:center; gap:10px; text-decoration:none;
   }
-  .nav-logo img{ height:48px; width:auto; display:block; object-fit:contain; }
+  .nav-logo img{ height:56px; width:auto; display:block; object-fit:contain; }
   .nav-logo .logo-azul{ display:none; }
   .nav-logo .logo-blanco{ display:block; }
   .navbar.on-dark .nav-logo .logo-azul{ display:block; }
@@ -283,6 +283,10 @@
   @keyframes lights-twinkle{
     0%,100%{ opacity:1; }
     50%{ opacity:0.55; }
+  }
+  @keyframes marquee{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-50%); }
   }
 
   /* Subtle blueprint columns at the back */
@@ -514,6 +518,7 @@
     display:flex; justify-content:center; flex-wrap:wrap;
     gap:72px; align-items:center;
   }
+  .hero-logos-marquee-wrap{ width:100%; overflow:hidden; }
   .hero-logo{
     color:#aab1ba; font-weight:600; font-size:18px;
     letter-spacing:.2px; transition:color .3s ease, opacity .3s ease;
@@ -1347,6 +1352,23 @@
     .cta-final-trust{ flex-direction:column; align-items:center; gap:8px; }
     /* Navbar lang toggle */
     .nav-lang-toggle{ padding:4px 8px; font-size:11px; }
+    /* Mobile hero layout */
+    .hero-right{ display:none !important; }
+    .hero-left{ display:flex; flex-direction:column; }
+    .hero-rating{ order:10; margin-top:28px; }
+    .hero h1{ order:1; }
+    .hero-sub{ order:2; }
+    .cta-pill{ order:3; }
+    .hero-trust{ margin-top:32px; }
+    /* Mobile overflow */
+    .ad-section{ overflow:hidden; }
+    .feature{ overflow:hidden; }
+    .mockup-wrap{ overflow:hidden; max-width:100%; }
+    .browser-frame{ overflow:hidden; }
+    .mk-inbox, .mk-crm, .mk-dosier, .mk-budget{ max-height:320px; overflow-y:auto; }
+    /* Marquee logos on mobile */
+    .hero-logos-marquee-wrap{ overflow:hidden; mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent); -webkit-mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent); }
+    .hero-logo-row{ flex-wrap:nowrap; justify-content:flex-start; gap:48px; animation:marquee 18s linear infinite; width:max-content; }
   }
   @media (max-width:480px){
     .hero h1{ font-size:28px; }
@@ -1389,7 +1411,7 @@
 
   /* ============ MOBILE MENU DRAWER ============ */
   .mobile-menu{
-    display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:40;
+    position:fixed; top:0; left:0; right:0; bottom:0; z-index:40;
     background:rgba(10,22,40,0.97);
     backdrop-filter:blur(20px);
     -webkit-backdrop-filter:blur(20px);
@@ -1397,8 +1419,9 @@
     flex-direction:column;
     opacity:0; pointer-events:none;
     transition:opacity .25s ease;
+    display:flex;
   }
-  .mobile-menu.open{ display:flex; opacity:1; pointer-events:auto; }
+  .mobile-menu.open{ opacity:1; pointer-events:auto; }
   .mobile-menu-link{
     font-family:'Satoshi', sans-serif; font-weight:700; font-size:28px;
     color:#E8ECF1; text-decoration:none; padding:12px 0;
@@ -1437,8 +1460,8 @@
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </div>
     <div class="nav-cta">
-      <a href="#" class="btn btn-ghost" data-i18n="nav_login">Iniciar sesión</a>
-      <a href="#" class="btn btn-nav-cta">
+      <a href="https://app.foreventos.com/login" class="btn btn-ghost" data-i18n="nav_login">Iniciar sesión</a>
+      <a href="https://app.foreventos.com/signup" class="btn btn-nav-cta">
         <span data-i18n="nav_signup">Crear cuenta</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -1461,8 +1484,8 @@
     <a href="#pricing" class="mobile-menu-link" data-i18n="nav_pricing">Pricing</a>
     <a href="#contacto" class="mobile-menu-link" data-i18n="nav_contact">Contacto</a>
     <div class="mobile-menu-ctas">
-      <a href="#" class="btn btn-ghost" style="width:100%; justify-content:center;" data-i18n="nav_login">Iniciar sesión</a>
-      <a href="#" class="btn btn-nav-cta" style="width:100%; justify-content:center;" data-i18n="nav_signup">Crear cuenta</a>
+      <a href="https://app.foreventos.com/login" class="btn btn-ghost" style="width:100%; justify-content:center;" data-i18n="nav_login">Iniciar sesión</a>
+      <a href="https://app.foreventos.com/signup" class="btn btn-nav-cta" style="width:100%; justify-content:center;" data-i18n="nav_signup">Crear cuenta</a>
     </div>
   </div>
 </div>
@@ -1487,7 +1510,7 @@
       </div>
       <h1 class="reveal d1" data-i18n-html="hero_h1">Menos gestión.<br/><em>Más eventos cerrados.</em></h1>
       <p class="hero-sub reveal d2" data-i18n-html="hero_sub"><strong>Centraliza peticiones</strong>, crea dosieres que convierten y automatiza tu flujo comercial desde un solo lugar.</p>
-      <a href="#" class="cta-pill reveal d3">
+      <a href="https://app.foreventos.com/signup" class="cta-pill reveal d3">
         <span data-i18n="hero_cta">Empieza gratis</span>
         <span class="cta-pill-arrow">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -1548,11 +1571,21 @@
 
   <div class="hero-trust">
     <p class="hero-trust-text reveal" data-i18n-html="hero_trust">Pensado para venues y caterings con <strong>más de 50 peticiones al mes</strong></p>
-    <div class="hero-logo-row reveal d1">
-      <div class="hero-logo serif">Finca Miramar</div>
-      <div class="hero-logo smallcaps">Son&nbsp;Mary</div>
-      <div class="hero-logo script">Can Martí</div>
-      <div class="hero-logo image" title="Wedding Venues Spain"><img src="/foreventos-assets/wedding-venues-spain.png" alt="Wedding Venues Spain" loading="lazy"/></div>
+    <div class="hero-logos-marquee-wrap reveal d1">
+      <div class="hero-logo-row">
+        <div class="hero-logo serif">Finca Miramar</div>
+        <div class="hero-logo smallcaps">Son&nbsp;Mary</div>
+        <div class="hero-logo script">Can Martí</div>
+        <div class="hero-logo image" title="Wedding Venues Spain"><img src="/foreventos-assets/wedding-venues-spain.png" alt="Wedding Venues Spain" loading="lazy"/></div>
+        <div class="hero-logo serif">Casa Olivar</div>
+        <div class="hero-logo smallcaps">Mas&nbsp;Palou</div>
+        <div class="hero-logo serif">Finca Miramar</div>
+        <div class="hero-logo smallcaps">Son&nbsp;Mary</div>
+        <div class="hero-logo script">Can Martí</div>
+        <div class="hero-logo image" title="Wedding Venues Spain"><img src="/foreventos-assets/wedding-venues-spain.png" alt="Wedding Venues Spain" loading="lazy"/></div>
+        <div class="hero-logo serif">Casa Olivar</div>
+        <div class="hero-logo smallcaps">Mas&nbsp;Palou</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1914,7 +1947,7 @@
         <li><span class="plan-check">✓</span><span data-i18n="pl1_f3">Dosieres básicos</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pl1_f4">Soporte por email</span></li>
       </ul>
-      <button class="plan-cta ghost" data-i18n="pl1_cta">Empezar gratis</button>
+      <a href="https://app.foreventos.com/signup" class="plan-cta ghost" data-i18n="pl1_cta">Empezar gratis</a>
     </div>
     <div class="plan featured reveal d1">
       <span class="plan-badge" data-i18n="pl2_badge">Más popular</span>
@@ -1928,7 +1961,7 @@
         <li><span class="plan-check">✓</span><span data-i18n="pl2_f4">Dosieres Pro (branding, métricas)</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pl2_f5">Presupuestos digitales con firma</span></li>
       </ul>
-      <button class="plan-cta solid" data-i18n="pl2_cta">Empezar 14 días gratis</button>
+      <a href="https://app.foreventos.com/signup" class="plan-cta solid" data-i18n="pl2_cta">Empezar 14 días gratis</a>
     </div>
     <div class="plan reveal d2">
       <h3 class="plan-name">Business</h3>
@@ -1941,7 +1974,7 @@
         <li><span class="plan-check">✓</span><span data-i18n="pl3_f4">Integraciones a medida</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pl3_f5">Soporte prioritario + onboarding</span></li>
       </ul>
-      <button class="plan-cta ghost" data-i18n="pl3_cta">Hablar con ventas</button>
+      <a href="https://app.foreventos.com/signup" class="plan-cta ghost" data-i18n="pl3_cta">Hablar con ventas</a>
     </div>
   </div>
 </section>
@@ -1956,13 +1989,13 @@
     <h2 data-i18n-html="cta_h2">Tu próximo evento merece <em>una gestión mejor.</em></h2>
     <p data-i18n="cta_p">Únete a los venues y caterings que ya cierran más eventos — con menos esfuerzo — desde FOREVENTOS.</p>
     <div class="cta-final-ctas">
-      <a href="#" class="cta-pill" style="font-size:16px; padding:12px 12px 12px 28px;">
+      <a href="https://app.foreventos.com/signup" class="cta-pill" style="font-size:16px; padding:12px 12px 12px 28px;">
         <span data-i18n="cta_btn1">Crear cuenta gratis</span>
         <span class="cta-pill-arrow">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
       </a>
-      <a href="#" class="cta-final-secondary">
+      <a href="https://app.foreventos.com/signup" class="cta-final-secondary">
         <span data-i18n="cta_btn2">Hablar con ventas</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
       </a>
