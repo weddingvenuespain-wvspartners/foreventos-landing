@@ -76,6 +76,11 @@
     font-size:19px; letter-spacing:-.5px; color:currentColor;
     display:flex; align-items:center; gap:10px; text-decoration:none;
   }
+  .nav-logo img{ height:30px; width:auto; display:block; object-fit:contain; }
+  .nav-logo .logo-azul{ display:none; }
+  .nav-logo .logo-blanco{ display:block; }
+  .navbar.on-dark .nav-logo .logo-azul{ display:block; }
+  .navbar.on-dark .nav-logo .logo-blanco{ display:none; }
   .nav-logo-mark{
     width:24px; height:24px; border-radius:7px;
     background:linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
@@ -1349,7 +1354,8 @@
 <div class="navbar-wrap">
   <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">
-      <img src="/foreventos-logo-menu.png" alt="FOREVENTOS" style="height:32px; width:auto; display:block;" />
+      <img src="/logo-menu-blanco.png" alt="FOREVENTOS" class="logo-blanco" />
+      <img src="/logo-menu-azul.png" alt="FOREVENTOS" class="logo-azul" />
     </a>
     <div class="nav-links">
       <a href="#funcionalidades">Funcionalidades</a>
