@@ -25,6 +25,8 @@
     --border-light: rgba(255,255,255,0.08);
     --border-med: rgba(255,255,255,0.12);
     --danger: #E85D5D;
+    --warm: #FFB800;
+    --warm-glow: rgba(255,184,0,0.15);
   }
   *,*::before,*::after{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -175,7 +177,7 @@
   .hero-rating .rating-num{ font-weight:600; color:#1A1A2E; }
   .hero-rating .rating-sub{ color:#1A1A2E; opacity:.7; }
   .hero-rating .divider-dot{ width:3px; height:3px; border-radius:50%; background:rgba(0,0,0,0.20); display:inline-block; margin:0 6px; vertical-align:middle; }
-  .hero-stars{ display:inline-flex; gap:2px; color:#FF801E; }
+  .hero-stars{ display:inline-flex; gap:2px; color:var(--warm); }
   .hero-stars svg{ width:16px; height:16px; }
   .hero h1{
     font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700;
@@ -184,7 +186,7 @@
   }
   .hero h1 em{
     font-style:normal;
-    background:linear-gradient(180deg, #2E6DB4 0%, #1A4A82 100%);
+    background:linear-gradient(135deg, var(--warm) 0%, #FF8C00 100%);
     -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
   }
   .hero-sub{
@@ -195,21 +197,21 @@
   .cta-pill{
     display:inline-flex; align-items:center; gap:10px;
     padding:8px 8px 8px 22px; border-radius:999px;
-    background:rgba(46,109,180,0.95);
-    color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500;
+    background:var(--warm);
+    color:#1A1A2E; font-family:'Inter',sans-serif; font-size:15px; font-weight:600;
     backdrop-filter:blur(2px);
-    border:1px solid rgba(255,255,255,0.18);
+    border:1px solid rgba(255,200,0,0.3);
     box-shadow:
-      inset 0 4px 4px rgba(255,255,255,0.30),
-      inset 0 -2px 6px rgba(0,0,0,0.10),
-      0 12px 30px rgba(46,109,180,0.35),
-      0 2px 6px rgba(46,109,180,0.20);
+      inset 0 2px 4px rgba(255,255,255,0.35),
+      inset 0 -2px 6px rgba(0,0,0,0.08),
+      0 12px 30px rgba(255,184,0,0.30),
+      0 2px 6px rgba(255,184,0,0.15);
     cursor:pointer; transition:all .3s ease; text-decoration:none;
   }
-  .cta-pill:hover{ transform:scale(1.02); filter:brightness(1.06); }
+  .cta-pill:hover{ transform:scale(1.02); filter:brightness(1.08); }
   .cta-pill-arrow{
     width:32px; height:32px; border-radius:50%;
-    background:#fff; color:#2E6DB4;
+    background:#1A1A2E; color:var(--warm);
     display:inline-flex; align-items:center; justify-content:center;
     box-shadow: inset 0 -1px 2px rgba(0,0,0,0.05);
   }
@@ -1129,7 +1131,7 @@
   }
   .plan-badge{
     position:absolute; top:-12px; left:50%; transform:translateX(-50%);
-    background:var(--primary); color:#fff;
+    background:var(--warm); color:#1A1A2E; font-weight:700;
     padding:6px 14px; border-radius:999px;
     font-size:12px; font-weight:500;
     box-shadow:0 4px 12px rgba(46,109,180,0.35);
@@ -1167,8 +1169,8 @@
   }
   .plan-cta.ghost:hover{ background:rgba(46,109,180,0.05); }
   .plan-cta.solid{
-    background:var(--primary); color:#fff; border:0;
-    box-shadow: inset 0 1px 2px rgba(255,255,255,0.18);
+    background:var(--warm); color:#1A1A2E; border:0; font-weight:700;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.25), 0 8px 20px rgba(255,184,0,0.25);
   }
   .plan-cta.solid:hover{ transform:scale(1.02); filter:brightness(1.08); }
 
@@ -1220,7 +1222,7 @@
   }
   .cta-final h2 em{
     font-style:normal;
-    background:linear-gradient(180deg, #8AC5FA 0%, #2E6DB4 100%);
+    background:linear-gradient(135deg, var(--warm) 0%, #FF8C00 100%);
     -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
   }
   .cta-final p{ font-size:18px; color:var(--text-dim); margin:0 0 40px; line-height:1.5; }
@@ -1460,11 +1462,11 @@
     <div class="hero-left">
       <div class="hero-rating reveal">
         <span class="hero-stars" aria-label="4.9 de 5">
-          <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </span>
         <span><span class="rating-num">Plataforma premium</span><span class="divider-dot"></span><span class="rating-sub">hecha con venues y caterings reales</span></span>
       </div>
