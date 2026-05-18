@@ -1349,30 +1349,41 @@
 
   /* ============ EXTRA RESPONSIVE ============ */
   @media (max-width:768px){
-    .hero{ padding-top:100px; }
-    .hero h1{ font-size:32px; letter-spacing:-1px; line-height:1.1; }
-    .hero-sub{ font-size:15px; }
+    /* Navbar: sticky top, full width, no float */
+    .navbar-wrap{ position:fixed; top:0; left:0; right:0; padding:8px 12px; z-index:50; }
+    .navbar{ width:100%; border-radius:0; padding:8px 12px 8px 16px; }
+
+    /* Hero: bigger title, centered, more breathing room */
+    .hero{ padding-top:80px; }
+    .hero h1{ font-size:36px; letter-spacing:-1px; line-height:1.12; text-align:center; }
+    .hero-sub{ font-size:15px; text-align:center; }
     .hero-right{ display:none !important; }
-    .hero-left{ display:flex; flex-direction:column; }
+    .hero-left{ display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:24px; }
     .hero-rating{ order:10; margin-top:28px; }
     .hero h1{ order:1; }
     .hero-sub{ order:2; }
-    .cta-pill{ order:3; }
+    .cta-pill{ order:3; margin-top:8px; }
     .hero-trust{ margin-top:32px; }
+
+    /* Sections */
     .feature{ padding:60px 20px; }
     .feature-grid{ gap:32px; }
-    .ad-section{ overflow:hidden; }
-    .mk-inbox, .mk-crm, .mk-dosier, .mk-budget{ max-height:320px; overflow-y:auto; }
+    .ad-section{ overflow-x:hidden; padding:72px 16px 80px; }
+    .ad-row{ grid-template-columns:1fr; gap:12px; }
+    .ad-headers{ grid-template-columns:1fr; gap:8px; }
+    .ad-arrow{ transform:rotate(90deg); padding:4px 0; }
+    .mk-inbox, .mk-crm, .mk-dosier, .mk-budget{ max-height:none; overflow-y:visible; }
+
     .nav-lang-toggle{ padding:4px 8px; font-size:11px; }
     .hero-logos-marquee-wrap .hero-logo-row .hero-logo:nth-child(n+7){ display:flex; }
     .hero-logos-marquee-wrap{ overflow:hidden; mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent); -webkit-mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent); }
     .hero-logo-row{ flex-wrap:nowrap; justify-content:flex-start; gap:48px; animation:marquee 18s linear infinite; width:max-content; }
   }
   @media (max-width:480px){
-    .hero h1{ font-size:28px; }
+    .hero h1{ font-size:32px; }
     .hero-sub{ font-size:14px; }
     .container{ padding:0 16px; }
-    .ad-section{ padding:60px 16px; }
+    .ad-section{ padding:60px 12px; }
     .metrics-grid{ grid-template-columns:1fr; }
     .section-head h2{ font-size:28px; }
     .nav-lang-toggle{ display:none; }
