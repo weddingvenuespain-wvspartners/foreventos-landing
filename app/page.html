@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -1306,33 +1306,106 @@
   @media (max-width:1024px){
     .feature-grid{ gap:48px; }
     .testimonials{ grid-template-columns:1fr; max-width:600px; }
-    .metrics-grid{ grid-template-columns:repeat(2,1fr); gap:48px; }
-    .metric:not(:last-child)::after{ display:none; }
-    .plans{ grid-template-columns:1fr; max-width:480px; }
-    .plan.featured{ transform:none; }
+    .plans{ grid-template-columns:1fr; max-width:480px; margin:0 auto; }
     .footer-grid{ grid-template-columns:1fr 1fr; }
   }
   @media (max-width:900px){
     .hero-inner{ grid-template-columns:1fr; gap:24px; min-height:auto; }
     .hero-right{ min-height:340px; order:-1; }
-    .hero-left{ text-align:left; }
     .hero h1{ font-size:42px; letter-spacing:-1.2px; }
   }
   @media (max-width:768px){
     .nav-links{ display:none; }
     .nav-cta .btn-ghost{ display:none; }
     .nav-mobile-toggle{ display:inline-flex; }
-    .hero{ padding-top:120px; }
-    .feature{ padding:80px 24px; }
-    .feature-grid{ grid-template-columns:1fr; gap:48px; }
+    .hero{ padding-top:100px; }
+    .hero h1{ font-size:32px; letter-spacing:-1px; line-height:1.1; }
+    .hero-sub{ font-size:15px; }
+    .hero-right{ min-height:260px; }
+    .feature{ padding:60px 20px; }
+    .feature-grid{ grid-template-columns:1fr; gap:32px; }
     .feature.reverse .feature-grid{ direction:ltr; }
     .feature.reverse .mockup-wrap{ order:2; }
-    .metrics-grid{ grid-template-columns:1fr; gap:48px; }
+    .feature-title{ font-size:26px; }
+    .metrics-grid{ grid-template-columns:1fr 1fr; gap:32px; }
+    .metric-num{ font-size:52px; }
     .footer-grid{ grid-template-columns:1fr; gap:32px; }
-    .logo-row{ gap:32px; }
+    .logo-row{ gap:24px; flex-wrap:wrap; }
     .mockup-wrap{ transform:none; }
     .feature.reverse .mockup-wrap{ transform:none; }
+    /* Mockups: stack internally on mobile */
+    .mk-inbox, .mk-crm, .mk-dosier, .mk-budget{ overflow-x:auto; }
+    .browser-frame{ border-radius:10px; }
+    /* Plans */
+    .plans{ grid-template-columns:1fr; max-width:100%; }
+    /* Ad section */
+    .ad-headers{ grid-template-columns:1fr; gap:8px; }
+    .ad-row{ grid-template-columns:1fr; gap:8px; }
+    .ad-arrow{ transform:rotate(90deg); display:flex; justify-content:center; }
+    /* CTA Final */
+    .cta-final-ctas{ flex-direction:column; align-items:center; }
+    .cta-final-trust{ flex-direction:column; align-items:center; gap:8px; }
+    /* Navbar lang toggle */
+    .nav-lang-toggle{ padding:4px 8px; font-size:11px; }
   }
+  @media (max-width:480px){
+    .hero h1{ font-size:28px; }
+    .hero-sub{ font-size:14px; }
+    .container{ padding:0 16px; }
+    .ad-section{ padding:60px 16px; }
+    .metrics-grid{ grid-template-columns:1fr; }
+    .scene-cards{ transform:scale(0.85); transform-origin:center top; }
+    .section-head h2{ font-size:28px; }
+    .nav-lang-toggle{ display:none; } /* hide on very small, accessible via /en URL */
+  }
+
+  /* ============ LANG TOGGLE ============ */
+  .nav-lang-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    color: currentColor;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    letter-spacing: 0.5px;
+    transition: all .2s ease;
+    white-space: nowrap;
+  }
+  .nav-lang-toggle:hover { background: rgba(0,0,0,0.06); }
+  .navbar.on-dark .nav-lang-toggle { border-color: rgba(255,255,255,0.20); }
+  .navbar.on-dark .nav-lang-toggle:hover { background: rgba(255,255,255,0.08); }
+  .lang-sep { opacity: 0.35; }
+  .lang-es, .lang-en { transition: opacity .2s; }
+  [data-lang="en"] .lang-en,
+  [data-lang="es"] .lang-es { opacity: 1; font-weight: 800; text-decoration: underline; }
+  [data-lang="en"] .lang-es,
+  [data-lang="es"] .lang-en { opacity: 0.45; }
+
+  /* ============ MOBILE MENU DRAWER ============ */
+  .mobile-menu{
+    display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:40;
+    background:rgba(10,22,40,0.97);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    padding:100px 24px 40px;
+    flex-direction:column;
+    opacity:0; pointer-events:none;
+    transition:opacity .25s ease;
+  }
+  .mobile-menu.open{ display:flex; opacity:1; pointer-events:auto; }
+  .mobile-menu-link{
+    font-family:'Satoshi', sans-serif; font-weight:700; font-size:28px;
+    color:#E8ECF1; text-decoration:none; padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .mobile-menu-link:hover{ color:#5EAEF7; }
+  .mobile-menu-ctas{ margin-top:32px; display:flex; flex-direction:column; gap:12px; }
 
   /* ============ MOCKUP STYLES (shared) ============ */
   .mk-pad{ padding:18px; }
@@ -1359,21 +1432,39 @@
       <img src="/logo-menu-azul.png" alt="FOREVENTOS" class="logo-azul" />
     </a>
     <div class="nav-links">
-      <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#funcionalidades" data-i18n="nav_features">Funcionalidades</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </div>
     <div class="nav-cta">
-      <a href="#" class="btn btn-ghost">Iniciar sesión</a>
+      <a href="#" class="btn btn-ghost" data-i18n="nav_login">Iniciar sesión</a>
       <a href="#" class="btn btn-nav-cta">
-        Crear cuenta
+        <span data-i18n="nav_signup">Crear cuenta</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <button class="nav-mobile-toggle" aria-label="menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
+    <button class="nav-lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="lang-es">ES</span>
+      <span class="lang-sep">|</span>
+      <span class="lang-en">EN</span>
+    </button>
   </nav>
+</div>
+
+<!-- Mobile menu drawer -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="#funcionalidades" class="mobile-menu-link" data-i18n="nav_features">Funcionalidades</a>
+    <a href="#pricing" class="mobile-menu-link" data-i18n="nav_pricing">Pricing</a>
+    <a href="#contacto" class="mobile-menu-link" data-i18n="nav_contact">Contacto</a>
+    <div class="mobile-menu-ctas">
+      <a href="#" class="btn btn-ghost" style="width:100%; justify-content:center;" data-i18n="nav_login">Iniciar sesión</a>
+      <a href="#" class="btn btn-nav-cta" style="width:100%; justify-content:center;" data-i18n="nav_signup">Crear cuenta</a>
+    </div>
+  </div>
 </div>
 
 <!-- ============ HERO (Liquid Glass) ============ -->
@@ -1392,12 +1483,12 @@
           <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="#FF801E"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </span>
-        <span><span class="rating-num">Plataforma premium</span><span class="divider-dot"></span><span class="rating-sub">hecha con venues y caterings reales</span></span>
+        <span><span class="rating-num" data-i18n="hero_badge">Plataforma premium</span><span class="divider-dot"></span><span class="rating-sub" data-i18n="hero_badge_sub">hecha con venues y caterings reales</span></span>
       </div>
-      <h1 class="reveal d1">Menos gestión.<br/><em>Más eventos cerrados.</em></h1>
-      <p class="hero-sub reveal d2"><strong>Centraliza peticiones</strong>, crea dosieres que convierten y automatiza tu flujo comercial desde un solo lugar.</p>
+      <h1 class="reveal d1" data-i18n-html="hero_h1">Menos gestión.<br/><em>Más eventos cerrados.</em></h1>
+      <p class="hero-sub reveal d2" data-i18n-html="hero_sub"><strong>Centraliza peticiones</strong>, crea dosieres que convierten y automatiza tu flujo comercial desde un solo lugar.</p>
       <a href="#" class="cta-pill reveal d3">
-        Empieza gratis
+        <span data-i18n="hero_cta">Empieza gratis</span>
         <span class="cta-pill-arrow">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
@@ -1422,24 +1513,24 @@
           </svg>
           <div class="shooter s1"></div>
           <div class="shooter s2"></div>
-          <div class="scene-card c1">
-            <div class="ttl">Nueva petición</div>
-            <div class="ln1">Marta &amp; Pablo</div>
-            <div class="ln2">Boda · 180 pax · 14 jun 2026</div>
+          <div class=”scene-card c1”>
+            <div class=”ttl” data-i18n=”card1_ttl”>Nueva petición</div>
+            <div class=”ln1” data-i18n=”card1_ln1”>Marta &amp; Pablo</div>
+            <div class=”ln2” data-i18n=”card1_ln2”>Boda · 180 pax · 14 jun 2026</div>
           </div>
-          <div class="scene-card c2">
-            <div class="ttl"><span class="live-dot"></span>Dosier abierto</div>
-            <div class="ln1">Casa Olivar · visto 3 veces</div>
-            <div class="ln2">Marta está viendo “Menú”</div>
+          <div class=”scene-card c2”>
+            <div class=”ttl”><span class=”live-dot”></span><span data-i18n=”card2_ttl”>Dosier abierto</span></div>
+            <div class=”ln1” data-i18n=”card2_ln1”>Casa Olivar · visto 3 veces</div>
+            <div class=”ln2” data-i18n=”card2_ln2”>Marta está viendo “Menú”</div>
           </div>
-          <div class="scene-card c3">
-            <div class="ttl" style="color:#1E8A4A;">Presupuesto aceptado</div>
-            <div class="ln1">28.400€ · Firma online</div>
-            <div class="ln2">Boda confirmada · hace 12 min</div>
+          <div class=”scene-card c3”>
+            <div class=”ttl” style=”color:#1E8A4A;” data-i18n=”card3_ttl”>Presupuesto aceptado</div>
+            <div class=”ln1” data-i18n=”card3_ln1”>28.400€ · Firma online</div>
+            <div class=”ln2” data-i18n=”card3_ln2”>Boda confirmada · hace 12 min</div>
           </div>
 
-          <div class="scene-calendar">
-            <div class="sc-cal-head"><span>Junio 2026</span><span>14</span></div>
+          <div class=”scene-calendar”>
+            <div class=”sc-cal-head”><span data-i18n=”cal_month”>Junio 2026</span><span>14</span></div>
             <div class="sc-cal-grid">
               <div class="sc-cal-day dim">26</div><div class="sc-cal-day dim">27</div><div class="sc-cal-day dim">28</div><div class="sc-cal-day dim">29</div><div class="sc-cal-day dim">30</div><div class="sc-cal-day dim">31</div><div class="sc-cal-day">1</div>
               <div class="sc-cal-day">2</div><div class="sc-cal-day">3</div><div class="sc-cal-day">4</div><div class="sc-cal-day">5</div><div class="sc-cal-day event">6</div><div class="sc-cal-day">7</div><div class="sc-cal-day">8</div>
@@ -1456,7 +1547,7 @@
   </div>
 
   <div class="hero-trust">
-    <p class="hero-trust-text reveal">Pensado para venues y caterings con <strong>más de 50 peticiones al mes</strong></p>
+    <p class="hero-trust-text reveal" data-i18n-html="hero_trust">Pensado para venues y caterings con <strong>más de 50 peticiones al mes</strong></p>
     <div class="hero-logo-row reveal d1">
       <div class="hero-logo serif">Finca Miramar</div>
       <div class="hero-logo smallcaps">Son&nbsp;Mary</div>
@@ -1469,22 +1560,22 @@
 <!-- ============ ANTES / DESPUÉS ============ -->
 <section class="ad-section" id="funcionalidades" data-bg="dark">
   <div class="ad-head reveal">
-    <span class="ad-eyebrow">El cambio</span>
-    <h2>Antes era caos. Ahora <em>es FOREVENTOS</em>.</h2>
-    <p>Mismo día. Mismo equipo. Cero fricción.</p>
+    <span class="ad-eyebrow" data-i18n="ad_eyebrow">El cambio</span>
+    <h2 data-i18n-html="ad_h2">Antes era caos. Ahora <em>es FOREVENTOS</em>.</h2>
+    <p data-i18n="ad_sub">Mismo día. Mismo equipo. Cero fricción.</p>
   </div>
 
   <div class="ad-headers reveal d1">
     <span class="ad-col-tag before">
       <span class="icon">✕</span>
       Antes
-      <span class="sub">— tu día a día actual</span>
+      <span class="sub" data-i18n="ad_before_sub">— tu día a día actual</span>
     </span>
     <span></span>
     <span class="ad-col-tag after">
       <span class="icon">✓</span>
       Con FOREVENTOS
-      <span class="sub">— todo en un sitio</span>
+      <span class="sub" data-i18n="ad_after_sub">— todo en un sitio</span>
     </span>
   </div>
 
@@ -1494,9 +1585,9 @@
       <div class="ad-card before">
         <div class="ad-mini gmail"><span class="badge">+12</span></div>
         <div class="ad-text">
-          <div class="ad-label">Peticiones</div>
-          <div class="ad-line">Peticiones perdidas entre emails y WhatsApps</div>
-          <div class="ad-meta">Inbox personal &middot; 3 bandejas distintas</div>
+          <div class="ad-label" data-i18n="ad1b_label">Peticiones</div>
+          <div class="ad-line" data-i18n="ad1b_line">Peticiones perdidas entre emails y WhatsApps</div>
+          <div class="ad-meta" data-i18n="ad1b_meta">Inbox personal &middot; 3 bandejas distintas</div>
         </div>
       </div>
       <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
@@ -1511,9 +1602,9 @@
           </svg>
         </div>
         <div class="ad-text">
-          <div class="ad-label">Bandeja unificada</div>
-          <div class="ad-line">Todas las peticiones en un solo panel</div>
-          <div class="ad-meta">Web &middot; bodas.net &middot; email &middot; WhatsApp</div>
+          <div class="ad-label" data-i18n="ad1a_label">Bandeja unificada</div>
+          <div class="ad-line" data-i18n="ad1a_line">Todas las peticiones en un solo panel</div>
+          <div class="ad-meta" data-i18n="ad1a_meta">Web &middot; bodas.net &middot; email &middot; WhatsApp</div>
         </div>
       </div>
     </div>
@@ -1526,9 +1617,9 @@
           <span class="tag">PDF</span>
         </div>
         <div class="ad-text">
-          <div class="ad-label">Dosieres</div>
-          <div class="ad-line">Dosieres que tardan horas en montar</div>
-          <div class="ad-meta">Maquetar en InDesign &middot; exportar &middot; reenviar</div>
+          <div class="ad-label" data-i18n="ad2b_label">Dosieres</div>
+          <div class="ad-line" data-i18n="ad2b_line">Dosieres que tardan horas en montar</div>
+          <div class="ad-meta" data-i18n="ad2b_meta">Maquetar en InDesign &middot; exportar &middot; reenviar</div>
         </div>
       </div>
       <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
@@ -1544,9 +1635,9 @@
           </svg>
         </div>
         <div class="ad-text">
-          <div class="ad-label">Dosieres digitales</div>
-          <div class="ad-line">Dosieres digitales listos en minutos</div>
-          <div class="ad-meta">Interactivos &middot; métricas de apertura</div>
+          <div class="ad-label" data-i18n="ad2a_label">Dosieres digitales</div>
+          <div class="ad-line" data-i18n="ad2a_line">Dosieres digitales listos en minutos</div>
+          <div class="ad-meta" data-i18n="ad2a_meta">Interactivos &middot; métricas de apertura</div>
         </div>
       </div>
     </div>
@@ -1556,9 +1647,9 @@
       <div class="ad-card before">
         <div class="ad-mini excel"><div class="grid"></div></div>
         <div class="ad-text">
-          <div class="ad-label">Seguimiento</div>
-          <div class="ad-line">Seguimiento comercial en hojas de cálculo</div>
-          <div class="ad-meta">Excel compartido &middot; sin historial real</div>
+          <div class="ad-label" data-i18n="ad3b_label">Seguimiento</div>
+          <div class="ad-line" data-i18n="ad3b_line">Seguimiento comercial en hojas de cálculo</div>
+          <div class="ad-meta" data-i18n="ad3b_meta">Excel compartido &middot; sin historial real</div>
         </div>
       </div>
       <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
@@ -1575,9 +1666,9 @@
           </svg>
         </div>
         <div class="ad-text">
-          <div class="ad-label">CRM integrado</div>
-          <div class="ad-line">CRM con seguimiento automático</div>
-          <div class="ad-meta">Ficha &middot; timeline &middot; recordatorios</div>
+          <div class="ad-label" data-i18n="ad3a_label">CRM integrado</div>
+          <div class="ad-line" data-i18n="ad3a_line">CRM con seguimiento automático</div>
+          <div class="ad-meta" data-i18n="ad3a_meta">Ficha &middot; timeline &middot; recordatorios</div>
         </div>
       </div>
     </div>
@@ -1590,9 +1681,9 @@
           <span class="tag">PDF</span>
         </div>
         <div class="ad-text">
-          <div class="ad-label">Presupuestos</div>
-          <div class="ad-line">Presupuestos en PDF que nadie abre</div>
-          <div class="ad-meta">Cero tracking &middot; sin firma online</div>
+          <div class="ad-label" data-i18n="ad4b_label">Presupuestos</div>
+          <div class="ad-line" data-i18n="ad4b_line">Presupuestos en PDF que nadie abre</div>
+          <div class="ad-meta" data-i18n="ad4b_meta">Cero tracking &middot; sin firma online</div>
         </div>
       </div>
       <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
@@ -1607,9 +1698,9 @@
           </svg>
         </div>
         <div class="ad-text">
-          <div class="ad-label">Presupuestos digitales</div>
-          <div class="ad-line">Presupuestos que se aceptan online</div>
-          <div class="ad-meta">Apertura en vivo &middot; firma con un click</div>
+          <div class="ad-label" data-i18n="ad4a_label">Presupuestos digitales</div>
+          <div class="ad-line" data-i18n="ad4a_line">Presupuestos que se aceptan online</div>
+          <div class="ad-meta" data-i18n="ad4a_meta">Apertura en vivo &middot; firma con un click</div>
         </div>
       </div>
     </div>
@@ -1620,13 +1711,13 @@
 <section class="feature light" data-num="01">
   <div class="feature-grid">
     <div class="reveal">
-      <span class="feature-tag"><span class="num">01</span> PETICIONES</span>
-      <h3 class="feature-title">Todas tus peticiones en un solo lugar</h3>
-      <p class="feature-desc">Conecta tu web, portales de bodas y email. Cada petición llega automáticamente a tu panel y no se pierde ninguna oportunidad.</p>
+      <span class="feature-tag"><span class="num">01</span> <span data-i18n="f1_tag">PETICIONES</span></span>
+      <h3 class="feature-title" data-i18n="f1_title">Todas tus peticiones en un solo lugar</h3>
+      <p class="feature-desc" data-i18n="f1_desc">Conecta tu web, portales de bodas y email. Cada petición llega automáticamente a tu panel y no se pierde ninguna oportunidad.</p>
       <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Conexión con múltiples canales de venta</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Asignación automática al equipo</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Vista unificada en tiempo real</li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f1_b1">Conexión con múltiples canales de venta</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f1_b2">Asignación automática al equipo</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f1_b3">Vista unificada en tiempo real</span></li>
       </ul>
     </div>
     <div class="mockup-wrap reveal d2">
@@ -1646,13 +1737,13 @@
 <section class="feature dark reverse" data-bg="dark" data-num="02">
   <div class="feature-grid">
     <div class="reveal">
-      <span class="feature-tag"><span class="num">02</span> CRM Y CALENDARIO</span>
-      <h3 class="feature-title">Conoce a cada cliente. Controla cada fecha.</h3>
-      <p class="feature-desc">Ficha completa de cada lead con historial de interacciones. Calendario visual con todas las citas, visitas y eventos confirmados.</p>
+      <span class="feature-tag"><span class="num">02</span> <span data-i18n="f2_tag">CRM Y CALENDARIO</span></span>
+      <h3 class="feature-title" data-i18n="f2_title">Conoce a cada cliente. Controla cada fecha.</h3>
+      <p class="feature-desc" data-i18n="f2_desc">Ficha completa de cada lead con historial de interacciones. Calendario visual con todas las citas, visitas y eventos confirmados.</p>
       <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Historial completo por cliente</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Seguimiento automatizado</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Calendario visual sincronizado</li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f2_b1">Historial completo por cliente</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f2_b2">Seguimiento automatizado</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f2_b3">Calendario visual sincronizado</span></li>
       </ul>
     </div>
     <div class="mockup-wrap reveal d2">
@@ -1672,13 +1763,13 @@
 <section class="feature light" data-num="03">
   <div class="feature-grid">
     <div class="reveal">
-      <span class="feature-tag"><span class="num">03</span> DOSIERES DIGITALES</span>
-      <h3 class="feature-title">Dosieres que enamoran y convierten</h3>
-      <p class="feature-desc">Olvídate de montar PDFs durante horas. Crea dosieres digitales interactivos en minutos que impresionan a tus clientes y miden cada apertura.</p>
+      <span class="feature-tag"><span class="num">03</span> <span data-i18n="f3_tag">DOSIERES DIGITALES</span></span>
+      <h3 class="feature-title" data-i18n="f3_title">Dosieres que enamoran y convierten</h3>
+      <p class="feature-desc" data-i18n="f3_desc">Olvídate de montar PDFs durante horas. Crea dosieres digitales interactivos en minutos que impresionan a tus clientes y miden cada apertura.</p>
       <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Creación automatizada en minutos</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Interactivos y visuales</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Métricas de apertura y engagement</li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f3_b1">Creación automatizada en minutos</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f3_b2">Interactivos y visuales</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f3_b3">Métricas de apertura y engagement</span></li>
       </ul>
     </div>
     <div class="mockup-wrap reveal d2">
@@ -1698,13 +1789,13 @@
 <section class="feature dark reverse" data-bg="dark" data-num="04">
   <div class="feature-grid">
     <div class="reveal">
-      <span class="feature-tag"><span class="num">04</span> PRESUPUESTOS</span>
-      <h3 class="feature-title">Presupuestos que se aceptan, no que se ignoran</h3>
-      <p class="feature-desc">Envía presupuestos digitales con un clic. Tu cliente los revisa, acepta y firma online. Tú ves en tiempo real quién ha abierto qué.</p>
+      <span class="feature-tag"><span class="num">04</span> <span data-i18n="f4_tag">PRESUPUESTOS</span></span>
+      <h3 class="feature-title" data-i18n="f4_title">Presupuestos que se aceptan, no que se ignoran</h3>
+      <p class="feature-desc" data-i18n="f4_desc">Envía presupuestos digitales con un clic. Tu cliente los revisa, acepta y firma online. Tú ves en tiempo real quién ha abierto qué.</p>
       <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Envío y firma 100% digital</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Seguimiento de aperturas en tiempo real</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Tasa de conversión visible</li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f4_b1">Envío y firma 100% digital</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f4_b2">Seguimiento de aperturas en tiempo real</span></li>
+        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="f4_b3">Tasa de conversión visible</span></li>
       </ul>
     </div>
     <div class="mockup-wrap reveal d2">
@@ -1725,19 +1816,19 @@
   <div class="metrics-grid">
     <div class="metric reveal">
       <div class="metric-num" data-num="10" data-suffix="h" data-prefix="+">+0h</div>
-      <p class="metric-label">de ahorro semanal en gestión</p>
+      <p class="metric-label" data-i18n="m1_label">de ahorro semanal en gestión</p>
     </div>
     <div class="metric reveal d1">
       <div class="metric-num" data-num="3" data-suffix="x">0x</div>
-      <p class="metric-label">más conversión en dosieres digitales</p>
+      <p class="metric-label" data-i18n="m2_label">más conversión en dosieres digitales</p>
     </div>
     <div class="metric reveal d2">
       <div class="metric-num" data-static="0">0</div>
-      <p class="metric-label">peticiones perdidas</p>
+      <p class="metric-label" data-i18n="m3_label">peticiones perdidas</p>
     </div>
     <div class="metric reveal d3">
       <div class="metric-num" data-num="24" data-suffix="h" data-prefix="&lt;">&lt;0h</div>
-      <p class="metric-label">de setup para empezar</p>
+      <p class="metric-label" data-i18n="m4_label">de setup para empezar</p>
     </div>
   </div>
 </section>
@@ -1745,112 +1836,112 @@
 <!-- ============ FAQ ============ -->
 <section class="faq" id="faq" data-bg="dark">
   <div class="section-head reveal">
-    <h2>Preguntas frecuentes</h2>
-    <p class="section-sub">Lo que más nos preguntáis antes de empezar.</p>
+    <h2 data-i18n="faq_h2">Preguntas frecuentes</h2>
+    <p class="section-sub" data-i18n="faq_sub">Lo que más nos preguntáis antes de empezar.</p>
   </div>
   <div class="faq-list">
     <details class="faq-item reveal" open>
       <summary>
-        ¿Cuánto tardo en empezar a usar FOREVENTOS?
+        <span data-i18n="faq1_q">¿Cuánto tardo en empezar a usar FOREVENTOS?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">Menos de <strong>24 horas</strong>. Te ayudamos a importar tus peticiones actuales, conectar tu web y portales, y configurar tu primer dosier digital. El equipo entra ese mismo día.</div>
+      <div class="faq-body" data-i18n-html="faq1_a">Menos de <strong>24 horas</strong>. Te ayudamos a importar tus peticiones actuales, conectar tu web y portales, y configurar tu primer dosier digital. El equipo entra ese mismo día.</div>
     </details>
     <details class="faq-item reveal d1">
       <summary>
-        ¿Necesito tarjeta para registrarme?
+        <span data-i18n="faq2_q">¿Necesito tarjeta para registrarme?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">No. Empiezas gratis con el plan Starter sin introducir método de pago. Cuando decidas pasar a Pro o Business, te lo pedimos al elegir el plan.</div>
+      <div class="faq-body" data-i18n-html="faq2_a">No. Empiezas gratis con el plan Starter sin introducir método de pago. Cuando decidas pasar a Pro o Business, te lo pedimos al elegir el plan.</div>
     </details>
     <details class="faq-item reveal d1">
       <summary>
-        ¿Puedo conectar mi web actual y los portales?
+        <span data-i18n="faq3_q">¿Puedo conectar mi web actual y los portales?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">Sí. Conectamos formularios de tu web, Bodas.net, email y WhatsApp Business para que cada petición entre directa a tu bandeja FOREVENTOS, etiquetada por canal.</div>
+      <div class="faq-body" data-i18n-html="faq3_a">Sí. Conectamos formularios de tu web, Bodas.net, email y WhatsApp Business para que cada petición entre directa a tu bandeja FOREVENTOS, etiquetada por canal.</div>
     </details>
     <details class="faq-item reveal d2">
       <summary>
-        ¿Hay permanencia o letra pequeña?
+        <span data-i18n="faq4_q">¿Hay permanencia o letra pequeña?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">Cero permanencia. Suscripción mensual o anual con <strong>20% de descuento</strong>. Puedes cancelar en cualquier momento y descargar todos tus datos.</div>
+      <div class="faq-body" data-i18n-html="faq4_a">Cero permanencia. Suscripción mensual o anual con <strong>20% de descuento</strong>. Puedes cancelar en cualquier momento y descargar todos tus datos.</div>
     </details>
     <details class="faq-item reveal d2">
       <summary>
-        ¿Mis dosieres y datos están seguros?
+        <span data-i18n="faq5_q">¿Mis dosieres y datos están seguros?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">Servidores en la UE, cumplimiento RGPD, copias de seguridad cada hora y cifrado en tránsito y en reposo. Tú eres el propietario de tus datos y los exportas cuando quieras.</div>
+      <div class="faq-body" data-i18n-html="faq5_a">Servidores en la UE, cumplimiento RGPD, copias de seguridad cada hora y cifrado en tránsito y en reposo. Tú eres el propietario de tus datos y los exportas cuando quieras.</div>
     </details>
     <details class="faq-item reveal d3">
       <summary>
-        ¿Migáis desde mi Excel o CRM actual?
+        <span data-i18n="faq6_q">¿Migáis desde mi Excel o CRM actual?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">Sí. En los planes Pro y Business migramos tu base actual sin coste — fichas, históricos y calendario — antes de tu primer día en la plataforma.</div>
+      <div class="faq-body" data-i18n-html="faq6_a">Sí. En los planes Pro y Business migramos tu base actual sin coste — fichas, históricos y calendario — antes de tu primer día en la plataforma.</div>
     </details>
     <details class="faq-item reveal d3">
       <summary>
-        ¿Tenéis límite de usuarios o eventos?
+        <span data-i18n="faq7_q">¿Tenéis límite de usuarios o eventos?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body">Starter: 1 usuario y 20 peticiones/mes. Pro: hasta 3 usuarios y peticiones ilimitadas. Business: usuarios ilimitados, todo ilimitado, soporte prioritario y onboarding 1–1.</div>
+      <div class="faq-body" data-i18n-html="faq7_a">Starter: 1 usuario y 20 peticiones/mes. Pro: hasta 3 usuarios y peticiones ilimitadas. Business: usuarios ilimitados, todo ilimitado, soporte prioritario y onboarding 1–1.</div>
     </details>
   </div>
-  <p class="faq-cta reveal d4">¿Me falta tu pregunta? <a href="#contacto">Escríbenos y te respondemos en menos de 2 horas.</a></p>
+  <p class="faq-cta reveal d4" data-i18n-html="faq_cta">¿Me falta tu pregunta? <a href="#contacto">Escríbenos y te respondemos en menos de 2 horas.</a></p>
 </section>
 
 <!-- ============ PRICING ============ -->
 <section class="pricing" id="pricing">
   <div class="section-head reveal">
-    <h2>Planes pensados para tu negocio</h2>
-    <p class="section-sub">Sin permanencias. Empieza gratis y escala cuando lo necesites.</p>
+    <h2 data-i18n="pr_h2">Planes pensados para tu negocio</h2>
+    <p class="section-sub" data-i18n="pr_sub">Sin permanencias. Empieza gratis y escala cuando lo necesites.</p>
     <div class="billing-toggle" id="billingToggle">
-      <button class="active" data-cycle="monthly">Mensual</button>
-      <button data-cycle="yearly">Anual <span class="billing-save">-20%</span></button>
+      <button class="active" data-cycle="monthly" data-i18n="pr_monthly">Mensual</button>
+      <button data-cycle="yearly"><span data-i18n="pr_yearly">Anual</span> <span class="billing-save">-20%</span></button>
     </div>
   </div>
   <div class="plans">
     <div class="plan reveal">
       <h3 class="plan-name">Starter</h3>
-      <div class="plan-price"><span data-price-monthly="0" data-price-yearly="0">0€</span><small>/mes</small></div>
-      <p class="plan-desc">Para probar la plataforma a tu ritmo.</p>
+      <div class="plan-price"><span data-price-monthly="0" data-price-yearly="0">0€</span><small data-i18n="pr_per_month">/mes</small></div>
+      <p class="plan-desc" data-i18n="pl1_desc">Para probar la plataforma a tu ritmo.</p>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span>1 usuario</li>
-        <li><span class="plan-check">✓</span>Hasta 20 peticiones / mes</li>
-        <li><span class="plan-check">✓</span>Dosieres básicos</li>
-        <li><span class="plan-check">✓</span>Soporte por email</li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl1_f1">1 usuario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl1_f2">Hasta 20 peticiones / mes</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl1_f3">Dosieres básicos</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl1_f4">Soporte por email</span></li>
       </ul>
-      <button class="plan-cta ghost">Empezar gratis</button>
+      <button class="plan-cta ghost" data-i18n="pl1_cta">Empezar gratis</button>
     </div>
     <div class="plan featured reveal d1">
-      <span class="plan-badge">Más popular</span>
+      <span class="plan-badge" data-i18n="pl2_badge">Más popular</span>
       <h3 class="plan-name">Pro</h3>
-      <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">49€</span><small>/mes</small></div>
-      <p class="plan-desc">Para venues en crecimiento que necesitan organización seria.</p>
+      <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">49€</span><small data-i18n="pr_per_month">/mes</small></div>
+      <p class="plan-desc" data-i18n="pl2_desc">Para venues en crecimiento que necesitan organización seria.</p>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span>3 usuarios</li>
-        <li><span class="plan-check">✓</span>Peticiones ilimitadas</li>
-        <li><span class="plan-check">✓</span>CRM completo + Calendario</li>
-        <li><span class="plan-check">✓</span>Dosieres Pro (branding, métricas)</li>
-        <li><span class="plan-check">✓</span>Presupuestos digitales con firma</li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl2_f1">3 usuarios</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl2_f2">Peticiones ilimitadas</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl2_f3">CRM completo + Calendario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl2_f4">Dosieres Pro (branding, métricas)</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl2_f5">Presupuestos digitales con firma</span></li>
       </ul>
-      <button class="plan-cta solid">Empezar 14 días gratis</button>
+      <button class="plan-cta solid" data-i18n="pl2_cta">Empezar 14 días gratis</button>
     </div>
     <div class="plan reveal d2">
       <h3 class="plan-name">Business</h3>
-      <div class="plan-price"><span data-price-monthly="99" data-price-yearly="79">99€</span><small>/mes</small></div>
-      <p class="plan-desc">Para equipos comerciales que cierran a otro nivel.</p>
+      <div class="plan-price"><span data-price-monthly="99" data-price-yearly="79">99€</span><small data-i18n="pr_per_month">/mes</small></div>
+      <p class="plan-desc" data-i18n="pl3_desc">Para equipos comerciales que cierran a otro nivel.</p>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span>Usuarios ilimitados</li>
-        <li><span class="plan-check">✓</span>Todo lo de Pro</li>
-        <li><span class="plan-check">✓</span>Automatizaciones avanzadas</li>
-        <li><span class="plan-check">✓</span>Integraciones a medida</li>
-        <li><span class="plan-check">✓</span>Soporte prioritario + onboarding</li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl3_f1">Usuarios ilimitados</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl3_f2">Todo lo de Pro</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl3_f3">Automatizaciones avanzadas</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl3_f4">Integraciones a medida</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pl3_f5">Soporte prioritario + onboarding</span></li>
       </ul>
-      <button class="plan-cta ghost">Hablar con ventas</button>
+      <button class="plan-cta ghost" data-i18n="pl3_cta">Hablar con ventas</button>
     </div>
   </div>
 </section>
@@ -1860,34 +1951,34 @@
   <div class="cta-final-content reveal">
     <div class="cta-final-eyebrow">
       <span class="pulse-dot"></span>
-      14 días gratis · sin tarjeta
+      <span data-i18n="cta_eyebrow">14 días gratis · sin tarjeta</span>
     </div>
-    <h2>Tu próximo evento merece <em>una gestión mejor.</em></h2>
-    <p>Únete a los venues y caterings que ya cierran más eventos — con menos esfuerzo — desde FOREVENTOS.</p>
+    <h2 data-i18n-html="cta_h2">Tu próximo evento merece <em>una gestión mejor.</em></h2>
+    <p data-i18n="cta_p">Únete a los venues y caterings que ya cierran más eventos — con menos esfuerzo — desde FOREVENTOS.</p>
     <div class="cta-final-ctas">
       <a href="#" class="cta-pill" style="font-size:16px; padding:12px 12px 12px 28px;">
-        Crear cuenta gratis
+        <span data-i18n="cta_btn1">Crear cuenta gratis</span>
         <span class="cta-pill-arrow">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
       </a>
       <a href="#" class="cta-final-secondary">
-        Hablar con ventas
+        <span data-i18n="cta_btn2">Hablar con ventas</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
       </a>
     </div>
     <div class="cta-final-trust">
       <span class="cta-final-trust-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-        Setup en menos de 24h
+        <span data-i18n="cta_t1">Setup en menos de 24h</span>
       </span>
       <span class="cta-final-trust-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-        Sin permanencia
+        <span data-i18n="cta_t2">Sin permanencia</span>
       </span>
       <span class="cta-final-trust-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-        Migración incluida
+        <span data-i18n="cta_t3">Migración incluida</span>
       </span>
     </div>
   </div>
@@ -1900,7 +1991,7 @@
       <div class="footer-brand-logo">
         <img src="/foreventos-logo-menu.png" alt="FOREVENTOS" style="height:28px; width:auto; display:block;" />
       </div>
-      <p class="footer-tag">La plataforma comercial para venues y caterings.</p>
+      <p class="footer-tag" data-i18n="ft_tag">La plataforma comercial para venues y caterings.</p>
       <div class="socials">
         <a class="social-icon" href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v6M8 8v.01M12 17v-4a2 2 0 0 1 4 0v4M12 11v-1"/></svg></a>
         <a class="social-icon" href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
@@ -1908,35 +1999,35 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>Producto</h4>
+      <h4 data-i18n="ft_col1">Producto</h4>
       <ul>
-        <li><a href="#funcionalidades">Funcionalidades</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#">Integraciones</a></li>
-        <li><a href="#">Roadmap</a></li>
+        <li><a href="#funcionalidades" data-i18n="ft_c1l1">Funcionalidades</a></li>
+        <li><a href="#pricing" data-i18n="ft_c1l2">Pricing</a></li>
+        <li><a href="#" data-i18n="ft_c1l3">Integraciones</a></li>
+        <li><a href="#" data-i18n="ft_c1l4">Roadmap</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Empresa</h4>
+      <h4 data-i18n="ft_col2">Empresa</h4>
       <ul>
-        <li><a href="#">Sobre nosotros</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#">Trabaja con nosotros</a></li>
+        <li><a href="#" data-i18n="ft_c2l1">Sobre nosotros</a></li>
+        <li><a href="#" data-i18n="ft_c2l2">Blog</a></li>
+        <li><a href="#contacto" data-i18n="ft_c2l3">Contacto</a></li>
+        <li><a href="#" data-i18n="ft_c2l4">Trabaja con nosotros</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
+      <h4 data-i18n="ft_col3">Legal</h4>
       <ul>
-        <li><a href="#">Política de privacidad</a></li>
-        <li><a href="#">Términos y condiciones</a></li>
-        <li><a href="#">Cookies</a></li>
+        <li><a href="#" data-i18n="ft_c3l1">Política de privacidad</a></li>
+        <li><a href="#" data-i18n="ft_c3l2">Términos y condiciones</a></li>
+        <li><a href="#" data-i18n="ft_c3l3">Cookies</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 FOREVENTOS. Todos los derechos reservados.</span>
-    <span>Hecho con cariño para el sector eventos.</span>
+    <span data-i18n="ft_copy">© 2026 FOREVENTOS. Todos los derechos reservados.</span>
+    <span data-i18n="ft_made">Hecho con cariño para el sector eventos.</span>
   </div>
 </footer>
 
@@ -2013,6 +2104,23 @@
       });
     });
   }
+
+  // ===== Hamburger menu =====
+  const mobileToggle = document.querySelector('.nav-mobile-toggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  let menuOpen = false;
+  function toggleMenu(open) {
+    menuOpen = open;
+    mobileMenu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    mobileToggle.innerHTML = open
+      ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M6 18L18 6"/></svg>`
+      : `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>`;
+  }
+  mobileToggle.addEventListener('click', () => toggleMenu(!menuOpen));
+  mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
 
   // ===== Build feature mockups =====
   function buildInbox(root){
@@ -2326,6 +2434,247 @@
   buildCRM(document.querySelector('.mk-crm'));
   buildDosier(document.querySelector('.mk-dosier'));
   buildBudget(document.querySelector('.mk-budget'));
+</script>
+
+<script>
+// ===== i18n ENGINE =====
+const TRANSLATIONS = {
+  es: {
+    nav_features: 'Funcionalidades',
+    nav_pricing: 'Pricing',
+    nav_contact: 'Contacto',
+    nav_login: 'Iniciar sesión',
+    nav_signup: 'Crear cuenta',
+    hero_badge: 'Plataforma premium',
+    hero_badge_sub: 'hecha con venues y caterings reales',
+    hero_h1: 'Menos gestión.<br/><em>Más eventos cerrados.</em>',
+    hero_sub: '<strong>Centraliza peticiones</strong>, crea dosieres que convierten y automatiza tu flujo comercial desde un solo lugar.',
+    hero_cta: 'Empieza gratis',
+    hero_trust: 'Pensado para venues y caterings con <strong>más de 50 peticiones al mes</strong>',
+    card1_ttl: 'Nueva petición',
+    card1_ln1: 'Marta &amp; Pablo',
+    card1_ln2: 'Boda · 180 pax · 14 jun 2026',
+    card2_ttl: 'Dosier abierto',
+    card2_ln1: 'Casa Olivar · visto 3 veces',
+    card2_ln2: 'Marta está viendo “Menú”',
+    card3_ttl: 'Presupuesto aceptado',
+    card3_ln1: '28.400€ · Firma online',
+    card3_ln2: 'Boda confirmada · hace 12 min',
+    cal_month: 'Junio 2026',
+    ad_eyebrow: 'El cambio',
+    ad_h2: 'Antes era caos. Ahora <em>es FOREVENTOS</em>.',
+    ad_sub: 'Mismo día. Mismo equipo. Cero fricción.',
+    ad_before_sub: '— tu día a día actual',
+    ad_after_sub: '— todo en un sitio',
+    ad1b_label: 'Peticiones', ad1b_line: 'Peticiones perdidas entre emails y WhatsApps', ad1b_meta: 'Inbox personal · 3 bandejas distintas',
+    ad1a_label: 'Bandeja unificada', ad1a_line: 'Todas las peticiones en un solo panel', ad1a_meta: 'Web · bodas.net · email · WhatsApp',
+    ad2b_label: 'Dosieres', ad2b_line: 'Dosieres que tardan horas en montar', ad2b_meta: 'Maquetar en InDesign · exportar · reenviar',
+    ad2a_label: 'Dosieres digitales', ad2a_line: 'Dosieres digitales listos en minutos', ad2a_meta: 'Interactivos · métricas de apertura',
+    ad3b_label: 'Seguimiento', ad3b_line: 'Seguimiento comercial en hojas de cálculo', ad3b_meta: 'Excel compartido · sin historial real',
+    ad3a_label: 'CRM integrado', ad3a_line: 'CRM con seguimiento automático', ad3a_meta: 'Ficha · timeline · recordatorios',
+    ad4b_label: 'Presupuestos', ad4b_line: 'Presupuestos en PDF que nadie abre', ad4b_meta: 'Cero tracking · sin firma online',
+    ad4a_label: 'Presupuestos digitales', ad4a_line: 'Presupuestos que se aceptan online', ad4a_meta: 'Apertura en vivo · firma con un click',
+    f1_tag: 'PETICIONES', f1_title: 'Todas tus peticiones en un solo lugar',
+    f1_desc: 'Conecta tu web, portales de bodas y email. Cada petición llega automáticamente a tu panel y no se pierde ninguna oportunidad.',
+    f1_b1: 'Conexión con múltiples canales de venta', f1_b2: 'Asignación automática al equipo', f1_b3: 'Vista unificada en tiempo real',
+    f2_tag: 'CRM Y CALENDARIO', f2_title: 'Conoce a cada cliente. Controla cada fecha.',
+    f2_desc: 'Ficha completa de cada lead con historial de interacciones. Calendario visual con todas las citas, visitas y eventos confirmados.',
+    f2_b1: 'Historial completo por cliente', f2_b2: 'Seguimiento automatizado', f2_b3: 'Calendario visual sincronizado',
+    f3_tag: 'DOSIERES DIGITALES', f3_title: 'Dosieres que enamoran y convierten',
+    f3_desc: 'Olvídate de montar PDFs durante horas. Crea dosieres digitales interactivos en minutos que impresionan a tus clientes y miden cada apertura.',
+    f3_b1: 'Creación automatizada en minutos', f3_b2: 'Interactivos y visuales', f3_b3: 'Métricas de apertura y engagement',
+    f4_tag: 'PRESUPUESTOS', f4_title: 'Presupuestos que se aceptan, no que se ignoran',
+    f4_desc: 'Envía presupuestos digitales con un clic. Tu cliente los revisa, acepta y firma online. Tú ves en tiempo real quién ha abierto qué.',
+    f4_b1: 'Envío y firma 100% digital', f4_b2: 'Seguimiento de aperturas en tiempo real', f4_b3: 'Tasa de conversión visible',
+    m1_label: 'de ahorro semanal en gestión',
+    m2_label: 'más conversión en dosieres digitales',
+    m3_label: 'peticiones perdidas',
+    m4_label: 'de setup para empezar',
+    faq_h2: 'Preguntas frecuentes',
+    faq_sub: 'Lo que más nos preguntáis antes de empezar.',
+    faq1_q: '¿Cuánto tardo en empezar a usar FOREVENTOS?',
+    faq1_a: 'Menos de <strong>24 horas</strong>. Te ayudamos a importar tus peticiones actuales, conectar tu web y portales, y configurar tu primer dosier digital. El equipo entra ese mismo día.',
+    faq2_q: '¿Necesito tarjeta para registrarme?',
+    faq2_a: 'No. Empiezas gratis con el plan Starter sin introducir método de pago. Cuando decidas pasar a Pro o Business, te lo pedimos al elegir el plan.',
+    faq3_q: '¿Puedo conectar mi web actual y los portales?',
+    faq3_a: 'Sí. Conectamos formularios de tu web, Bodas.net, email y WhatsApp Business para que cada petición entre directa a tu bandeja FOREVENTOS, etiquetada por canal.',
+    faq4_q: '¿Hay permanencia o letra pequeña?',
+    faq4_a: 'Cero permanencia. Suscripción mensual o anual con <strong>20% de descuento</strong>. Puedes cancelar en cualquier momento y descargar todos tus datos.',
+    faq5_q: '¿Mis dosieres y datos están seguros?',
+    faq5_a: 'Servidores en la UE, cumplimiento RGPD, copias de seguridad cada hora y cifrado en tránsito y en reposo. Tú eres el propietario de tus datos y los exportas cuando quieras.',
+    faq6_q: '¿Migáis desde mi Excel o CRM actual?',
+    faq6_a: 'Sí. En los planes Pro y Business migramos tu base actual sin coste — fichas, históricos y calendario — antes de tu primer día en la plataforma.',
+    faq7_q: '¿Tenéis límite de usuarios o eventos?',
+    faq7_a: 'Starter: 1 usuario y 20 peticiones/mes. Pro: hasta 3 usuarios y peticiones ilimitadas. Business: usuarios ilimitados, todo ilimitado, soporte prioritario y onboarding 1–1.',
+    faq_cta: '¿Me falta tu pregunta? <a href="#contacto">Escríbenos y te respondemos en menos de 2 horas.</a>',
+    pr_h2: 'Planes pensados para tu negocio',
+    pr_sub: 'Sin permanencias. Empieza gratis y escala cuando lo necesites.',
+    pr_monthly: 'Mensual', pr_yearly: 'Anual', pr_per_month: '/mes',
+    pl1_desc: 'Para probar la plataforma a tu ritmo.',
+    pl1_f1: '1 usuario', pl1_f2: 'Hasta 20 peticiones / mes', pl1_f3: 'Dosieres básicos', pl1_f4: 'Soporte por email',
+    pl1_cta: 'Empezar gratis',
+    pl2_badge: 'Más popular',
+    pl2_desc: 'Para venues en crecimiento que necesitan organización seria.',
+    pl2_f1: '3 usuarios', pl2_f2: 'Peticiones ilimitadas', pl2_f3: 'CRM completo + Calendario',
+    pl2_f4: 'Dosieres Pro (branding, métricas)', pl2_f5: 'Presupuestos digitales con firma',
+    pl2_cta: 'Empezar 14 días gratis',
+    pl3_desc: 'Para equipos comerciales que cierran a otro nivel.',
+    pl3_f1: 'Usuarios ilimitados', pl3_f2: 'Todo lo de Pro', pl3_f3: 'Automatizaciones avanzadas',
+    pl3_f4: 'Integraciones a medida', pl3_f5: 'Soporte prioritario + onboarding',
+    pl3_cta: 'Hablar con ventas',
+    cta_eyebrow: '14 días gratis · sin tarjeta',
+    cta_h2: 'Tu próximo evento merece <em>una gestión mejor.</em>',
+    cta_p: 'Únete a los venues y caterings que ya cierran más eventos — con menos esfuerzo — desde FOREVENTOS.',
+    cta_btn1: 'Crear cuenta gratis', cta_btn2: 'Hablar con ventas',
+    cta_t1: 'Setup en menos de 24h', cta_t2: 'Sin permanencia', cta_t3: 'Migración incluida',
+    ft_tag: 'La plataforma comercial para venues y caterings.',
+    ft_col1: 'Producto', ft_c1l1: 'Funcionalidades', ft_c1l2: 'Pricing', ft_c1l3: 'Integraciones', ft_c1l4: 'Roadmap',
+    ft_col2: 'Empresa', ft_c2l1: 'Sobre nosotros', ft_c2l2: 'Blog', ft_c2l3: 'Contacto', ft_c2l4: 'Trabaja con nosotros',
+    ft_col3: 'Legal', ft_c3l1: 'Política de privacidad', ft_c3l2: 'Términos y condiciones', ft_c3l3: 'Cookies',
+    ft_copy: '© 2026 FOREVENTOS. Todos los derechos reservados.',
+    ft_made: 'Hecho con cariño para el sector eventos.',
+  },
+  en: {
+    nav_features: 'Features',
+    nav_pricing: 'Pricing',
+    nav_contact: 'Contact',
+    nav_login: 'Log in',
+    nav_signup: 'Get started',
+    hero_badge: 'Premium platform',
+    hero_badge_sub: 'built with real venues and caterers',
+    hero_h1: 'Less admin.<br/><em>More events closed.</em>',
+    hero_sub: '<strong>Centralise enquiries</strong>, create dossiers that convert, and automate your sales workflow from one place.',
+    hero_cta: 'Start for free',
+    hero_trust: 'Built for venues and caterers with <strong>more than 50 enquiries per month</strong>',
+    card1_ttl: 'New enquiry',
+    card1_ln1: 'Marta &amp; Pablo',
+    card1_ln2: 'Wedding · 180 guests · 14 Jun 2026',
+    card2_ttl: 'Dossier opened',
+    card2_ln1: 'Casa Olivar · viewed 3 times',
+    card2_ln2: 'Marta is viewing “Menu”',
+    card3_ttl: 'Quote accepted',
+    card3_ln1: '€28,400 · Online signature',
+    card3_ln2: 'Wedding confirmed · 12 min ago',
+    cal_month: 'June 2026',
+    ad_eyebrow: 'The shift',
+    ad_h2: 'Before it was chaos. Now <em>it\'s FOREVENTOS</em>.',
+    ad_sub: 'Same day. Same team. Zero friction.',
+    ad_before_sub: '— your current daily reality',
+    ad_after_sub: '— everything in one place',
+    ad1b_label: 'Enquiries', ad1b_line: 'Enquiries lost in emails and WhatsApps', ad1b_meta: 'Personal inbox · 3 separate inboxes',
+    ad1a_label: 'Unified inbox', ad1a_line: 'All enquiries in a single panel', ad1a_meta: 'Web · wedding portals · email · WhatsApp',
+    ad2b_label: 'Dossiers', ad2b_line: 'Dossiers that take hours to prepare', ad2b_meta: 'Layout in InDesign · export · resend',
+    ad2a_label: 'Digital dossiers', ad2a_line: 'Digital dossiers ready in minutes', ad2a_meta: 'Interactive · open tracking',
+    ad3b_label: 'Follow-up', ad3b_line: 'Sales follow-up in spreadsheets', ad3b_meta: 'Shared Excel · no real history',
+    ad3a_label: 'Integrated CRM', ad3a_line: 'CRM with automatic follow-up', ad3a_meta: 'Profile · timeline · reminders',
+    ad4b_label: 'Quotes', ad4b_line: 'PDF quotes nobody opens', ad4b_meta: 'Zero tracking · no online signature',
+    ad4a_label: 'Digital quotes', ad4a_line: 'Quotes accepted online', ad4a_meta: 'Live open tracking · one-click signature',
+    f1_tag: 'ENQUIRIES', f1_title: 'All your enquiries in one place',
+    f1_desc: 'Connect your website, wedding portals, and email. Every enquiry arrives automatically in your panel so you never miss an opportunity.',
+    f1_b1: 'Multi-channel connection', f1_b2: 'Automatic team assignment', f1_b3: 'Unified real-time view',
+    f2_tag: 'CRM & CALENDAR', f2_title: 'Know every client. Control every date.',
+    f2_desc: 'Complete lead profile with interaction history. Visual calendar with all appointments, visits and confirmed events.',
+    f2_b1: 'Full client history', f2_b2: 'Automated follow-up', f2_b3: 'Synced visual calendar',
+    f3_tag: 'DIGITAL DOSSIERS', f3_title: 'Dossiers that impress and convert',
+    f3_desc: 'Forget spending hours building PDFs. Create interactive digital dossiers in minutes that impress clients and track every open.',
+    f3_b1: 'Automated creation in minutes', f3_b2: 'Interactive and visual', f3_b3: 'Open rate and engagement metrics',
+    f4_tag: 'QUOTES', f4_title: 'Quotes that get accepted, not ignored',
+    f4_desc: 'Send digital quotes in one click. Your client reviews, accepts and signs online. You see in real time who opened what.',
+    f4_b1: '100% digital send and signature', f4_b2: 'Real-time open tracking', f4_b3: 'Conversion rate visible',
+    m1_label: 'saved per week in admin',
+    m2_label: 'more conversions with digital dossiers',
+    m3_label: 'enquiries lost',
+    m4_label: 'setup time to get started',
+    faq_h2: 'Frequently asked questions',
+    faq_sub: 'The questions we get most before you start.',
+    faq1_q: 'How long does it take to get started?',
+    faq1_a: 'Less than <strong>24 hours</strong>. We help you import your current enquiries, connect your website and portals, and set up your first digital dossier. Your team is up and running the same day.',
+    faq2_q: 'Do I need a credit card to sign up?',
+    faq2_a: 'No. You start free on the Starter plan with no payment method required. We only ask when you choose to upgrade to Pro or Business.',
+    faq3_q: 'Can I connect my current website and portals?',
+    faq3_a: 'Yes. We connect your website forms, wedding portals, email and WhatsApp Business so every enquiry lands directly in your FOREVENTOS inbox, tagged by channel.',
+    faq4_q: 'Are there any long-term contracts or hidden fees?',
+    faq4_a: 'Zero lock-in. Monthly or annual subscription with <strong>20% discount</strong>. Cancel anytime and download all your data.',
+    faq5_q: 'Is my data safe?',
+    faq5_a: 'EU servers, GDPR compliant, hourly backups, and encryption in transit and at rest. You own your data and can export it whenever you want.',
+    faq6_q: 'Can you migrate from my Excel or current CRM?',
+    faq6_a: 'Yes. On Pro and Business plans we migrate your current base at no cost — profiles, history and calendar — before your first day on the platform.',
+    faq7_q: 'Is there a limit on users or events?',
+    faq7_a: 'Starter: 1 user and 20 enquiries/month. Pro: up to 3 users and unlimited enquiries. Business: unlimited users, everything unlimited, priority support and 1-to-1 onboarding.',
+    faq_cta: 'Don\'t see your question? <a href="#contacto">Write to us and we\'ll reply in under 2 hours.</a>',
+    pr_h2: 'Plans built for your business',
+    pr_sub: 'No lock-in. Start free and scale when you need to.',
+    pr_monthly: 'Monthly', pr_yearly: 'Annual', pr_per_month: '/mo',
+    pl1_desc: 'Try the platform at your own pace.',
+    pl1_f1: '1 user', pl1_f2: 'Up to 20 enquiries / month', pl1_f3: 'Basic dossiers', pl1_f4: 'Email support',
+    pl1_cta: 'Start for free',
+    pl2_badge: 'Most popular',
+    pl2_desc: 'For growing venues that need serious organisation.',
+    pl2_f1: '3 users', pl2_f2: 'Unlimited enquiries', pl2_f3: 'Full CRM + Calendar',
+    pl2_f4: 'Pro dossiers (branding, metrics)', pl2_f5: 'Digital quotes with signature',
+    pl2_cta: 'Start 14-day free trial',
+    pl3_desc: 'For sales teams that close at another level.',
+    pl3_f1: 'Unlimited users', pl3_f2: 'Everything in Pro', pl3_f3: 'Advanced automations',
+    pl3_f4: 'Custom integrations', pl3_f5: 'Priority support + onboarding',
+    pl3_cta: 'Talk to sales',
+    cta_eyebrow: '14 days free · no credit card',
+    cta_h2: 'Your next event deserves <em>better management.</em>',
+    cta_p: 'Join the venues and caterers already closing more events — with less effort — on FOREVENTOS.',
+    cta_btn1: 'Create free account', cta_btn2: 'Talk to sales',
+    cta_t1: 'Setup in under 24h', cta_t2: 'No lock-in', cta_t3: 'Migration included',
+    ft_tag: 'The sales platform for venues and caterers.',
+    ft_col1: 'Product', ft_c1l1: 'Features', ft_c1l2: 'Pricing', ft_c1l3: 'Integrations', ft_c1l4: 'Roadmap',
+    ft_col2: 'Company', ft_c2l1: 'About us', ft_c2l2: 'Blog', ft_c2l3: 'Contact', ft_c2l4: 'Work with us',
+    ft_col3: 'Legal', ft_c3l1: 'Privacy policy', ft_c3l2: 'Terms and conditions', ft_c3l3: 'Cookies',
+    ft_copy: '© 2026 FOREVENTOS. All rights reserved.',
+    ft_made: 'Made with care for the events industry.',
+  }
+};
+
+function applyLang(lang) {
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.es;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+}
+
+function detectAndSetLang() {
+  const path = window.location.pathname;
+  if (path.startsWith('/en')) {
+    applyLang('en');
+    return;
+  }
+  // Auto-detect from browser only when on root path (no explicit lang in URL)
+  const browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+  if (browserLang.startsWith('en') && path === '/') {
+    // Redirect to /en for English browsers
+    window.location.replace('/en');
+    return;
+  }
+  applyLang('es');
+}
+
+// Lang toggle button
+const langToggleBtn = document.getElementById('langToggle');
+if (langToggleBtn) {
+  langToggleBtn.addEventListener('click', () => {
+    const currentPath = window.location.pathname;
+    if (currentPath.startsWith('/en')) {
+      window.location.href = '/';
+    } else {
+      window.location.href = '/en';
+    }
+  });
+}
+
+detectAndSetLang();
 </script>
 
 </body>
