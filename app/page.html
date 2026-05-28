@@ -1576,24 +1576,71 @@
     .hero h1{ font-size:38px; letter-spacing:-1.2px; line-height:1.08; text-align:center; }
     .hero h1 em::after{ height:14px; bottom:-2px; }
     .hero-sub{ font-size:15px; text-align:center; }
-    .hero-right{ display:none !important; }
+    /* Hero scene: compact orb shown BELOW the copy so portrait gets the same
+       "live product" payoff as desktop, without pushing the CTA below the fold */
+    .hero-right{
+      display:flex !important; order:1;
+      width:100%; min-height:0; height:auto;
+      margin:22px auto 0; padding:0;
+    }
+    .scene-stage{
+      width:100%; max-width:330px; margin:0 auto;
+      min-height:0; height:auto; aspect-ratio:1/1;
+      overflow:visible;            /* let cards float past the orb edge … */
+    }
+    /* …but keep the starfield / sparks / shading clipped to the blob shape */
+    .scene-lights, .scene-arches, .scene-particles{
+      border-radius:inherit; overflow:hidden;
+    }
+    .scene-card{ padding:9px 11px; border-radius:12px; }
+    .scene-card .ttl{ font-size:8px; letter-spacing:1px; margin-bottom:2px; }
+    .scene-card .ln1{ font-size:11px; }
+    .scene-card .ln2{ font-size:9px; }
+    .scene-card.c1{ top:-2%;  left:-4%;  width:146px; }
+    .scene-card.c2{ top:30%;  right:-5%; width:140px; }
+    .scene-card.c3{ bottom:0;  left:0;   width:152px; }
+    .scene-calendar{ display:none; }
+    .scene-check{ top:50%; left:50%; width:56px; height:56px; }
+    .scene-check svg{ width:28px; height:28px; }
     .hero-left{ display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:8px; }
-    .hero-eyebrow{ order:0; font-size:11px; letter-spacing:1.8px; gap:10px; padding-bottom:8px; margin-bottom:20px; }
+    .hero-eyebrow{
+      order:0; justify-content:center; text-align:center;
+      width:100%; max-width:320px; align-self:center;
+      font-size:10.5px; letter-spacing:1.5px; gap:7px 12px;
+      padding-bottom:13px; margin-bottom:22px;
+    }
+    .hero-eyebrow .dot{ display:none; }
     .hero h1{ order:1; }
     .hero-sub{ order:2; }
     .hero-cta-row{ order:3; justify-content:center; margin-top:4px; margin-bottom:10px; }
     .hero-secondary-cta{ order:4; align-self:center; margin-bottom:22px; }
     .hero-secondary-title{ font-size:13px; }
     .hero-secondary-sub{ font-size:11px; }
-    .hero-mini-trust{ order:5; justify-content:center; }
-    .hero-mini-trust-text{ align-items:center; }
+    .hero-mini-trust{ order:5; justify-content:center; gap:12px; }
+    .hero-mini-trust-avatars span{ width:30px; height:30px; }
+    .hero-mini-trust-text{ align-items:center; text-align:center; }
     .hero-mini-trust-text .lead{ font-size:13px; }
-    .hero-mini-trust-text .sub{ font-size:12px; }
-    .hero-trust{ margin-top:40px; }
+    .hero-mini-trust-text .sub{ font-size:11.5px; }
+
+    /* Brand-trust strip: stack as a single centered paragraph (no side rules) */
+    .hero-trust{ margin-top:36px; padding-top:30px; }
+    .hero-trust-text{
+      display:block; text-align:center; gap:0;
+      max-width:300px; margin:0 auto 24px;
+      font-size:12.5px; line-height:1.55;
+    }
+    .hero-trust-text::before,
+    .hero-trust-text::after{ display:none; }
 
     /* Sections */
     .feature{ padding:60px 20px; }
-    .feature-grid{ gap:32px; }
+    /* minmax(0,1fr) lets the column shrink to the viewport; otherwise the
+       mockup's min-content (~476px) forces the column wider and the title/
+       copy overflow off-screen on the right */
+    .feature-grid{ grid-template-columns:minmax(0,1fr); gap:32px; }
+    .feature-title{ font-size:clamp(24px,6.6vw,30px); letter-spacing:-0.6px; }
+    .feature-desc{ font-size:15px; }
+    .mockup-wrap{ max-width:100%; }
     .ad-section{ overflow-x:hidden; padding:72px 16px 80px; }
     .ad-row{ grid-template-columns:1fr; gap:12px; }
     .ad-headers{ grid-template-columns:1fr; gap:8px; }
@@ -1603,11 +1650,17 @@
     .nav-lang-toggle{ padding:4px 8px; font-size:11px; }
     .hero-logos-marquee-wrap .hero-logo-row .hero-logo:nth-child(n+7){ display:flex; }
     .hero-logos-marquee-wrap{ overflow:hidden; mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent); -webkit-mask-image:linear-gradient(to right,transparent,black 15%,black 85%,transparent); }
-    .hero-logo-row{ flex-wrap:nowrap; justify-content:flex-start; gap:48px; animation:marquee 18s linear infinite; width:max-content; }
+    .hero-logo-row{ flex-wrap:nowrap; justify-content:flex-start; gap:44px; animation:marquee 18s linear infinite; width:max-content; }
+    .hero-logo{ font-size:16px; flex-shrink:0; }
+    .hero-logo.serif{ font-size:17px; }
+    .hero-logo.script{ font-size:19px; }
+    .hero-logo.smallcaps{ font-size:12px; letter-spacing:3px; }
+    .hero-logo.image{ height:34px; }
   }
   @media (max-width:480px){
-    .hero h1{ font-size:32px; }
-    .hero-sub{ font-size:14px; }
+    .hero h1{ font-size:clamp(26px, 8.2vw, 32px); letter-spacing:-1px; }
+    .hero h1 em{ padding-right:0; }
+    .hero-sub{ font-size:14px; max-width:340px; }
     .container{ padding:0 16px; }
     .ad-section{ padding:60px 12px; }
     .metrics-grid{ grid-template-columns:1fr; }
