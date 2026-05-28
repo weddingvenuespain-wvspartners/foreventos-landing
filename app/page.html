@@ -739,8 +739,8 @@
   .hero-logo.image:hover{ filter:grayscale(0) brightness(1) contrast(1); opacity:1; }
   .hero-logo.image img{ height:100%; width:auto; display:block; }
 
-  /* ============ ANTES / DESPUÉS (Section 2) ============ */
-  .ad-section{
+  /* ============ FUNCIONALIDADES — acordeón ============ */
+  .acc{
     position:relative;
     background:
       radial-gradient(ellipse 80% 50% at 50% 0%, rgba(74,107,82,0.18) 0%, transparent 60%),
@@ -748,321 +748,214 @@
       linear-gradient(180deg, #141E16 0%, #1A2419 60%, #141E16 100%);
     color:var(--text-light);
     padding:96px 24px 110px;
-    overflow:hidden;
   }
-  .ad-section::before{
+  .acc::before{
     content:""; position:absolute; inset:0; pointer-events:none;
     background-image:
       radial-gradient(circle 1px at 12% 18%, rgba(255,255,255,0.5), transparent 3px),
       radial-gradient(circle 1.5px at 78% 32%, rgba(216,224,206,0.7), transparent 4px),
       radial-gradient(circle 1px at 30% 78%, rgba(255,255,255,0.4), transparent 3px),
-      radial-gradient(circle 1px at 88% 88%, rgba(216,224,206,0.55), transparent 3px),
-      radial-gradient(circle 1px at 50% 14%, rgba(255,255,255,0.5), transparent 3px);
+      radial-gradient(circle 1px at 88% 88%, rgba(216,224,206,0.55), transparent 3px);
   }
-  .ad-head{ position:relative; max-width:780px; margin:0 auto 48px; text-align:center; }
-  .ad-eyebrow{
+  .acc-head{ position:relative; max-width:1200px; margin:0 auto 44px; }
+  .acc-eyebrow{
     display:inline-block; font-size:11px; letter-spacing:2.5px; text-transform:uppercase;
-    color:var(--accent); font-weight:600; margin-bottom:12px;
+    color:var(--accent); font-weight:600; margin-bottom:14px;
   }
-  .ad-head h2{
+  .acc-head h2{
     font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700;
-    font-size:clamp(28px, 3.6vw, 44px); line-height:1.08; letter-spacing:-1.4px;
-    margin:0 0 12px; color:#fff; text-wrap:balance;
+    font-size:clamp(30px, 4.2vw, 52px); line-height:1.05; letter-spacing:-1.6px;
+    margin:0 0 16px; color:#fff; max-width:16ch; text-wrap:balance;
   }
-  .ad-head h2 em{
+  .acc-head h2 em{
     font-style:normal;
-    background:linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+    background:linear-gradient(90deg, var(--accent) 0%, var(--accent-soft) 100%);
     -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
   }
-  .ad-head p{ font-size:15px; color:var(--text-dim); max-width:480px; margin:0 auto; line-height:1.55; }
+  .acc-head p{ font-size:16px; color:var(--text-dim); max-width:560px; margin:0; line-height:1.6; }
 
-  .ad-headers{
-    position:relative; max-width:1100px; margin:0 auto 20px;
-    display:grid; grid-template-columns: 1fr 80px 1fr; gap:20px; align-items:center;
+  .acc-row{
+    position:relative; max-width:1200px; margin:0 auto;
+    display:flex; gap:14px; height:min(72vh, 600px);
   }
-  .ad-col-tag{
-    display:inline-flex; align-items:center; gap:10px;
-    font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600;
-    padding:8px 16px 8px 8px; border-radius:999px;
-    backdrop-filter:blur(20px);
+  .acc-panel{
+    position:relative; flex:0 0 88px; min-width:88px;
+    border-radius:22px; overflow:hidden; cursor:pointer;
+    background:#F5F4EE; color:var(--text-dark);
+    border:1px solid rgba(42,61,46,0.10);
+    box-shadow:0 20px 50px rgba(10,16,12,0.35), inset 0 1px 0 rgba(255,255,255,0.6);
+    transition:flex-grow .55s cubic-bezier(.45,0,.15,1), flex-basis .55s cubic-bezier(.45,0,.15,1), background .35s ease;
+    outline:none;
   }
-  .ad-col-tag .icon{
-    width:24px; height:24px; border-radius:50%;
-    display:inline-flex; align-items:center; justify-content:center;
-    font-size:12px; font-weight:700;
-  }
-  .ad-col-tag .sub{
-    font-size:11px; font-weight:400; letter-spacing:.3px; text-transform:none;
-    opacity:.7; margin-left:2px;
-  }
-  .ad-col-tag.before{
-    color:#FFB3B3;
-    background:linear-gradient(135deg, rgba(232,93,93,0.16) 0%, rgba(232,93,93,0.04) 100%);
-    border:1px solid rgba(232,93,93,0.22);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    justify-self:start;
-  }
-  .ad-col-tag.before .icon{ background:rgba(232,93,93,0.25); color:#FF9B9B; }
-  .ad-col-tag.after{
-    color:#A6E0BC;
-    background:linear-gradient(135deg, rgba(123,216,155,0.16) 0%, rgba(123,216,155,0.04) 100%);
-    border:1px solid rgba(123,216,155,0.22);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    justify-self:start;
-  }
-  .ad-col-tag.after .icon{ background:rgba(123,216,155,0.25); color:#7BD89B; }
+  .acc-panel.active{ flex:1 1 auto; cursor:default; }
+  .acc-panel:not(.active):hover{ background:#ECEAE0; }
+  .acc-panel:focus-visible{ box-shadow:0 0 0 3px rgba(143,170,148,0.6), 0 20px 50px rgba(10,16,12,0.35); }
 
-  .ad-rows{
-    position:relative; max-width:1100px; margin:0 auto;
-    display:flex; flex-direction:column; gap:18px;
+  /* etiqueta colapsada */
+  .acc-label{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center;
+    padding:22px 0; pointer-events:none; transition:opacity .3s ease;
   }
-  .ad-row{
-    display:grid; grid-template-columns: 1fr 80px 1fr; gap:20px; align-items:stretch;
-  }
-  .ad-card{
-    position:relative;
-    border-radius:16px; padding:20px 22px;
-    min-height:108px;
-    display:flex; gap:16px; align-items:center;
-    transition:transform .4s ease;
-  }
-  .ad-card.before{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.06);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-  }
-  .ad-card.before::after{
-    content:"\2715"; position:absolute; top:14px; right:16px;
-    width:22px; height:22px; border-radius:50%;
-    background:rgba(232,93,93,0.15); color:#FF9B9B;
-    font-size:12px; font-weight:600;
+  .acc-num{
+    width:30px; height:30px; border-radius:50%; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
+    font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:12px;
+    background:rgba(74,107,82,0.12); color:var(--primary);
   }
-  .ad-card.after{
-    background:linear-gradient(135deg, rgba(74,107,82,0.18) 0%, rgba(74,107,82,0.06) 100%);
-    border:1px solid rgba(143,170,148,0.20);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.05),
-      0 8px 30px rgba(74,107,82,0.10);
-  }
-  .ad-card.after::after{
-    content:"\2713"; position:absolute; top:14px; right:16px;
-    width:22px; height:22px; border-radius:50%;
-    background:rgba(123,216,155,0.20); color:#7BD89B;
-    font-size:13px; font-weight:600;
-    display:flex; align-items:center; justify-content:center;
-  }
-
-  .ad-mini{
-    flex-shrink:0; width:80px; height:72px; border-radius:10px;
-    display:flex; align-items:center; justify-content:center;
-    position:relative; overflow:hidden;
-  }
-  /* before mini styles */
-  .ad-mini.gmail{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); }
-  .ad-mini.gmail::before{
-    content:""; position:absolute; inset:8px;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.10) 0 9px, transparent 9px 11px) 0 0/100% 11px repeat-y,
-      linear-gradient(90deg, rgba(232,93,93,0.6) 0 18px, transparent 18px) 0 0/100% 11px repeat-y;
-    background-blend-mode:normal;
-  }
-  .ad-mini.gmail .badge{
-    position:absolute; top:6px; right:6px;
-    background:#E85D5D; color:#fff; font-size:9px; font-weight:700;
-    padding:1px 5px; border-radius:8px;
-  }
-  .ad-mini.whatsapp{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); flex-direction:column; gap:4px; padding:8px; align-items:stretch; }
-  .ad-mini.whatsapp .bubble{ height:8px; border-radius:4px; background:rgba(143,170,148,0.20); width:70%; }
-  .ad-mini.whatsapp .bubble.r{ align-self:flex-end; background:rgba(123,216,155,0.18); width:55%; }
-  .ad-mini.whatsapp .bubble.l{ width:80%; }
-  .ad-mini.excel{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); padding:6px; }
-  .ad-mini.excel .grid{
-    width:100%; height:100%;
-    background:
-      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px) 0 0/100% 25%,
-      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px) 0 0/25% 100%;
-    position:relative;
-  }
-  .ad-mini.excel .grid::before{
-    content:""; position:absolute; top:0; left:0; width:25%; height:25%;
-    background:rgba(123,216,155,0.20);
-  }
-  .ad-mini.excel .grid::after{
-    content:""; position:absolute; top:25%; left:25%; width:25%; height:25%;
-    background:rgba(232,93,93,0.20);
-  }
-  .ad-mini.pdf{ background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); flex-direction:column; gap:3px; padding:10px 8px; align-items:stretch; }
-  .ad-mini.pdf .line{ height:4px; border-radius:2px; background:rgba(255,255,255,0.12); width:100%; }
-  .ad-mini.pdf .line.s{ width:65%; }
-  .ad-mini.pdf .tag{
-    position:absolute; bottom:6px; right:6px;
-    font-size:8px; font-weight:700; color:#E85D5D;
-    background:rgba(232,93,93,0.15); padding:1px 4px; border-radius:3px;
-  }
-
-  /* after mini styles */
-  .ad-mini.after-mini{
-    background:linear-gradient(135deg, rgba(74,107,82,0.30) 0%, rgba(74,107,82,0.10) 100%);
-    border:1px solid rgba(143,170,148,0.30);
-  }
-  .ad-mini.after-mini svg{ width:38px; height:38px; color:#C8D4B8; overflow:visible; }
-
-  .ad-text .ad-label{
-    font-size:10px; letter-spacing:1.8px; text-transform:uppercase;
-    color:var(--text-dim); margin-bottom:4px; font-weight:600;
-  }
-  .ad-card.after .ad-text .ad-label{ color:var(--accent); }
-  .ad-text .ad-line{ font-size:15px; font-weight:500; color:var(--text-light); line-height:1.4; max-width:280px; }
-  .ad-text .ad-meta{ font-size:12px; color:var(--text-dim); margin-top:4px; }
-
-  /* Arrow column */
-  .ad-arrow{
-    display:flex; align-items:center; justify-content:center;
-    color:rgba(143,170,148,0.55);
-  }
-  .ad-arrow svg{ width:32px; height:14px; }
-  .ad-arrow-line{
-    position:relative; width:60px; height:1px;
-    background:linear-gradient(90deg, rgba(232,93,93,0.3) 0%, rgba(143,170,148,0.7) 100%);
-  }
-  .ad-arrow-line::after{
-    content:""; position:absolute; right:-1px; top:-3px;
-    width:0; height:0;
-    border-left:7px solid rgba(143,170,148,0.9);
-    border-top:4px solid transparent;
-    border-bottom:4px solid transparent;
-  }
-  .ad-arrow-line .pulse{
-    position:absolute; top:-2px; left:0; width:6px; height:5px; border-radius:50%;
-    background:rgba(216,224,206,0.95);
-    box-shadow:0 0 8px rgba(143,170,148,0.9);
-    animation:ad-pulse 3.2s ease-in-out infinite;
-  }
-  @keyframes ad-pulse{
-    0%{ left:-12px; opacity:0; transform:scale(0.4); }
-    14%{ opacity:1; transform:scale(1); }
-    50%{ left:26px; opacity:1; transform:scale(1); }
-    66%{ left:36px; opacity:0; transform:scale(0.2); }
-    100%{ left:36px; opacity:0; transform:scale(0.2); }
-  }
-
-  @media (max-width:768px){
-    .ad-section{ padding:80px 20px; }
-    .ad-headers, .ad-row{ grid-template-columns:1fr; gap:10px; }
-    .ad-arrow{ transform:rotate(90deg); padding:8px 0; }
-    .ad-arrow-line{ width:40px; }
-    .ad-col-tag{ justify-self:center !important; }
-  }
-
-  /* ============ FEATURES ============ */
-  .feature{ padding:120px 24px; overflow:hidden; position:relative; }
-  .feature.dark{
-    background:
-      radial-gradient(ellipse 60% 50% at 0% 50%, rgba(74,107,82,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 100% 50%, rgba(143,170,148,0.07) 0%, transparent 60%),
-      linear-gradient(180deg, #141E16 0%, #1A2419 50%, #141E16 100%);
-    color:var(--text-light);
-  }
-  .feature.light{
-    background:#F4F6F8;
-    color:var(--text-dark);
-  }
-  /* Subtle dot grid background on light sections */
-  .feature.light::before{
-    content:""; position:absolute; inset:0; pointer-events:none; opacity:.55;
-    background-image:radial-gradient(circle 1px at center, rgba(74,107,82,0.18) 1px, transparent 1.5px);
-    background-size:32px 32px;
-    -webkit-mask-image:radial-gradient(ellipse 70% 75% at 50% 50%, #000 30%, transparent 75%);
-    mask-image:radial-gradient(ellipse 70% 75% at 50% 50%, #000 30%, transparent 75%);
-  }
-  /* Stars on dark sections (echoes hero) */
-  .feature.dark::before{
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background-image:
-      radial-gradient(circle 1px at 8% 18%, rgba(255,255,255,0.45), transparent 3px),
-      radial-gradient(circle 1.5px at 92% 28%, rgba(216,224,206,0.55), transparent 4px),
-      radial-gradient(circle 1px at 14% 78%, rgba(255,255,255,0.4), transparent 3px),
-      radial-gradient(circle 1px at 88% 82%, rgba(216,224,206,0.45), transparent 3px),
-      radial-gradient(circle 1px at 48% 14%, rgba(255,255,255,0.4), transparent 3px);
-  }
-  /* Section number watermark */
-  .feature[data-num]::after{
-    content:attr(data-num);
-    position:absolute; top:48px; right:48px;
+  .acc-vtitle{
+    margin:auto 0; writing-mode:vertical-rl; transform:rotate(180deg);
     font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700;
-    font-size:160px; letter-spacing:-8px; line-height:.85;
-    color:transparent;
-    -webkit-text-stroke:1.5px rgba(74,107,82,0.10);
-    pointer-events:none; z-index:0; user-select:none;
+    font-size:21px; letter-spacing:-.3px; color:var(--text-dark); white-space:nowrap;
   }
-  .feature.dark[data-num]::after{ -webkit-text-stroke:1.5px rgba(143,170,148,0.10); }
-  .feature.reverse[data-num]::after{ right:auto; left:48px; }
+  .acc-panel.active .acc-label{ opacity:0; }
 
-  .feature-grid{
-    position:relative; z-index:2;
-    max-width:1200px; margin:0 auto;
-    display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:center;
+  /* contenido expandido */
+  .acc-content{
+    position:absolute; inset:0;
+    display:flex; align-items:stretch; gap:40px;
+    padding:46px; min-width:840px;
+    opacity:0; pointer-events:none; transition:opacity .4s ease .12s;
   }
-  .feature.reverse .feature-grid{ direction:rtl; }
-  .feature.reverse .feature-grid > *{ direction:ltr; }
-  .feature-tag{
-    display:inline-flex; align-items:center; gap:10px;
-    font-size:12px; letter-spacing:2.5px; text-transform:uppercase;
-    font-weight:600; margin-bottom:22px;
-  }
-  .feature-tag .num{
+  .acc-panel.active .acc-content{ opacity:1; pointer-events:auto; }
+  .acc-info{ flex:1 1 0; min-width:330px; display:flex; flex-direction:column; }
+  .acc-title{
     font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700;
-    font-size:12px; letter-spacing:0;
-    padding:3px 8px; border-radius:6px;
+    font-size:clamp(26px,2.6vw,34px); letter-spacing:-.8px; line-height:1.1;
+    margin:0 0 14px; color:var(--text-dark);
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
   }
-  .feature.dark .feature-tag{ color:var(--accent); }
-  .feature.light .feature-tag{ color:var(--primary); }
-  .feature.dark .feature-tag .num{ background:rgba(143,170,148,0.14); color:var(--accent); }
-  .feature.light .feature-tag .num{ background:rgba(74,107,82,0.10); color:var(--primary); }
-  .feature-title{
-    font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700;
-    font-size:clamp(28px,3.2vw,42px); line-height:1.08; letter-spacing:-1px;
-    margin:0 0 20px; text-wrap:balance;
+  .acc-badge{
+    font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:.3px;
+    padding:5px 11px; border-radius:999px; white-space:nowrap;
+    background:rgba(74,107,82,0.10); color:var(--primary);
   }
-  .feature.dark .feature-title{ color:#fff; }
-  .feature.light .feature-title{ color:var(--text-dark); }
-  .feature-desc{
-    font-size:17px; line-height:1.65; max-width:480px; margin:0 0 28px;
+  .acc-desc{ font-size:15.5px; line-height:1.6; color:#3A4838; margin:0 0 24px; max-width:430px; }
+  .acc-group{ margin-bottom:18px; }
+  .acc-glabel{ display:block; font-size:10px; letter-spacing:1.6px; text-transform:uppercase; color:#8A9489; font-weight:600; margin-bottom:9px; }
+  .acc-chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .acc-chip{
+    font-family:'Inter',sans-serif; font-size:12.5px; font-weight:500;
+    padding:6px 13px; border-radius:999px; white-space:nowrap;
+    border:1px solid rgba(42,61,46,0.16); color:#3A4838;
   }
-  .feature.dark .feature-desc{ color:#FFFFFF; }
-  .feature.light .feature-desc{ color:#3A4838; }
-  .feature-bullets{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px; }
-  .feature-bullets li{ display:flex; align-items:center; gap:12px; font-weight:500; font-size:15px; }
-  .feature.dark .feature-bullets li{ color:var(--text-light); }
-  .feature.light .feature-bullets li{ color:var(--text-dark); }
-  .bullet-icon{
-    flex-shrink:0; width:22px; height:22px; border-radius:7px;
-    display:flex; align-items:center; justify-content:center;
+  .acc-chip.accent{ border-color:rgba(74,107,82,0.35); color:var(--primary); background:rgba(74,107,82,0.05); }
+  .acc-cta{
+    margin-top:auto; align-self:flex-start;
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--primary); color:#fff; text-decoration:none;
+    font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:14px;
+    padding:13px 22px; border-radius:999px;
+    box-shadow:0 10px 24px rgba(74,107,82,0.30);
+    transition:transform .25s ease, box-shadow .25s ease;
   }
-  .feature.dark .bullet-icon{ background:rgba(143,170,148,0.14); color:var(--accent); }
-  .feature.light .bullet-icon{ background:rgba(74,107,82,0.10); color:var(--primary); }
+  .acc-cta:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(74,107,82,0.38); }
+  .acc-cta svg{ width:15px; height:15px; }
 
-  /* Mockup frame — always dark navy regardless of section bg */
-  .mockup-wrap{
-    position:relative;
-    transform:perspective(2000px) rotateY(-2deg) rotateX(1deg);
-    transition:transform .6s ease;
+  .acc-visual{ flex:1 1 0; min-width:300px; display:flex; align-items:center; justify-content:center; }
+  .acc-visual .browser-frame{ width:100%; max-width:440px; }
+  .acc-screen{ position:relative; padding:22px; background:#141E16; min-height:330px; }
+
+    /* shared screen primitives */
+  .sc-h{ display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+  .sc-h .t{ font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:15px; color:#fff; }
+  .pill{ font-size:10px; font-weight:600; letter-spacing:.4px; padding:4px 10px; border-radius:999px; white-space:nowrap; }
+  .pill-green{ background:rgba(123,216,155,0.16); color:#7BD89B; }
+
+  /* inbox */
+  .sc-row{ display:flex; align-items:center; gap:12px; padding:11px 13px; border-radius:11px;
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); margin-bottom:9px; }
+  .sc-row .av{ width:34px; height:34px; border-radius:9px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;
+    background:rgba(74,107,82,0.35); color:#C8D4B8; }
+  .sc-row > div:nth-of-type(2){ flex:1; min-width:0; }
+  .sc-row .who{ font-size:13px; font-weight:600; color:#E8ECF1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sc-row .src{ font-size:11px; color:var(--text-dim); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sc-row .chip{ margin-left:auto; flex-shrink:0; font-size:9px; font-weight:700; letter-spacing:.4px;
+    padding:4px 9px; border-radius:999px; text-transform:uppercase; white-space:nowrap; }
+  .ch-web{ background:rgba(143,170,148,0.18); color:#B8C9B9; }
+  .ch-bodas{ background:rgba(196,139,113,0.20); color:#D8AE92; }
+  .ch-wa{ background:rgba(123,216,155,0.16); color:#7BD89B; }
+  .ch-mail{ background:rgba(130,170,210,0.16); color:#9DBCE0; }
+
+  /* crm */
+  .sc-card{ background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05);
+    border-radius:11px; padding:12px 14px; margin-bottom:16px; }
+  .sc-meta{ display:flex; gap:8px; font-size:12px; color:var(--text-dim); flex-wrap:wrap; }
+  .sc-tl{ display:flex; flex-direction:column; gap:15px; padding-left:4px; }
+  .sc-tl .tl{ display:flex; gap:12px; align-items:flex-start; }
+  .sc-tl .dot{ width:12px; height:12px; border-radius:50%; margin-top:2px; flex-shrink:0;
+    border:2px solid rgba(143,170,148,0.3); background:#1A2419; }
+  .sc-tl .dot.done{ background:#7BD89B; border-color:#7BD89B; }
+  .sc-tl .dot.now{ background:var(--accent); border-color:var(--accent); box-shadow:0 0 0 4px rgba(143,170,148,0.15); }
+  .sc-tl b{ display:block; font-size:13px; color:#E8ECF1; font-weight:600; }
+  .sc-tl i{ display:block; font-style:normal; font-size:11px; color:var(--text-dim); margin-top:1px; }
+
+  /* dosier */
+  .sc-doc{ display:flex; gap:14px; margin-bottom:16px; }
+  .sc-doc-cover{ width:92px; height:118px; border-radius:10px; flex-shrink:0;
+    background:linear-gradient(155deg, var(--primary), #1A2419);
+    border:1px solid rgba(143,170,148,0.25);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:11px; letter-spacing:1px; color:#fff; }
+  .sc-doc-cover span{ font-weight:400; font-size:9px; letter-spacing:.3px; color:var(--accent-soft); }
+  .sc-doc-lines{ flex:1; display:flex; flex-direction:column; gap:9px; padding-top:8px; }
+  .sc-doc-lines span{ height:8px; border-radius:4px; background:rgba(255,255,255,0.08); }
+  .sc-doc-lines span.s{ width:62%; }
+  .sc-stat{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .sc-stat > div{ background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05);
+    border-radius:11px; padding:12px 8px; text-align:center; }
+  .sc-stat .k{ font-size:10px; letter-spacing:.5px; text-transform:uppercase; color:var(--text-dim); }
+  .sc-stat .v{ font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:18px; color:#fff; margin-top:5px; }
+
+  /* presupuesto */
+  .sc-li{ display:flex; justify-content:space-between; font-size:13px; color:#D5DAD2;
+    padding:11px 2px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .sc-li.total{ border-bottom:none; font-family:'Satoshi','Helvetica Neue',sans-serif;
+    font-weight:700; font-size:16px; color:#fff; padding-top:14px; }
+  .sc-sign{ display:flex; align-items:center; gap:12px; margin-top:14px; padding:13px 14px;
+    background:rgba(123,216,155,0.10); border:1px solid rgba(123,216,155,0.25); border-radius:11px; }
+  .sc-sign .sig-check{ width:30px; height:30px; border-radius:50%; flex-shrink:0;
+    background:rgba(123,216,155,0.22); color:#7BD89B; font-weight:700;
+    display:flex; align-items:center; justify-content:center; }
+  .sc-sign b{ display:block; font-size:13px; color:#fff; }
+  .sc-sign i{ display:block; font-style:normal; font-size:11px; color:var(--text-dim); margin-top:1px; }
+
+  @media (max-width:900px){
+    .acc{ padding:80px 20px 90px; }
+    .acc-head h2{ max-width:none; }
+    .acc-row{ flex-direction:column; height:auto; gap:12px; }
+    .acc-panel{ flex:0 0 auto; min-width:0; }
+    .acc-panel.active{ flex:0 0 auto; }
+    .acc-label{
+      position:relative; inset:auto; flex-direction:row; justify-content:flex-start;
+      gap:14px; padding:20px 22px;
+    }
+    .acc-vtitle{ writing-mode:horizontal-tb; transform:none; margin:0; font-size:18px; }
+    .acc-panel.active .acc-label{ opacity:1; }
+    .acc-content{
+      position:relative; inset:auto; min-width:0; flex-direction:column;
+      gap:22px; padding:0 22px 26px; height:auto;
+      opacity:1; pointer-events:auto; transition:none;
+    }
+    .acc-panel:not(.active) .acc-content{ display:none; }
+    .acc-desc{ max-width:none; }
+    .acc-info, .acc-visual{ min-width:0; }
+    .acc-visual .browser-frame{ max-width:100%; }
+    .acc-screen{ padding:16px; min-height:0; }
+    .acc-cta{ margin-top:8px; }
   }
-  .feature.reverse .mockup-wrap{ transform:perspective(2000px) rotateY(2deg) rotateX(1deg); }
-  .mockup-wrap:hover{ transform:perspective(2000px) rotateY(0) rotateX(0); }
+  @media (prefers-reduced-motion:reduce){
+    .acc-panel{ transition:none; }
+  }
+
+    /* ============ MOCKUP FRAME (compartido — navy oscuro) ============ */
   .browser-frame{
     background:#141E16; border-radius:14px; overflow:hidden;
     border:1px solid rgba(255,255,255,0.10);
     box-shadow:
       0 30px 80px rgba(20,30,22,0.45),
       0 10px 30px rgba(20,30,22,0.25),
-      inset 0 1px 0 rgba(255,255,255,0.05);
-  }
-  .feature.light .browser-frame{
-    box-shadow:
-      0 30px 80px rgba(20,30,22,0.22),
-      0 10px 30px rgba(20,30,22,0.12),
       inset 0 1px 0 rgba(255,255,255,0.05);
   }
   .browser-bar{
@@ -1083,55 +976,10 @@
     width:10px; height:10px; border-radius:50%; border:1.5px solid currentColor;
     border-right-color:transparent; opacity:.5; display:inline-block;
   }
-  .mockup{
-    background:#141E16; color:#E8ECF1; min-height:440px;
-    padding:0; font-size:12px;
-  }
-
-  /* Glow behind mockup */
-  .mockup-wrap::before{
-    content:""; position:absolute; inset:-40px;
-    background:radial-gradient(ellipse at center, rgba(74,107,82,0.18) 0%, transparent 60%);
-    filter:blur(40px); z-index:-1;
-  }
-
-  /* Floating accent card near mockup */
-  .mockup-accent{
-    position:absolute; z-index:5;
-    background:#fff; color:#1A2419;
-    border-radius:12px; padding:11px 14px;
-    font-family:'Inter',sans-serif; font-size:12px;
-    box-shadow:
-      0 18px 40px rgba(20,30,22,0.30),
-      0 6px 14px rgba(20,30,22,0.18),
-      inset 0 1px 0 rgba(255,255,255,0.9);
-    display:flex; align-items:center; gap:10px;
-    animation:accent-float 5s ease-in-out infinite;
-    min-width:160px;
-  }
-  @keyframes accent-float{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-6px); }
-  }
   @keyframes pulse-ring{
     0%{ transform:scale(0.8); opacity:0.6; }
     100%{ transform:scale(1.6); opacity:0; }
   }
-  .mockup-accent .accent-icon{
-    width:30px; height:30px; border-radius:8px;
-    background:rgba(74,107,82,0.10); color:#4A6B52;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-  }
-  .mockup-accent.green .accent-icon{ background:rgba(123,216,155,0.18); color:#1E8A4A; }
-  .mockup-accent .lbl{ font-size:10px; letter-spacing:1.4px; text-transform:uppercase; color:#888; font-weight:600; }
-  .mockup-accent .v{ font-weight:600; color:#1A2419; font-size:13px; line-height:1.2; }
-
-  /* Light mockup overrides — keep dark navy app (consistent brand) */
-  .feature.light .browser-bar{ background:#1A2419; border-bottom:1px solid rgba(255,255,255,0.06); }
-  .feature.light .browser-dots span{ background:rgba(255,255,255,0.12); }
-  .feature.light .browser-url{ background:rgba(255,255,255,0.05); color:var(--text-dim); }
-  .feature.light .mockup{ background:#141E16; color:#E8ECF1; }
 
   /* ============ METRICS (light bg) ============ */
   .metrics{
@@ -1507,7 +1355,6 @@
 
   /* ============ RESPONSIVE ============ */
   @media (max-width:1024px){
-    .feature-grid{ gap:48px; }
     .testimonials{ grid-template-columns:1fr; max-width:600px; }
     .metrics-grid{ grid-template-columns:repeat(2,1fr); gap:48px; }
     .metric:not(:last-child)::after{ display:none; }
@@ -1533,29 +1380,10 @@
     .nav-cta .btn-ghost{ display:none; }
     .nav-mobile-toggle{ display:inline-flex; }
     .hero{ padding-top:120px; }
-    .feature{ padding:80px 24px; }
-    .feature-grid{ grid-template-columns:1fr; gap:48px; }
-    .feature.reverse .feature-grid{ direction:ltr; }
-    .feature.reverse .mockup-wrap{ order:2; }
     .metrics-grid{ grid-template-columns:1fr; gap:48px; }
     .footer-grid{ grid-template-columns:1fr; gap:32px; }
     .logo-row{ gap:32px; }
-    .mockup-wrap{ transform:none; }
-    .feature.reverse .mockup-wrap{ transform:none; }
   }
-
-  /* ============ MOCKUP STYLES (shared) ============ */
-  .mk-pad{ padding:18px; }
-  .mk-row{ display:flex; align-items:center; gap:10px; }
-  .mk-tag{
-    display:inline-block; padding:3px 8px; border-radius:6px;
-    font-size:10px; font-weight:500; font-family:'Inter',sans-serif;
-  }
-  .mk-tag.blue{ background:rgba(143,170,148,0.15); color:var(--accent); }
-  .mk-tag.green{ background:rgba(80,200,120,0.15); color:#7BD89B; }
-  .mk-tag.yellow{ background:rgba(255,200,80,0.12); color:#F0C674; }
-  .mk-tag.red{ background:rgba(232,93,93,0.12); color:#F08080; }
-  .mk-tag.gray{ background:rgba(255,255,255,0.06); color:var(--text-dim); }
 
   /* ============ EXTRA RESPONSIVE ============ */
   @media (max-width:768px){
@@ -1633,19 +1461,7 @@
     .hero-trust-text::after{ display:none; }
 
     /* Sections */
-    .feature{ padding:60px 20px; }
-    /* minmax(0,1fr) lets the column shrink to the viewport; otherwise the
-       mockup's min-content (~476px) forces the column wider and the title/
-       copy overflow off-screen on the right */
-    .feature-grid{ grid-template-columns:minmax(0,1fr); gap:32px; }
-    .feature-title{ font-size:clamp(24px,6.6vw,30px); letter-spacing:-0.6px; }
-    .feature-desc{ font-size:15px; }
-    .mockup-wrap{ max-width:100%; }
-    .ad-section{ overflow-x:hidden; padding:72px 16px 80px; }
-    .ad-row{ grid-template-columns:1fr; gap:12px; }
-    .ad-headers{ grid-template-columns:1fr; gap:8px; }
-    .ad-arrow{ transform:rotate(90deg); padding:4px 0; }
-    .mk-inbox, .mk-crm, .mk-dosier, .mk-budget{ max-height:none; overflow-y:visible; }
+    .acc{ padding:72px 16px 80px; }
 
     .nav-lang-toggle{ padding:4px 8px; font-size:11px; }
     .hero-logos-marquee-wrap .hero-logo-row .hero-logo:nth-child(n+7){ display:flex; }
@@ -1662,7 +1478,7 @@
     .hero h1 em{ padding-right:0; }
     .hero-sub{ font-size:14px; max-width:340px; }
     .container{ padding:0 16px; }
-    .ad-section{ padding:60px 12px; }
+    .acc{ padding:60px 12px 70px; }
     .metrics-grid{ grid-template-columns:1fr; }
     .section-head h2{ font-size:28px; }
     .nav-lang-toggle{ display:none; }
@@ -1868,257 +1684,154 @@
   </div>
 </section>
 
-<!-- ============ ANTES / DESPUÉS ============ -->
-<section class="ad-section" id="funcionalidades" data-bg="dark">
-  <div class="ad-head reveal">
-    <span class="ad-eyebrow">El cambio</span>
-    <h2>Antes era caos. Ahora <em>es FOREVENTOS</em>.</h2>
-    <p>Mismo día. Mismo equipo. Cero fricción.</p>
+<!-- ============ FUNCIONALIDADES (acordeón) ============ -->
+<section class="acc" id="funcionalidades" data-bg="dark">
+  <div class="acc-head reveal">
+    <span class="acc-eyebrow">Así funciona</span>
+    <h2>De la primera petición al <em>evento cerrado</em>.</h2>
+    <p>Cuatro módulos que trabajan conectados. Toca cada paso para ver cómo funciona por dentro.</p>
   </div>
 
-  <div class="ad-headers reveal d1">
-    <span class="ad-col-tag before">
-      <span class="icon">✕</span>
-      Antes
-      <span class="sub">— tu día a día actual</span>
-    </span>
-    <span></span>
-    <span class="ad-col-tag after">
-      <span class="icon">✓</span>
-      Con FOREVENTOS
-      <span class="sub">— todo en un sitio</span>
-    </span>
-  </div>
+  <div class="acc-row reveal d1" id="accRow">
 
-  <div class="ad-rows">
-    <!-- Row 1: peticiones -->
-    <div class="ad-row reveal d1">
-      <div class="ad-card before">
-        <div class="ad-mini gmail"><span class="badge">+12</span></div>
-        <div class="ad-text">
-          <div class="ad-label">Peticiones</div>
-          <div class="ad-line">Peticiones perdidas entre emails y WhatsApps</div>
-          <div class="ad-meta">Inbox personal &middot; 3 bandejas distintas</div>
+    <!-- 01 · Peticiones -->
+    <article class="acc-panel active" data-acc tabindex="0" role="button" aria-expanded="true" aria-label="Peticiones">
+      <div class="acc-label"><span class="acc-num">01</span><span class="acc-vtitle">Peticiones</span></div>
+      <div class="acc-content">
+        <div class="acc-info">
+          <h3 class="acc-title">Entra la petición <span class="acc-badge">Bandeja unificada</span></h3>
+          <p class="acc-desc">Web, bodas.net, email y WhatsApp entran en una sola bandeja. No se te escapa ninguna oportunidad.</p>
+          <div class="acc-group">
+            <span class="acc-glabel">Canales conectados</span>
+            <div class="acc-chips"><span class="acc-chip accent">Web</span><span class="acc-chip accent">bodas.net</span><span class="acc-chip accent">Email</span><span class="acc-chip accent">WhatsApp</span></div>
+          </div>
+          <div class="acc-group">
+            <span class="acc-glabel">Ventajas</span>
+            <div class="acc-chips"><span class="acc-chip">Asignación automática</span><span class="acc-chip">Vista en tiempo real</span></div>
+          </div>
+          <a class="acc-cta" href="#">Empieza gratis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="acc-visual">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url"><span class="lock"></span>app.foreventos.com / inbox</div><div style="width:60px"></div></div>
+            <div class="acc-screen">
+              <div class="sc-h"><span class="t">Bandeja unificada</span><span class="pill pill-green">+5 nuevas</span></div>
+              <div class="sc-row"><div class="av">MP</div><div><div class="who">Marta &amp; Pablo</div><div class="src">Boda &middot; 180 invitados</div></div><span class="chip ch-web">Web</span></div>
+              <div class="sc-row"><div class="av">LR</div><div><div class="who">Laura Ruiz</div><div class="src">Comunión &middot; 60 invitados</div></div><span class="chip ch-bodas">bodas.net</span></div>
+              <div class="sc-row"><div class="av">JC</div><div><div class="who">Javier Costa</div><div class="src">Evento empresa &middot; 120 pax</div></div><span class="chip ch-wa">WhatsApp</span></div>
+              <div class="sc-row"><div class="av">AN</div><div><div class="who">Ana Nieto</div><div class="src">Aniversario &middot; 40 invitados</div></div><span class="chip ch-mail">Email</span></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
-      <div class="ad-card after">
-        <div class="ad-mini after-mini">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="5" cy="6" r="1.8" fill="#8FAA94" stroke="none"/>
-            <circle cx="16" cy="4" r="1.8" fill="#7BD89B" stroke="none"/>
-            <circle cx="27" cy="6" r="1.8" fill="#F0C674" stroke="none"/>
-            <path d="M5 8 L11 16 M16 6 L16 16 M27 8 L21 16" stroke="currentColor" stroke-width="1.4" opacity=".6" stroke-dasharray="1.5 1.5"/>
-            <path d="M4 16 L12 16 L13 18 L19 18 L20 16 L28 16 L28 25 Q28 27 26 27 L6 27 Q4 27 4 25 Z" stroke-width="1.6"/>
-          </svg>
-        </div>
-        <div class="ad-text">
-          <div class="ad-label">Bandeja unificada</div>
-          <div class="ad-line">Todas las peticiones en un solo panel</div>
-          <div class="ad-meta">Web &middot; bodas.net &middot; email &middot; WhatsApp</div>
-        </div>
-      </div>
-    </div>
+    </article>
 
-    <!-- Row 2: dosieres -->
-    <div class="ad-row reveal d2">
-      <div class="ad-card before">
-        <div class="ad-mini pdf">
-          <span class="line"></span><span class="line"></span><span class="line s"></span><span class="line"></span><span class="line s"></span>
-          <span class="tag">PDF</span>
+    <!-- 02 · Clientes -->
+    <article class="acc-panel" data-acc tabindex="0" role="button" aria-expanded="false" aria-label="Clientes">
+      <div class="acc-label"><span class="acc-num">02</span><span class="acc-vtitle">Clientes</span></div>
+      <div class="acc-content">
+        <div class="acc-info">
+          <h3 class="acc-title">Conoces al cliente <span class="acc-badge">CRM y calendario</span></h3>
+          <p class="acc-desc">Ficha completa, historial y próximos pasos. El seguimiento se programa solo y nada se enfría.</p>
+          <div class="acc-group">
+            <span class="acc-glabel">Incluye</span>
+            <div class="acc-chips"><span class="acc-chip accent">Ficha 360°</span><span class="acc-chip accent">Timeline</span><span class="acc-chip accent">Recordatorios</span><span class="acc-chip accent">Calendario</span></div>
+          </div>
+          <div class="acc-group">
+            <span class="acc-glabel">Ventajas</span>
+            <div class="acc-chips"><span class="acc-chip">Seguimiento sin esfuerzo</span><span class="acc-chip">Cero fechas olvidadas</span></div>
+          </div>
+          <a class="acc-cta" href="#">Empieza gratis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="ad-text">
-          <div class="ad-label">Dosieres</div>
-          <div class="ad-line">Dosieres que tardan horas en montar</div>
-          <div class="ad-meta">Maquetar en InDesign &middot; exportar &middot; reenviar</div>
+        <div class="acc-visual">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url"><span class="lock"></span>app.foreventos.com / clientes / Marta&amp;Pablo</div><div style="width:60px"></div></div>
+            <div class="acc-screen">
+              <div class="sc-h"><span class="t">Marta &amp; Pablo</span><span class="pill pill-green">En seguimiento</span></div>
+              <div class="sc-card"><div class="sc-meta"><span>Boda</span><span>&middot;</span><span>180 invitados</span><span>&middot;</span><span>14 jun 2026</span></div></div>
+              <div class="sc-tl">
+                <div class="tl"><span class="dot done"></span><div><b>Petición recibida</b><i>hace 3 días &middot; vía Web</i></div></div>
+                <div class="tl"><span class="dot done"></span><div><b>Visita agendada</b><i>mañana 17:00</i></div></div>
+                <div class="tl"><span class="dot now"></span><div><b>Dosier enviado</b><i>recordatorio en 2 días</i></div></div>
+                <div class="tl"><span class="dot"></span><div><b>Presupuesto</b><i>pendiente</i></div></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
-      <div class="ad-card after">
-        <div class="ad-mini after-mini">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="5" width="15" height="19" rx="2" stroke-width="1.4" opacity=".35" transform="rotate(7 16 15)"/>
-            <rect x="8" y="6" width="15" height="19" rx="2" stroke-width="1.4" opacity=".55" transform="rotate(-4 15 16)"/>
-            <rect x="7" y="7" width="15" height="19" rx="2" fill="rgba(74,107,82,0.18)" stroke-width="1.6"/>
-            <path d="M10 12h9 M10 16h9 M10 20h6" stroke-width="1.4"/>
-            <path d="M22 22.5 l1 -1 l1.2 1 l-1 1.2 z" fill="#8FAA94" stroke="none"/>
-            <path d="M5 11.5 l.8 -.8 l.8 .8 l-.8 .8 z" fill="#8FAA94" stroke="none"/>
-          </svg>
-        </div>
-        <div class="ad-text">
-          <div class="ad-label">Dosieres digitales</div>
-          <div class="ad-line">Dosieres digitales listos en minutos</div>
-          <div class="ad-meta">Interactivos &middot; métricas de apertura</div>
-        </div>
-      </div>
-    </div>
+    </article>
 
-    <!-- Row 3: CRM -->
-    <div class="ad-row reveal d3">
-      <div class="ad-card before">
-        <div class="ad-mini excel"><div class="grid"></div></div>
-        <div class="ad-text">
-          <div class="ad-label">Seguimiento</div>
-          <div class="ad-line">Seguimiento comercial en hojas de cálculo</div>
-          <div class="ad-meta">Excel compartido &middot; sin historial real</div>
+    <!-- 03 · Dosieres -->
+    <article class="acc-panel" data-acc tabindex="0" role="button" aria-expanded="false" aria-label="Dosieres">
+      <div class="acc-label"><span class="acc-num">03</span><span class="acc-vtitle">Dosieres</span></div>
+      <div class="acc-content">
+        <div class="acc-info">
+          <h3 class="acc-title">Envías el dosier <span class="acc-badge">Dosieres digitales</span></h3>
+          <p class="acc-desc">A medida y en minutos, no en horas. Interactivos y con métricas: sabes justo cuándo los abren.</p>
+          <div class="acc-group">
+            <span class="acc-glabel">Incluye</span>
+            <div class="acc-chips"><span class="acc-chip accent">Plantillas a medida</span><span class="acc-chip accent">Interactivo</span><span class="acc-chip accent">Métricas de apertura</span></div>
+          </div>
+          <div class="acc-group">
+            <span class="acc-glabel">Ventajas</span>
+            <div class="acc-chips"><span class="acc-chip">Listo en minutos</span><span class="acc-chip">Sabes cuándo lo abren</span></div>
+          </div>
+          <a class="acc-cta" href="#">Empieza gratis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="acc-visual">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url"><span class="lock"></span>app.foreventos.com / dosieres / #1042</div><div style="width:60px"></div></div>
+            <div class="acc-screen">
+              <div class="sc-h"><span class="t">Dosier &middot; Marta &amp; Pablo</span><span class="pill pill-green">Abierto hace 2 min</span></div>
+              <div class="sc-doc">
+                <div class="sc-doc-cover">FOREVENTOS<span>Propuesta de boda</span></div>
+                <div class="sc-doc-lines"><span></span><span></span><span class="s"></span><span></span><span class="s"></span><span></span></div>
+              </div>
+              <div class="sc-stat">
+                <div><div class="k">Aperturas</div><div class="v">3</div></div>
+                <div><div class="k">Tiempo medio</div><div class="v">4m 12s</div></div>
+                <div><div class="k">Páginas</div><div class="v">8/8</div></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
-      <div class="ad-card after">
-        <div class="ad-mini after-mini">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="16" cy="12" r="4" stroke-width="1.6"/>
-            <path d="M8 25 Q8 19 16 19 Q24 19 24 25" stroke-width="1.6"/>
-            <circle cx="5" cy="6" r="1.6" fill="#8FAA94" stroke="none"/>
-            <circle cx="27" cy="6" r="1.6" fill="#8FAA94" stroke="none"/>
-            <circle cx="4" cy="22" r="1.6" fill="#8FAA94" stroke="none"/>
-            <circle cx="28" cy="22" r="1.6" fill="#8FAA94" stroke="none"/>
-            <path d="M6 7 L13 11 M26 7 L19 11 M5 22 L13 20 M27 22 L19 20" stroke-width="1" stroke-dasharray="1.8 1.8" opacity=".55"/>
-          </svg>
-        </div>
-        <div class="ad-text">
-          <div class="ad-label">CRM integrado</div>
-          <div class="ad-line">CRM con seguimiento automático</div>
-          <div class="ad-meta">Ficha &middot; timeline &middot; recordatorios</div>
-        </div>
-      </div>
-    </div>
+    </article>
 
-    <!-- Row 4: presupuestos -->
-    <div class="ad-row reveal d4">
-      <div class="ad-card before">
-        <div class="ad-mini pdf">
-          <span class="line"></span><span class="line s"></span><span class="line"></span><span class="line"></span>
-          <span class="tag">PDF</span>
+    <!-- 04 · Presupuestos -->
+    <article class="acc-panel" data-acc tabindex="0" role="button" aria-expanded="false" aria-label="Presupuestos">
+      <div class="acc-label"><span class="acc-num">04</span><span class="acc-vtitle">Presupuestos</span></div>
+      <div class="acc-content">
+        <div class="acc-info">
+          <h3 class="acc-title">Cierras el evento <span class="acc-badge">Presupuestos online</span></h3>
+          <p class="acc-desc">Presupuestos que se aceptan y firman online. Sin PDFs que nadie abre y con aviso al instante.</p>
+          <div class="acc-group">
+            <span class="acc-glabel">Incluye</span>
+            <div class="acc-chips"><span class="acc-chip accent">Firma online</span><span class="acc-chip accent">Aceptación en vivo</span><span class="acc-chip accent">Aviso al instante</span></div>
+          </div>
+          <div class="acc-group">
+            <span class="acc-glabel">Ventajas</span>
+            <div class="acc-chips"><span class="acc-chip">Cierras antes</span><span class="acc-chip">Todo queda registrado</span></div>
+          </div>
+          <a class="acc-cta" href="#">Empieza gratis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="ad-text">
-          <div class="ad-label">Presupuestos</div>
-          <div class="ad-line">Presupuestos en PDF que nadie abre</div>
-          <div class="ad-meta">Cero tracking &middot; sin firma online</div>
+        <div class="acc-visual">
+          <div class="browser-frame">
+            <div class="browser-bar"><div class="browser-dots"><span></span><span></span><span></span></div><div class="browser-url"><span class="lock"></span>app.foreventos.com / presupuestos / #1042</div><div style="width:60px"></div></div>
+            <div class="acc-screen">
+              <div class="sc-h"><span class="t">Presupuesto #1042</span><span class="pill pill-green">Aceptado</span></div>
+              <div class="sc-li"><span>Espacio + cóctel de bienvenida</span><span>6.800 €</span></div>
+              <div class="sc-li"><span>Menú &middot; 180 invitados</span><span>16.200 €</span></div>
+              <div class="sc-li"><span>Barra libre premium</span><span>3.600 €</span></div>
+              <div class="sc-li"><span>Coordinación del día</span><span>1.800 €</span></div>
+              <div class="sc-li total"><span>Total</span><span>28.400 €</span></div>
+              <div class="sc-sign"><div class="sig-check">&#10003;</div><div><b>Firmado online</b><i>por Marta G. &middot; hoy 12:04</i></div></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="ad-arrow"><div class="ad-arrow-line"><span class="pulse"></span></div></div>
-      <div class="ad-card after">
-        <div class="ad-mini after-mini">
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 4 L20 4 L26 10 L26 28 L6 28 Z" stroke-width="1.6"/>
-            <path d="M20 4 L20 10 L26 10" stroke-width="1.4" opacity=".7"/>
-            <path d="M10 15h12 M10 19h8" stroke-width="1.4"/>
-            <circle cx="22" cy="24" r="4.5" fill="rgba(123,216,155,0.20)" stroke="#7BD89B" stroke-width="1.4"/>
-            <path d="M19.8 24 L21.5 25.7 L24.4 22.5" stroke="#7BD89B" stroke-width="1.6"/>
-          </svg>
-        </div>
-        <div class="ad-text">
-          <div class="ad-label">Presupuestos digitales</div>
-          <div class="ad-line">Presupuestos que se aceptan online</div>
-          <div class="ad-meta">Apertura en vivo &middot; firma con un click</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </article>
 
-<!-- ============ FEATURE 1 — PETICIONES ============ -->
-<section class="feature light" data-num="01">
-  <div class="feature-grid">
-    <div class="reveal">
-      <span class="feature-tag"><span class="num">01</span> PETICIONES</span>
-      <h3 class="feature-title">Todas tus peticiones en un solo lugar</h3>
-      <p class="feature-desc">Conecta tu web, portales de bodas y email. Cada petición llega automáticamente a tu panel y no se pierde ninguna oportunidad.</p>
-      <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Conexión con múltiples canales de venta</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Asignación automática al equipo</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Vista unificada en tiempo real</li>
-      </ul>
-    </div>
-    <div class="mockup-wrap reveal d2">
-      <div class="browser-frame">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url"><span class="lock"></span>app.foreventos.com / inbox</div>
-          <div style="width:60px"></div>
-        </div>
-        <div class="mockup mk-inbox"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURE 2 — CRM ============ -->
-<section class="feature dark reverse" data-bg="dark" data-num="02">
-  <div class="feature-grid">
-    <div class="reveal">
-      <span class="feature-tag"><span class="num">02</span> CRM Y CALENDARIO</span>
-      <h3 class="feature-title">Conoce a cada cliente. Controla cada fecha.</h3>
-      <p class="feature-desc">Ficha completa de cada lead con historial de interacciones. Calendario visual con todas las citas, visitas y eventos confirmados.</p>
-      <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Historial completo por cliente</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Seguimiento automatizado</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Calendario visual sincronizado</li>
-      </ul>
-    </div>
-    <div class="mockup-wrap reveal d2">
-      <div class="browser-frame">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url"><span class="lock"></span>app.foreventos.com / clientes / Marta&Pablo</div>
-          <div style="width:60px"></div>
-        </div>
-        <div class="mockup mk-crm"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURE 3 — DOSIERES ============ -->
-<section class="feature light" data-num="03">
-  <div class="feature-grid">
-    <div class="reveal">
-      <span class="feature-tag"><span class="num">03</span> DOSIERES DIGITALES</span>
-      <h3 class="feature-title">Dosieres que enamoran y convierten</h3>
-      <p class="feature-desc">Olvídate de montar PDFs durante horas. Crea dosieres digitales interactivos en minutos que impresionan a tus clientes y miden cada apertura.</p>
-      <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Creación automatizada en minutos</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Interactivos y visuales</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Métricas de apertura y engagement</li>
-      </ul>
-    </div>
-    <div class="mockup-wrap reveal d2">
-      <div class="browser-frame">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url"><span class="lock"></span>view.foreventos.com / dosier / casa-olivar</div>
-          <div style="width:60px"></div>
-        </div>
-        <div class="mockup mk-dosier"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FEATURE 4 — PRESUPUESTOS ============ -->
-<section class="feature dark reverse" data-bg="dark" data-num="04">
-  <div class="feature-grid">
-    <div class="reveal">
-      <span class="feature-tag"><span class="num">04</span> PRESUPUESTOS</span>
-      <h3 class="feature-title">Presupuestos que se aceptan, no que se ignoran</h3>
-      <p class="feature-desc">Envía presupuestos digitales con un clic. Tu cliente los revisa, acepta y firma online. Tú ves en tiempo real quién ha abierto qué.</p>
-      <ul class="feature-bullets">
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Envío y firma 100% digital</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Seguimiento de aperturas en tiempo real</li>
-        <li><span class="bullet-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>Tasa de conversión visible</li>
-      </ul>
-    </div>
-    <div class="mockup-wrap reveal d2">
-      <div class="browser-frame">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url"><span class="lock"></span>view.foreventos.com / presupuesto / 2026-0184</div>
-          <div style="width:60px"></div>
-        </div>
-        <div class="mockup mk-budget"></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -2380,6 +2093,29 @@
   }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  // ===== Funcionalidades — acordeón clicable =====
+  (function(){
+    const row = document.getElementById('accRow');
+    if(!row) return;
+    const panels = Array.from(row.querySelectorAll('[data-acc]'));
+    function activate(p){
+      panels.forEach(el => {
+        const on = el === p;
+        el.classList.toggle('active', on);
+        el.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    }
+    panels.forEach(p => {
+      p.addEventListener('click', () => activate(p));
+      p.addEventListener('keydown', e => {
+        const i = panels.indexOf(p);
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(p); }
+        else if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){ e.preventDefault(); (panels[i+1] || panels[0]).focus(); }
+        else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){ e.preventDefault(); (panels[i-1] || panels[panels.length-1]).focus(); }
+      });
+    });
+  })();
+
   // ===== Metric count-up =====
   function animateMetric(metricEl){
     const num = metricEl.querySelector('.metric-num');
@@ -2417,291 +2153,6 @@
     });
   }
 
-  // ===== Build feature mockups =====
-  function buildInbox(root){
-    const channelIcon = (c) => {
-      const colors = { web:'#8FAA94', bodas:'#F09BB4', email:'#F0C674', whats:'#7BD89B' };
-      const labels = { web:'W', bodas:'B', email:'@', whats:'W' };
-      return `<span style="display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:rgba(255,255,255,0.04); color:${colors[c]}; font-size:10px; font-weight:700; font-family:Inter,sans-serif;">${labels[c]}</span>`;
-    };
-    root.innerHTML = `
-      <div style="display:flex; gap:0; height:460px;">
-        <aside style="width:176px; padding:16px 12px; border-right:1px solid rgba(255,255,255,0.06); font-size:11px; display:flex; flex-direction:column; gap:4px;">
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
-            <div style="width:22px; height:22px; border-radius:6px; background:linear-gradient(135deg,#8FAA94,#4A6B52); display:flex; align-items:center; justify-content:center; color:#141E16; font-weight:700; font-size:11px;">F</div>
-            <span style="font-weight:600; color:#fff; font-size:12px;">FOREVENTOS</span>
-          </div>
-          <div style="font-size:9px; letter-spacing:1.5px; color:#7A8479; text-transform:uppercase; margin:8px 0 6px;">Peticiones</div>
-          <div style="display:flex; flex-direction:column; gap:2px;">
-            ${[
-              ['Bandeja entrante',24,true],
-              ['Sin asignar',8,false],
-              ['Asignadas a mí',5,false],
-              ['Visitas programadas',3,false],
-              ['Ganadas',142,false]
-            ].map(([t,n,active])=>`
-              <div style="padding:7px 10px; border-radius:7px; display:flex; justify-content:space-between; align-items:center; ${active?'background:rgba(143,170,148,0.10); color:#8FAA94':'color:#8A9489'}">
-                <span style="font-size:11px;">${t}</span><span style="opacity:.7; font-size:10px;">${n}</span>
-              </div>`).join('')}
-          </div>
-          <div style="font-size:9px; letter-spacing:1.5px; color:#7A8479; text-transform:uppercase; margin:14px 0 6px;">Canales</div>
-          <div style="display:flex; flex-direction:column; gap:5px; color:#8A9489; font-size:11px;">
-            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="display:flex; align-items:center; gap:8px;"><span style="width:6px; height:6px; background:#8FAA94; border-radius:50%;"></span>Web propia</span><span style="opacity:.5; font-size:10px;">12</span></div>
-            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="display:flex; align-items:center; gap:8px;"><span style="width:6px; height:6px; background:#F09BB4; border-radius:50%;"></span>Bodas.net</span><span style="opacity:.5; font-size:10px;">7</span></div>
-            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="display:flex; align-items:center; gap:8px;"><span style="width:6px; height:6px; background:#F0C674; border-radius:50%;"></span>Email</span><span style="opacity:.5; font-size:10px;">3</span></div>
-            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="display:flex; align-items:center; gap:8px;"><span style="width:6px; height:6px; background:#7BD89B; border-radius:50%;"></span>WhatsApp</span><span style="opacity:.5; font-size:10px;">2</span></div>
-          </div>
-        </aside>
-        <main style="flex:1; padding:16px 18px; min-width:0; display:flex; flex-direction:column; gap:12px;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <div style="font-weight:600; color:#fff; font-size:13px;">Bandeja entrante</div>
-              <div style="font-size:11px; color:#8A9489; margin-top:2px;">24 peticiones · 8 nuevas hoy · 0 perdidas</div>
-            </div>
-            <div style="display:flex; gap:6px;">
-              <span class="mk-tag gray">Hoy ▾</span>
-              <span class="mk-tag gray">Todos los canales ▾</span>
-              <span style="background:rgba(143,170,148,0.14); color:#8FAA94; padding:5px 10px; border-radius:6px; font-size:10px; font-weight:500;">+ Filtrar</span>
-            </div>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
-            ${[
-              ['Marta &amp; Pablo','Boda · 14 jun 2026 · 180 pax','web','LM','blue','Nuevo','hace 4 min',true],
-              ['Empresa Lumen S.L.','MICE · 22 sep 2026 · 60 pax','email','—','yellow','Sin asignar','hace 18 min',false],
-              ['Carmen Vidal','Boda · 7 jul 2026 · 110 pax','bodas','JR','green','En negociación','hace 2 h',false],
-              ['Grupo Albor','Cena de gala · 19 oct 2026 · 240 pax','web','LM','blue','Nuevo','ayer 18:42',false],
-              ['Sara &amp; Diego','Boda · 30 may 2027 · 220 pax','whats','—','yellow','Sin asignar','ayer 14:08',false],
-              ['Iberian Wines · Cata corporativa','MICE · 5 nov 2026 · 45 pax','email','JR','green','Visita el 12','12 may',false]
-            ].map(([n,d,ch,asg,tg,st,t,hl])=>`
-              <div style="display:grid; grid-template-columns:auto 1fr auto auto auto; gap:12px; align-items:center; padding:10px 12px; background:${hl?'rgba(143,170,148,0.06)':'rgba(255,255,255,0.025)'}; border:1px solid ${hl?'rgba(143,170,148,0.20)':'rgba(255,255,255,0.04)'}; border-radius:8px;">
-                ${channelIcon(ch)}
-                <div style="min-width:0;">
-                  <div style="font-size:12px; font-weight:500; color:#fff; display:flex; align-items:center; gap:6px;">${n} ${hl?'<span style="width:6px; height:6px; background:#8FAA94; border-radius:50%; box-shadow:0 0 8px #8FAA94;"></span>':''}</div>
-                  <div style="font-size:11px; color:#8A9489; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${d}</div>
-                </div>
-                <div style="width:24px; height:24px; border-radius:50%; background:${asg==='—'?'transparent':asg==='LM'?'#8FAA94':'#F0C674'}; border:1px dashed ${asg==='—'?'rgba(255,255,255,0.20)':'transparent'}; display:flex; align-items:center; justify-content:center; color:#141E16; font-size:9px; font-weight:700;">${asg==='—'?'<span style=color:#8A9489>?</span>':asg}</div>
-                <span class="mk-tag ${tg}" style="font-size:9px; white-space:nowrap;">${st}</span>
-                <span style="font-size:10px; color:#7A8479; min-width:60px; text-align:right;">${t}</span>
-              </div>`).join('')}
-          </div>
-        </main>
-      </div>`;
-  }
-
-  function buildCRM(root){
-    root.innerHTML = `
-      <div style="display:grid; grid-template-columns:1fr 1.25fr; gap:0; height:460px;">
-        <div style="padding:18px; border-right:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; gap:14px; min-width:0;">
-          <div style="display:flex; align-items:center; gap:12px;">
-            <div style="width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#8FAA94,#4A6B52); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:14px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.3);">M&amp;P</div>
-            <div style="min-width:0;">
-              <div style="font-weight:600; font-size:14px; color:#fff;">Marta &amp; Pablo</div>
-              <div style="font-size:11px; color:#8A9489;">Boda · 180 pax · 14 jun 2026</div>
-            </div>
-          </div>
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="mk-tag blue" style="font-size:9px;">★ Lead caliente</span>
-            <span class="mk-tag green" style="font-size:9px;">Visita realizada</span>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:11px;">
-            ${[
-              ['Presupuesto','28.400€','#fff'],
-              ['Probabilidad','85%','#7BD89B'],
-              ['Comercial','Laura M.','#fff'],
-              ['Origen','Web propia','#8FAA94']
-            ].map(([k,v,c])=>`
-              <div style="padding:9px 10px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.04); border-radius:8px;">
-                <div style="color:#7A8479; font-size:9px; text-transform:uppercase; letter-spacing:1.2px;">${k}</div>
-                <div style="color:${c}; font-weight:600; margin-top:3px; font-size:13px;">${v}</div>
-              </div>`).join('')}
-          </div>
-          <div style="margin-top:2px; min-width:0;">
-            <div style="font-size:10px; letter-spacing:1.5px; color:#7A8479; text-transform:uppercase; margin-bottom:10px;">Timeline</div>
-            <div style="display:flex; flex-direction:column; gap:10px; font-size:11px; padding-left:18px; position:relative;">
-              <span style="position:absolute; left:4px; top:6px; bottom:6px; width:1.5px; background:linear-gradient(180deg, #8FAA94 0%, rgba(143,170,148,0.10) 100%);"></span>
-              ${[
-                ['Hoy 17:42','Marta abrió presupuesto · 3a vez','#8FAA94','◆'],
-                ['Ayer','Visita al espacio completada','#7BD89B','✓'],
-                ['12 may','Llamada inicial · 22 min','#F0C674','☎'],
-                ['10 may','Petición desde web propia','#8FAA94','↓']
-              ].map(([d,t,c,ic])=>`
-                <div style="position:relative;">
-                  <span style="position:absolute; left:-21px; top:0; width:14px; height:14px; border-radius:50%; background:${c}; display:flex; align-items:center; justify-content:center; color:#141E16; font-size:9px; font-weight:700;">${ic}</span>
-                  <div style="font-weight:600; color:#fff; font-size:11px;">${d}</div>
-                  <div style="color:#8A9489; margin-top:1px; font-size:11px;">${t}</div>
-                </div>`).join('')}
-            </div>
-          </div>
-        </div>
-        <div style="padding:18px; display:flex; flex-direction:column; gap:12px; min-width:0;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <div style="font-weight:600; font-size:13px; color:#fff;">Junio 2026</div>
-              <div style="font-size:10px; color:#8A9489; margin-top:2px;">8 eventos confirmados</div>
-            </div>
-            <div style="display:flex; gap:4px; align-items:center;">
-              <button style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); padding:4px 7px; border-radius:6px; font-size:11px; cursor:pointer; color:#8A9489;">‹</button>
-              <button style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); padding:4px 7px; border-radius:6px; font-size:11px; cursor:pointer; color:#8A9489;">›</button>
-              <span style="margin-left:6px; padding:3px 9px; background:rgba(143,170,148,0.12); color:#8FAA94; border-radius:6px; font-size:10px; font-weight:500;">Mes</span>
-            </div>
-          </div>
-          <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; font-size:10px; color:#7A8479;">
-            ${['L','M','X','J','V','S','D'].map(d=>`<div style="text-align:center; font-weight:600; letter-spacing:1px;">${d}</div>`).join('')}
-          </div>
-          <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; flex:1;">
-            ${Array.from({length:35}, (_,i)=>{
-              const day = i - 0;
-              const dayNum = day < 1 ? '' : (day > 30 ? day-30 : day);
-              const isCurrent = day >= 1 && day <= 30;
-              const isToday = day === 17;
-              const events = {3:[['green','Visita']], 5:[['blue','Boda']], 12:[['yellow','Cata']], 14:[['blue','M&amp;P · 180p']], 19:[['green','Visita']], 22:[['blue','Boda']], 25:[['yellow','Reunión']], 28:[['blue','Boda']]};
-              const ev = events[day] || [];
-              return `<div style="aspect-ratio:1.1; background:${isToday?'rgba(143,170,148,0.10)':'rgba(255,255,255,0.02)'}; border:1px solid ${isToday?'rgba(143,170,148,0.30)':'rgba(255,255,255,0.04)'}; border-radius:6px; padding:4px; font-size:9px; color:${isCurrent?'#fff':'#3A4838'}; display:flex; flex-direction:column; gap:2px; min-height:0;">
-                <div style="font-weight:${isToday?'700':'500'}; ${isToday?'color:#8FAA94':''}">${dayNum}</div>
-                ${ev.map(([c,t])=>`<div style="background:${c==='blue'?'rgba(74,107,82,0.30)':c==='green'?'rgba(80,180,120,0.25)':'rgba(240,198,116,0.25)'}; color:${c==='blue'?'#C8D4B8':c==='green'?'#A6E0BC':'#F0C674'}; padding:1px 3px; border-radius:3px; font-size:8px; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${t}</div>`).join('')}
-              </div>`;
-            }).join('')}
-          </div>
-        </div>
-      </div>`;
-  }
-
-  function buildDosier(root){
-    root.innerHTML = `
-      <div style="height:460px; display:grid; grid-template-columns:1.2fr 0.85fr;">
-        <div style="background:#14201A; position:relative; overflow:hidden;">
-          <!-- Image placeholder area with venue ambiance -->
-          <div style="height:62%; background:
-              radial-gradient(ellipse 60% 50% at 50% 30%, rgba(240,198,116,0.20) 0%, transparent 65%),
-              radial-gradient(ellipse 50% 40% at 20% 70%, rgba(143,170,148,0.18) 0%, transparent 70%),
-              linear-gradient(135deg, #1a1208 0%, #0d1018 60%, #141E16 100%);
-              position:relative; padding:20px; display:flex; flex-direction:column; justify-content:flex-end;">
-            <!-- Star sparkles -->
-            <div style="position:absolute; inset:0; background-image:
-              radial-gradient(circle 1px at 22% 28%, rgba(255,220,160,0.7), transparent 3px),
-              radial-gradient(circle 1.5px at 64% 18%, rgba(255,220,160,0.85), transparent 4px),
-              radial-gradient(circle 1px at 82% 36%, rgba(255,220,160,0.6), transparent 3px),
-              radial-gradient(circle 1px at 38% 48%, rgba(216,224,206,0.55), transparent 3px);"></div>
-            <!-- Placeholder label -->
-            <div style="position:absolute; top:14px; right:14px; padding:4px 10px; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.10); border-radius:6px; font-family:'Inter',monospace; font-size:9px; color:#D8DCCE; letter-spacing:1px;">imagen del espacio</div>
-            <div style="position:relative; z-index:2;">
-              <div style="font-size:10px; letter-spacing:3px; color:#F0C674; text-transform:uppercase; margin-bottom:8px;">— Casa Olivar</div>
-              <div style="font-family:'Satoshi',sans-serif; font-weight:700; font-size:30px; color:#fff; line-height:1.02; letter-spacing:-1.2px; max-width:280px;">Vuestro día,<br/>en su mejor versión.</div>
-              <div style="font-size:11px; color:#D8DCCE; margin-top:12px;">Para Marta &amp; Pablo · Junio 2026</div>
-            </div>
-          </div>
-          <!-- Tabs nav -->
-          <div style="padding:14px 20px;">
-            <div style="display:flex; gap:18px; border-bottom:1px solid rgba(255,255,255,0.06); padding-bottom:8px; margin-bottom:14px;">
-              ${['Inicio','Espacios','Menú','Equipo','Inversión'].map((t,i)=>`<div style="font-size:11px; color:${i===2?'#fff':'#8A9489'}; font-weight:${i===2?'600':'500'}; padding-bottom:8px; margin-bottom:-9px; border-bottom:1.5px solid ${i===2?'#F0C674':'transparent'};">${t}</div>`).join('')}
-            </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span class="mk-tag gray" style="font-size:9px;">180 invitados</span>
-              <span class="mk-tag gray" style="font-size:9px;">Cóctel + cena de gala</span>
-              <span class="mk-tag gray" style="font-size:9px;">Sábado tarde-noche</span>
-            </div>
-          </div>
-        </div>
-        <div style="padding:18px; background:#1A2419; border-left:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; gap:14px; min-width:0;">
-          <div>
-            <div style="display:flex; align-items:center; gap:6px; margin-bottom:10px;">
-              <span style="width:6px; height:6px; background:#7BD89B; border-radius:50%; box-shadow:0 0 0 3px rgba(123,216,155,0.18);"></span>
-              <div style="font-size:10px; letter-spacing:1.5px; color:#7BD89B; text-transform:uppercase; font-weight:600;">En vivo · ahora</div>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:8px;">
-              ${[['Aperturas totales','7','#8FAA94','▲'],['Tiempo medio','4m 12s','#7BD89B','◷'],['Sección + vista','Espacios · 2m','#F0C674','◉']].map(([k,v,c,ic])=>`
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:8px;">
-                  <div style="display:flex; align-items:center; gap:8px;">
-                    <span style="width:20px; height:20px; border-radius:6px; background:${c}22; color:${c}; display:flex; align-items:center; justify-content:center; font-size:10px;">${ic}</span>
-                    <span style="font-size:11px; color:#D8DCCE;">${k}</span>
-                  </div>
-                  <span style="font-size:13px; font-weight:600; color:${c};">${v}</span>
-                </div>`).join('')}
-            </div>
-          </div>
-          <!-- Mini engagement chart -->
-          <div style="padding:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:8px;">
-            <div style="font-size:10px; letter-spacing:1.5px; color:#7A8479; text-transform:uppercase; margin-bottom:8px;">Visitas por día</div>
-            <div style="display:flex; align-items:flex-end; gap:4px; height:36px;">
-              ${[8,12,6,18,14,22,17].map((h,i)=>`<div style="flex:1; height:${h*100/22}%; background:linear-gradient(180deg, ${i===6?'#8FAA94':'rgba(143,170,148,0.40)'}, rgba(143,170,148,0.10)); border-radius:3px 3px 0 0;"></div>`).join('')}
-            </div>
-            <div style="display:flex; justify-content:space-between; font-size:8px; color:#7A8479; margin-top:4px; letter-spacing:.5px;">
-              <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
-            </div>
-          </div>
-          <div style="min-width:0;">
-            <div style="font-size:10px; letter-spacing:1.5px; color:#7A8479; text-transform:uppercase; margin-bottom:8px;">Última actividad</div>
-            <div style="display:flex; flex-direction:column; gap:5px; font-size:11px; color:#8A9489;">
-              <div>17:42 · <span style="color:#E8ECF1;">Marta abre "Menú"</span></div>
-              <div>17:38 · <span style="color:#E8ECF1;">Vio galería Salón Ámbar</span></div>
-              <div>Ayer · <span style="color:#E8ECF1;">Compartió con Pablo</span></div>
-            </div>
-          </div>
-        </div>
-      </div>`;
-  }
-
-  function buildBudget(root){
-    root.innerHTML = `
-      <div style="height:460px; display:grid; grid-template-columns:1.4fr 0.95fr;">
-        <div style="padding:22px 24px; border-right:1px solid rgba(255,255,255,0.06); overflow:hidden; display:flex; flex-direction:column; gap:14px; min-width:0;">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-            <div style="min-width:0;">
-              <div style="font-size:10px; letter-spacing:2px; color:#8FAA94; text-transform:uppercase; font-weight:600;">Presupuesto · 2026-0184</div>
-              <div style="font-family:'Satoshi',sans-serif; font-weight:700; font-size:22px; color:#fff; letter-spacing:-.6px; margin-top:6px;">Boda Marta &amp; Pablo</div>
-              <div style="font-size:11px; color:#8A9489; margin-top:2px;">Casa Olivar · sábado 14 jun 2026 · 180 pax</div>
-            </div>
-            <span class="mk-tag blue" style="font-size:10px; white-space:nowrap;">● Abierto 3 veces</span>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:0;">
-            ${[
-              ['Alquiler del espacio · sábado tarde-noche','5.500€'],
-              ['Cóctel de bienvenida · 180 pax','3.240€'],
-              ['Menú degustación gourmet · 180 pax','13.500€'],
-              ['Barra libre 5h · vinos seleccionados','3.960€'],
-              ['Personal de sala · 14 cam. + maître','1.820€'],
-              ['Mobiliario premium + decoración base','380€']
-            ].map(([l,p],i,arr)=>`
-              <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid ${i===arr.length-1?'transparent':'rgba(255,255,255,0.05)'}; font-size:12px; color:#E8ECF1; min-width:0;">
-                <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-right:12px;">${l}</span><span style="font-weight:500; color:#fff; white-space:nowrap;">${p}</span>
-              </div>`).join('')}
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 16px; background:rgba(143,170,148,0.08); border:1px solid rgba(143,170,148,0.18); border-radius:10px; margin-top:auto;">
-            <span style="font-size:10px; color:#8A9489; text-transform:uppercase; letter-spacing:1.5px;">Total (IVA incl.)</span>
-            <span style="font-family:'Satoshi',sans-serif; font-weight:700; font-size:24px; color:#fff; letter-spacing:-.6px;">28.400€</span>
-          </div>
-        </div>
-        <div style="padding:20px; display:flex; flex-direction:column; gap:12px; background:#1A2419; min-width:0;">
-          <div style="padding:13px; background:rgba(123,216,155,0.08); border:1px solid rgba(123,216,155,0.22); border-radius:10px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-              <div style="position:relative; width:10px; height:10px;">
-                <div style="position:absolute; inset:0; background:#7BD89B; border-radius:50%;"></div>
-                <div style="position:absolute; inset:-3px; border:1.5px solid #7BD89B; border-radius:50%; opacity:.5; animation:pulse-ring 2s ease-out infinite;"></div>
-              </div>
-              <span style="font-size:11px; font-weight:600; color:#7BD89B; letter-spacing:.5px;">VIENDO AHORA</span>
-            </div>
-            <div style="font-size:11px; color:#D8DCCE; line-height:1.5;">Marta está revisando <strong style="color:#fff;">"Menú degustación"</strong> desde hace 2 min.</div>
-          </div>
-          <div style="padding:13px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.05); border-radius:10px; min-width:0;">
-            <div style="font-size:10px; color:#7A8479; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:10px;">Historial de acciones</div>
-            <div style="display:flex; flex-direction:column; gap:7px; font-size:11px;">
-              ${[
-                ['Hoy 18:04','Abrió presupuesto','#8FAA94'],
-                ['Hoy 18:02','Descargó plano del espacio','#F0C674'],
-                ['Ayer 21:18','Compartió con Pablo','#7BD89B'],
-                ['Ayer 21:02','Primera apertura','#8FAA94']
-              ].map(([t,a,c])=>`
-                <div style="display:flex; justify-content:space-between; gap:10px; min-width:0;">
-                  <span style="color:#fff; font-weight:500; flex-shrink:0;">${t}</span>
-                  <span style="color:#8A9489; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${a}</span>
-                </div>`).join('')}
-            </div>
-          </div>
-          <button style="margin-top:auto; padding:13px; background:linear-gradient(180deg, #8FAA94 0%, #4A6B52 100%); color:#fff; border:0; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 6px 18px rgba(74,107,82,0.35); display:flex; align-items:center; justify-content:center; gap:6px;">Aceptar y firmar online <span style="font-size:14px;">→</span></button>
-        </div>
-      </div>`;
-  }
-
   // ===== Spawn ambient sparks in hero scene =====
   (function spawnSparks(){
     const stage = document.getElementById('sceneParticles');
@@ -2724,11 +2175,6 @@
       stage.appendChild(s);
     }
   })();
-
-  buildInbox(document.querySelector('.mk-inbox'));
-  buildCRM(document.querySelector('.mk-crm'));
-  buildDosier(document.querySelector('.mk-dosier'));
-  buildBudget(document.querySelector('.mk-budget'));
 
   /* Mobile menu */
   (function(){
