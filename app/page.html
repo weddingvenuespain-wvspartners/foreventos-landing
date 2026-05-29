@@ -1427,7 +1427,14 @@
     .scene-card.c1{ top:-2%;  left:-4%;  width:146px; }
     .scene-card.c2{ top:30%;  right:-5%; width:140px; }
     .scene-card.c3{ bottom:0;  left:0;   width:152px; }
-    .scene-calendar{ display:none; }
+    /* Show the calendar in portrait too — it lands on the dashed line that
+       already points to the empty bottom-right node */
+    .scene-calendar{
+      display:block; bottom:3%; right:-4%; left:auto; top:auto;
+      width:134px; padding:9px 10px; border-radius:12px;
+    }
+    .scene-calendar .sc-cal-head{ font-size:9px; margin-bottom:6px; }
+    .scene-calendar .sc-cal-day{ font-size:8px; }
     .scene-check{ top:50%; left:50%; width:56px; height:56px; }
     .scene-check svg{ width:28px; height:28px; }
     .hero-left{ display:flex; flex-direction:column; align-items:center; text-align:center; padding-top:8px; }
