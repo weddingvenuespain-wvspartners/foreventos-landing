@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1120" viewBox="0 0 1320 1120" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Icon designed in 240x240 box. Strokes = currentColor (recolorable). Dot stays green. -->
+    <g id="icon">
+      <g fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M72 200 V112 A48 48 0 0 1 168 112 V200"/>
+        <path d="M72 124 H146"/>
+      </g>
+      <circle cx="120" cy="162" r="15" fill="#7BD89B"/>
+    </g>
+    <!-- bolder variant for tiny sizes -->
+    <g id="iconBold">
+      <g fill="none" stroke="currentColor" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M74 198 V114 A46 46 0 0 1 166 114 V198"/>
+        <path d="M74 124 H144"/>
+      </g>
+      <circle cx="120" cy="162" r="16" fill="#7BD89B"/>
+    </g>
+  </defs>
+
+  <rect width="1320" height="1120" fill="#FFFFFF"/>
+
+  <text x="80" y="68" font-size="32" font-weight="700" fill="#233D2E">A · "F-portal" — icono / favicon</text>
+  <text x="80" y="100" font-size="17" fill="#8A9489">punto verde en el centro del arco · la F forma el lado izquierdo</text>
+
+  <!-- ===== app tiles ===== -->
+  <rect x="80" y="150" width="240" height="240" rx="52" fill="#F5F4EE"/>
+  <use href="#icon" transform="translate(80,150)" color="#233D2E"/>
+  <text x="120" y="430" font-size="15" fill="#8A9489">beige · verde</text>
+
+  <rect x="360" y="150" width="240" height="240" rx="52" fill="#141E16"/>
+  <use href="#icon" transform="translate(360,150)" color="#F5F4EE"/>
+  <text x="400" y="430" font-size="15" fill="#8A9489">oscuro · crema</text>
+
+  <rect x="640" y="150" width="240" height="240" rx="52" fill="#233D2E"/>
+  <use href="#icon" transform="translate(640,150)" color="#7BD89B"/>
+  <text x="680" y="430" font-size="15" fill="#8A9489">verde · verde claro</text>
+
+  <!-- single-color mono -->
+  <rect x="920" y="150" width="240" height="240" rx="52" fill="#FFFFFF" stroke="#ECEAE0"/>
+  <g transform="translate(920,150)">
+    <g fill="none" stroke="#233D2E" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M72 200 V112 A48 48 0 0 1 168 112 V200"/>
+      <path d="M72 124 H146"/>
+    </g>
+    <circle cx="120" cy="162" r="15" fill="#233D2E"/>
+  </g>
+  <text x="960" y="430" font-size="15" fill="#8A9489">mono (1 color)</text>
+
+  <!-- ===== scale ramp on light ===== -->
+  <text x="80" y="520" font-size="20" font-weight="700" fill="#233D2E">Escalado — fondo claro</text>
+  <!-- 64 -->
+  <rect x="80" y="545" width="96" height="96" rx="20" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#icon" transform="translate(96,556) scale(0.27)" color="#233D2E"/>
+  <text x="108" y="668" font-size="14" fill="#8A9489">64</text>
+  <!-- 48 -->
+  <rect x="210" y="561" width="64" height="64" rx="14" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#icon" transform="translate(220,568) scale(0.18)" color="#233D2E"/>
+  <text x="232" y="668" font-size="14" fill="#8A9489">48</text>
+  <!-- 32 -->
+  <rect x="320" y="567" width="48" height="48" rx="10" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#icon" transform="translate(327,572) scale(0.14)" color="#233D2E"/>
+  <text x="332" y="668" font-size="14" fill="#8A9489">32</text>
+  <!-- 16 (thin) -->
+  <rect x="420" y="575" width="32" height="32" rx="7" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#icon" transform="translate(424,578) scale(0.10)" color="#233D2E"/>
+  <text x="425" y="668" font-size="14" fill="#8A9489">16</text>
+  <!-- 16 (bold) -->
+  <rect x="500" y="575" width="32" height="32" rx="7" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#iconBold" transform="translate(504,578) scale(0.10)" color="#233D2E"/>
+  <text x="496" y="668" font-size="14" fill="#8A9489">16 bold</text>
+
+  <!-- ===== scale ramp on dark ===== -->
+  <text x="80" y="745" font-size="20" font-weight="700" fill="#233D2E">Escalado — fondo oscuro</text>
+  <rect x="80" y="770" width="96" height="96" rx="20" fill="#141E16"/>
+  <use href="#icon" transform="translate(96,781) scale(0.27)" color="#F5F4EE"/>
+  <text x="108" y="893" font-size="14" fill="#8A9489">64</text>
+  <rect x="210" y="786" width="64" height="64" rx="14" fill="#141E16"/>
+  <use href="#icon" transform="translate(220,793) scale(0.18)" color="#F5F4EE"/>
+  <text x="232" y="893" font-size="14" fill="#8A9489">48</text>
+  <rect x="320" y="792" width="48" height="48" rx="10" fill="#141E16"/>
+  <use href="#icon" transform="translate(327,797) scale(0.14)" color="#F5F4EE"/>
+  <text x="332" y="893" font-size="14" fill="#8A9489">32</text>
+  <rect x="420" y="800" width="32" height="32" rx="7" fill="#141E16"/>
+  <use href="#icon" transform="translate(424,803) scale(0.10)" color="#F5F4EE"/>
+  <text x="425" y="893" font-size="14" fill="#8A9489">16</text>
+  <rect x="500" y="800" width="32" height="32" rx="7" fill="#141E16"/>
+  <use href="#iconBold" transform="translate(504,803) scale(0.10)" color="#F5F4EE"/>
+  <text x="496" y="893" font-size="14" fill="#8A9489">16 bold</text>
+
+  <!-- ===== lockup ===== -->
+  <text x="80" y="985" font-size="20" font-weight="700" fill="#233D2E">Lockup</text>
+  <use href="#icon" transform="translate(80,1000) scale(0.5)" color="#233D2E"/>
+  <text x="230" y="1085" font-size="56" font-weight="800" letter-spacing="4" fill="#233D2E">FOREVENTOS</text>
+</svg>

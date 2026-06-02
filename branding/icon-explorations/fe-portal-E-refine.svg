@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1080" viewBox="0 0 1320 1080" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <g id="ic18">
+      <g fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M72 198 V112 A48 48 0 0 1 168 112 V198"/>
+        <path d="M72 128 H92"/>
+        <path d="M168 128 H148"/>
+        <path d="M168 198 H102"/>
+      </g>
+      <circle cx="120" cy="128" r="10" fill="#7BD89B"/>
+    </g>
+    <g id="ic16">
+      <g fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M72 198 V112 A48 48 0 0 1 168 112 V198"/>
+        <path d="M72 128 H92"/>
+        <path d="M168 128 H148"/>
+        <path d="M168 198 H102"/>
+      </g>
+      <circle cx="120" cy="128" r="9" fill="#7BD89B"/>
+    </g>
+    <g id="ic14">
+      <g fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M72 198 V112 A48 48 0 0 1 168 112 V198"/>
+        <path d="M72 128 H92"/>
+        <path d="M168 128 H148"/>
+        <path d="M168 198 H102"/>
+      </g>
+      <circle cx="120" cy="128" r="8.5" fill="#7BD89B"/>
+    </g>
+  </defs>
+
+  <rect width="1320" height="1080" fill="#FFFFFF"/>
+  <text x="80" y="60" font-size="30" font-weight="700" fill="#1A2419">Refinado — trazo + color web + lockup</text>
+  <text x="80" y="90" font-size="16" fill="#8A9489">trazo #1A2419 (verde oscuro real) · punto #7BD89B (acento real)</text>
+
+  <!-- ===== stroke weight comparison ===== -->
+  <text x="80" y="140" font-size="20" font-weight="700" fill="#1A2419">1 · Grosor de trazo</text>
+  <rect x="80" y="160" width="220" height="220" rx="48" fill="#F5F4EE"/>
+  <use href="#ic18" transform="translate(70,150) scale(0.92)" color="#1A2419"/>
+  <text x="160" y="408" font-size="15" fill="#8A9489">18 (actual −)</text>
+  <rect x="330" y="160" width="220" height="220" rx="48" fill="#F5F4EE"/>
+  <use href="#ic16" transform="translate(320,150) scale(0.92)" color="#1A2419"/>
+  <text x="408" y="408" font-size="15" fill="#8A9489">16</text>
+  <rect x="580" y="160" width="220" height="220" rx="48" fill="#F5F4EE"/>
+  <use href="#ic14" transform="translate(570,150) scale(0.92)" color="#1A2419"/>
+  <text x="655" y="408" font-size="15" fill="#8A9489">14 (más fino)</text>
+
+  <!-- mini scale test for each on dark -->
+  <rect x="860" y="160" width="220" height="220" rx="48" fill="#141E16"/>
+  <use href="#ic18" transform="translate(852,168) scale(0.27)" color="#F5F4EE"/>
+  <use href="#ic16" transform="translate(940,176) scale(0.18)" color="#F5F4EE"/>
+  <use href="#ic14" transform="translate(1010,182) scale(0.14)" color="#F5F4EE"/>
+  <text x="900" y="408" font-size="15" fill="#8A9489">favicon test 18 · 16 · 14</text>
+
+  <!-- ===== lockups: text to the right ===== -->
+  <text x="80" y="490" font-size="20" font-weight="700" fill="#1A2419">2 · Lockup — FOREVENTOS a la derecha</text>
+
+  <!-- light, weight 800 -->
+  <use href="#ic16" transform="translate(80,500) scale(0.46)" color="#1A2419"/>
+  <text x="205" y="582" font-size="50" font-weight="800" letter-spacing="3" fill="#1A2419">FOREVENTOS</text>
+  <text x="205" y="612" font-size="13" fill="#B8C9B9">bold · tracking 3</text>
+
+  <!-- light, weight 600 lighter tracking -->
+  <use href="#ic16" transform="translate(80,640) scale(0.46)" color="#1A2419"/>
+  <text x="205" y="722" font-size="48" font-weight="600" letter-spacing="6" fill="#1A2419">FOREVENTOS</text>
+  <text x="205" y="752" font-size="13" fill="#B8C9B9">semibold · tracking 6 (más aireado)</text>
+
+  <!-- dark bg -->
+  <rect x="60" y="790" width="1180" height="150" rx="28" fill="#141E16"/>
+  <use href="#ic16" transform="translate(95,798) scale(0.46)" color="#F5F4EE"/>
+  <text x="220" y="880" font-size="50" font-weight="800" letter-spacing="3" fill="#F5F4EE">FOREVENTOS</text>
+
+  <!-- green dot accent before wordmark variant -->
+  <use href="#ic16" transform="translate(80,975) scale(0.40)" color="#1A2419"/>
+  <text x="190" y="1043" font-size="44" font-weight="800" letter-spacing="2" fill="#1A2419">FOR</text>
+  <text x="282" y="1043" font-size="44" font-weight="800" letter-spacing="2" fill="#7BD89B">EVENTOS</text>
+  <text x="190" y="1068" font-size="13" fill="#B8C9B9">variante color: "EVENTOS" en verde acento</text>
+</svg>

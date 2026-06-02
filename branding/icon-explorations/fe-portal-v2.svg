@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1380" viewBox="0 0 1480 1380" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Glyphs designed in a 240x240 box, stroke=currentColor so <use> can recolor -->
+    <!-- A · Portal FE (single line + F crossbar) -->
+    <g id="portalFE" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M70 200 V110 A50 50 0 0 1 170 110 V200"/>
+      <path d="M70 132 H150"/>
+    </g>
+    <!-- doble línea -->
+    <g id="portalDouble" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M64 200 V108 A56 54 0 0 1 176 108 V200" stroke-width="20"/>
+      <path d="M98 200 V118 A22 20 0 0 1 142 118 V200" stroke-width="18"/>
+    </g>
+    <!-- E camino (escalones) -->
+    <g id="portalEcamino" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M70 200 V110 A50 50 0 0 1 170 110 V200" stroke-width="22"/>
+      <path d="M98 152 H156" stroke-width="13"/>
+      <path d="M98 170 H156" stroke-width="13"/>
+      <path d="M98 188 H156" stroke-width="13"/>
+    </g>
+    <!-- e arriba (idea 2) -->
+    <g id="feTop" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M82 96 H162"/>
+      <path d="M162 96 C162 64 142 50 120 50 C92 50 78 74 78 100 C78 126 98 138 122 138 C140 138 154 130 160 118"/>
+      <path d="M78 100 V200"/>
+      <path d="M52 150 H104"/>
+    </g>
+  </defs>
+
+  <!-- page bg -->
+  <rect width="1480" height="1380" fill="#FFFFFF"/>
+
+  <!-- ===== Heading ===== -->
+  <text x="80" y="70" font-size="34" font-weight="700" fill="#233D2E">FOREVENTOS · iconos v2 — "portal"</text>
+  <text x="80" y="104" font-size="18" fill="#8A9489">Arco = entrada del venue · F en el lado izquierdo · punto verde de acento</text>
+
+  <!-- ================= ROW A : Portal FE (principal) ================= -->
+  <text x="80" y="200" font-size="22" font-weight="700" fill="#233D2E">A · "F-portal"</text>
+  <text x="80" y="228" font-size="16" fill="#8A9489">la F forma el lado izquierdo</text>
+  <text x="80" y="252" font-size="16" fill="#8A9489">+ punto verde (abajo-izq)</text>
+
+  <!-- light tile -->
+  <rect x="430" y="150" width="240" height="240" rx="48" fill="#F5F4EE"/>
+  <use href="#portalFE" x="430" y="150" color="#233D2E"/>
+  <circle cx="480" cy="346" r="13" fill="#7BD89B"/>
+  <!-- dark tile -->
+  <rect x="700" y="150" width="240" height="240" rx="48" fill="#141E16"/>
+  <use href="#portalFE" x="700" y="150" color="#F5F4EE"/>
+  <circle cx="750" cy="346" r="13" fill="#7BD89B"/>
+
+  <!-- favicon scale tests -->
+  <rect x="1010" y="150" width="240" height="240" rx="20" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#portalFE" transform="translate(1052,168) scale(0.5)" color="#233D2E"/>
+  <text x="1075" y="320" font-size="15" fill="#8A9489">32&#215;32</text>
+  <use href="#portalFE" transform="translate(1170,190) scale(0.27)" color="#233D2E"/>
+  <text x="1175" y="320" font-size="15" fill="#8A9489">16&#215;16</text>
+
+  <!-- ================= ROW B : doble línea + punto central (idea 1) ================= -->
+  <text x="80" y="490" font-size="22" font-weight="700" fill="#233D2E">B · doble línea</text>
+  <text x="80" y="518" font-size="16" fill="#8A9489">arco doble + punto</text>
+  <text x="80" y="542" font-size="16" fill="#8A9489">en el centro</text>
+
+  <rect x="430" y="440" width="240" height="240" rx="48" fill="#F5F4EE"/>
+  <use href="#portalDouble" x="430" y="440" color="#233D2E"/>
+  <circle cx="550" cy="600" r="13" fill="#7BD89B"/>
+  <rect x="700" y="440" width="240" height="240" rx="48" fill="#141E16"/>
+  <use href="#portalDouble" x="700" y="440" color="#F5F4EE"/>
+  <circle cx="820" cy="600" r="13" fill="#7BD89B"/>
+
+  <rect x="1010" y="440" width="240" height="240" rx="20" fill="#FBFAF5" stroke="#ECEAE0"/>
+  <use href="#portalDouble" transform="translate(1052,458) scale(0.5)" color="#233D2E"/>
+  <text x="1075" y="610" font-size="15" fill="#8A9489">32&#215;32</text>
+  <use href="#portalDouble" transform="translate(1170,480) scale(0.27)" color="#233D2E"/>
+  <text x="1175" y="610" font-size="15" fill="#8A9489">16&#215;16</text>
+
+  <!-- ================= ROW C : E camino  +  e arriba ================= -->
+  <text x="80" y="780" font-size="22" font-weight="700" fill="#233D2E">C · "E camino"</text>
+  <text x="80" y="808" font-size="16" fill="#8A9489">la E = escalones</text>
+  <text x="80" y="832" font-size="16" fill="#8A9489">que entran al portal</text>
+
+  <rect x="430" y="730" width="240" height="240" rx="48" fill="#F5F4EE"/>
+  <use href="#portalEcamino" x="430" y="730" color="#233D2E"/>
+  <circle cx="480" cy="926" r="13" fill="#7BD89B"/>
+  <rect x="700" y="730" width="240" height="240" rx="48" fill="#141E16"/>
+  <use href="#portalEcamino" x="700" y="730" color="#F5F4EE"/>
+  <circle cx="750" cy="926" r="13" fill="#7BD89B"/>
+
+  <text x="1010" y="780" font-size="22" font-weight="700" fill="#233D2E">D · "e arriba"</text>
+  <text x="1010" y="808" font-size="16" fill="#8A9489">f con la e formada</text>
+  <text x="1010" y="832" font-size="16" fill="#8A9489">en la parte superior</text>
+  <rect x="1010" y="730" width="240" height="240" rx="48" fill="#141E16"/>
+  <use href="#feTop" x="1010" y="730" color="#F5F4EE"/>
+  <circle cx="1210" cy="916" r="12" fill="#7BD89B"/>
+
+  <!-- ================= ROW D : lockup wordmark ================= -->
+  <text x="80" y="1075" font-size="22" font-weight="700" fill="#233D2E">Lockup</text>
+  <text x="80" y="1103" font-size="16" fill="#8A9489">icono + wordmark</text>
+
+  <!-- light lockup -->
+  <use href="#portalFE" transform="translate(430,1010) scale(0.62)" color="#233D2E"/>
+  <circle cx="461" cy="1132" r="9" fill="#7BD89B"/>
+  <text x="600" y="1115" font-size="62" font-weight="800" letter-spacing="4" fill="#233D2E">FOREVENTOS</text>
+
+  <!-- dark lockup -->
+  <rect x="80" y="1180" width="1320" height="160" rx="24" fill="#141E16"/>
+  <use href="#portalFE" transform="translate(430,1162) scale(0.62)" color="#F5F4EE"/>
+  <circle cx="461" cy="1284" r="9" fill="#7BD89B"/>
+  <text x="600" y="1267" font-size="62" font-weight="800" letter-spacing="4" fill="#F5F4EE">FOREVENTOS</text>
+</svg>

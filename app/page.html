@@ -4,8 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FOREVENTOS — Menos gestión. Más eventos cerrados.</title>
-<link rel="icon" type="image/png" href="/foreventos-favicon.png" sizes="512x512" />
-<link rel="apple-touch-icon" href="/foreventos-favicon.png" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -91,9 +93,8 @@
     display:flex; align-items:center; gap:12px; text-decoration:none;
     justify-self:start;
   }
-  .nav-logo img{ height:52px; width:auto; display:block; }
-  .nav-logo .logo-azul{ display:block; }
-  .nav-logo .logo-blanco{ display:none; }
+  .nav-logo .brand-mark{ height:38px; width:auto; display:block; }
+  .nav-logo-text{ font-weight:500; font-size:22px; letter-spacing:1.5px; line-height:1; }
   .nav-logo-mark{
     width:24px; height:24px; border-radius:7px;
     background:linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
@@ -1318,6 +1319,7 @@
     font-size:18px; color:#fff; margin-bottom:12px;
     display:flex; align-items:center; gap:10px;
   }
+  .footer-brand-logo .brand-mark{ height:32px; width:auto; display:block; }
   .footer-tag{ font-size:14px; color:var(--text-dim); line-height:1.6; max-width:280px; margin:0 0 24px; }
   .socials{ display:flex; gap:14px; }
   .social-icon{
@@ -1390,7 +1392,8 @@
     /* Navbar: sticky top, full width, compact */
     .navbar-wrap{ position:fixed; top:8px; left:0; right:0; padding:0 10px; z-index:50; }
     .navbar{ width:100%; border-radius:999px; padding:6px 6px 6px 16px; gap:12px; }
-    .nav-logo img{ height:30px; }
+    .nav-logo .brand-mark{ height:28px; }
+    .nav-logo-text{ font-size:18px; letter-spacing:1px; }
     .nav-cta{ gap:6px; }
     .nav-cta .btn{ padding:8px 14px 8px 14px; font-size:12px; border-radius:999px; }
     .btn-nav-cta svg{ width:14px; height:14px; padding:3px; }
@@ -1516,9 +1519,9 @@
 <!-- ============ NAVBAR ============ -->
 <div class="navbar-wrap">
   <nav class="navbar" id="navbar">
-    <a href="/" class="nav-logo">
-      <img src="/logo-menu-blanco.png" alt="FOREVENTOS" class="logo-azul" />
-      <img src="/logo-menu-azul.png" alt="FOREVENTOS" class="logo-blanco" />
+    <a href="/" class="nav-logo" aria-label="FOREVENTOS">
+      <img src="/foreventos-icon.svg" alt="" class="brand-mark" aria-hidden="true" />
+      <span class="nav-logo-text">FOREVENTOS</span>
     </a>
     <div class="nav-links">
       <a href="#funcionalidades" data-i18n="nav_feat">Funcionalidades</a>
@@ -2020,7 +2023,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand-logo">
-        <span class="nav-logo-mark"></span>
+        <img src="/foreventos-icon-cream.svg" alt="" class="brand-mark" aria-hidden="true" />
         FOREVENTOS
       </div>
       <p class="footer-tag">La plataforma comercial para venues y caterings.</p>
