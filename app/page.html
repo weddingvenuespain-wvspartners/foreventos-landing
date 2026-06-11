@@ -1212,41 +1212,65 @@
   }
   .contact .section-head{ position:relative; z-index:2; margin-bottom:48px; }
   .contact .section-head h2{ color:var(--text-dark); }
-  .contact-cards{
+  .contact-form{
     position:relative; z-index:2;
-    display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px;
     max-width:840px; margin:0 auto;
+    background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:22px;
+    padding:44px 44px 38px;
+    box-shadow:0 4px 24px rgba(20,30,22,0.05);
   }
-  .contact-card{
-    background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:18px;
-    padding:34px 32px 30px;
-    display:flex; flex-direction:column; align-items:flex-start; gap:13px;
-    box-shadow:0 4px 20px rgba(20,30,22,0.04);
-    transition:transform .3s ease, box-shadow .3s ease;
+  .cf-grid{
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 18px;
   }
-  .contact-card:hover{ transform:translateY(-4px); box-shadow:0 12px 32px rgba(20,30,22,0.08); }
-  .contact-icon{
-    width:46px; height:46px; border-radius:14px;
-    background:linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-    color:#fff; display:flex; align-items:center; justify-content:center;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.35), 0 4px 12px rgba(74,107,82,0.25);
+  .cf-field{ display:flex; flex-direction:column; gap:8px; }
+  .cf-field.cf-wide{ grid-column:1 / -1; }
+  .cf-label{
+    font-size:13px; font-weight:600; color:var(--text-dark); letter-spacing:-.1px;
   }
-  .contact-icon svg{ width:20px; height:20px; }
-  .contact-card h3{
-    font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700;
-    font-size:20px; letter-spacing:-.4px; margin:0; color:var(--text-dark);
+  .cf-field input,
+  .cf-field textarea{
+    width:100%; box-sizing:border-box;
+    font-family:'Inter',sans-serif; font-size:15px; color:var(--text-dark);
+    background:#FBFAF5;
+    border:1px solid rgba(42,61,46,0.16); border-radius:12px;
+    padding:13px 16px;
+    transition:border-color .25s ease, box-shadow .25s ease, background .25s ease;
+    outline:none;
   }
-  .contact-card p{ font-size:14.5px; color:#555; line-height:1.6; margin:0; }
-  .contact-link{
-    display:inline-flex; align-items:center; gap:8px; margin-top:8px;
-    color:var(--primary); font-weight:600; font-size:14.5px; text-decoration:none;
+  .cf-field input::placeholder,
+  .cf-field textarea::placeholder{ color:#9AA399; }
+  .cf-field input:focus,
+  .cf-field textarea:focus{
+    border-color:var(--primary); background:#fff;
+    box-shadow:0 0 0 3px rgba(74,107,82,0.14);
   }
-  .contact-link svg{ width:15px; height:15px; transition:transform .25s ease; }
-  .contact-link:hover{ text-decoration:underline; }
-  .contact-link:hover svg{ transform:translateX(3px); }
+  .cf-field textarea{ min-height:150px; resize:vertical; line-height:1.6; }
+  .cf-footer{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:18px; flex-wrap:wrap; margin-top:26px;
+  }
+  .cf-submit{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--primary); color:#fff; border:0; cursor:pointer;
+    font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:15px;
+    padding:15px 28px; border-radius:999px;
+    box-shadow:0 10px 24px rgba(74,107,82,0.30);
+    transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  }
+  .cf-submit:hover{ transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 14px 30px rgba(74,107,82,0.38); }
+  .cf-submit svg{ width:15px; height:15px; }
+  .cf-note{
+    display:flex; flex-direction:column; gap:3px;
+    font-size:13px; color:#5C665C; line-height:1.5;
+  }
+  .cf-note a{ color:var(--primary); font-weight:600; text-decoration:none; }
+  .cf-note a:hover{ text-decoration:underline; }
   @media (max-width:768px){
     .contact{ padding:80px 20px; }
-    .contact-cards{ grid-template-columns:1fr; max-width:480px; }
+    .contact-form{ padding:28px 22px 26px; border-radius:18px; }
+    .cf-grid{ grid-template-columns:1fr; gap:16px; }
+    .cf-footer{ flex-direction:column; align-items:stretch; text-align:center; margin-top:20px; }
+    .cf-submit{ justify-content:center; }
   }
 
   /* ============ CTA FINAL ============ */
@@ -2003,30 +2027,36 @@
     <h2 data-i18n="ct_h2">Hablemos de tu espacio</h2>
     <p class="section-sub" data-i18n="ct_sub">Sin compromiso: nos cuentas cómo trabajas hoy y te enseñamos cómo quedaría en FOREVENTOS.</p>
   </div>
-  <div class="contact-cards">
-    <div class="contact-card reveal">
-      <span class="contact-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg>
-      </span>
-      <h3 data-i18n="ct_demo_t">Reserva una demo</h3>
-      <p data-i18n="ct_demo_p">15 minutos en directo, con tus casos reales. Sin guiones comerciales y sin compromiso.</p>
-      <a class="contact-link" href="mailto:info@weddingvenuesspain.com?subject=Demo%20FOREVENTOS">
-        <span data-i18n="ct_demo_cta">Pedir una demo</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+  <form class="contact-form reveal" id="contactForm" novalidate>
+    <div class="cf-grid">
+      <label class="cf-field">
+        <span class="cf-label" data-i18n="fm_name">Nombre y apellidos</span>
+        <input type="text" name="name" required autocomplete="name" placeholder="María García" />
+      </label>
+      <label class="cf-field">
+        <span class="cf-label" data-i18n="fm_venue">Tu venue o catering</span>
+        <input type="text" name="venue" required autocomplete="organization" placeholder="Finca Las Encinas" data-i18n-ph="fm_venue_ph" />
+      </label>
+      <label class="cf-field cf-wide">
+        <span class="cf-label" data-i18n="fm_email">Correo electrónico</span>
+        <input type="email" name="email" required autocomplete="email" placeholder="tu@tuespacio.com" data-i18n-ph="fm_email_ph" />
+      </label>
+      <label class="cf-field cf-wide">
+        <span class="cf-label" data-i18n="fm_msg">¿De qué quieres que hablemos?</span>
+        <textarea name="message" required placeholder="Cuéntanos cómo gestionáis hoy las peticiones, qué te gustaría ver en una demo, dudas de precios o migración…" data-i18n-ph="fm_msg_ph"></textarea>
+      </label>
     </div>
-    <div class="contact-card reveal d1">
-      <span class="contact-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg>
+    <div class="cf-footer">
+      <span class="cf-note">
+        <span data-i18n="fm_note">Te respondemos en menos de 2 horas en horario laboral.</span>
+        <span><span data-i18n="fm_direct">O escríbenos directo a</span> <a href="mailto:info@weddingvenuesspain.com">info@weddingvenuesspain.com</a></span>
       </span>
-      <h3 data-i18n="ct_mail_t">Escríbenos</h3>
-      <p data-i18n="ct_mail_p">¿Dudas sobre precios, migración o integraciones? Te respondemos en menos de 2 horas en horario laboral.</p>
-      <a class="contact-link" href="mailto:info@weddingvenuesspain.com">
-        info@weddingvenuesspain.com
+      <button type="submit" class="cf-submit">
+        <span data-i18n="fm_send">Enviar mensaje</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
+      </button>
     </div>
-  </div>
+  </form>
 </section>
 
 <!-- ============ CTA FINAL ============ -->
@@ -2246,6 +2276,20 @@
     if(mm){var ls=mm.querySelectorAll('a');for(var i=0;i<ls.length;i++)ls[i].addEventListener('click',function(){setO(false);});}
   })();
 
+  /* Formulario de contacto — sin backend aún: compone un email con los campos */
+  (function(){
+    var f=document.getElementById('contactForm');
+    if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!f.reportValidity())return;
+      function v(n){return (f.elements[n].value||'').trim();}
+      var subject='Contacto FOREVENTOS — '+v('venue');
+      var body='Nombre: '+v('name')+'\nVenue: '+v('venue')+'\nEmail: '+v('email')+'\n\n'+v('message');
+      window.location.href='mailto:info@weddingvenuesspain.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    });
+  })();
+
   /* i18n */
   (function(){
     var en={
@@ -2320,8 +2364,14 @@
       // contacto
       ct_h2:'Let’s talk about your venue',
       ct_sub:'No strings attached: tell us how you work today and we’ll show you how it would look in FOREVENTOS.',
-      ct_demo_t:'Book a demo',ct_demo_p:'15 minutes live, with your real cases. No sales scripts, no commitment.',ct_demo_cta:'Request a demo',
-      ct_mail_t:'Write to us',ct_mail_p:'Questions about pricing, migration or integrations? We reply within 2 hours during business hours.',
+      fm_name:'Full name',
+      fm_venue:'Your venue or catering company',fm_venue_ph:'Las Encinas Estate',
+      fm_email:'Email',fm_email_ph:'you@yourvenue.com',
+      fm_msg:'What would you like to talk about?',
+      fm_msg_ph:'Tell us how you handle inquiries today, what you’d like to see in a demo, pricing or migration questions…',
+      fm_note:'We reply within 2 hours during business hours.',
+      fm_direct:'Or email us directly at',
+      fm_send:'Send message',
       // cta final
       cf_eyebrow:'14 days free · no card',
       cf_h2:'Your next event deserves <em>better management.</em>',
@@ -2341,6 +2391,8 @@
       es._title=document.title;
       var els=document.querySelectorAll('[data-i18n]');
       for(var i=0;i<els.length;i++){var k=els[i].getAttribute('data-i18n');if(!(k in es))es[k]=els[i].innerHTML;}
+      var phs=document.querySelectorAll('[data-i18n-ph]');
+      for(var j=0;j<phs.length;j++){var kp=phs[j].getAttribute('data-i18n-ph');if(!(kp in es))es[kp]=phs[j].getAttribute('placeholder');}
     }
     function apply(lang){
       document.documentElement.setAttribute('data-lang',lang);document.documentElement.setAttribute('lang',lang);
@@ -2350,6 +2402,8 @@
         if(k==='_title')continue;
         var els=document.querySelectorAll('[data-i18n="'+k+'"]');
         for(var i=0;i<els.length;i++)els[i].innerHTML=src[k];
+        var phs=document.querySelectorAll('[data-i18n-ph="'+k+'"]');
+        for(var j=0;j<phs.length;j++)phs[j].setAttribute('placeholder',src[k]);
       }
     }
     var ul=window.location.pathname.indexOf('/en')===0?'en':null;
