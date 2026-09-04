@@ -453,12 +453,8 @@
       inset 0 0 80px rgba(0,0,0,0.6),
       0 40px 100px rgba(20,30,22,0.45),
       0 16px 36px rgba(20,30,22,0.28);
-    animation:blob-morph 18s ease-in-out infinite;
-  }
-  @keyframes blob-morph{
-    0%, 100%{ border-radius: 36% 64% 32% 68% / 42% 38% 62% 58%; }
-    33%{     border-radius: 42% 58% 36% 64% / 38% 44% 56% 62%; }
-    66%{     border-radius: 32% 68% 40% 60% / 46% 36% 64% 54%; }
+    /* Sin blob-morph: animar border-radius de un elemento tan grande con estas
+       sombras forzaba un repaint por frame y ralentizaba el hero. Forma fija. */
   }
   /* Soft glow over scene */
   .scene-stage::before{
@@ -571,8 +567,10 @@
     padding:14px 16px;
     font-family:'Inter',sans-serif;
     font-size:12px;
-    backdrop-filter:blur(20px);
+    /* Sin backdrop-filter: el fondo casi opaco (0.97) no lo necesita y animar
+       un blur de backdrop en tarjetas que se mueven repintaba cada frame. */
     opacity:0;
+    will-change:transform;
     animation:card-in 0.9s cubic-bezier(0.16,1,0.3,1) forwards, card-drift 7s ease-in-out infinite;
   }
   @keyframes card-in{
@@ -1980,7 +1978,6 @@
       <span class="plan-badge" data-i18n="pr_badge">Disponible ahora</span>
       <h3 class="plan-name">Starter</h3>
       <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
-      <p class="plan-billnote" data-i18n="pr_billnote">Anual 39€/mes · Mensual 49€/mes · sin permanencia</p>
       <p class="plan-desc" data-i18n="p1_desc">Todo lo que necesitas para empezar a cerrar más eventos.</p>
       <ul class="plan-features">
         <li><span class="plan-check">✓</span><span data-i18n="p1_f1">1 usuario</span></li>
@@ -2234,7 +2231,8 @@
   (function spawnSparks(){
     const stage = document.getElementById('sceneParticles');
     if(!stage) return;
-    const COUNT = 26;
+    // Menos partículas = menos animaciones simultáneas en el hero (rendimiento)
+    const COUNT = 12;
     for(let i=0; i<COUNT; i++){
       const s = document.createElement('span');
       s.className = 'spark';
