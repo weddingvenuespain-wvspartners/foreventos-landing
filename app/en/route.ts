@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 
 const EN_TITLE = 'FOREVENTOS — Less admin. More events closed.'
 const EN_DESCRIPTION =
-  'The sales platform for venues and caterers: centralize inquiries from web, bodas.net, email and WhatsApp, send dossiers that convert and close quotes with online signature.'
+  'The sales platform for venues, caterings and event organizers: centralize inquiries, digitalize your commercial portal and close quotes with online signature and payment.'
 
 export async function GET() {
   // El contenido del body lo traduce el script i18n del cliente (detecta /en);

@@ -1198,10 +1198,30 @@
   }
   .plan-cta.solid:hover{ transform:scale(1.02); filter:brightness(1.08); }
   .plans.plans-2{ grid-template-columns:repeat(2,1fr); max-width:720px; }
+  .plans.plans-3{ grid-template-columns:repeat(3,1fr); max-width:1100px; }
   .plan-billnote{ font-size:12px; color:var(--text-dim); margin:-4px 0 14px; }
+  .plan-aud{
+    font-size:12.5px; line-height:1.55; color:var(--text-muted);
+    margin:2px 0 14px; min-height:58px;
+  }
   .plan-soon{ opacity:.9; }
   .plan-badge.soon{ background:rgba(74,107,82,0.12); color:var(--primary); box-shadow:none; }
   .plan-cta.disabled{ display:block; text-align:center; opacity:.55; cursor:not-allowed; pointer-events:none; background:transparent; }
+  /* Franja del plan Pro (próximamente, sin precio) */
+  .pro-strip{
+    max-width:1100px; margin:22px auto 0;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    background:#fff; border:1.5px dashed rgba(74,107,82,0.35); border-radius:16px;
+    padding:16px 22px;
+  }
+  .pro-strip > div{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .pro-strip strong{ font-family:'Satoshi','Helvetica Neue',sans-serif; font-size:16px; color:var(--text-dark); }
+  .pro-strip span[data-i18n="pro_feats"]{ font-size:13px; color:var(--text-muted); }
+  @media (max-width:1080px){
+    .plans.plans-3{ grid-template-columns:1fr; max-width:480px; }
+    .plan-aud{ min-height:0; }
+    .pro-strip{ max-width:480px; }
+  }
 
   /* ============ CONTACTO ============ */
   .contact{
@@ -1973,33 +1993,60 @@
       <button class="active" data-cycle="yearly"><span data-i18n="pr_yearly">Anual</span> <span class="billing-save">-20%</span></button>
     </div>
   </div>
-  <div class="plans plans-2">
+  <div class="plans plans-3">
+    <!-- Venues -->
     <div class="plan featured reveal">
       <span class="plan-badge" data-i18n="pr_badge">Disponible ahora</span>
-      <h3 class="plan-name">Starter</h3>
+      <h3 class="plan-name" data-i18n="pv_name">Venues</h3>
+      <p class="plan-aud" data-i18n="pv_aud">Fincas, masías, haciendas, hoteles, restaurantes y espacios de eventos — también si tienes catering propio.</p>
       <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
-      <p class="plan-desc" data-i18n="p1_desc">Todo lo que necesitas para empezar a cerrar más eventos.</p>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span><span data-i18n="p1_f1">1 usuario</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p1_f2">Calendario</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p1_f3">Peticiones ilimitadas</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p1_f4">1 venue</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p1_f5">1 ficha en weddingvenuesspain.com</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p1_f6">Soporte por email</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pv_f1">1 usuario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pv_f2">Calendario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pv_f3">Peticiones ilimitadas</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pv_f4">1 venue</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pv_f5">1 ficha en weddingvenuesspain.com — wedding venue o pre &amp; post</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pv_f6">Soporte por email</span></li>
       </ul>
-      <a href="https://app.foreventos.com/signup" class="plan-cta solid" data-i18n="p1_cta">Empezar gratis</a>
+      <a href="https://app.foreventos.com/signup" class="plan-cta solid" data-i18n="pr_cta">Empezar gratis</a>
     </div>
-    <div class="plan plan-soon reveal d1">
-      <span class="plan-badge soon" data-i18n="pr_soon">Próximamente</span>
-      <h3 class="plan-name">Pro</h3>
-      <div class="plan-price"><span data-i18n="pr_soon_price">Próximamente</span></div>
-      <p class="plan-desc" data-i18n="p2_desc">Para llevar tu operación comercial al siguiente nivel.</p>
+    <!-- Caterings -->
+    <div class="plan reveal d1">
+      <span class="plan-badge" data-i18n="pr_badge">Disponible ahora</span>
+      <h3 class="plan-name" data-i18n="pc_name">Caterings</h3>
+      <p class="plan-aud" data-i18n="pc_aud">Para todo tipo de caterings que quieren operar con independencia de cualquier venue.</p>
+      <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
       <ul class="plan-features">
-        <li><span class="plan-check">✓</span><span data-i18n="p2_f1">Portales</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p2_f2">CRM completo</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="p2_f3">Presupuestos</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pc_f1">1 usuario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pc_f2">Calendario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pc_f3">Peticiones ilimitadas</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pc_f4">Contactos y clientes</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pc_f5">Soporte por email</span></li>
       </ul>
-      <span class="plan-cta ghost disabled" data-i18n="pr_soon_cta" aria-disabled="true">Próximamente</span>
+      <a href="https://app.foreventos.com/signup" class="plan-cta ghost" data-i18n="pr_cta">Empezar gratis</a>
+    </div>
+    <!-- Organizadores -->
+    <div class="plan reveal d2">
+      <span class="plan-badge" data-i18n="pr_badge">Disponible ahora</span>
+      <h3 class="plan-name" data-i18n="po_name">Organizadores</h3>
+      <p class="plan-aud" data-i18n="po_aud">DMCs, wedding planners y agencias de organización de eventos.</p>
+      <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
+      <ul class="plan-features">
+        <li><span class="plan-check">✓</span><span data-i18n="po_f1">1 usuario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="po_f2">Calendario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="po_f3">Peticiones ilimitadas</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="po_f4">Contactos y clientes</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="po_f5">Soporte por email</span></li>
+      </ul>
+      <a href="https://app.foreventos.com/signup" class="plan-cta ghost" data-i18n="pr_cta">Empezar gratis</a>
+    </div>
+  </div>
+  <!-- Pro: próximamente, sin precio -->
+  <div class="pro-strip reveal d3">
+    <span class="plan-badge soon" style="position:static;transform:none;" data-i18n="pr_soon">Próximamente</span>
+    <div>
+      <strong data-i18n="pro_name">Plan Pro</strong>
+      <span data-i18n="pro_feats">Portales digitales · CRM completo · Presupuestos con firma y cobro online</span>
     </div>
   </div>
 </section>
@@ -2350,8 +2397,14 @@
       pr_monthly:'Monthly',pr_yearly:'Yearly',pr_permonth:'/mo',pr_badge:'Available now',
       pr_billnote:'Yearly €39/mo · Monthly €49/mo · no lock-in',
       pr_soon:'Coming soon',pr_soon_price:'Coming soon',pr_soon_cta:'Coming soon',
-      p1_desc:'Everything you need to start closing more events.',p1_f1:'1 user',p1_f2:'Calendar',p1_f3:'Unlimited inquiries',p1_f4:'1 venue',p1_f5:'1 listing on weddingvenuesspain.com',p1_f6:'Email support',p1_cta:'Start for free',
-      p2_desc:'To take your commercial operation to the next level.',p2_f1:'Portals',p2_f2:'Full CRM',p2_f3:'Quotes',
+      pr_cta:'Start for free',
+      pv_name:'Venues',pv_aud:'Estates, farmhouses, haciendas, hotels, restaurants and event spaces — also if you have in-house catering.',
+      pv_f1:'1 user',pv_f2:'Calendar',pv_f3:'Unlimited inquiries',pv_f4:'1 venue',pv_f5:'1 listing on weddingvenuesspain.com — wedding venue or pre & post',pv_f6:'Email support',
+      pc_name:'Caterings',pc_aud:'For every kind of catering company that wants to operate independently of any venue.',
+      pc_f1:'1 user',pc_f2:'Calendar',pc_f3:'Unlimited inquiries',pc_f4:'Contacts & clients',pc_f5:'Email support',
+      po_name:'Organizers',po_aud:'DMCs, wedding planners and event-planning agencies.',
+      po_f1:'1 user',po_f2:'Calendar',po_f3:'Unlimited inquiries',po_f4:'Contacts & clients',po_f5:'Email support',
+      pro_name:'Pro Plan',pro_feats:'Digital portals · Full CRM · Quotes with online signature and payment',
       p3_desc:'For sales teams closing at another level.',p3_f1:'Unlimited users',p3_f2:'Everything in Pro',p3_f3:'Advanced automations',p3_f4:'Custom integrations',p3_f5:'Priority support + onboarding',p3_cta:'Talk to sales',
       // contacto
       ct_h2:'Let’s talk about your venue',
