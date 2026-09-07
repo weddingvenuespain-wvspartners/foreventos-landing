@@ -1458,6 +1458,9 @@
   @media (max-width:768px){
     .nav-links{ display:none; }
     .nav-cta .btn-ghost{ display:none; }
+    /* El toggle de idioma de la navbar se oculta en móvil/tablet (apiñaba y
+       desbordaba al cambiar a inglés); el idioma se cambia desde el menú */
+    .navbar .nav-lang-toggle{ display:none; }
     .nav-mobile-toggle{ display:inline-flex; }
     .hero{ padding-top:120px; }
     .metrics-grid{ grid-template-columns:1fr; gap:48px; }
@@ -1568,9 +1571,6 @@
     .acc{ padding:60px 12px 70px; }
     .metrics-grid{ grid-template-columns:1fr; }
     .section-head h2{ font-size:28px; }
-    /* En pantallas muy pequeñas el toggle sale de la navbar (no cabía y se
-       desbordaba); el idioma se cambia desde el menú hamburguesa */
-    .navbar .nav-lang-toggle{ display:none; }
   }
   .hero-logos-marquee-wrap .hero-logo-row .hero-logo:nth-child(n+7){ display:none; }
   @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
