@@ -785,7 +785,7 @@
 
   .acc-row{
     position:relative; max-width:1200px; margin:0 auto;
-    display:flex; gap:14px; height:min(82vh, 680px);
+    display:flex; gap:14px; height:min(78vh, 600px);
   }
   .acc-panel{
     position:relative; flex:0 0 88px; min-width:88px;
@@ -1198,7 +1198,12 @@
   }
   .plan-cta.solid:hover{ transform:scale(1.02); filter:brightness(1.08); }
   .plans.plans-2{ grid-template-columns:repeat(2,1fr); max-width:720px; }
-  .plans.plans-3{ grid-template-columns:repeat(3,1fr); max-width:1100px; }
+  .plans.plans-3{ grid-template-columns:repeat(3,1fr); max-width:1100px; align-items:stretch; }
+  /* Las tres tarjetas iguales: sin escala en la destacada (quedaba rara) */
+  .plans.plans-3 .plan.featured{ transform:none; }
+  .plan-billmode{ font-size:11.5px; color:var(--text-dim); margin:-6px 0 14px; }
+  /* Bullet de valor destacado (peticiones de organizadores) */
+  .plan-features li.hl span:last-child{ color:var(--primary); font-weight:600; }
   .plan-billnote{ font-size:12px; color:var(--text-dim); margin:-4px 0 14px; }
   .plan-aud{
     font-size:12.5px; line-height:1.55; color:var(--text-muted);
@@ -2000,7 +2005,9 @@
       <h3 class="plan-name" data-i18n="pv_name">Venues</h3>
       <p class="plan-aud" data-i18n="pv_aud">Fincas, masías, haciendas, hoteles, restaurantes y espacios de eventos — también si tienes catering propio.</p>
       <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
+      <p class="plan-billmode" data-billnote>Facturado anualmente: 468€ · sin permanencia</p>
       <ul class="plan-features">
+        <li class="hl"><span class="plan-check">✓</span><span data-i18n="pv_f0">Los organizadores te envían peticiones directamente por la plataforma</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pv_f1">1 usuario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pv_f2">Calendario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pv_f3">Peticiones ilimitadas</span></li>
@@ -2008,7 +2015,7 @@
         <li><span class="plan-check">✓</span><span data-i18n="pv_f5">1 ficha en weddingvenuesspain.com — wedding venue o pre &amp; post</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pv_f6">Soporte por email</span></li>
       </ul>
-      <a href="https://app.foreventos.com/signup" class="plan-cta solid" data-i18n="pr_cta">Empezar gratis</a>
+      <a href="https://app.foreventos.com/signup?type=venue" class="plan-cta solid" data-i18n="pr_cta">Empezar gratis</a>
     </div>
     <!-- Caterings -->
     <div class="plan reveal d1">
@@ -2016,14 +2023,16 @@
       <h3 class="plan-name" data-i18n="pc_name">Caterings</h3>
       <p class="plan-aud" data-i18n="pc_aud">Para todo tipo de caterings que quieren operar con independencia de cualquier venue.</p>
       <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
+      <p class="plan-billmode" data-billnote>Facturado anualmente: 468€ · sin permanencia</p>
       <ul class="plan-features">
+        <li class="hl"><span class="plan-check">✓</span><span data-i18n="pc_f0">Los organizadores te envían peticiones directamente por la plataforma</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pc_f1">1 usuario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pc_f2">Calendario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pc_f3">Peticiones ilimitadas</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pc_f4">Contactos y clientes</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pc_f5">Soporte por email</span></li>
       </ul>
-      <a href="https://app.foreventos.com/signup" class="plan-cta ghost" data-i18n="pr_cta">Empezar gratis</a>
+      <a href="https://app.foreventos.com/signup?type=catering" class="plan-cta ghost" data-i18n="pr_cta">Empezar gratis</a>
     </div>
     <!-- Organizadores -->
     <div class="plan reveal d2">
@@ -2031,14 +2040,16 @@
       <h3 class="plan-name" data-i18n="po_name">Organizadores</h3>
       <p class="plan-aud" data-i18n="po_aud">DMCs, wedding planners y agencias de organización de eventos.</p>
       <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes</small></div>
+      <p class="plan-billmode" data-billnote>Facturado anualmente: 468€ · sin permanencia</p>
       <ul class="plan-features">
+        <li class="hl"><span class="plan-check">✓</span><span data-i18n="po_f0">Pide disponibilidad a venues y caterings directamente desde la plataforma</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="po_f1">1 usuario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="po_f2">Calendario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="po_f3">Peticiones ilimitadas</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="po_f4">Contactos y clientes</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="po_f5">Soporte por email</span></li>
       </ul>
-      <a href="https://app.foreventos.com/signup" class="plan-cta ghost" data-i18n="pr_cta">Empezar gratis</a>
+      <a href="https://app.foreventos.com/signup?type=organizer" class="plan-cta ghost" data-i18n="pr_cta">Empezar gratis</a>
     </div>
   </div>
   <!-- Pro: próximamente, sin precio -->
@@ -2224,6 +2235,14 @@
         el.classList.toggle('active', on);
         el.setAttribute('aria-expanded', on ? 'true' : 'false');
       });
+      // Móvil (paneles apilados): al abrir un tab, subir hasta su cabecera —
+      // si no, el contenido se despliega fuera de la vista.
+      if (window.matchMedia('(max-width:900px)').matches) {
+        setTimeout(() => {
+          const y = p.getBoundingClientRect().top + window.scrollY - 84; // hueco navbar
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 60);
+      }
     }
     panels.forEach(p => {
       p.addEventListener('click', () => activate(p));
@@ -2271,8 +2290,23 @@
         const v = cycle === 'monthly' ? el.dataset.priceMonthly : el.dataset.priceYearly;
         el.textContent = v + '€';
       });
+      currentCycle = cycle;
+      updateBillNotes();
     });
   }
+  // Nota bajo el precio: aclara que el anual se cobra de una vez (468€)
+  var currentCycle = 'yearly';
+  var BILLNOTES = {
+    es: { yearly: 'Facturado anualmente: 468€ · sin permanencia', monthly: 'Facturado mes a mes: 49€/mes · sin permanencia' },
+    en: { yearly: 'Billed annually: €468 · no lock-in',            monthly: 'Billed monthly: €49/mo · no lock-in' },
+  };
+  function updateBillNotes(){
+    var l = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'es';
+    document.querySelectorAll('[data-billnote]').forEach(function(el){ el.textContent = BILLNOTES[l][currentCycle]; });
+  }
+  updateBillNotes();
+  var langBtn = document.getElementById('langToggle');
+  if (langBtn) langBtn.addEventListener('click', function(){ setTimeout(updateBillNotes, 0); });
 
   // ===== Spawn ambient sparks in hero scene =====
   (function spawnSparks(){
@@ -2399,6 +2433,9 @@
       pr_soon:'Coming soon',pr_soon_price:'Coming soon',pr_soon_cta:'Coming soon',
       pr_cta:'Start for free',
       pv_name:'Venues',pv_aud:'Estates, farmhouses, haciendas, hotels, restaurants and event spaces — also if you have in-house catering.',
+      pv_f0:'Organizers send you requests directly through the platform',
+      pc_f0:'Organizers send you requests directly through the platform',
+      po_f0:'Request availability from venues and caterings right from the platform',
       pv_f1:'1 user',pv_f2:'Calendar',pv_f3:'Unlimited inquiries',pv_f4:'1 venue',pv_f5:'1 listing on weddingvenuesspain.com — wedding venue or pre & post',pv_f6:'Email support',
       pc_name:'Caterings',pc_aud:'For every kind of catering company that wants to operate independently of any venue.',
       pc_f1:'1 user',pc_f2:'Calendar',pc_f3:'Unlimited inquiries',pc_f4:'Contacts & clients',pc_f5:'Email support',
