@@ -1568,8 +1568,9 @@
     .acc{ padding:60px 12px 70px; }
     .metrics-grid{ grid-template-columns:1fr; }
     .section-head h2{ font-size:28px; }
-    /* El toggle de idioma se mantiene visible también en móvil (compacto) */
-    .nav-lang-toggle{ padding:4px 7px; font-size:10px; margin-left:2px; }
+    /* En pantallas muy pequeñas el toggle sale de la navbar (no cabía y se
+       desbordaba); el idioma se cambia desde el menú hamburguesa */
+    .navbar .nav-lang-toggle{ display:none; }
   }
   .hero-logos-marquee-wrap .hero-logo-row .hero-logo:nth-child(n+7){ display:none; }
   @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -1589,6 +1590,12 @@
   .mobile-menu.open{ display:flex; }
   .mobile-menu a{ color:#fff; text-decoration:none; font-size:18px; font-weight:500; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
   .mobile-menu .mobile-menu-close{ position:absolute; top:24px; right:24px; background:transparent; border:0; color:#fff; cursor:pointer; }
+  /* Toggle de idioma dentro del menú móvil — visible en cualquier ancho de pantalla */
+  .mobile-menu .mobile-menu-lang{
+    display:inline-block !important; align-self:flex-start; margin-top:16px;
+    padding:9px 20px; font-size:13px; color:#fff; border-color:rgba(255,255,255,0.35); opacity:1;
+  }
+  .mobile-menu .mobile-menu-lang:hover{ background:rgba(255,255,255,0.08); }
 
 </style>
 </head>
@@ -1628,6 +1635,7 @@
   <a href="#contacto" data-i18n="nav_contact">Contacto</a>
   <a href="https://app.foreventos.com/login" data-i18n="nav_login">Iniciar sesión</a>
   <a href="https://app.foreventos.com/signup" data-i18n="nav_signup">Crear cuenta</a>
+  <button class="nav-lang-toggle mobile-menu-lang" id="langToggleMobile">EN</button>
 </div>
 
 <!-- ============ HERO (Liquid Glass) ============ -->
@@ -2313,8 +2321,10 @@
     document.querySelectorAll('[data-billnote]').forEach(function(el){ el.textContent = BILLNOTES[l][currentCycle]; });
   }
   updateBillNotes();
-  var langBtn = document.getElementById('langToggle');
-  if (langBtn) langBtn.addEventListener('click', function(){ setTimeout(updateBillNotes, 0); });
+  ['langToggle','langToggleMobile'].forEach(function(id){
+    var b = document.getElementById(id);
+    if (b) b.addEventListener('click', function(){ setTimeout(updateBillNotes, 0); });
+  });
 
   // ===== Spawn ambient sparks in hero scene =====
   (function spawnSparks(){
@@ -2502,8 +2512,11 @@
     var ul=window.location.pathname.indexOf('/en')===0?'en':null;
     var bl=(navigator.language||'').slice(0,2);var dl=ul||(bl==='en'?'en':'es');
     collectES();if(dl==='en')apply('en');
-    var btn=document.getElementById('langToggle');
-    if(btn){btn.textContent=dl==='es'?'EN':'ES';btn.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-lang')||'es';var n=c==='es'?'en':'es';apply(n);btn.textContent=n==='es'?'EN':'ES';});}
+    // Dos toggles de idioma: navbar (escritorio) y menú móvil — mismo comportamiento
+    var btns=[document.getElementById('langToggle'),document.getElementById('langToggleMobile')].filter(Boolean);
+    function setBtnLabels(l){btns.forEach(function(b){b.textContent=l==='es'?'EN':'ES';});}
+    setBtnLabels(dl);
+    btns.forEach(function(b){b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-lang')||'es';var n=c==='es'?'en':'es';apply(n);setBtnLabels(n);});});
   })();
 </script>
 
