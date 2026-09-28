@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FOREVENTOS logo v3</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#1A2419; --deep:#141E16; --cream:#F5F4EE; --dot:#7BD89B; --muted:#6B756B; }
+  body{ margin:0; background:#FBFAF5; color:var(--ink); font-family:Inter,sans-serif; padding:48px 40px 80px; }
+  h1{ font-family:Satoshi,sans-serif; font-size:30px; margin:0 0 6px; letter-spacing:-.5px; }
+  .lead{ color:var(--muted); margin:0 0 36px; font-size:14px; }
+  .row{ display:grid; grid-template-columns:230px 130px 130px 90px 1fr; gap:22px; align-items:center;
+        padding:22px 0; border-top:1px solid rgba(26,36,25,.08); }
+  .row h3{ margin:0 0 4px; font-family:Satoshi,sans-serif; font-size:17px; }
+  .row p{ margin:0; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .tile{ width:120px; height:120px; border-radius:28px; display:grid; place-items:center; }
+  .tile.l{ background:var(--cream); } .tile.d{ background:var(--deep); }
+  .tile svg{ width:86px; height:86px; }
+  .fav{ display:flex; gap:12px; align-items:center; }
+  .fav span{ display:grid; place-items:center; background:var(--deep); }
+  .fav .f32{ width:32px; height:32px; border-radius:8px; } .fav .f32 svg{ width:24px; height:24px; }
+  .fav .f16{ width:16px; height:16px; border-radius:4px; } .fav .f16 svg{ width:13px; height:13px; }
+  .nav{ display:inline-flex; align-items:center; gap:11px; padding:10px 22px 10px 16px; border-radius:999px;
+        background:#fff; box-shadow:0 10px 30px rgba(20,30,22,.10); }
+  .nav svg{ width:30px; height:30px; }
+  .wm{ font-family:Satoshi,sans-serif; font-weight:700; font-size:19px; letter-spacing:1.4px; }
+  .tag{ display:inline-block; font-size:10.5px; font-weight:600; letter-spacing:.8px; text-transform:uppercase;
+        padding:3px 8px; border-radius:6px; background:rgba(123,216,155,.22); color:#1E6B3A; margin-left:8px; vertical-align:2px; }
+  .cur h3{ color:var(--muted); }
+  h2{ font-family:Satoshi,sans-serif; font-size:22px; margin:56px 0 8px; }
+  .wms{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .wcard{ border-radius:20px; padding:30px 26px 22px; background:#fff; box-shadow:0 10px 30px rgba(20,30,22,.06); }
+  .wcard.dk{ background:var(--deep); color:var(--cream); }
+  .lock{ display:flex; align-items:center; gap:14px; }
+  .lock svg{ width:46px; height:46px; }
+  .wcard small{ display:block; margin-top:18px; font-size:12px; color:var(--muted); }
+  .w1{ font-family:Satoshi,sans-serif; font-weight:700; font-size:30px; letter-spacing:3px; }
+  .w2{ font-family:Satoshi,sans-serif; font-weight:700; font-size:34px; letter-spacing:-1px; }
+  .w3{ font-family:Satoshi,sans-serif; font-weight:500; font-size:30px; letter-spacing:4.5px; }
+</style>
+</head>
+<body>
+<h1>FOREVENTOS · logo v3</h1>
+<p class="lead">Mantenemos el ADN (arco de entrada + punto verde + paleta salvia) y quitamos lo que hace que el icono actual se lea como un fantasma a tamaño pequeño.</p>
+<div id="rows"></div>
+
+<h2>Wordmark (con el icono E)</h2>
+<p class="lead">Satoshi, la tipografía de la web. En la versión final el texto se convierte a trazos para que se vea igual en todas partes.</p>
+<div class="wms">
+  <div class="wcard"><div class="lock" data-icon="E" data-c="ink"><span class="w1">FOREVENTOS</span></div><small>1 · Mayúsculas Bold, tracking contenido (evolución del actual)</small></div>
+  <div class="wcard"><div class="lock" data-icon="E" data-c="ink"><span class="w2">foreventos</span></div><small>2 · Minúsculas Bold, compacto: más cercano y moderno</small></div>
+  <div class="wcard"><div class="lock" data-icon="E" data-c="ink"><span class="w3">FOREVENTOS</span></div><small>3 · Mayúsculas Medium, más aire: elegante y premium</small></div>
+  <div class="wcard dk"><div class="lock" data-icon="E" data-c="cream"><span class="w1">FOREVENTOS</span></div><small>1 · sobre oscuro</small></div>
+  <div class="wcard dk"><div class="lock" data-icon="E" data-c="cream"><span class="w2">foreventos</span></div><small>2 · sobre oscuro</small></div>
+  <div class="wcard dk"><div class="lock" data-icon="E" data-c="cream"><span class="w3">FOREVENTOS</span></div><small>3 · sobre oscuro</small></div>
+</div>
+
+<script>
+  // Todos los iconos en un viewBox 0 0 120 120, trazo 12, remates redondos
+  const ICONS = {
+    CUR: { vb:'45 56 150 150', sw:16, strokes:['M72 198 V112 A48 48 0 0 1 168 112 V198','M72 128 H92','M168 128 H148','M168 198 H102'], dot:[120,128,9] },
+    // Arco con proporción de puerta: patas en x=34/86, radio 26, de y=22 a y=106
+    A: { strokes:['M34 106 V48 A26 26 0 0 1 86 48 V106'], dot:[104,100,8.5] },
+    B: { strokes:['M34 106 V48 A26 26 0 0 1 86 48 V106','M34 68 H62'], dot:[62,92,8.5] },
+    C: { strokes:['M34 106 V48 A26 26 0 0 1 86 48 V106'],
+         fill:'M60 55 C61.8 68 65 71.5 77 73.5 C65 75.5 61.8 79 60 92 C58.2 79 55 75.5 43 73.5 C55 71.5 58.2 68 60 55 Z' },
+    D: { strokes:['M34 106 V48 A26 26 0 0 1 86 48 V106'], check:'M47 73 L57 83 L74 62' },
+    E: { strokes:['M34 106 V48 A26 26 0 0 1 43.99 27.51','M76.01 27.51 A26 26 0 0 1 86 48 V106'], dot:[60,22,9] }
+  };
+  const META = [
+    ['CUR','Actual','Arco + barras laterales + punto. A 16–32 px se lee como una cara o un fantasma.'],
+    ['A','A · Portal','El arco limpio y el punto como un «punto final»: evento cerrado. Lo más minimalista y claro en favicon.'],
+    ['B','B · Portal-F','La barra interior convierte el arco en una F de FOREVENTOS; el punto es el evento dentro del espacio.'],
+    ['C','C · Destello','Un destello verde dentro del portal: celebración de cualquier tipo, no solo bodas.'],
+    ['D','D · Cerrado','Un check dentro del portal: conecta directamente con «Más eventos cerrados».'],
+    ['E','E · Clave del arco','El punto verde es la piedra clave que sostiene el arco: FOREVENTOS une canales, proveedores y clientes. Es la historia de la animación.', true]
+  ];
+  function svg(k, color){
+    const I = ICONS[k], sw = I.sw || 12, c = color === 'cream' ? '#F5F4EE' : '#1A2419';
+    let s = `<svg viewBox="${I.vb || '0 0 120 120'}" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="${c}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">`;
+    I.strokes.forEach(d => s += `<path d="${d}"/>`);
+    s += '</g>';
+    if(I.dot) s += `<circle cx="${I.dot[0]}" cy="${I.dot[1]}" r="${I.dot[2]}" fill="#7BD89B"/>`;
+    if(I.fill) s += `<path d="${I.fill}" fill="#7BD89B"/>`;
+    if(I.check) s += `<path d="${I.check}" fill="none" stroke="#7BD89B" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>`;
+    return s + '</svg>';
+  }
+  document.getElementById('rows').innerHTML = META.map(([k,t,d,rec]) => `
+    <div class="row ${k==='CUR'?'cur':''}">
+      <div><h3>${t}${rec?'<span class="tag">Recomendado</span>':''}</h3><p>${d}</p></div>
+      <div class="tile l">${svg(k,'ink')}</div>
+      <div class="tile d">${svg(k,'cream')}</div>
+      <div class="fav"><span class="f32">${svg(k,'cream')}</span><span class="f16">${svg(k,'cream')}</span></div>
+      <div><span class="nav">${svg(k,'ink')}<span class="wm">FOREVENTOS</span></span></div>
+    </div>`).join('');
+  document.querySelectorAll('.lock').forEach(el => el.insertAdjacentHTML('afterbegin', svg(el.dataset.icon, el.dataset.c)));
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>FOREVENTOS · Dovelas · generador del kit</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+<style>
+  body{ margin:0; padding:32px; background:#EFEEE7; font-family:system-ui,sans-serif; color:#1A2419; }
+  #log{ font:12px/1.6 ui-monospace,monospace; white-space:pre-wrap; }
+  #prev{ display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; margin-top:20px; }
+  #prev figure{ margin:0; background:#fff; padding:10px; border-radius:10px; }
+  #prev figcaption{ font-size:11px; margin-top:6px; color:#6B756B; }
+  #prev img{ display:block; max-width:420px; background:repeating-conic-gradient(#eee 0 25%, #fff 0 50%) 0 0/16px 16px; }
+</style>
+</head>
+<body>
+<h1>Kit Dovelas</h1>
+<div id="log"></div>
+<div id="prev"></div>
+<script>
+/* ============================================================
+   Logo FOREVENTOS · «Dovelas»
+   Arco de medio punto en 7 dovelas + jambas; la clave (centro)
+   en verde y ligeramente destacada. Geometría en unidades 0–120.
+   ============================================================ */
+const INK = '#1A2419', DEEP = '#141E16', CREAM = '#F5F4EE';
+const KEY_ON_LIGHT = '#3FA868', KEY_ON_DARK = '#7BD89B';
+
+const r2 = n => +n.toFixed(2);
+const pt = (cx, cy, r, deg) => { const a = deg * Math.PI / 180; return [r2(cx + r * Math.cos(a)), r2(cy + r * Math.sin(a))]; };
+
+// full: 7 dovelas (uso general) · simple: 5 dovelas con juntas más abiertas (≤ 48 px)
+const VARIANTS = {
+  full:   { n:7, gap:3.4, rIn:23, rOut:42, keyOut:6, keyIn:1 },
+  simple: { n:5, gap:7.5, rIn:21, rOut:42, keyOut:5, keyIn:0 }
+};
+function markPaths(v, ink, key){
+  const { n, gap, rIn, rOut, keyOut, keyIn } = VARIANTS[v], cx = 60, cy = 62, base = 108;
+  let s = '';
+  for(let i = 0; i < n; i++){
+    const isKey = i === (n - 1) / 2;
+    const a1 = 180 + i * 180 / n + gap / 2, a2 = 180 + (i + 1) * 180 / n - gap / 2;
+    const ro = isKey ? rOut + keyOut : rOut, ri = isKey ? rIn - keyIn : rIn;
+    const [x1,y1] = pt(cx,cy,ro,a1), [x2,y2] = pt(cx,cy,ro,a2), [x3,y3] = pt(cx,cy,ri,a2), [x4,y4] = pt(cx,cy,ri,a1);
+    s += `<path d="M${x1} ${y1}A${ro} ${ro} 0 0 1 ${x2} ${y2}L${x3} ${y3}A${ri} ${ri} 0 0 0 ${x4} ${y4}Z" fill="${isKey ? key : ink}"/>`;
+  }
+  // La junta entre arco y jamba mantiene el mismo hueco que entre dovelas
+  const j = r2(Math.sin(gap / 2 * Math.PI / 180) * (rIn + rOut) / 2 * 2);
+  s += `<rect x="${cx - rOut}" y="${r2(cy + j)}" width="${rOut - rIn}" height="${r2(base - cy - j)}" rx="1.2" fill="${ink}"/>`;
+  s += `<rect x="${cx + rIn}" y="${r2(cy + j)}" width="${rOut - rIn}" height="${r2(base - cy - j)}" rx="1.2" fill="${ink}"/>`;
+  return s;
+}
+// Caja del símbolo: x 18–102, y 14–108 (la clave sobresale 6 por arriba)
+const MARK_BOX = { x:18, y:14, w:84, h:94 };
+const markSVG = (v, ink, key, pad = 2) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${MARK_BOX.x - pad} ${MARK_BOX.y - pad} ${MARK_BOX.w + pad * 2} ${MARK_BOX.h + pad * 2}">${markPaths(v, ink, key)}</svg>`;
+
+// Icono cuadrado sobre fondo (favicons / apps). rx=0 → a sangre (iOS/Android redondean)
+function tileSVG(size, v, bg, ink, key, rx, scale){
+  const s = size * scale / MARK_BOX.h;                       // escala por altura
+  const w = MARK_BOX.w * s, h = MARK_BOX.h * s;
+  const tx = (size - w) / 2 - MARK_BOX.x * s, ty = (size - h) / 2 - MARK_BOX.y * s + size * 0.01;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
+    `<rect width="${size}" height="${size}" rx="${rx}" fill="${bg}"/>` +
+    `<g transform="translate(${r2(tx)} ${r2(ty)}) scale(${r2(s * 1000) / 1000})">${markPaths(v, ink, key)}</g></svg>`;
+}
+
+// Wordmark FOREVENTOS en Satoshi Bold convertido a trazos, tracking .16em
+let FONT;
+function wordmarkPath(size, tracking = 0.16){
+  const text = 'FOREVENTOS', scale = size / FONT.unitsPerEm;
+  let x = 0, d = '';
+  for(let i = 0; i < text.length; i++){
+    const g = FONT.charToGlyph(text[i]);
+    d += g.getPath(x, 0, size).toPathData(2);
+    x += g.advanceWidth * scale + (i < text.length - 1 ? tracking * size : 0);
+  }
+  const capH = (FONT.tables.os2.sCapHeight || 700) * scale;
+  return { d, width: x, capH };
+}
+// Lockup horizontal: símbolo a 1.5× la altura de mayúsculas, centrados ópticamente
+function lockupSVG(ink, key){
+  const size = 100, wm = wordmarkPath(size);
+  const markH = wm.capH * 1.62, s = markH / MARK_BOX.h, markW = MARK_BOX.w * s;
+  const gap = wm.capH * 0.62, padX = 4, padY = 4;
+  const W = padX * 2 + markW + gap + wm.width, H = padY * 2 + markH;
+  const textY = padY + markH / 2 + wm.capH / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${r2(W)} ${r2(H)}" width="${r2(W)}" height="${r2(H)}">` +
+    `<g transform="translate(${r2(padX - MARK_BOX.x * s)} ${r2(padY - MARK_BOX.y * s)}) scale(${r2(s * 1000) / 1000})">${markPaths('full', ink, key)}</g>` +
+    `<path transform="translate(${r2(padX + markW + gap)} ${r2(textY)})" fill="${ink}" d="${wm.d}"/></svg>`;
+}
+
+// ---------- utilidades de exportación ----------
+const log = m => document.getElementById('log').textContent += m + '\n';
+async function save(name, data, type){
+  const body = data instanceof Blob ? data : new Blob([data], { type });
+  const r = await fetch('/save/' + name, { method:'POST', body });
+  if(!r.ok) throw new Error(name + ' → ' + r.status);
+  const url = URL.createObjectURL(body);
+  document.getElementById('prev').insertAdjacentHTML('beforeend', `<figure><img src="${url}"><figcaption>${name} · ${body.size} B</figcaption></figure>`);
+  log('✓ ' + name + ' (' + body.size + ' B)');
+}
+function svgToImage(svg){
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img); img.onerror = rej;
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  });
+}
+async function png(name, svg, w, h){
+  const img = await svgToImage(svg);
+  const c = document.createElement('canvas'); c.width = w; c.height = h || w;
+  const ctx = c.getContext('2d'); ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(img, 0, 0, c.width, c.height);
+  await save(name, await new Promise(r => c.toBlob(r, 'image/png')));
+}
+
+// Imagen para redes (1200×630)
+async function ogCover(lockDark){
+  const c = document.createElement('canvas'); c.width = 1200; c.height = 630;
+  const x = c.getContext('2d');
+  const g = x.createRadialGradient(600, 250, 40, 600, 315, 760);
+  g.addColorStop(0, '#2A3D2E'); g.addColorStop(.55, '#18231B'); g.addColorStop(1, '#0F1712');
+  x.fillStyle = g; x.fillRect(0, 0, 1200, 630);
+  // arcos concéntricos muy tenues de fondo (eco de las dovelas)
+  x.strokeStyle = 'rgba(143,170,148,0.07)'; x.lineWidth = 2;
+  [300, 380, 460].forEach(r => { x.beginPath(); x.arc(600, 640, r, Math.PI, 0); x.stroke(); });
+  const lock = await svgToImage(lockDark);
+  const lw = 560, lh = lw * lock.height / lock.width;
+  x.drawImage(lock, (1200 - lw) / 2, 222, lw, lh);
+  await document.fonts.load('500 40px Satoshi');
+  x.textAlign = 'center';
+  x.fillStyle = '#D8E0CE'; x.font = '500 38px Satoshi';
+  x.fillText('Menos gestión. Más eventos cerrados.', 600, 222 + lh + 78);
+  x.fillStyle = '#8FAA94'; x.font = '500 17px Satoshi';
+  if('letterSpacing' in x) x.letterSpacing = '3px';
+  x.fillText('LA PLATAFORMA COMERCIAL PARA VENUES, CATERINGS Y ORGANIZADORES DE EVENTOS', 600, 222 + lh + 128);
+  await save('og-cover.png', await new Promise(r => c.toBlob(r, 'image/png')));
+}
+
+(async function build(){
+  try{
+    const css = await fetch('https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap').then(r => r.text());
+    const ttf = css.match(/url\('([^']+)'\) format\('truetype'\)/)[1];
+    FONT = opentype.parse(await fetch('https:' + ttf).then(r => r.arrayBuffer()));
+    log('Satoshi Bold cargada (' + FONT.unitsPerEm + ' upm)');
+
+    // --- SVG: símbolo ---
+    const iconInk = markSVG('full', INK, KEY_ON_LIGHT), iconCream = markSVG('full', CREAM, KEY_ON_DARK);
+    await save('foreventos-icon.svg', iconInk, 'image/svg+xml');
+    await save('foreventos-icon-dark.svg', iconInk, 'image/svg+xml');     // nombre usado en la app
+    await save('foreventos-icon-cream.svg', iconCream, 'image/svg+xml');
+    await save('foreventos-icon-light.svg', iconCream, 'image/svg+xml');
+    // --- SVG: lockups (texto en trazos) ---
+    const lockL = lockupSVG(INK, KEY_ON_LIGHT), lockD = lockupSVG(CREAM, KEY_ON_DARK);
+    await save('foreventos-lockup.svg', lockL, 'image/svg+xml');
+    await save('foreventos-lockup-dark.svg', lockD, 'image/svg+xml');
+    // --- favicon SVG (versión simple, tile oscuro) ---
+    const favSvg = tileSVG(512, 'simple', DEEP, CREAM, KEY_ON_DARK, 114, 0.66);
+    await save('favicon.svg', favSvg, 'image/svg+xml');
+
+    // --- PNG ---
+    await png('favicon-16.png', tileSVG(16, 'simple', DEEP, CREAM, KEY_ON_DARK, 3.5, 0.74), 16);
+    await png('favicon-32.png', tileSVG(32, 'simple', DEEP, CREAM, KEY_ON_DARK, 7, 0.72), 32);
+    await png('favicon-48.png', tileSVG(48, 'simple', DEEP, CREAM, KEY_ON_DARK, 10.5, 0.70), 48);
+    await png('apple-touch-icon.png', tileSVG(180, 'full', DEEP, CREAM, KEY_ON_DARK, 0, 0.56), 180);
+    await png('icon-192-dark.png', tileSVG(192, 'full', DEEP, CREAM, KEY_ON_DARK, 0, 0.56), 192);
+    await png('icon-512-dark.png', tileSVG(512, 'full', DEEP, CREAM, KEY_ON_DARK, 0, 0.56), 512);
+    await png('icon-512-light.png', tileSVG(512, 'full', CREAM, INK, KEY_ON_LIGHT, 0, 0.56), 512);
+    await png('foreventos-favicon.png', tileSVG(512, 'full', DEEP, CREAM, KEY_ON_DARK, 114, 0.6), 512);
+    // Lockups PNG a 990×216 (mismo tamaño que los logo-menu actuales)
+    const lockPng = async (name, svg, bg) => {
+      const img = await svgToImage(svg), W = 990, H = 216;
+      const c = document.createElement('canvas'); c.width = W; c.height = H;
+      const x = c.getContext('2d'); if(bg){ x.fillStyle = bg; x.fillRect(0, 0, W, H); }
+      const h = H * 0.62, w = h * img.width / img.height;
+      x.drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
+      await save(name, await new Promise(r => c.toBlob(r, 'image/png')));
+    };
+    await lockPng('foreventos-lockup.png', lockL);
+    await lockPng('foreventos-lockup-dark.png', lockD);
+    await lockPng('logo-menu-azul.png', lockL);
+    await lockPng('logo-menu-blanco.png', lockD);
+    await lockPng('foreventos-logo-menu.png', lockD);
+    await ogCover(lockD);
+    log('LISTO');
+    window.BUILD_DONE = true;
+  }catch(e){ log('ERROR ' + e.message); window.BUILD_ERROR = e.message; }
+})();
+</script>
+</body>
+</html>

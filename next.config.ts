@@ -12,7 +12,9 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com",
       "font-src 'self' https://fonts.gstatic.com https://cdn.fontshare.com",
       "img-src 'self' data:",
-      "connect-src 'self'",
+      // El formulario de contacto hace fetch a la API de la app (antes quedaba
+      // bloqueado por CSP y siempre caía al mailto de respaldo).
+      "connect-src 'self' https://app.foreventos.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self' https://app.foreventos.com",

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FOREVENTOS logo v4</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#1A2419; --deep:#141E16; --cream:#F5F4EE; --muted:#6B756B; }
+  body{ margin:0; background:#FBFAF5; color:var(--ink); font-family:Inter,sans-serif; padding:48px 40px 80px; }
+  h1{ font-family:Satoshi,sans-serif; font-size:30px; margin:0 0 6px; letter-spacing:-.5px; }
+  h2{ font-family:Satoshi,sans-serif; font-size:21px; margin:44px 0 4px; }
+  .lead{ color:var(--muted); margin:0 0 10px; font-size:14px; }
+  .row{ display:grid; grid-template-columns:250px 130px 130px 90px 1fr; gap:22px; align-items:center;
+        padding:22px 0; border-top:1px solid rgba(26,36,25,.08); }
+  .row h3{ margin:0 0 4px; font-family:Satoshi,sans-serif; font-size:17px; }
+  .row p{ margin:0; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .tile{ width:120px; height:120px; border-radius:28px; display:grid; place-items:center; }
+  .tile.l{ background:var(--cream); } .tile.d{ background:var(--deep); }
+  .tile svg{ width:92px; height:92px; }
+  .fav{ display:flex; gap:12px; align-items:center; }
+  .fav span{ display:grid; place-items:center; background:var(--deep); }
+  .fav .f32{ width:32px; height:32px; border-radius:8px; } .fav .f32 svg{ width:27px; height:27px; }
+  .fav .f16{ width:16px; height:16px; border-radius:4px; } .fav .f16 svg{ width:14px; height:14px; }
+  .locks{ display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+  .lock{ display:inline-flex; align-items:center; gap:10px; padding:10px 22px 10px 14px; border-radius:999px; }
+  .lock.l{ background:#fff; box-shadow:0 10px 30px rgba(20,30,22,.10); }
+  .lock.d{ background:var(--deep); color:var(--cream); }
+  .lock svg{ width:34px; height:34px; }
+  .wm{ font-family:Satoshi,sans-serif; font-weight:700; font-size:19px; letter-spacing:1.6px; }
+</style>
+</head>
+<body>
+<h1>FOREVENTOS · logo v4</h1>
+<p class="lead">Dos caminos: el arco con otro estilo (1) y propuestas desde cero, monograma FE o símbolo + texto (2). Misma paleta salvia + crema.</p>
+<div id="board"></div>
+
+<script>
+  // Paletas: claro (sobre crema) y oscuro (sobre verde muy oscuro)
+  const P = {
+    l:{ ink:'#1A2419', mid:'#4A6B52', sage:'#8FAA94', dot:'#46B173', bg:'#F5F4EE' },
+    d:{ ink:'#F5F4EE', mid:'#B8C9B9', sage:'#8FAA94', dot:'#7BD89B', bg:'#141E16' }
+  };
+  const st = (d, c, w, extra='') => `<path d="${d}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;
+  const fl = (d, c, extra='') => `<path d="${d}" fill="${c}" ${extra}/>`;
+  const SPARK = (cx, cy, r) => `M${cx} ${cy-r} C${cx+r*.12} ${cy-r*.22} ${cx+r*.22} ${cy-r*.12} ${cx+r} ${cy} C${cx+r*.22} ${cy+r*.12} ${cx+r*.12} ${cy+r*.22} ${cx} ${cy+r} C${cx-r*.12} ${cy+r*.22} ${cx-r*.22} ${cy+r*.12} ${cx-r} ${cy} C${cx-r*.22} ${cy-r*.12} ${cx-r*.12} ${cy-r*.22} ${cx} ${cy-r} Z`;
+
+  const ICONS = {
+    // ---- 1 · El arco, con otro estilo ----
+    perspectiva: c =>
+      fl('M20 108 V58 A40 40 0 0 1 100 58 V108 Z', c.ink) +
+      fl('M35 108 V64 A25 25 0 0 1 85 64 V108 Z', c.mid) +
+      fl('M48 108 V70 A12 12 0 0 1 72 70 V108 Z', c.dot),
+    arcoF: c =>
+      fl('M24 108 V56 A36 36 0 0 1 96 56 V108 Z', c.ink) +
+      st('M50 92 V56 H72 M50 74 H66', c.bg, 11) +
+      `<circle cx="73" cy="92" r="6.5" fill="${c.dot}"/>`,
+    arcoE: c =>
+      st('M34 106 V50 A26 26 0 0 1 86 50 V106', c.ink, 12) +
+      st('M34 72 H62', c.ink, 12) +
+      st('M52 106 H86', c.dot, 12),
+    // ---- 2 · Desde cero ----
+    feBase: c =>
+      st('M38 96 V24 H84 M38 60 H74', c.ink, 14) +
+      st('M56 96 H84', c.dot, 14),
+    ticket: c => `<g transform="rotate(-10 60 60)">` +
+      fl('M24 32 H96 A10 10 0 0 1 106 42 V51 A9 9 0 0 0 106 69 V78 A10 10 0 0 1 96 88 H24 A10 10 0 0 1 14 78 V69 A9 9 0 0 0 14 51 V42 A10 10 0 0 1 24 32 Z', c.ink) +
+      st('M80 42 V78', c.bg, 3, 'stroke-dasharray="1 7"') +
+      st('M34 76 V44 H56 M34 60 H51', c.bg, 7) +
+      st('M44 76 H56', c.dot, 7) +
+      fl(SPARK(93, 60, 8), c.dot) + `</g>`,
+    fDestello: c =>
+      st('M40 100 V24 H82 M40 60 H72', c.ink, 14) +
+      fl(SPARK(80, 90, 17), c.dot),
+    encuentro: c =>
+      `<circle cx="46" cy="60" r="27" fill="none" stroke="${c.ink}" stroke-width="11"/>` +
+      `<circle cx="74" cy="60" r="27" fill="none" stroke="${c.sage}" stroke-width="11"/>` +
+      fl('M60 37.4 A27 27 0 0 1 60 82.6 A27 27 0 0 1 60 37.4 Z', c.dot),
+    calendario: c =>
+      `<rect x="20" y="30" width="80" height="72" rx="18" fill="none" stroke="${c.ink}" stroke-width="10"/>` +
+      st('M44 20 V38 M76 20 V38', c.ink, 10) +
+      [44,60,76].map((x,i) => `<circle cx="${x}" cy="62" r="5.5" fill="${c.sage}"/>`).join('') +
+      `<circle cx="44" cy="82" r="5.5" fill="${c.sage}"/><circle cx="60" cy="82" r="5.5" fill="${c.sage}"/>` +
+      `<circle cx="76" cy="82" r="8" fill="${c.dot}"/>`
+  };
+  const svg = (k, mode) => `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">${ICONS[k](P[mode])}</svg>`;
+
+  const GROUPS = [
+    ['1 · El arco, con otro estilo', 'Conservamos la idea de entrada/portal, pero con más carácter.', [
+      ['perspectiva', '1A · Arcos en perspectiva', 'Tres arcos que se adentran hacia una luz verde: entrar al evento. Relleno, con profundidad y muy premium.'],
+      ['arcoF', '1B · Arco con F', 'Arco sólido con la F de FOREVENTOS recortada y el punto verde: monograma y portal a la vez.'],
+      ['arcoE', '1C · Arco que forma la E', 'El arco es el trazo superior de una E; la base verde la cierra. Se lee «E» de eventos y «puerta».']
+    ]],
+    ['2 · Desde cero', 'Monograma FE o símbolo + texto.', [
+      ['feBase', '2A · FE con base verde', 'Es una F… y con la base verde se convierte en E. Dos letras en una, muy limpio y tecnológico.'],
+      ['ticket', '2B · Entrada (ticket)', 'Un ticket con la FE y un destello: el símbolo universal de «evento», para cualquier tipo. Festivo y cálido.'],
+      ['fDestello', '2C · F con destello', 'F geométrica y un destello verde donde iría la base de la E: celebración + marca.'],
+      ['encuentro', '2D · Punto de encuentro', 'Dos círculos que se unen (tu negocio y tu cliente, canales y proveedores); la unión, en verde.'],
+      ['calendario', '2E · Calendario', 'Calendario con el día del evento marcado en verde. Directo, fiable y muy «software».']
+    ]]
+  ];
+  document.getElementById('board').innerHTML = GROUPS.map(([g, gd, items]) => `
+    <h2>${g}</h2><p class="lead">${gd}</p>
+    ${items.map(([k, t, d]) => `
+      <div class="row">
+        <div><h3>${t}</h3><p>${d}</p></div>
+        <div class="tile l">${svg(k,'l')}</div>
+        <div class="tile d">${svg(k,'d')}</div>
+        <div class="fav"><span class="f32">${svg(k,'d')}</span><span class="f16">${svg(k,'d')}</span></div>
+        <div class="locks">
+          <span class="lock l">${svg(k,'l')}<span class="wm">FOREVENTOS</span></span>
+          <span class="lock d">${svg(k,'d')}<span class="wm">FOREVENTOS</span></span>
+        </div>
+      </div>`).join('')}`).join('');
+</script>
+</body>
+</html>

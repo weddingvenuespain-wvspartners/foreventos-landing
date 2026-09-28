@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <rect width="720" height="200" fill="#141E16"/>
+  <svg x="18" y="38" width="124" height="124" viewBox="45 56 150 150">
+    <g fill="none" stroke="#F5F4EE" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M72 198 V112 A48 48 0 0 1 168 112 V198"/>
+      <path d="M72 128 H92"/>
+      <path d="M168 128 H148"/>
+      <path d="M168 198 H102"/>
+    </g>
+    <circle cx="120" cy="128" r="9" fill="#7BD89B"/>
+  </svg>
+  <text x="178" y="122" font-size="60" font-weight="600" letter-spacing="7" fill="#F5F4EE">FOREVENTOS</text>
+</svg>

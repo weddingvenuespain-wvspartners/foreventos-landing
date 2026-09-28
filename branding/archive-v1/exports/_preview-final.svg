@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <g id="g" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M72 198 V112 A48 48 0 0 1 168 112 V198"/>
+      <path d="M72 128 H92"/>
+      <path d="M168 128 H148"/>
+      <path d="M168 198 H102"/>
+    </g>
+  </defs>
+  <rect width="1320" height="760" fill="#FFFFFF"/>
+  <text x="80" y="58" font-size="30" font-weight="700" fill="#1A2419">FOREVENTOS · identidad final</text>
+  <text x="80" y="86" font-size="16" fill="#8A9489">trazo #1A2419 (16) · punto #7BD89B · tile claro #F5F4EE / oscuro #141E16</text>
+
+  <!-- app tiles -->
+  <rect x="80" y="120" width="200" height="200" rx="44" fill="#F5F4EE"/>
+  <svg x="116" y="156" width="128" height="128" viewBox="45 56 150 150"><use href="#g" color="#1A2419"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+  <rect x="310" y="120" width="200" height="200" rx="44" fill="#141E16"/>
+  <svg x="346" y="156" width="128" height="128" viewBox="45 56 150 150"><use href="#g" color="#F5F4EE"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+
+  <!-- favicon ramp dark -->
+  <text x="560" y="150" font-size="16" font-weight="700" fill="#1A2419">Favicon</text>
+  <rect x="560" y="170" width="96" height="96" rx="20" fill="#141E16"/>
+  <svg x="578" y="188" width="60" height="60" viewBox="45 56 150 150"><use href="#g" color="#F5F4EE"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+  <text x="585" y="290" font-size="13" fill="#8A9489">64</text>
+  <rect x="676" y="186" width="64" height="64" rx="14" fill="#141E16"/>
+  <svg x="688" y="198" width="40" height="40" viewBox="45 56 150 150"><use href="#g" color="#F5F4EE"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+  <text x="700" y="290" font-size="13" fill="#8A9489">32</text>
+  <rect x="760" y="194" width="48" height="48" rx="10" fill="#141E16"/>
+  <svg x="769" y="203" width="30" height="30" viewBox="45 56 150 150"><use href="#g" color="#F5F4EE"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+  <text x="772" y="290" font-size="13" fill="#8A9489">16</text>
+
+  <!-- lockups -->
+  <text x="80" y="400" font-size="16" font-weight="700" fill="#1A2419">Lockup horizontal</text>
+  <svg x="76" y="420" width="100" height="100" viewBox="45 56 150 150"><use href="#g" color="#1A2419"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+  <text x="178" y="488" font-size="50" font-weight="600" letter-spacing="6" fill="#1A2419">FOREVENTOS</text>
+
+  <rect x="60" y="560" width="1180" height="150" rx="24" fill="#141E16"/>
+  <svg x="92" y="580" width="110" height="110" viewBox="45 56 150 150"><use href="#g" color="#F5F4EE"/><circle cx="120" cy="128" r="9" fill="#7BD89B"/></svg>
+  <text x="210" y="652" font-size="52" font-weight="600" letter-spacing="6" fill="#F5F4EE">FOREVENTOS</text>
+</svg>
