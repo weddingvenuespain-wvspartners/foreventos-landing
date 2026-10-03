@@ -37,6 +37,18 @@ export async function GET() {
       '<meta property="og:locale" content="es_ES" />',
       '<meta property="og:locale" content="en_US" />'
     )
+    .replace(
+      /(<meta property="og:description" content=")[^"]*(" \/>)/,
+      `$1${EN_DESCRIPTION}$2`
+    )
+    .replace(
+      /(<meta name="twitter:title" content=")[^"]*(" \/>)/,
+      `$1${EN_TITLE}$2`
+    )
+    .replace(
+      /(<meta name="twitter:description" content=")[^"]*(" \/>)/,
+      `$1${EN_DESCRIPTION}$2`
+    )
   return new NextResponse(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',

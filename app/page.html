@@ -41,10 +41,18 @@
   La preferencia se guarda en localStorage 'fe_consent'.
 -->
 <script>
+  // Las animaciones de entrada (.reveal) solo ocultan contenido si hay JS
+  document.documentElement.classList.add('js');
+  // En /en el body llega en español y lo traduce el i18n del final: se oculta hasta entonces
+  // (máx. 1,5 s por si el script fallara, para no dejar nunca la página en blanco)
+  if (location.pathname.indexOf('/en') === 0) {
+    document.documentElement.classList.add('i18n-pending');
+    setTimeout(function(){ document.documentElement.classList.remove('i18n-pending'); }, 1500);
+  }
   window.FE_LEGAL = {
     company: 'WVS Partners SL',
-    cif: '[CIF PENDIENTE]',
-    address: '[DOMICILIO PENDIENTE]',
+    cif: 'B23867617',
+    address: '', // domicilio social: pendiente de confirmar (no se muestra mientras esté vacío)
     email: 'info@foreventos.com',
     app: 'https://app.foreventos.com'
   };
@@ -2057,8 +2065,10 @@
   .ck-cat span{ font-size:12.5px; color:#5C665C; }
   @media (max-width:600px){ .ck-banner{ left:10px; right:10px; bottom:10px; padding:16px; } .ck-actions .ck-btn{ flex:1 1 auto; } }
 
+  .i18n-pending body{ visibility:hidden; }
+
   /* ============ SCROLL ANIMATIONS ============ */
-  .reveal{
+  .js .reveal{
     opacity:0; transform:translateY(30px); filter:blur(6px);
     transition:opacity .9s cubic-bezier(0.16,1,0.3,1), transform .9s cubic-bezier(0.16,1,0.3,1), filter .9s cubic-bezier(0.16,1,0.3,1);
   }
@@ -2152,7 +2162,7 @@
   @media (prefers-reduced-motion:reduce){
     [data-anim] > .ai, .plan.ai .plan-features li, .plan.ai .plan-check{ opacity:1; transform:none; filter:none; }
     .scene-stage, .hero-curve, .hero-glow-a, .hero-glow-b{ translate:none; }
-    .reveal{ filter:none; }
+    .js .reveal{ filter:none; }
     .split .w > span{ transform:none; }
     .cf-arch path, .cf-arch rect{ stroke-dashoffset:0; }
   }
@@ -2679,10 +2689,10 @@
       </ul>
       <div class="hero-mini-trust reveal d3">
         <span class="hero-mini-trust-avatars">
-          <span title="Venues"><img src="https://images.unsplash.com/photo-1755438755821-c0be80d67fc3?w=120&h=120&fit=crop&auto=format&q=70" alt="Venue con arco y jardín" width="38" height="38" loading="lazy" /></span>
-          <span title="Caterings"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=120&h=120&fit=crop&auto=format&q=70" alt="Bufé de catering" width="38" height="38" loading="lazy" /></span>
-          <span title="Organizadores"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=120&h=120&fit=crop&auto=format&q=70" alt="Mesa de evento decorada" width="38" height="38" loading="lazy" /></span>
-          <span title="Venues"><img src="https://images.unsplash.com/photo-1623908112789-c33795afd551?w=120&h=120&fit=crop&auto=format&q=70" alt="Finca para eventos" width="38" height="38" loading="lazy" /></span>
+          <span title="Venues"><img src="/foreventos-assets/hero/hero-1.jpg" alt="Venue con arco y jardín" width="38" height="38" loading="lazy" /></span>
+          <span title="Caterings"><img src="/foreventos-assets/hero/hero-2.jpg" alt="Bufé de catering" width="38" height="38" loading="lazy" /></span>
+          <span title="Organizadores"><img src="/foreventos-assets/hero/hero-3.jpg" alt="Mesa de evento decorada" width="38" height="38" loading="lazy" /></span>
+          <span title="Venues"><img src="/foreventos-assets/hero/hero-4.jpg" alt="Finca para eventos" width="38" height="38" loading="lazy" /></span>
         </span>
         <span class="hero-mini-trust-text">
           <span class="lead"><span data-i18n="mini_lead"><strong>Listo en menos de 8 h.</strong> Te lo configuramos nosotros.</span></span>
@@ -2703,7 +2713,7 @@
           <!-- Acto 1 · caos: todo llega disperso -->
           <div class="fx-frag" style="--i:0;--x:160px;--y:95px;--r:-7deg"><div class="fx-frag-in">
             <span class="fx-ic" style="background:#6F8F76"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
-            <span><b data-i18n="fx_f1b">Mensaje</b><i data-i18n="fx_f1">¿Tenéis libre el 14 de junio?</i></span>
+            <span><b data-i18n="fx_f1b">Mensaje</b><i data-i18n="fx_f1">¿Tenéis libre el 12 de junio?</i></span>
           </div></div>
           <div class="fx-frag" style="--i:1;--x:398px;--y:80px;--r:6deg"><div class="fx-frag-in">
             <span class="fx-ic" style="background:#3B5B86"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
@@ -2753,7 +2763,7 @@
               <svg class="arch" viewBox="0 0 74 96" fill="none" stroke="#B8C9B9" stroke-width="3" stroke-linecap="round"><path d="M6 94V40a31 31 0 0 1 62 0v54"/><path d="M20 94V46a17 17 0 0 1 34 0v48"/></svg>
               <small>Casa Olivar</small>
               <strong data-i18n="fx_cover">Propuesta · Gala anual</strong>
-              <span data-i18n="fx_cover_sub">Grupo Nexa · 14 jun 2026</span>
+              <span data-i18n="fx_cover_sub">Grupo Nexa · 12 jun 2027</span>
             </div>
             <div class="fx-tabs fx-stag" style="--i:0">
               <span class="fx-tab s1" data-i18n="fx_t1">Espacios</span>
@@ -2774,12 +2784,13 @@
             <div class="fx-li fx-stag" style="--i:0"><span data-i18n="sc4_li1">Espacio + cóctel de bienvenida</span><span>6.800 €</span></div>
             <div class="fx-li fx-stag" style="--i:1"><span data-i18n="sc4_li2">Menú &middot; 180 invitados</span><span>16.200 €</span></div>
             <div class="fx-li fx-stag" style="--i:2"><span data-i18n="sc4_li3">Barra libre premium</span><span>3.600 €</span></div>
-            <div class="fx-li total fx-stag" style="--i:3"><span>Total</span><span>28.400 €</span></div>
-            <div class="fx-sign fx-stag" style="--i:4">
+            <div class="fx-li fx-stag" style="--i:3"><span data-i18n="sc4_li4">Coordinación del día</span><span>1.800 €</span></div>
+            <div class="fx-li total fx-stag" style="--i:4"><span>Total</span><span>28.400 €</span></div>
+            <div class="fx-sign fx-stag" style="--i:5">
               <svg viewBox="0 0 96 30"><path d="M4 22c6-12 10-17 12-15s-4 16-2 16 7-14 10-14-1 11 1 11 5-8 8-8 0 6 2 6 4-5 7-5 1 5 4 5 6-6 9-6M60 18c6-1 14-3 22-2 4 1 8 0 10-2"/></svg>
               <em data-i18n="fx_signed">Firmado online<br/>por Laura M. · Grupo Nexa</em>
             </div>
-            <div class="fx-btn fx-stag" id="fxPayBtn" style="--i:5">
+            <div class="fx-btn fx-stag" id="fxPayBtn" style="--i:6">
               <span class="todo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
               <span class="todo" data-i18n="fx_paybtn">Pagar señal · 8.520 €</span>
               <span class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span data-i18n="fx_paid">Señal cobrada</span></span>
@@ -2974,7 +2985,7 @@
                 <div class="hw-scene s1">
                   <div class="hw-profile">
                     <div class="hw-ph"><span class="av">GN</span><span><b>Grupo Nexa</b><i data-i18n="hw_p_sub">Gala anual · 180 pax</i></span></div>
-                    <div class="hw-kv"><span data-i18n="hw_k1">Fecha del evento</span><b data-i18n="hw_v1">14 jun 2026</b></div>
+                    <div class="hw-kv"><span data-i18n="hw_k1">Fecha del evento</span><b data-i18n="hw_v1">12 jun 2027</b></div>
                     <div class="hw-kv"><span data-i18n="hw_k2">Presupuesto estimado</span><b>28.400 €</b></div>
                     <div class="hw-kv"><span data-i18n="hw_k3">Canal de entrada</span><b data-i18n="fx_n_web">Tu web</b></div>
                     <div class="hw-kv"><span data-i18n="hw_k4">Responsable</span><b>Laura M.</b></div>
@@ -2999,7 +3010,7 @@
                         <svg class="arch" viewBox="0 0 74 96" fill="none" stroke="#B8C9B9" stroke-width="3" stroke-linecap="round"><path d="M6 94V40a31 31 0 0 1 62 0v54"/><path d="M20 94V46a17 17 0 0 1 34 0v48"/></svg>
                         <small>Casa Olivar</small>
                         <strong data-i18n="fx_cover">Propuesta · Gala anual</strong>
-                        <span data-i18n="fx_cover_sub">Grupo Nexa · 14 jun 2026</span>
+                        <span data-i18n="fx_cover_sub">Grupo Nexa · 12 jun 2027</span>
                       </div>
                       <div class="hw-psec"><b data-i18n="fx_t1">Espacios</b>
                         <div class="hw-gal"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
@@ -3171,7 +3182,7 @@
         <span data-i18n="faq_q2">¿Necesito tarjeta para registrarme?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body" data-i18n="faq_a2">No para empezar. Tienes unos días de prueba gratis sin introducir tarjeta. Pasado el periodo de prueba, para seguir usando FOREVENTOS tendrás que elegir un plan y añadir un método de pago.</div>
+      <div class="faq-body" data-i18n="faq_a2">No para empezar. Tienes 14 días de prueba gratis sin introducir tarjeta. Pasado el periodo de prueba, para seguir usando FOREVENTOS tendrás que elegir un plan y añadir un método de pago.</div>
     </details>
     <details class="faq-item reveal d1">
       <summary>
@@ -3218,15 +3229,15 @@
     <h2 data-i18n="ct_h2">Hablemos de tu espacio</h2>
     <p class="section-sub" data-i18n="ct_sub">Sin compromiso: nos cuentas cómo trabajas hoy y te enseñamos cómo quedaría en FOREVENTOS.</p>
   </div>
-  <form class="contact-form reveal" id="contactForm" novalidate>
+  <form class="contact-form reveal" id="contactForm" method="post" novalidate>
     <div class="cf-grid">
       <label class="cf-field">
         <span class="cf-label" data-i18n="fm_name">Nombre y apellidos</span>
         <input type="text" name="name" required autocomplete="name" placeholder="María García" />
       </label>
       <label class="cf-field">
-        <span class="cf-label" data-i18n="fm_venue">Tu venue o catering</span>
-        <input type="text" name="venue" required autocomplete="organization" placeholder="Finca Las Encinas" data-i18n-ph="fm_venue_ph" />
+        <span class="cf-label" data-i18n="fm_venue">Tu empresa (opcional)</span>
+        <input type="text" name="venue" autocomplete="organization" placeholder="Finca Las Encinas" data-i18n-ph="fm_venue_ph" />
       </label>
       <label class="cf-field cf-wide">
         <span class="cf-label" data-i18n="fm_email">Correo electrónico</span>
@@ -3385,7 +3396,10 @@
   updateNavbarTheme();
 
   // ===== Reveal on scroll =====
-  const io = new IntersectionObserver((entries) => {
+  // Sin IntersectionObserver se muestra todo de golpe (y no rompe el resto del script)
+  const io = !('IntersectionObserver' in window)
+    ? { observe(el){ el.classList.add('in'); if(el.classList.contains('metric')) animateMetric(el); }, unobserve(){} }
+    : new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if(e.isIntersecting){
         e.target.classList.add('in');
@@ -3458,7 +3472,9 @@
         if(p < 1) requestAnimationFrame(step);
       })(t0);
     }
-    const eur = v => Math.round(v).toLocaleString('es-ES') + ' €';
+    const eur = v => document.documentElement.getAttribute('data-lang') === 'en'
+      ? '€' + Math.round(v).toLocaleString('en-US')
+      : Math.round(v).toLocaleString('es-ES') + ' €';
 
     // ---- coreografías ----
     const PLAY = [
@@ -3845,7 +3861,7 @@
       const cycle = btn.dataset.cycle;
       document.querySelectorAll('[data-price-monthly]').forEach(el => {
         const v = cycle === 'monthly' ? el.dataset.priceMonthly : el.dataset.priceYearly;
-        el.textContent = v + '€';
+        el.textContent = document.documentElement.getAttribute('data-lang') === 'en' ? '€' + v : v + '€';
       });
       currentCycle = cycle;
       updateBillNotes();
@@ -4101,8 +4117,10 @@
     var btn=f.querySelector('.cf-submit'), status=document.getElementById('cfStatus');
     function lang(){ return document.documentElement.getAttribute('data-lang')==='en'?'en':'es'; }
     var TXT={
-      es:{ sending:'Enviando…', ok:'¡Mensaje recibido! Te respondemos en menos de 2 horas en horario laboral.', err:'No se ha podido enviar. Te abrimos tu correo para que nos escribas directamente.' },
-      en:{ sending:'Sending…', ok:'Message received! We reply within 2 hours during business hours.', err:'We couldn’t send it. We’re opening your email app so you can write to us directly.' }
+      es:{ sending:'Enviando…', ok:'¡Mensaje recibido! Te respondemos en menos de 2 horas en horario laboral.', err:'No se ha podido enviar. Te abrimos tu correo para que nos escribas directamente.',
+           bad:'Revisa el correo electrónico: parece que no es válido.', many:'Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos a info@foreventos.com.' },
+      en:{ sending:'Sending…', ok:'Message received! We reply within 2 hours during business hours.', err:'We couldn’t send it. We’re opening your email app so you can write to us directly.',
+           bad:'Please check your email address — it doesn’t look valid.', many:'You’ve sent several messages in a row. Please wait a few minutes or email info@foreventos.com.' }
     };
     function show(kind,msg){ if(!status)return; status.textContent=msg; status.className='cf-status '+kind; }
     function v(n){return ((f.elements[n]&&f.elements[n].value)||'').trim();}
@@ -4113,9 +4131,12 @@
       if(btn){ btn.disabled=true; } if(label){ label.textContent=t.sending; }
       fetch(API,{ method:'POST', headers:{'Content-Type':'application/json'},
         body:JSON.stringify({ name:v('name'), company:v('venue'), email:v('email'), message:v('message'), website:v('website'), lang:lang() }) })
-        .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+        .then(function(r){ if(!r.ok){ var er=new Error('HTTP '+r.status); er.status=r.status; throw er; } return r.json(); })
         .then(function(){ show('ok',t.ok); f.reset(); })
-        .catch(function(){
+        .catch(function(er){
+          // Errores del usuario (email inválido, demasiados envíos): se explican sin abrir el correo
+          if(er&&er.status===400){ show('err',t.bad); if(f.elements.email) f.elements.email.focus(); return; }
+          if(er&&er.status===429){ show('err',t.many); return; }
           show('err',t.err);
           var subject='Contacto FOREVENTOS — '+v('venue');
           var body='Nombre: '+v('name')+'\nVenue: '+v('venue')+'\nEmail: '+v('email')+'\n\n'+v('message');
@@ -4204,11 +4225,11 @@
       as_1:'14-day free trial',as_2:'No card needed',as_3:'No lock-in',
       mini_lead:'<strong>Live in under 8 hours.</strong> We set it up for you.',mini_sub:'We migrate your clients and inquiries from Excel or your CRM for free',
       // hero story
-      fx_f1:'Is June 14th available?',fx_f2:'RE: RE: RE: Event quote',fx_f3b:'Web form',fx_f3:'Company dinner · 120 pax',
+      fx_f1:'Is June 12th available?',fx_f2:'RE: RE: RE: Event quote',fx_f3b:'Web form',fx_f3:'Company dinner · 120 pax',
       fx_f4:'inquiries_2026.xlsx',fx_f6:'Call Laura back!!',fx_f7b:'Missed calls',fx_f7:'3 · unknown number',
       fx_f8:'New request',fx_f9b:'Bank transfer',fx_f9:'Did the deposit arrive?',
       fx_in_pill:'All sorted',
-      fx_r1:'Annual gala · 180 pax',fx_r2:'Wedding · 150 guests',fx_r3:'Communion · 60 guests',fx_cover:'Proposal · Annual gala',fx_cover_sub:'Grupo Nexa · 14 Jun 2026',fx_t1:'Spaces',fx_t2:'Menu',fx_t3:'Quote',
+      fx_r1:'Annual gala · 180 pax',fx_r2:'Wedding · 150 guests',fx_r3:'Communion · 60 guests',fx_cover:'Proposal · Annual gala',fx_cover_sub:'Grupo Nexa · 12 Jun 2027',fx_t1:'Spaces',fx_t2:'Menu',fx_t3:'Quote',
       fx_open:'Opened 3 times',fx_open_now:'Your client is viewing it',
       fx_pending:'Pending',fx_paid_pill:'Paid',fx_signed:'Signed online<br/>by Laura M. · Grupo Nexa',
       fx_paybtn:'Pay deposit · €8,520',fx_paid:'Deposit received',
@@ -4224,7 +4245,7 @@
       acc_h2:'From first inquiry to <em>closed event</em>.',
       acc_sub:'Four modules working as one. Pick a step to see it from the inside.',
       hw_channels:'Channels',hw_c0:'Form',hw_c1:'Venue listing',hw_c2:'Your subdomain',hw_c3:'or import Excel',hw_new:'new',hw_r4:'Company event · 120 pax',
-      hw_p_sub:'Annual gala · 180 pax',hw_k1:'Event date',hw_v1:'14 Jun 2026',hw_k2:'Estimated budget',hw_k3:'Source',hw_k4:'Owner',
+      hw_p_sub:'Annual gala · 180 pax',hw_k1:'Event date',hw_v1:'12 Jun 2027',hw_k2:'Estimated budget',hw_k3:'Source',hw_k4:'Owner',
       hw_tag1:'Corporate',hw_tag2:'Returning',hw_tag3:'High probability',hw_tl:'Follow-up',hw_rem:'Reminder scheduled',hw_rem_i:'Call Laura · tomorrow 10:00',
       hw_m1:'Welcome cocktail',hw_m2:'Roasted pumpkin cream',hw_m3:'Beef loin with Pedro Ximénez',hw_m4:'House cake',hw_see_quote:'See quote →',hw_live:'Viewing now: Menu',
       hw_signed:'Signed online · Laura M.',hw_stamp:'Event confirmed',hw_dep:'Deposit (30%)',hw_pay:'Pay deposit',hw_paid:'Deposit paid ✓',hw_secure:'Secure payment · instant alert',
@@ -4238,7 +4259,7 @@
       acc2_desc:'Full profile, history and next steps. Set reminders on every lead so nothing goes cold.',
       acc2_chip1:'360° profile',acc2_chip2:'Reminders',acc2_chip3:'Calendar',acc2_chip4:'Effortless follow-up',acc2_chip5:'No forgotten dates',
       sc2_pill:'In follow-up',
-      sc2_meta:'<span>Annual gala</span><span>·</span><span>180 guests</span><span>·</span><span>14 Jun 2026</span>',
+      sc2_meta:'<span>Annual gala</span><span>·</span><span>180 guests</span><span>·</span><span>12 Jun 2027</span>',
       sc2_tl1:'Inquiry received',sc2_tl1i:'3 days ago · via Web',
       sc2_tl2:'Visit scheduled',sc2_tl2i:'tomorrow 5:00 pm',
       sc2_tl3:'Portal sent',sc2_tl3i:'reminder in 2 days',
@@ -4259,7 +4280,7 @@
       faq_q1:'How long until I can start using FOREVENTOS?',
       faq_a1:'Less than <strong>8 hours</strong>. We help you import your current inquiries, connect your website and your weddingvenuesspain.com listing, and set up your first portal. Your team is in that same day.',
       faq_q2:'Do I need a card to sign up?',
-      faq_a2:'Not to start. You get a few free trial days without entering a card. After the trial, to keep using FOREVENTOS you’ll need to choose a plan and add a payment method.',
+      faq_a2:'Not to start. You get a 14-day free trial without entering a card. After the trial, to keep using FOREVENTOS you’ll need to choose a plan and add a payment method.',
       faq_q3:'Can I connect my current website and the portals?',
       faq_a3:'Yes. You can connect your <strong>weddingvenuesspain.com</strong> listing and your own website forms. We’re working on automatically connecting other sales channels.',
       faq_q4:'Any lock-in?',
@@ -4270,8 +4291,6 @@
       faq_a6:'Yes. We have templates to migrate your data — profiles, history and calendar — from your current Excel or CRM, at no cost, before your first day on the platform.',
       faq_q7:'Are you a catering company that also owns venues?',
       faq_a7:'Yes, you can run both businesses on FOREVENTOS. They are managed with <strong>two separate accounts</strong>: the catering account includes your interactive menus, food costing and tasting flows; the venue account includes your spaces, weddingvenuesspain.com listings and commercial portals. Each account has its own plan and its own free trial. You only need a second email: with Gmail or Google Workspace an alias of the same inbox works (e.g. <strong>info+venues@yourdomain.com</strong>) and everything arrives in the same mailbox. If in doubt, write to us and we will set up both accounts for you.',
-      faq_q7:'Any limit on users or events?',
-      faq_a7:'Starter: 1 user and 20 inquiries/month. Pro: up to 3 users and unlimited inquiries. Business: unlimited users, everything unlimited, priority support and 1–1 onboarding.',
       faq_cta:'Missing your question? <a href="#contacto">Write to us and we’ll reply within 2 hours.</a>',
       // pricing
       pr_h2:'Plans built for your business',pr_sub:'No lock-in. Start for free and scale when you need to.',
@@ -4294,7 +4313,7 @@
       ct_h2:'Let’s talk about your venue',
       ct_sub:'No strings attached: tell us how you work today and we’ll show you how it would look in FOREVENTOS.',
       fm_name:'Full name',
-      fm_venue:'Your venue or catering company',fm_venue_ph:'Las Encinas Estate',
+      fm_venue:'Your company (optional)',fm_venue_ph:'Las Encinas Estate',
       fm_email:'Email',fm_email_ph:'you@yourvenue.com',
       fm_msg:'What would you like to talk about?',
       fm_msg_ph:'Tell us how you handle inquiries today, what you’d like to see in a demo, pricing or migration questions…',
@@ -4342,10 +4361,25 @@
         var phs=document.querySelectorAll('[data-i18n-ph="'+k+'"]');
         for(var j=0;j<phs.length;j++)phs[j].setAttribute('placeholder',src[k]);
       }
+      // Las notas de facturación no van por data-i18n: se regeneran con el idioma nuevo
+      if(typeof updateBillNotes==='function')updateBillNotes();
+      if(lang==='en')enAmounts();
     }
-    var ul=window.location.pathname.indexOf('/en')===0?'en':null;
-    var bl=(navigator.language||'').slice(0,2);var dl=ul||(bl==='en'?'en':'es');
-    collectES();if(dl==='en')apply('en');
+    // Importes escritos en el HTML ("6.800 €", "39€") → formato inglés ("€6,800", "€39")
+    function enAmounts(){
+      var re=/(\d{1,3}(?:\.\d{3})+|\d+)(?:,(\d+))?\s?€/g;
+      var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+        var p=n.parentNode&&n.parentNode.nodeName;return (p==='SCRIPT'||p==='STYLE')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});
+      var n;while((n=w.nextNode())){
+        if(n.nodeValue.indexOf('€')<0)continue;
+        n.nodeValue=n.nodeValue.replace(re,function(_,i,d){return '€'+i.replace(/\./g,',')+(d?'.'+d:'');});
+      }
+    }
+    // El idioma lo decide la URL: "/" español, "/en" inglés (sin autodetección por navegador,
+    // para que Google indexe cada versión en su idioma y los enlaces compartidos se respeten)
+    var dl=window.location.pathname.indexOf('/en')===0?'en':'es';
+    collectES();if(dl==='en'){apply('en');document.querySelectorAll('a.nav-logo').forEach(function(a){a.setAttribute('href','/en');});}
+    document.documentElement.classList.remove('i18n-pending');
     // Dos toggles de idioma: navbar (escritorio) y menú móvil — mismo comportamiento
     // Banderas del selector de idioma (id únicos por botón para los clipPath)
     function flagSvg(code,i){
@@ -4354,7 +4388,7 @@
     }    var btns=[document.getElementById('langToggle'),document.getElementById('langToggleMobile')].filter(Boolean);
     function setBtnLabels(l){var to=l==='es'?'en':'es';btns.forEach(function(b,i){b.innerHTML=flagSvg(to,i)+'<span>'+to.toUpperCase()+'</span>';b.setAttribute('aria-label',to==='en'?'Switch to English':'Cambiar a español');});}
     setBtnLabels(dl);
-    btns.forEach(function(b){b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-lang')||'es';var n=c==='es'?'en':'es';apply(n);setBtnLabels(n);});});
+    btns.forEach(function(b){b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-lang')||'es';window.location.href=(c==='es'?'/en':'/')+window.location.hash;});});
   })();
 
   /* Titulares de sección: cada palabra sube desde una máscara al entrar en pantalla.
