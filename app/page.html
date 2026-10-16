@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FOREVENTOS — Menos gestión. Más eventos cerrados.</title>
-<meta name="description" content="La plataforma comercial para venues, caterings y organizadores de eventos: centraliza peticiones, digitaliza tu portal comercial y cierra presupuestos con firma y cobro online." />
+<meta name="description" content="La plataforma comercial para venues y caterings: centraliza peticiones, digitaliza tu portal comercial y cierra presupuestos con firma y cobro online." />
 <link rel="canonical" href="https://foreventos.com/" />
 <link rel="alternate" hreflang="es" href="https://foreventos.com/" />
 <link rel="alternate" hreflang="en" href="https://foreventos.com/en" />
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="FOREVENTOS" />
 <meta property="og:title" content="FOREVENTOS — Menos gestión. Más eventos cerrados." />
-<meta property="og:description" content="Centraliza peticiones, digitaliza tu portal comercial y cierra presupuestos con firma y cobro online. La plataforma comercial para venues, caterings y organizadores de eventos." />
+<meta property="og:description" content="Centraliza peticiones, digitaliza tu portal comercial y cierra presupuestos con firma y cobro online. La plataforma comercial para venues y caterings." />
 <meta property="og:url" content="https://foreventos.com/" />
 <meta property="og:image" content="https://foreventos.com/og-cover.png" />
 <meta property="og:image:width" content="1200" />
@@ -1807,7 +1807,9 @@
     box-shadow: inset 0 1px 2px rgba(255,255,255,0.35), 0 8px 20px rgba(224,178,60,0.38);
   }
   .plan-cta.solid:hover{ transform:scale(1.02); filter:brightness(1.08); }
-  .plans.plans-2{ grid-template-columns:repeat(2,1fr); max-width:720px; }
+  .plans.plans-2{ grid-template-columns:repeat(2,1fr); max-width:820px; }
+  .plans.plans-1{ grid-template-columns:1fr; max-width:420px; }
+  .plans[hidden]{ display:none !important; }
   .plans.plans-3{ grid-template-columns:repeat(3,1fr); max-width:1100px; align-items:stretch; }
   /* Las tres tarjetas iguales: sin escala en la destacada (quedaba rara) */
   .plans.plans-3 .plan.featured{ transform:none; }
@@ -2424,7 +2426,7 @@
   }
   .aud-kicker strong{ color:#141E16; font-weight:600; }
   .aud-dot{ width:8px; height:8px; border-radius:50%; background:#7BD89B; flex-shrink:0; animation:pulse-dot 1.8s ease-out infinite; }
-  .aud-cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; max-width:1120px; margin:0 auto 36px; }
+  .aud-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; max-width:920px; margin:0 auto 36px; }
   .aud-card{
     position:relative; overflow:hidden; isolation:isolate;
     display:flex; align-items:center; gap:16px; padding:18px 18px 18px 18px;
@@ -2613,7 +2615,7 @@
       <a href="#funcionalidades" data-i18n="nav_how">Cómo funciona</a>
       <a href="#pricing" data-i18n="nav_pricing">Precios</a>
       <a href="#faq" class="nav-faq">FAQ</a>
-      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      <a href="#demo" data-i18n="nav_contact">Contacto</a>
     </div>
     <div class="nav-cta">
       <a href="https://app.foreventos.com/login" class="btn-login" aria-label="Iniciar sesión"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span data-i18n="nav_login">Iniciar sesión</span></a>
@@ -2641,7 +2643,7 @@
     <a href="#funcionalidades"><span class="n">02</span><span data-i18n="nav_how">Cómo funciona</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="#pricing"><span class="n">03</span><span data-i18n="nav_pricing">Precios</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="#faq"><span class="n">04</span><span>FAQ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <a href="#contacto"><span class="n">05</span><span data-i18n="nav_contact">Contacto</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#demo"><span class="n">05</span><span data-i18n="nav_contact">Contacto</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </nav>
   <div class="mm-foot">
     <a href="#demo" class="bh bh-primary bh-on-dark">
@@ -2669,7 +2671,7 @@
     <div class="hero-left">
       <a href="#funcionalidades" class="hero-news reveal"><span class="hn-tag" data-i18n="hn_tag">Nuevo</span><span data-i18n="hn_txt">Cobra la señal online, sin transferencias</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <h1 class="reveal d1" data-i18n="hero_h1">Menos gestión.<br/>Más <em>eventos</em> cerrados.</h1>
-      <p class="hero-sub reveal d2" data-i18n="hero_sub">Todas tus peticiones en una sola bandeja, propuestas que enamoran y presupuestos que se firman y se pagan online. <strong>El software comercial para venues, caterings y organizadores de eventos.</strong></p>
+      <p class="hero-sub reveal d2" data-i18n="hero_sub">Todas tus peticiones en una sola bandeja, propuestas que enamoran y presupuestos que se firman y se pagan online. <strong>El software comercial para venues y caterings.</strong></p>
       <div class="hero-cta-row reveal d3">
         <a href="#demo" class="bh bh-primary" data-magnetic>
           <span class="bh-label" data-i18n="cta_free">Pedir la demo</span>
@@ -2678,7 +2680,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </span>
         </a>
-        <a href="#contacto" class="bh bh-ghost" data-magnetic>
+        <a href="#demo" class="bh bh-ghost" data-magnetic>
           <span class="bh-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg>
           </span>
@@ -2841,19 +2843,19 @@
     </div>
   </div>
 
-  <!-- Para quién: tres perfiles + cinta infinita de tipos de evento -->
+  <!-- Para quién: venues y caterings (abren su pestaña de precios) + cinta de tipos de evento -->
   <div class="hero-aud" id="para-quien">
     <div class="aud-head reveal">
       <span class="aud-eyebrow"><span class="aud-dot" aria-hidden="true"></span><span data-i18n="aud_eyebrow">Para quién es</span></span>
       <h2 class="aud-title" data-i18n="aud_title">Para equipos que gestionan <span class="aud-hl">+20 peticiones</span> al mes</h2>
     </div>
     <div class="aud-cards">
-      <a class="aud-card" href="#pricing">
+      <a class="aud-card" href="#pricing" data-biz="venue">
         <span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10a8 8 0 0 1 16 0v11"/><path d="M9 21v-7a3 3 0 0 1 6 0v7M2 21h20"/></svg></span>
         <span class="aud-tx"><b data-i18n="pv_name">Venues</b><i data-i18n="aud_v">Fincas, masías, hoteles, bodegas y espacios para eventos</i></span>
         <span class="aud-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="aud-card" href="#pricing">
+      <a class="aud-card" href="#pricing" data-biz="catering">
         <span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h4v5a2 2 0 0 1-4 0zM9 10v11M6.5 21h5"/><path d="M13 3h4v5a2 2 0 0 1-4 0zM15 10v11M12.5 21h5"/></svg></span>
         <span class="aud-tx"><b data-i18n="pc_name">Caterings</b><i data-i18n="aud_c">Menús interactivos, degustaciones y presupuestos por invitado</i></span>
         <span class="aud-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -3094,40 +3096,55 @@
 <section class="pricing" id="pricing">
   <div class="section-head reveal">
     <h2 data-i18n="pr_h2">Planes pensados para tu negocio</h2>
-    <p class="section-sub" data-i18n="pr_sub">Sin permanencias. Pide la demo y empieza cuando quieras. Precios + IVA.</p>
-    <div class="billing-toggle" id="billingToggle">
-      <button data-cycle="monthly" data-i18n="pr_monthly">Mensual</button>
-      <button class="active" data-cycle="yearly"><span data-i18n="pr_yearly">Anual</span> <span class="billing-save">-20%</span></button>
+    <p class="section-sub" data-i18n="pr_sub">Elige tu tipo de negocio. Sin permanencia. Precios + IVA.</p>
+    <div class="billing-toggle" id="bizToggle" role="tablist" aria-label="Tipo de negocio">
+      <button type="button" class="active" data-biz="venue" role="tab" aria-selected="true" data-i18n="biz_venue">Soy un venue</button>
+      <button type="button" data-biz="catering" role="tab" aria-selected="false" data-i18n="biz_catering">Soy un catering</button>
     </div>
   </div>
-  <div class="plans plans-2">
-    <!-- Venues -->
-    <div class="plan featured reveal">
-      <span class="plan-badge" data-i18n="pr_badge">Disponible ahora</span>
-      <h3 class="plan-name" data-i18n="pv_name">Venues</h3>
-      <p class="plan-aud" data-i18n="pv_aud">Fincas, masías, haciendas, hoteles, restaurantes y espacios de eventos — también si tienes catering propio.</p>
-      <div class="plan-price"><span data-price-monthly="49" data-price-yearly="39">39€</span><small data-i18n="pr_permonth">/mes + IVA</small></div>
-      <p class="plan-billmode" data-billnote>Facturado anualmente: 468 € + IVA · sin permanencia</p>
+  <!-- Venues: plan básico (49 €) + plataforma personalizada -->
+  <div class="plans plans-2" data-biz-panel="venue">
+    <div class="plan reveal">
+      <span class="plan-badge" data-i18n="pb_badge">Para empezar</span>
+      <h3 class="plan-name" data-i18n="pb_name">Plan básico</h3>
+      <p class="plan-aud" data-i18n="pb_aud">Tu ficha en weddingvenuesspain.com y un panel sencillo para no perder ninguna solicitud.</p>
+      <div class="plan-price"><span>49€</span><small data-i18n="pr_permonth">/mes + IVA</small></div>
+      <p class="plan-billmode" data-i18n="pb_bill">Mes a mes · sin permanencia</p>
       <ul class="plan-features">
-        <li class="hl"><span class="plan-check">✓</span><span data-i18n="pv_f0">Todas tus solicitudes en una sola bandeja</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f1">1 usuario</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f2">Leads con su estado, contactos y calendario</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f3">Peticiones ilimitadas</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f4">1 venue — ¿tienes más? añade venues extra desde tu cuenta, cada uno con su suscripción</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f5">1 ficha en weddingvenuesspain.com — wedding venue o pre &amp; post</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f7">El formulario de tu web conectado: todas las solicitudes en un solo sitio</span></li>
-        <li><span class="plan-check">✓</span><span data-i18n="pv_f6">Soporte por email</span></li>
+        <li class="hl"><span class="plan-check">✓</span><span data-i18n="pb_f1">Tu ficha en weddingvenuesspain.com, en 4 idiomas</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pb_f2">Todas tus solicitudes en una sola bandeja</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pb_f3">Leads con su estado, contactos y calendario</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pb_f4">El formulario de tu web conectado</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pb_f5">Te lo dejamos configurado</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pb_f6">Soporte por email</span></li>
       </ul>
-      <p class="plan-billnote" data-i18n="pv_web">¿Sin web o quieres una nueva? Te la hacemos: <strong>450 € + IVA</strong> de alta y <strong>89 €/mes + IVA</strong> con weddingvenuesspain.com y el panel incluidos.</p>
-      <a href="#demo" class="plan-cta solid" data-i18n="pv_cta">Pedir la demo</a>
-      <a href="https://app.foreventos.com/signup?type=venue" class="plan-billnote" style="display:block;text-align:center;margin-top:10px;color:var(--primary);" data-i18n="pv_signup">o date de alta</a>
+      <p class="plan-billnote" data-i18n="pb_web">¿Web nueva? <strong>+40 €/mes + IVA</strong> de mantenimiento y <strong>450 € + IVA</strong> de diseño, solo si te encanta el borrador.</p>
+      <a href="https://weddingvenuesspain.com/venue-partner/#empezar" class="plan-cta ghost" data-i18n="pb_cta">Lo quiero</a>
     </div>
-    <!-- Caterings -->
-    <div class="plan reveal d1">
+    <div class="plan featured reveal d1">
+      <span class="plan-badge" data-i18n="pp_badge">A medida</span>
+      <h3 class="plan-name" data-i18n="pp_name">Plataforma personalizada</h3>
+      <p class="plan-aud" data-i18n="pp_aud">Todo FOREVENTOS, montado según cómo trabaja tu venue.</p>
+      <div class="plan-price"><span data-i18n="pp_price" style="font-size:30px;">A medida</span></div>
+      <p class="plan-billmode" data-i18n="pp_bill">Precio según lo que necesites · + IVA</p>
+      <ul class="plan-features">
+        <li class="hl"><span class="plan-check">✓</span><span data-i18n="pp_f1">Todo lo del plan básico</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pp_f2">Portales para tus clientes con espacios, menús y extras</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pp_f3">Presupuestos y contratos con firma online</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pp_f4">Cobro de la señal y pagos online</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pp_f5">Facturas, estadísticas y varios usuarios</span></li>
+        <li><span class="plan-check">✓</span><span data-i18n="pp_f6">Te lo montamos y configuramos nosotros</span></li>
+      </ul>
+      <a href="#demo" class="plan-cta solid" data-i18n="pp_cta">Pide tu demo</a>
+    </div>
+  </div>
+  <!-- Caterings: solo plataforma personalizada -->
+  <div class="plans plans-1" data-biz-panel="catering" hidden>
+    <div class="plan featured">
       <span class="plan-badge" data-i18n="pc_badge">A medida</span>
-      <h3 class="plan-name" data-i18n="pc_name">Caterings</h3>
+      <h3 class="plan-name" data-i18n="pc_name2">Plataforma para caterings</h3>
       <p class="plan-aud" data-i18n="pc_aud">Para todo tipo de caterings que quieren operar con independencia de cualquier venue.</p>
-      <div class="plan-price"><span data-i18n="pc_price" style="font-size:30px;">Personalizado</span></div>
+      <div class="plan-price"><span data-i18n="pp_price" style="font-size:30px;">A medida</span></div>
       <p class="plan-billmode" data-i18n="pc_billmode">Precio según lo que necesites · + IVA</p>
       <ul class="plan-features">
         <li class="hl"><span class="plan-check">✓</span><span data-i18n="pc_f0">Te lo montamos y configuramos nosotros</span></li>
@@ -3136,16 +3153,7 @@
         <li><span class="plan-check">✓</span><span data-i18n="pc_f3">Peticiones, contactos y calendario</span></li>
         <li><span class="plan-check">✓</span><span data-i18n="pc_f5">Soporte por email</span></li>
       </ul>
-      <a href="#contacto" class="plan-cta ghost" data-i18n="pc_cta">Hablemos</a>
-    </div>
-  </div>
-  <!-- Pro: próximamente, sin precio -->
-  <div class="pro-strip reveal d3">
-    <span class="plan-badge soon" style="position:static;transform:none;" data-i18n="pro_badge">A medida</span>
-    <div>
-      <strong data-i18n="pro_name">Plataforma completa</strong>
-      <span data-i18n="pro_feats">Portales para tus clientes · Presupuestos, contratos y facturas · Cobro online — te la montamos y configuramos nosotros</span>
-      <a href="#demo" data-i18n="pro_demo" style="display:inline-block;margin-left:8px;font-size:13px;font-weight:600;color:var(--primary);text-decoration:none;">Pedir la demo →</a>
+      <a href="#demo" class="plan-cta solid" data-i18n="pp_cta">Pide tu demo</a>
     </div>
   </div>
 </section>
@@ -3228,7 +3236,7 @@
         <span data-i18n="faq_q1">¿Cuánto tardo en empezar a usar FOREVENTOS?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body" data-i18n="faq_a1">Menos de <strong>8 horas</strong>. Te ayudamos a importar tus peticiones actuales, conectar tu web y tu ficha de weddingvenuesspain.com, y configurar tu primer portal. El equipo entra ese mismo día.</div>
+      <div class="faq-body" data-i18n="faq_a1">Muy poco: <strong>te lo dejamos montado nosotros</strong>. Importamos tus peticiones actuales, conectamos tu web y tu ficha de weddingvenuesspain.com y lo configuramos contigo.</div>
     </details>
     <details class="faq-item reveal d1">
       <summary>
@@ -3249,7 +3257,7 @@
         <span data-i18n="faq_q4">¿Hay permanencia?</span>
         <span class="faq-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
       </summary>
-      <div class="faq-body" data-i18n="faq_a4">No hay permanencia. Suscripción mensual o anual con <strong>20% de descuento</strong>. Puedes cancelar cuando quieras y descargar todos tus datos.</div>
+      <div class="faq-body" data-i18n="faq_a4">No. Pagas <strong>mes a mes</strong> y te das de baja cuando quieras. Tus datos son tuyos y los descargas cuando quieras.</div>
     </details>
     <details class="faq-item reveal d2">
       <summary>
@@ -3273,51 +3281,7 @@
       <div class="faq-body" data-i18n="faq_a7">Sí, puedes tener ambos negocios en FOREVENTOS. Se gestionan con <strong>dos cuentas separadas</strong>: la cuenta de catering incluye tus cartas interactivas, escandallo y pruebas de menú; la cuenta de venue incluye tus espacios, fichas en weddingvenuesspain.com y portales comerciales. Cada cuenta tiene su propio plan. Solo necesitas un segundo email: si usas Gmail o Google Workspace basta un alias del mismo buzón (p. ej. <strong>info+venues@tudominio.com</strong>) y todo te llega al mismo correo. Si tienes dudas, escríbenos y te dejamos las dos cuentas montadas.</div>
     </details>
   </div>
-  <p class="faq-cta reveal d4" data-i18n="faq_cta">¿Me falta tu pregunta? <a href="#contacto">Escríbenos y te respondemos en menos de 2 horas.</a></p>
-</section>
-
-<!-- ============ CONTACTO ============ -->
-<section class="contact" id="contacto">
-  <div class="section-head reveal">
-    <h2 data-i18n="ct_h2">Hablemos de tu espacio</h2>
-    <p class="section-sub" data-i18n="ct_sub">Sin compromiso: nos cuentas cómo trabajas hoy y te enseñamos cómo quedaría en FOREVENTOS.</p>
-  </div>
-  <form class="contact-form reveal" id="contactForm" method="post" novalidate>
-    <div class="cf-grid">
-      <label class="cf-field">
-        <span class="cf-label" data-i18n="fm_name">Nombre y apellidos</span>
-        <input type="text" name="name" required autocomplete="name" placeholder="María García" />
-      </label>
-      <label class="cf-field">
-        <span class="cf-label" data-i18n="fm_venue">Tu empresa (opcional)</span>
-        <input type="text" name="venue" autocomplete="organization" placeholder="Finca Las Encinas" data-i18n-ph="fm_venue_ph" />
-      </label>
-      <label class="cf-field cf-wide">
-        <span class="cf-label" data-i18n="fm_email">Correo electrónico</span>
-        <input type="email" name="email" required autocomplete="email" placeholder="tu@tuespacio.com" data-i18n-ph="fm_email_ph" />
-      </label>
-      <label class="cf-field cf-wide">
-        <span class="cf-label" data-i18n="fm_msg">¿De qué quieres que hablemos?</span>
-        <textarea name="message" required placeholder="Cuéntanos cómo gestionáis hoy las peticiones, qué te gustaría ver en una demo, dudas de precios o migración…" data-i18n-ph="fm_msg_ph"></textarea>
-      </label>
-    </div>
-    <!-- Campo trampa anti-bots: invisible para personas -->
-    <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
-      <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
-    </div>
-    <p id="cfStatus" class="cf-status" role="status" aria-live="polite"></p>
-    <div class="cf-footer">
-      <span class="cf-note">
-        <span data-i18n="fm_note">Te respondemos en menos de 2 horas en horario laboral.</span>
-        <span><span data-i18n="fm_direct">O escríbenos directo a</span> <a href="mailto:info@foreventos.com">info@foreventos.com</a></span>
-        <span class="cf-legal" data-i18n="fm_privacy" style="font-size:12px;opacity:.75;line-height:1.5;">Responsable: WVS Partners SL. Finalidad: responder a tu consulta. Puedes ejercer tus derechos en info@foreventos.com. Más información en la <a href="https://app.foreventos.com/privacy" target="_blank" rel="noopener">Política de privacidad</a>.</span>
-      </span>
-      <button type="submit" class="cf-submit">
-        <span data-i18n="fm_send">Enviar mensaje</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
-    </div>
-  </form>
+  <p class="faq-cta reveal d4" data-i18n="faq_cta">¿Me falta tu pregunta? <a href="#demo">Pide la demo</a> o escríbenos a <a href="mailto:info@foreventos.com">info@foreventos.com</a>.</p>
 </section>
 
 <!-- ============ CTA FINAL ============ -->
@@ -3338,7 +3302,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </span>
       </a>
-      <a href="#contacto" class="bh bh-ghost bh-on-dark" data-magnetic>
+      <a href="#demo" class="bh bh-ghost bh-on-dark" data-magnetic>
         <span class="bh-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
         </span>
@@ -3370,7 +3334,7 @@
         <img src="/foreventos-icon-cream.svg" alt="" class="brand-mark" aria-hidden="true" />
         FOREVENTOS
       </div>
-      <p class="footer-tag" data-i18n="ft_tag">La plataforma comercial para venues, caterings y organizadores de eventos.</p>
+      <p class="footer-tag" data-i18n="ft_tag">La plataforma comercial para venues y caterings.</p>
       <p class="footer-tag" style="opacity:.85;margin-top:6px;" data-i18n="ft_partner">Partner oficial de <a href="https://weddingvenuesspain.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">weddingvenuesspain.com</a></p>
       <!-- Redes sociales ocultas hasta tener perfiles reales (antes href="#") -->
     </div>
@@ -3385,7 +3349,7 @@
     <div class="footer-col">
       <h4 data-i18n="ft_company">Empresa</h4>
       <ul>
-        <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+        <li><a href="#demo" data-i18n="nav_contact">Contacto</a></li>
         <li><a href="mailto:info@foreventos.com">info@foreventos.com</a></li>
         <li><a href="https://app.foreventos.com" data-i18n="ft_login">Acceder</a></li>
       </ul>
@@ -3824,22 +3788,6 @@
     });
   });
 
-  // ===== Precios: el importe salta al cambiar mensual / anual =====
-  (function(){
-    const bt = document.getElementById('billingToggle');
-    if(!bt) return;
-    bt.addEventListener('click', e => {
-      if(!e.target.closest('button[data-cycle]')) return;
-      document.querySelectorAll('[data-price-monthly]').forEach((el, i) => {
-        el.animate && el.animate([
-          { transform:'translateY(-55%) scale(.9)', opacity:0, filter:'blur(6px)' },
-          { transform:'translateY(8%)', opacity:1, filter:'blur(0)', offset:.7 },
-          { transform:'none', opacity:1 }
-        ], { duration:560, delay:i * 70, easing:'cubic-bezier(.16,1,.3,1)', fill:'backwards' });
-      });
-    });
-  })();
-
   // ===== CTA final: chispas que ascienden =====
   (function(){
     const cf = document.querySelector('.cta-final');
@@ -3903,37 +3851,27 @@
     }));
   }
 
-  // ===== Pricing toggle =====
-  const billing = document.getElementById('billingToggle');
-  if(billing){
-    billing.addEventListener('click', (e) => {
-      const btn = e.target.closest('button[data-cycle]');
-      if(!btn) return;
-      billing.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cycle = btn.dataset.cycle;
-      document.querySelectorAll('[data-price-monthly]').forEach(el => {
-        const v = cycle === 'monthly' ? el.dataset.priceMonthly : el.dataset.priceYearly;
-        el.textContent = document.documentElement.getAttribute('data-lang') === 'en' ? '€' + v : v + '€';
-      });
-      currentCycle = cycle;
-      updateBillNotes();
+  // ===== Precios: selector Venue / Catering (también desde «Para quién es») =====
+  function setBiz(biz){
+    var t = document.getElementById('bizToggle');
+    if (!t) return;
+    t.querySelectorAll('button[data-biz]').forEach(function(b){
+      var on = b.dataset.biz === biz;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('[data-biz-panel]').forEach(function(pn){
+      pn.hidden = pn.dataset.bizPanel !== biz;
+      if (!pn.hidden) pn.querySelectorAll('.reveal').forEach(function(r){ r.classList.add('in'); });
     });
   }
-  // Nota bajo el precio: aclara que el anual se cobra de una vez (468€)
-  var currentCycle = 'yearly';
-  var BILLNOTES = {
-    es: { yearly: 'Facturado anualmente: 468 € + IVA · sin permanencia', monthly: 'Facturado mes a mes: 49 €/mes + IVA · sin permanencia' },
-    en: { yearly: 'Billed annually: €468 + VAT · no lock-in',            monthly: 'Billed monthly: €49/mo + VAT · no lock-in' },
-  };
-  function updateBillNotes(){
-    var l = document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'es';
-    document.querySelectorAll('[data-billnote]').forEach(function(el){ el.textContent = BILLNOTES[l][currentCycle]; });
-  }
-  updateBillNotes();
-  ['langToggle','langToggleMobile'].forEach(function(id){
-    var b = document.getElementById(id);
-    if (b) b.addEventListener('click', function(){ setTimeout(updateBillNotes, 0); });
+  var bizToggle = document.getElementById('bizToggle');
+  if (bizToggle) bizToggle.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-biz]');
+    if (b) setBiz(b.dataset.biz);
+  });
+  document.querySelectorAll('a[data-biz]').forEach(function(a){
+    a.addEventListener('click', function(){ setBiz(a.dataset.biz); });
   });
 
   // ===== Spawn ambient sparks in hero scene =====
@@ -4305,9 +4243,9 @@
       aud_kicker:'Built for teams handling <strong>50+ inquiries a month</strong>',aud_v:'Estates, farmhouses, hotels, wineries and event spaces',aud_c:'Interactive menus, tastings and per-guest quotes',aud_o:'Wedding planners, DMCs and event agencies',
       ev_1:'Weddings',ev_2:'Corporate events',ev_3:'Communions',ev_4:'Galas',ev_5:'Conferences',ev_6:'Birthdays',ev_7:'Christenings',ev_8:'Company dinners',ev_9:'Product launches',ev_10:'Anniversaries',ev_11:'Team building',ev_12:'Graduations',
       // hero
-      eyebrow_1:'The sales platform for events',eyebrow_2:'For venues, caterings & organizers',
+      eyebrow_1:'The sales platform for events',eyebrow_2:'For venues & caterings',
       hero_h1:'Less admin.<br/>More <em>events</em> closed.',
-      hero_sub:'Every inquiry in one inbox, proposals that win clients over and quotes that get signed and paid online. <strong>The sales software for venues, caterings and event organizers.</strong>',
+      hero_sub:'Every inquiry in one inbox, proposals that win clients over and quotes that get signed and paid online. <strong>The sales software for venues and caterings.</strong>',
       partner_badge:'✓ Official partner of weddingvenuesspain.com',
       cta_free:'Request a demo',
       demo_title:'Book a demo',demo_sub:'15 min · live walkthrough',
@@ -4325,7 +4263,7 @@
       fx_g1:'Sales channels',fx_g2:'Suppliers',fx_n_web:'Your website',fx_n_org:'Organizers',
       fx_toast:'Event confirmed · €28,400',fx_toast_sub:'Deposit paid · suppliers notified',
       fx_s1:'Inquiries everywhere',fx_s2:'One single inbox',fx_s3:'A portal that wins them over',fx_s4:'Online signing & payment',fx_s5:'Channels & suppliers connected',
-      trust_text:'Built for venues, caterings and event organizers with <strong>50+ inquiries a month</strong>',
+      trust_text:'Built for venues and caterings with <strong>50+ inquiries a month</strong>',
       sc1_url:'Inquiries inbox',sc2_url:'Client profile',sc3_url:'Client portal',sc4_url:'Client quote',
       acc1_ch3:'Manual',acc1_chip3:'Inquiry control',acc1_chip4:'Database',acc1_chip5:'CRM',acc4_chip6:'Deposit paid online',
       cat_1:'Farmhouses',cat_2:'Estates',cat_3:'Haciendas',cat_4:'Caterers',cat_5:'Wineries',cat_6:'Hotels',
@@ -4367,26 +4305,33 @@
       // faq
       faq_h2:'Frequently asked questions',faq_sub:'What we get asked most before starting.',
       faq_q1:'How long until I can start using FOREVENTOS?',
-      faq_a1:'Less than <strong>8 hours</strong>. We help you import your current inquiries, connect your website and your weddingvenuesspain.com listing, and set up your first portal. Your team is in that same day.',
+      faq_a1:'Very little: <strong>we set it up for you</strong>. We import your current inquiries, connect your website and your weddingvenuesspain.com listing, and configure it with you.',
       faq_q2:'Do I need a card to sign up?',
       faq_a2:'Yes: <a href="#demo">request the demo</a> with your details and we send you a <strong>personal link</strong> to look around. When you want to start, you sign up, we review your account and you choose a plan. Payment is by card or direct debit through Stripe, and all prices exclude VAT.',
       faq_q3:'Can I connect my current website and the portals?',
       faq_a3:'Yes. You can connect your <strong>weddingvenuesspain.com</strong> listing and your own website forms. We’re working on automatically connecting other sales channels.',
       faq_q4:'Any lock-in?',
-      faq_a4:'No lock-in. Monthly or yearly subscription with a <strong>20% discount</strong>. Cancel anytime and download all your data.',
+      faq_a4:'No. You pay <strong>month to month</strong> and can cancel whenever you like. Your data is yours to download anytime.',
       faq_q5:'Are my portals and data safe?',
       faq_a5:'EU servers, GDPR compliance, hourly backups and encryption in transit and at rest. You own your data and can export it whenever you want.',
       faq_q6:'Do you migrate my data from my current Excel or CRM?',
       faq_a6:'Yes. We have templates to migrate your data — profiles, history and calendar — from your current Excel or CRM, at no cost, before your first day on the platform.',
       faq_q7:'Are you a catering company that also owns venues?',
       faq_a7:'Yes, you can run both businesses on FOREVENTOS. They are managed with <strong>two separate accounts</strong>: the catering account includes your interactive menus, food costing and tasting flows; the venue account includes your spaces, weddingvenuesspain.com listings and commercial portals. Each account has its own plan. You only need a second email: with Gmail or Google Workspace an alias of the same inbox works (e.g. <strong>info+venues@yourdomain.com</strong>) and everything arrives in the same mailbox. If in doubt, write to us and we will set up both accounts for you.',
-      faq_cta:'Missing your question? <a href="#contacto">Write to us and we’ll reply within 2 hours.</a>',
+      faq_cta:'Missing your question? <a href="#demo">Request the demo</a> or email <a href="mailto:info@foreventos.com">info@foreventos.com</a>.',
       // pricing
-      pr_h2:'Plans built for your business',pr_sub:'No lock-in. Request a demo and start whenever you like. Prices exclude VAT.',
+      pr_h2:'Plans built for your business',pr_sub:'Choose your type of business. No lock-in. Prices exclude VAT.',
       pr_monthly:'Monthly',pr_yearly:'Yearly',pr_permonth:'/mo + VAT',pr_badge:'Available now',
       pr_billnote:'Yearly €39/mo · Monthly €49/mo · + VAT · no lock-in',
       pr_soon:'Coming soon',pr_soon_price:'Coming soon',pr_soon_cta:'Coming soon',
       pr_cta:'Create account',
+      biz_venue:'I run a venue',biz_catering:'I run a catering',
+      pb_badge:'To get started',pb_name:'Basic plan',pb_aud:'Your weddingvenuesspain.com listing and a simple panel so you never miss an enquiry.',pb_bill:'Month to month · no lock-in',
+      pb_f1:'Your listing on weddingvenuesspain.com, in 4 languages',pb_f2:'Every enquiry in a single inbox',pb_f3:'Leads with status, contacts and calendar',pb_f4:'Your website form connected',pb_f5:'We set it up for you',pb_f6:'Email support',
+      pb_web:'New website? <strong>+€40/mo + VAT</strong> maintenance and <strong>€450 + VAT</strong> design, only if you love the draft.',pb_cta:'I want it',
+      pp_badge:'Tailored',pp_name:'Custom platform',pp_aud:'All of FOREVENTOS, set up around the way your venue works.',pp_price:'Tailored',pp_bill:'Priced on what you need · + VAT',
+      pp_f1:'Everything in the basic plan',pp_f2:'Client portals with spaces, menus and extras',pp_f3:'Quotes and contracts with online signature',pp_f4:'Online deposit and payments',pp_f5:'Invoices, analytics and multiple users',pp_f6:'We set it up and configure it for you',pp_cta:'Request a demo',
+      pc_name2:'Platform for caterings',
       pv_name:'Venues',pv_aud:'Estates, farmhouses, haciendas, hotels, restaurants and event spaces — also if you have in-house catering.',
       pv_f0:'Every enquiry in a single inbox',
       pc_f0:'We set it up and configure it for you',pc_badge:'Tailored',pc_price:'Custom',pc_billmode:'Priced on what you need · + VAT',pc_cta:'Let’s talk',
@@ -4422,7 +4367,7 @@
       cf_cta:'Request a demo',cf_sales:'Talk to sales',
       cf_t1:'Setup in under 8h',cf_t2:'No lock-in',cf_t3:'Migration included',
       // footer
-      ft_tag:'The sales platform for venues, caterings and event organizers.',
+      ft_tag:'The sales platform for venues and caterings.',
       ft_partner:'Official partner of <a href="https://weddingvenuesspain.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">weddingvenuesspain.com</a>',
       ft_product:'Product',ft_trial:'Request a demo',
       ft_company:'Company',ft_login:'Log in',
