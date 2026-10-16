@@ -30,6 +30,14 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // foreventos.com/demo: dirección corta para enviar; la demo vive en la app
+  // (el panel real solo funciona en app.foreventos.com)
+  async redirects() {
+    return [
+      { source: "/demo", destination: "https://app.foreventos.com/demo", permanent: false },
+      { source: "/demo/:codigo", destination: "https://app.foreventos.com/demo/:codigo", permanent: false },
+    ];
+  },
   async headers() {
     return [
       {
