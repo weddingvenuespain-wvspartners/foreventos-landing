@@ -1737,6 +1737,10 @@
     transition:all .25s ease; font-family:inherit;
   }
   .billing-toggle button.active{ background:var(--primary); color:#fff; box-shadow:0 1px 4px rgba(74,107,82,0.35); }
+  @media (max-width:560px){
+    #bizToggle{ display:flex; width:100%; max-width:440px; }
+    #bizToggle button{ flex:1; padding:8px 6px; font-size:12.5px; line-height:1.25; }
+  }
   .billing-save{
     margin-left:8px; font-size:11px; padding:2px 8px; background:rgba(74,107,82,0.15);
     color:var(--primary); border-radius:999px; font-weight:600;
@@ -2442,7 +2446,7 @@
   }
   .aud-kicker strong{ color:#141E16; font-weight:600; }
   .aud-dot{ width:8px; height:8px; border-radius:50%; background:#7BD89B; flex-shrink:0; animation:pulse-dot 1.8s ease-out infinite; }
-  .aud-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; max-width:920px; margin:0 auto 36px; }
+  .aud-cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; max-width:1120px; margin:0 auto 36px; }
   .aud-card{
     position:relative; overflow:hidden; isolation:isolate;
     display:flex; align-items:center; gap:16px; padding:18px 18px 18px 18px;
@@ -2876,6 +2880,11 @@
         <span class="aud-tx"><b data-i18n="pc_name">Caterings</b><i data-i18n="aud_c">Menús interactivos, degustaciones y presupuestos por invitado</i></span>
         <span class="aud-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
+      <a class="aud-card" href="#pricing" data-biz="planner">
+        <span class="aud-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="18" rx="2.5"/><path d="M9 3.5V2.5h6v1M8 10l2 2 4-4M8 16h8"/></svg></span>
+        <span class="aud-tx"><b data-i18n="po_name">Wedding planners</b><i data-i18n="aud_o">Tu web, tus parejas, el checklist y los proveedores de cada boda</i></span>
+        <span class="aud-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
     <div class="aud-marquee reveal d1" aria-label="Tipos de evento">
       <div class="aud-track">
@@ -3116,6 +3125,7 @@
     <div class="billing-toggle" id="bizToggle" role="tablist" aria-label="Tipo de negocio">
       <button type="button" class="active" data-biz="venue" role="tab" aria-selected="true" data-i18n="biz_venue">Soy un venue</button>
       <button type="button" data-biz="catering" role="tab" aria-selected="false" data-i18n="biz_catering">Soy un catering</button>
+      <button type="button" data-biz="planner" role="tab" aria-selected="false" data-i18n="biz_planner">Soy wedding planner</button>
     </div>
   </div>
   <!-- Venues: plan básico (49 €) + plataforma personalizada -->
@@ -3181,6 +3191,44 @@
       </div>
     </div>
   </div>
+  <!-- Wedding planners: Planner Web (web + panel, 49 €) y Planner Pro (89 €) -->
+  <div class="plans plans-2" data-biz-panel="planner" hidden>
+    <div class="plan">
+      <span class="plan-badge" data-i18n="pb_badge">Para empezar</span>
+      <h3 class="plan-name" data-i18n="pw_name">Planner Web</h3>
+      <p class="plan-aud" data-i18n="pw_aud">Tu web nueva y un panel para llevar cada boda al día.</p>
+      <div class="plan-price"><span>49€</span><small data-i18n="pr_permonth">/mes + IVA</small></div>
+      <p class="plan-billmode" data-i18n="pw_bill">Diseño de la web: 450 € + IVA, solo si te encanta el borrador</p>
+      <ul class="plan-blocks">
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="pb-body"><strong data-i18n="pwb1_t">Tu web nueva</strong><span data-i18n="pwb1_d">Rápida, hecha a medida y perfecta en el móvil, con su formulario conectado a tu panel.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></svg></span><span class="pb-body"><strong data-i18n="pwb2_t">Tus parejas</strong><span data-i18n="pwb2_d">Las solicitudes de tu web y las que apuntes a mano, con su estado: nueva, reunión, propuesta o contratada.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span class="pb-body"><strong data-i18n="pwb3_t">Checklist de cada boda</strong><span data-i18n="pwb3_d">Al contratar una boda se crean sus tareas con fecha, desde tu propia plantilla.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span><span class="pb-body"><strong data-i18n="pwb4_t">Proveedores y pagos</strong><span data-i18n="pwb4_d">Quién hace qué en cada boda, cuánto habéis acordado y lo que queda por pagar.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg></span><span class="pb-body"><strong data-i18n="pwb5_t">Calendario y contactos</strong><span data-i18n="pwb5_d">Tus bodas y reuniones, y la agenda de parejas y proveedores.</span></span></li>
+      </ul>
+      <p class="plan-foot" data-i18n="pw_foot">Mantenimiento de la web y una ronda de cambios al mes · Soporte por email</p>
+      <div class="plan-ctas">
+        <a href="#demo" class="plan-cta solid" data-demo-biz="planner" data-demo-plan="planner_web" data-i18n="pw_cta">Pide información</a>
+      </div>
+    </div>
+    <div class="plan featured">
+      <span class="plan-badge" data-i18n="px_badge">Todo incluido</span>
+      <h3 class="plan-name" data-i18n="px_name">Planner Pro</h3>
+      <p class="plan-aud" data-i18n="px_aud">Todo Planner Web y además lo que ve y firma cada pareja.</p>
+      <div class="plan-price"><span>89€</span><small data-i18n="pr_permonth">/mes + IVA</small></div>
+      <p class="plan-billmode" data-i18n="pw_bill">Diseño de la web: 450 € + IVA, solo si te encanta el borrador</p>
+      <ul class="plan-blocks">
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span class="pb-body"><strong data-i18n="pxb1_t">Todo lo de Planner Web</strong><span data-i18n="pxb1_d">Tu web, tus parejas, el checklist, los proveedores y el calendario.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg></span><span class="pb-body"><strong data-i18n="pxb2_t">Portal privado de cada pareja</strong><span data-i18n="pxb2_d">Su timeline, sus documentos y sus decisiones en un solo enlace.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span class="pb-body"><strong data-i18n="pxb3_t">Presupuestos y contratos</strong><span data-i18n="pxb3_d">Se envían y se firman online, sin imprimir ni escanear.</span></span></li>
+        <li><span class="pb-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20M6 15h4"/></svg></span><span class="pb-body"><strong data-i18n="pxb4_t">Facturas y cobros</strong><span data-i18n="pxb4_d">Factura a tus parejas y cobra los pagos sin perseguir transferencias.</span></span></li>
+      </ul>
+      <p class="plan-foot" data-i18n="pw_foot">Mantenimiento de la web y una ronda de cambios al mes · Soporte por email</p>
+      <div class="plan-ctas">
+        <a href="#demo" class="plan-cta solid" data-demo-biz="planner" data-demo-plan="planner_pro" data-i18n="pw_cta">Pide información</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ PEDIR LA DEMO ============ -->
@@ -3208,6 +3256,7 @@
         <select name="business_type" required>
           <option value="venue" data-i18n="dm_type_venue">Venue / espacio para eventos</option>
           <option value="catering" data-i18n="dm_type_catering">Catering</option>
+          <option value="planner" data-i18n="dm_type_planner">Wedding planner</option>
           <option value="otro" data-i18n="dm_type_other">Otro</option>
         </select>
       </label>
@@ -3901,8 +3950,8 @@
       var f = document.getElementById('demoForm');
       if (!f) return;
       var en = document.documentElement.getAttribute('data-lang') === 'en';
-      var PLAN = en ? { basico:'Basic plan', personalizada:'Custom platform', catering:'Platform for caterings' }
-                    : { basico:'Plan básico', personalizada:'Plataforma personalizada', catering:'Plataforma para caterings' };
+      var PLAN = en ? { basico:'Basic plan', personalizada:'Custom platform', catering:'Platform for caterings', planner_web:'Planner Web', planner_pro:'Planner Pro' }
+                    : { basico:'Plan básico', personalizada:'Plataforma personalizada', catering:'Plataforma para caterings', planner_web:'Planner Web', planner_pro:'Planner Pro' };
       var sel = f.querySelector('[name="business_type"]');
       if (sel && a.dataset.demoBiz) sel.value = a.dataset.demoBiz;
       var msg = f.querySelector('[name="message"]');
@@ -4282,7 +4331,7 @@
       // nav
       nav_feat:'Features',nav_pricing:'Pricing',nav_contact:'Contact',nav_login:'Log in',nav_signup:'Request a demo',nav_how:'How it works',nav_who:'Who it’s for',
       hn_tag:'New',hn_txt:'Collect deposits online, no bank transfers',aud_eyebrow:'Who it’s for',aud_title:'For teams handling <span class="aud-hl">20+ inquiries</span> a month',hw_pipe:'Sales pipeline',hw_pipe_sum:'Won this month',hw_col1:'New',hw_col2:'Visit',hw_col3:'Proposal',hw_col4:'Won',
-      aud_kicker:'Built for teams handling <strong>50+ inquiries a month</strong>',aud_v:'Estates, farmhouses, hotels, wineries and event spaces',aud_c:'Interactive menus, tastings and per-guest quotes',aud_o:'Wedding planners, DMCs and event agencies',
+      aud_kicker:'Built for teams handling <strong>50+ inquiries a month</strong>',aud_v:'Estates, farmhouses, hotels, wineries and event spaces',aud_c:'Interactive menus, tastings and per-guest quotes',aud_o:'Your website, your couples, and the checklist and suppliers for every wedding',
       ev_1:'Weddings',ev_2:'Corporate events',ev_3:'Communions',ev_4:'Galas',ev_5:'Conferences',ev_6:'Birthdays',ev_7:'Christenings',ev_8:'Company dinners',ev_9:'Product launches',ev_10:'Anniversaries',ev_11:'Team building',ev_12:'Graduations',
       // hero
       eyebrow_1:'The sales platform for events',eyebrow_2:'For venues & caterings',
@@ -4364,10 +4413,9 @@
       // pricing
       pr_h2:'Plans built for your business',pr_sub:'Choose your type of business. No lock-in. Prices exclude VAT.',
       pr_monthly:'Monthly',pr_yearly:'Yearly',pr_permonth:'/mo + VAT',pr_badge:'Available now',
-      pr_billnote:'Yearly €39/mo · Monthly €49/mo · + VAT · no lock-in',
       pr_soon:'Coming soon',pr_soon_price:'Coming soon',pr_soon_cta:'Coming soon',
       pr_cta:'Create account',
-      biz_venue:'I run a venue',biz_catering:'I run a catering',
+      biz_venue:'I run a venue',biz_catering:'I run a catering',biz_planner:'I’m a wedding planner',
       pb_badge:'To get started',pb_name:'Basic plan',pb_aud:'Your weddingvenuesspain.com listing and a simple panel so you never miss an enquiry.',pb_bill:'Month to month · no lock-in',
       pb_f1:'Your listing on weddingvenuesspain.com, in 4 languages',pb_f2:'Every enquiry in a single inbox',pb_f3:'Leads with status, contacts and calendar',pb_f4:'Your website form connected',pb_f5:'We set it up for you',pb_f6:'Email support',
       pb_web:'New website? <strong>+€40/mo + VAT</strong> maintenance and <strong>€450 + VAT</strong> design, only if you love the draft.',pb_cta:'I want it',
@@ -4397,14 +4445,26 @@
       pv_f1:'1 user',pv_f2:'Leads with their status, contacts and calendar',pv_f7:'Your website form connected: every enquiry in one place',pv_web:'No website, or want a new one? We build it: <strong>€450 + VAT</strong> set-up and <strong>€89/mo + VAT</strong> with weddingvenuesspain.com and the panel included.',pv_cta:'Request a demo',pv_signup:'or sign up',pv_f3:'Unlimited inquiries',pv_f4:'1 venue — got more? add extra venues from your account, each with its own subscription',pv_f5:'1 listing on weddingvenuesspain.com — wedding venue or pre & post',pv_f6:'Email support',
       pc_name:'Caterings',pc_aud:'For every kind of catering company that wants to operate independently of any venue.',
       pc_f1:'Interactive menus for your clients',pc_f2:'Per-guest quotes, tastings and contracts',pc_f3:'Inquiries, contacts and calendar',pc_f5:'Email support',
-      po_name:'Organizers',po_aud:'DMCs, wedding planners and event-planning agencies.',
+      po_name:'Wedding planners',
+      pw_name:'Planner Web',pw_aud:'Your new website and a dashboard to keep every wedding on track.',pw_bill:'Website design: €450 + VAT, only if you love the draft',
+      pwb1_t:'Your new website',pwb1_d:'Fast, custom-built and perfect on mobile, with its form connected to your dashboard.',
+      pwb2_t:'Your couples',pwb2_d:'Inquiries from your website and the ones you add by hand, with their status: new, meeting, proposal or booked.',
+      pwb3_t:'A checklist for every wedding',pwb3_d:'When a wedding is booked, its dated tasks are created from your own template.',
+      pwb4_t:'Suppliers and payments',pwb4_d:'Who does what at each wedding, what you agreed and what is still to be paid.',
+      pwb5_t:'Calendar and contacts',pwb5_d:'Your weddings and meetings, and your address book of couples and suppliers.',
+      pw_foot:'Website maintenance and one round of changes a month · Email support',pw_cta:'Ask for details',
+      px_badge:'All included',px_name:'Planner Pro',px_aud:'Everything in Planner Web, plus what each couple sees and signs.',
+      pxb1_t:'Everything in Planner Web',pxb1_d:'Your website, your couples, the checklist, suppliers and calendar.',
+      pxb2_t:'A private portal for each couple',pxb2_d:'Their timeline, documents and decisions in a single link.',
+      pxb3_t:'Quotes and contracts',pxb3_d:'Sent and signed online, no printing or scanning.',
+      pxb4_t:'Invoices and payments',pxb4_d:'Invoice your couples and collect payments without chasing bank transfers.',
       po_f1:'1 user',po_f2:'Calendar',po_f3:'Unlimited inquiries',po_f4:'Contacts & clients',po_f5:'Email support',
       pro_badge:'Tailored',pro_name:'Full platform',pro_feats:'Client portals · Quotes, contracts and invoices · Online payments — we set it up and configure it for you',pro_demo:'Request a demo →',
       p3_desc:'For sales teams closing at another level.',p3_f1:'Unlimited users',p3_f2:'Everything in Pro',p3_f3:'Advanced automations',p3_f4:'Custom integrations',p3_f5:'Priority support + onboarding',p3_cta:'Talk to sales',
       // contacto
       ct_h2:'Let’s talk about your venue',
       dm_h2:'Request your demo',dm_sub:'Leave your details and your business’s. We review them and email you a personal link to see FOREVENTOS from the inside.',
-      dm_email:'Work email',dm_phone:'Phone',dm_type:'Type of business',dm_type_venue:'Venue / event space',dm_type_catering:'Catering',dm_type_other:'Other',
+      dm_email:'Work email',dm_phone:'Phone',dm_type:'Type of business',dm_type_venue:'Venue / event space',dm_type_catering:'Catering',dm_type_planner:'Wedding planner',dm_type_other:'Other',
       dm_venue:'Name of your venue or business',dm_company:'Company (legal name)',dm_city:'City or area',dm_city_ph:'Sitges, Barcelona',dm_web:'Website or Instagram (optional)',
       dm_msg:'What would you like to see? (optional)',dm_msg_ph:'For example: how leads from weddingvenuesspain.com and my website come in, the calendar…',
       dm_note:'We reply within 24 working hours.',dm_send:'Request the demo',
