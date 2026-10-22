@@ -3102,6 +3102,572 @@
   /* Dos secciones claras seguidas comparten fondo: sin hueco doble */
   .nh-sec:not(.dark):not(.contact) + .nh-sec:not(.dark):not(.contact){ padding-top:20px; }
 
+  /* ===== v5: recursos de las referencias (frase que se rellena, bloques a sangre, píldoras, scroll fijo, cifras) ===== */
+  .nh-sec.white, .nh-sec.light{ background:var(--bg-light); }
+  .nh-h2 em{ color:#8FA694; }
+  .nh-sec.dark .nh-h2 em{ color:#7BD89B; }
+  .nx-label{ display:inline-flex; align-items:center; gap:10px; font:600 12.5px/1 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; letter-spacing:.08em; text-transform:uppercase; color:#2F3B32; margin-bottom:18px; padding:8px 12px; border-radius:8px; background:rgba(20,30,22,.05); }
+  .nx-label i{ width:9px; height:9px; border-radius:2px; background:#7BD89B; }
+  .nx-label.dark{ color:rgba(255,255,255,.85); background:rgba(255,255,255,.08); }
+  .nx-label.center{ margin-left:auto; margin-right:auto; }
+
+  /* --- Qué hacemos --- */
+  .nx-mani{ background:var(--bg-light); padding:150px 0 0; color:var(--nh-ink); }
+  .nx-mani-grid{ display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:start; }
+  .nx-big{ font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:500; font-size:clamp(34px,4.6vw,68px); line-height:1.06; letter-spacing:-.035em; margin:0 0 40px; }
+  .nx-big .w{ color:#CFCBBE; transition:color .35s ease; }
+  .nx-big .w.on{ color:#141E16; }
+  .nx-sub{ font-size:clamp(16px,1.3vw,19px); line-height:1.6; color:var(--nh-muted); max-width:680px; margin:0 0 30px; }
+  .nx-btn{ display:inline-flex; align-items:stretch; gap:6px; text-decoration:none; font:600 13.5px/1 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; letter-spacing:.06em; text-transform:uppercase; }
+  .nx-btn span{ display:flex; align-items:center; padding:0 24px; height:52px; border-radius:12px; background:#141E16; color:#fff; }
+  .nx-btn i{ width:56px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:#7BD89B; color:#0C1410; transition:transform .25s; }
+  .nx-btn i svg{ width:18px; height:18px; }
+  .nx-btn:hover i{ transform:translateX(4px) rotate(-8deg); }
+  .nx-tiles{ display:grid; grid-template-columns:repeat(3,1fr); margin-top:110px; }
+  .nx-tile{ min-height:440px; padding:40px 40px 44px; display:flex; flex-direction:column; position:relative; overflow:hidden; }
+  .nx-tile.t1{ background:#B9E8C5; color:#0E2016; }
+  .nx-tile.t2{ background:#0E2016; color:#fff; }
+  .nx-tile.t3{ background:#E7E2D5; color:#0E2016; }
+  .nx-tile-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:auto; }
+  .nx-tile-top span{ font:500 14px/1 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; }
+  .nx-geo{ width:120px; height:120px; overflow:visible; }
+  .nx-geo *{ vector-effect:non-scaling-stroke; }
+  .nx-tile.t1 .nx-geo{ animation:nxSpin 40s linear infinite; }
+  .nx-tile.t3 .nx-geo{ animation:nxSpin 60s linear infinite reverse; }
+  .nx-tile.t2 .nx-geo polygon{ transform-origin:50% 50%; transform-box:fill-box; animation:nxHex 4s ease-in-out infinite; }
+  .nx-tile.t2 .nx-geo polygon:nth-child(2){ animation-delay:.25s } .nx-tile.t2 .nx-geo polygon:nth-child(3){ animation-delay:.5s } .nx-tile.t2 .nx-geo polygon:nth-child(4){ animation-delay:.75s } .nx-tile.t2 .nx-geo polygon:nth-child(5){ animation-delay:1s }
+  @keyframes nxSpin{ to{ transform:rotate(360deg) } }
+  @keyframes nxHex{ 50%{ transform:scale(1.08) } }
+  .nx-tile h3{ font-family:'Satoshi',sans-serif; font-size:clamp(26px,2.4vw,36px); line-height:1.05; letter-spacing:-.03em; margin:40px 0 12px; }
+  .nx-tile p{ margin:0 0 20px; font-size:16px; line-height:1.55; opacity:.78; max-width:340px; }
+  .nx-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .nx-tags span{ font:500 11.5px/1 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; letter-spacing:.04em; text-transform:uppercase; padding:7px 9px; border-radius:6px; border:1px solid currentColor; opacity:.7; }
+
+  /* --- Para quién: píldoras --- */
+  .nx-who{ padding:130px 0; }
+  .nx-who-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .nx-who-detail{ margin-top:34px; min-height:250px; }
+  .nx-wd[hidden]{ display:none; }
+  .nx-wd.on{ animation:nhIn .45s ease both; }
+  .nx-wd .pain{ font-size:18px; line-height:1.5; color:#fff; font-style:italic; margin:0 0 18px; padding-left:16px; border-left:2px solid #7BD89B; }
+  .nx-wd ul{ list-style:none; margin:0 0 22px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; }
+  .nx-wd li{ font-size:14.5px; line-height:1.45; color:rgba(255,255,255,.75); padding-left:20px; position:relative; }
+  .nx-wd li::before{ content:''; position:absolute; left:0; top:.45em; width:9px; height:9px; border-radius:2px; background:#7BD89B; }
+  .nx-wd a{ color:#7BD89B; font-weight:700; text-decoration:none; }
+  .nx-pills{ display:flex; justify-content:center; gap:22px; padding-top:20px; }
+  .nx-pill{ background:none; border:0; padding:0; cursor:pointer; color:#fff; font-family:inherit; display:flex; flex-direction:column; align-items:center; gap:26px; width:130px; transition:opacity .3s; opacity:.5; }
+  .nx-pill[aria-selected="true"], .nx-pill:hover{ opacity:1; }
+  .nx-pill .shape{ position:relative; width:104px; height:330px; border-radius:999px; transform:rotate(18deg); transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .4s; box-shadow:inset 0 0 0 3px rgba(255,255,255,.35), inset 0 -30px 50px -20px rgba(0,0,0,.25), 0 30px 60px -30px rgba(0,0,0,.6); }
+  .nx-pill.p1 .shape{ background:linear-gradient(180deg,#9CE3B2,#5FBF80); }
+  .nx-pill.p2 .shape{ background:linear-gradient(180deg,#EBD7A7,#C9A967); }
+  .nx-pill.p3 .shape{ background:linear-gradient(180deg,#C7DCCB,#86A890); }
+  .nx-pill:hover .shape{ transform:rotate(18deg) translateY(-10px); }
+  .nx-pill[aria-selected="true"] .shape{ transform:rotate(18deg) translateY(-18px); box-shadow:inset 0 0 0 3px rgba(255,255,255,.55), 0 0 0 6px rgba(123,216,155,.15), 0 40px 80px -30px rgba(123,216,155,.45); }
+  .nx-pill .shape i{ position:absolute; left:50%; bottom:10px; width:84px; height:84px; margin-left:-42px; border-radius:50%; background:#141A16; color:#fff; display:flex; align-items:center; justify-content:center; transform:rotate(-18deg); box-shadow:0 10px 24px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.12); transition:transform .4s; }
+  .nx-pill[aria-selected="true"] .shape i{ transform:rotate(27deg); }
+  .nx-pill .shape svg{ width:30px; height:30px; }
+  .nx-pill b{ font-weight:500; font-size:19px; line-height:1.15; text-align:left; align-self:flex-start; padding-top:12px; border-top:1px solid rgba(255,255,255,.25); width:100%; }
+
+  /* --- Servicios: scroll fijo --- */
+  .nx-svc{ background:var(--bg-light); padding-top:130px; color:var(--nh-ink); }
+  .nx-svc-head{ margin-bottom:10px; }
+  .nx-story{ height:400vh; position:relative; }
+  .nx-sticky{ position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden; }
+  .nx-story-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:56px; align-items:center; width:100%; }
+  .nx-nav{ display:flex; gap:8px; margin-bottom:34px; }
+  .nx-nav button{ display:flex; align-items:center; gap:8px; height:40px; padding:0 9px; border-radius:999px; border:1px solid rgba(20,30,22,.14); background:transparent; cursor:pointer; font-family:inherit; color:#5F6B61; transition:background .3s, box-shadow .3s, padding .3s; }
+  .nx-nav span{ width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; font:600 11px/1 ui-monospace,Menlo,Consolas,monospace; border:1px solid rgba(20,30,22,.2); }
+  .nx-nav b{ font-size:14px; font-weight:600; max-width:0; overflow:hidden; white-space:nowrap; transition:max-width .4s; }
+  .nx-nav button.on{ background:#fff; color:#141E16; padding-right:16px; box-shadow:0 10px 24px -12px rgba(20,30,22,.35); border-color:#fff; }
+  .nx-nav button.on b{ max-width:140px; }
+  .nx-nav button.on span{ background:#141E16; color:#fff; border-color:#141E16; }
+  .nx-panels{ position:relative; min-height:360px; }
+  .nx-sp{ position:absolute; inset:0 0 auto 0; opacity:0; transform:translateY(24px); transition:opacity .5s, transform .5s; pointer-events:none; }
+  .nx-sp.on{ opacity:1; transform:none; pointer-events:auto; }
+  .nx-sp h3{ font-family:'Satoshi',sans-serif; font-weight:600; font-size:clamp(30px,3.2vw,46px); line-height:1.04; letter-spacing:-.035em; margin:0 0 16px; }
+  .nx-sp p{ font-size:17px; line-height:1.6; color:var(--nh-muted); margin:0 0 22px; max-width:480px; }
+  .nx-feats{ list-style:none; margin:0 0 24px; padding:0; display:flex; flex-wrap:wrap; gap:8px; max-width:500px; }
+  .nx-feats li{ font-size:13.5px; font-weight:600; padding:8px 13px; border-radius:999px; background:#fff; border:1px solid rgba(20,30,22,.08); }
+  .nx-link{ color:#2F5A3C; font-weight:700; text-decoration:none; border-bottom:2px solid #7BD89B; padding-bottom:2px; }
+  .nx-stage{ position:relative; perspective:1600px; padding:30px 0; }
+  .nx-device{ border-radius:20px; background:#fff; box-shadow:0 0 0 10px #141A16, 0 0 0 11px #2B332D, 0 60px 120px -40px rgba(20,30,22,.6); transform:rotateY(-14deg) rotateX(7deg) rotateZ(1deg); transform-origin:60% 50%; overflow:hidden; }
+  .nx-dbar{ height:34px; display:flex; align-items:center; gap:6px; padding:0 14px; background:#F3F1EC; border-bottom:1px solid #E6E2D9; }
+  .nx-dbar i{ width:9px; height:9px; border-radius:50%; background:#D9D4C8; }
+  .nx-dbar .u{ margin-left:14px; font-size:11px; color:#8A918B; background:#fff; padding:4px 12px; border-radius:6px; }
+  .nx-screen{ position:relative; height:420px; background:#FAF9F6; }
+  .nx-scr{ position:absolute; inset:0; opacity:0; transform:scale(.98); transition:opacity .55s, transform .55s; }
+  .nx-scr.on{ opacity:1; transform:none; }
+  /* pantalla 1 */
+  .nx-scr.s1{ display:grid; grid-template-columns:64px 1fr; }
+  .nx-scr.s1 aside{ background:#0E2016; display:flex; flex-direction:column; align-items:center; gap:12px; padding:18px 0; }
+  .nx-scr.s1 aside b{ width:28px; height:28px; border-radius:8px; background:#7BD89B; margin-bottom:10px; }
+  .nx-scr.s1 aside i{ width:22px; height:22px; border-radius:6px; background:rgba(255,255,255,.14); }
+  .nx-scr.s1 aside i.on{ background:rgba(123,216,155,.6); }
+  .nx-scr.s1 .main{ padding:20px; display:grid; gap:14px; align-content:start; }
+  .kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .kpis div{ background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:12px 14px; }
+  .kpis small{ display:block; font-size:11px; color:#79857B; } .kpis b{ font-family:'Satoshi',sans-serif; font-size:26px; letter-spacing:-.03em; } .kpis em{ font-style:normal; font-size:10.5px; color:#2F7D4F; margin-left:6px; }
+  .list{ background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:4px 14px; }
+  .list .row{ display:flex; align-items:center; gap:12px; padding:11px 0; border-bottom:1px solid #F1EEE7; font-size:13px; }
+  .list .row:last-child{ border-bottom:0; }
+  .list .row b{ display:block; } .list .row small{ color:#8A918B; font-size:11.5px; }
+  .list .av{ width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:800; color:#fff; flex-shrink:0; }
+  .av.a1{ background:#4A6B52 } .av.a2{ background:#8A6A2E } .av.a3{ background:#33506B } .av.a4{ background:#2F7D4F }
+  .list .st{ margin-left:auto; font-style:normal; font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:99px; white-space:nowrap; }
+  .st.new{ background:#F6EEDD; color:#8A6A2E } .st.vis{ background:#EAF0F7; color:#33506B } .st.quo{ background:#F2F1F8; color:#5F6196 } .st.won{ background:#7BD89B; color:#0C1410 }
+  .nx-scr.s1.on .row{ animation:nhIn .5s ease both; } .nx-scr.s1.on .row:nth-child(2){ animation-delay:.1s } .nx-scr.s1.on .row:nth-child(3){ animation-delay:.2s } .nx-scr.s1.on .row:nth-child(4){ animation-delay:.3s }
+  /* pantalla 2 */
+  .nx-scr.s2{ display:flex; flex-direction:column; }
+  .site-nav{ display:flex; align-items:center; gap:18px; padding:14px 22px; font-size:12px; color:#5F6B61; }
+  .site-nav b{ font-family:'Satoshi',serif; font-size:15px; color:#141E16; margin-right:auto; }
+  .site-nav em{ font-style:normal; background:#141E16; color:#fff; padding:7px 12px; border-radius:99px; font-weight:700; }
+  .site-hero{ position:relative; margin:0 14px; height:250px; border-radius:14px; overflow:hidden; background:#2F4A35; }
+  .site-hero .silk{ position:absolute; inset:-30%; background:radial-gradient(40% 50% at 70% 30%,#D4C29E,transparent 70%),radial-gradient(45% 55% at 20% 70%,#8FAA94,transparent 70%),radial-gradient(35% 45% at 50% 50%,#4A6B52,transparent 70%); filter:blur(20px); animation:nhDrift1 14s ease-in-out infinite alternate; }
+  .site-hero .t{ position:absolute; left:24px; bottom:22px; color:#fff; }
+  .site-hero small{ font-size:11px; opacity:.8; letter-spacing:.08em; text-transform:uppercase; }
+  .site-hero b{ display:block; font-family:'Satoshi',sans-serif; font-size:30px; line-height:1.02; letter-spacing:-.03em; max-width:330px; margin:6px 0 12px; }
+  .site-hero em{ font-style:normal; font-size:12px; font-weight:700; background:#fff; color:#141E16; padding:8px 13px; border-radius:99px; }
+  .site-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:14px; }
+  .site-cards i{ height:84px; border-radius:10px; background:linear-gradient(160deg,#E7E2D5,#D5CDB9); }
+  .site-cards i:nth-child(2){ background:linear-gradient(160deg,#C9DCCB,#9DB8A3); }
+  /* pantalla 3 */
+  .nx-scr.s3{ padding:30px; display:flex; flex-direction:column; justify-content:center; gap:28px; background:#0E2016; }
+  .flowx{ display:flex; flex-direction:column; align-items:flex-start; gap:0; }
+  .flowx .nd{ font-size:13.5px; font-weight:600; color:#fff; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:10px 14px; border-radius:10px; }
+  .flowx .nd.g{ background:rgba(123,216,155,.16); border-color:rgba(123,216,155,.5); color:#B8E6C6; }
+  .flowx .ln{ width:2px; height:18px; margin-left:22px; background:repeating-linear-gradient(180deg,#7BD89B 0 4px,transparent 4px 8px); animation:nxLn 1s linear infinite; }
+  @keyframes nxLn{ to{ background-position:0 8px } }
+  .ints{ display:flex; flex-wrap:wrap; gap:8px; }
+  .ints span{ font:500 12px/1 ui-monospace,Menlo,Consolas,monospace; color:#fff; padding:8px 11px; border-radius:7px; border:1px solid rgba(255,255,255,.22); }
+  /* pantalla 4 */
+  .nx-scr.s4{ padding:22px 26px; display:flex; flex-direction:column; gap:12px; }
+  .nx-scr.s4 .q{ display:flex; align-items:center; gap:10px; border:1px solid #E6E2D9; background:#fff; border-radius:99px; padding:11px 16px; font-size:13.5px; box-shadow:0 8px 20px -14px rgba(0,0,0,.3); }
+  .nx-scr.s4 .q svg{ width:16px; height:16px; color:#8A918B; }
+  .nx-scr.s4 .r small{ display:block; font-size:11.5px; color:#5F6B61; }
+  .nx-scr.s4 .r b{ font-size:16px; color:#1A4E9A; font-weight:600; }
+  .nx-scr.s4 .ad{ font-weight:800; color:#141E16; margin-right:6px; }
+  .chart{ margin-top:auto; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:12px 14px; }
+  .chart small{ font-size:11px; color:#79857B; }
+  .bars{ display:flex; align-items:flex-end; gap:10px; height:90px; margin-top:8px; }
+  .bars i{ flex:1; height:var(--h); border-radius:6px 6px 2px 2px; background:linear-gradient(180deg,#7BD89B,#4A6B52); transform-origin:bottom; }
+  .nx-scr.s4.on .bars i{ animation:nxBar .7s cubic-bezier(.2,.8,.2,1) both; }
+  .nx-scr.s4.on .bars i:nth-child(2){ animation-delay:.08s } .nx-scr.s4.on .bars i:nth-child(3){ animation-delay:.16s } .nx-scr.s4.on .bars i:nth-child(4){ animation-delay:.24s } .nx-scr.s4.on .bars i:nth-child(5){ animation-delay:.32s } .nx-scr.s4.on .bars i:nth-child(6){ animation-delay:.4s }
+  @keyframes nxBar{ from{ transform:scaleY(.1) } }
+  .nx-chipf{ position:absolute; display:flex; align-items:center; gap:8px; padding:11px 16px; border-radius:14px; background:#fff; font-size:13px; font-weight:700; box-shadow:0 20px 40px -20px rgba(20,30,22,.5); animation:nhFloat 6s ease-in-out infinite; z-index:2; }
+  .nx-chipf.c1{ left:-24px; top:6%; }
+  .nx-chipf.c2{ right:-10px; bottom:4%; background:#0E2016; color:#B8E6C6; animation-delay:-3s; }
+  .nx-chipf .dot{ width:8px; height:8px; border-radius:50%; background:#E0A33B; }
+
+  /* --- Franja --- */
+  .nx-marquee{ overflow:hidden; background:var(--bg-light); padding:70px 0 30px; }
+  .nx-mq-in{ display:flex; align-items:center; gap:34px; width:max-content; animation:nxMq 40s linear infinite; }
+  .nx-mq-in span{ font-family:'Satoshi',sans-serif; font-weight:700; font-size:clamp(48px,7vw,110px); letter-spacing:-.04em; color:#141E16; white-space:nowrap; line-height:1; }
+  .nx-mq-in span.o{ color:transparent; -webkit-text-stroke:1.5px #8FA694; }
+  .nx-mq-in i{ font-style:normal; color:#7BD89B; font-size:clamp(28px,3vw,48px); }
+  @keyframes nxMq{ to{ transform:translateX(-50%) } }
+
+  /* --- Todo conectado: cables con pulsos --- */
+  .nx-flow{ grid-template-columns:1fr 90px 1.1fr 90px 1fr; gap:0; }
+  .nx-wire{ position:relative; height:2px; background:repeating-linear-gradient(90deg,rgba(74,107,82,.35) 0 6px,transparent 6px 12px); }
+  .nx-wire i{ position:absolute; top:-3px; left:0; width:8px; height:8px; border-radius:50%; background:#7BD89B; box-shadow:0 0 12px #7BD89B; animation:nxPulse 2.4s linear infinite; }
+  .nx-wire i:nth-child(2){ animation-delay:.8s } .nx-wire i:nth-child(3){ animation-delay:1.6s }
+  @keyframes nxPulse{ 0%{ left:0; opacity:0 } 15%{ opacity:1 } 85%{ opacity:1 } 100%{ left:calc(100% - 8px); opacity:0 } }
+
+  /* --- WVS: cifras --- */
+  .nx-wvs-top{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:end; margin-bottom:70px; }
+  .nx-wvs-top .nh-lead{ margin-bottom:22px; }
+  .nx-stats{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid rgba(255,255,255,.18); }
+  .nx-stats > div{ padding:30px 26px 6px 0; border-right:1px solid rgba(255,255,255,.12); margin-right:26px; }
+  .nx-stats > div:last-child{ border-right:0; margin-right:0; }
+  .nx-stats b{ display:block; font-family:'Satoshi',sans-serif; font-weight:500; font-size:clamp(64px,8vw,120px); line-height:.9; letter-spacing:-.06em; background:linear-gradient(180deg,#fff 30%,#8FAA94); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .nx-stats sup{ font-size:.42em; vertical-align:top; position:relative; top:.25em; margin-left:4px; }
+  .nx-stats p{ margin:18px 0 4px; font-size:16px; color:#fff; font-weight:600; }
+  .nx-stats small{ font:500 12px/1.4 ui-monospace,Menlo,Consolas,monospace; color:rgba(255,255,255,.55); letter-spacing:.04em; }
+
+  /* --- Cómo trabajamos: línea --- */
+  .nx-line{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:28px; padding-top:44px; }
+  .nx-track{ position:absolute; top:13px; left:0; right:0; height:2px; background:rgba(20,30,22,.1); border-radius:2px; overflow:hidden; }
+  .nx-track i{ display:block; height:100%; width:calc(var(--p,0) * 100%); background:linear-gradient(90deg,#4A6B52,#7BD89B); }
+  .nx-pt{ position:relative; }
+  .nx-pt span{ position:absolute; top:-44px; left:0; width:28px; height:28px; border-radius:50%; background:var(--bg-light); border:2px solid rgba(20,30,22,.15); font:600 10.5px/24px ui-monospace,Menlo,Consolas,monospace; text-align:center; color:#5F6B61; transition:background .4s, border-color .4s, color .4s; }
+  .nx-pt.on span{ background:#141E16; border-color:#7BD89B; color:#7BD89B; box-shadow:0 0 0 6px rgba(123,216,155,.18); }
+  .nx-pt h4{ font-family:'Satoshi',sans-serif; font-size:24px; letter-spacing:-.02em; margin:0 0 10px; }
+  .nx-pt p{ margin:0; font-size:15px; line-height:1.6; color:var(--nh-muted); }
+
+  @media (max-width: 1080px){
+    .nx-mani-grid{ grid-template-columns:1fr; gap:10px; }
+    .nx-tiles{ grid-template-columns:1fr; margin-top:70px; }
+    .nx-tile{ min-height:0; padding:32px 24px 36px; }
+    .nx-tile h3{ margin-top:28px; }
+    .nx-geo{ width:84px; height:84px; }
+    .nx-who-grid{ grid-template-columns:1fr; gap:30px; }
+    .nx-pills{ order:-1; gap:12px; padding-top:30px; }
+    .nx-pill{ width:31%; gap:18px; }
+    .nx-pill .shape{ width:64px; height:190px; }
+    .nx-pill .shape i{ width:52px; height:52px; margin-left:-26px; bottom:6px; }
+    .nx-pill .shape svg{ width:20px; height:20px; }
+    .nx-pill b{ font-size:15px; }
+    .nx-wd ul{ grid-template-columns:1fr; }
+    .nx-story{ height:auto; }
+    .nx-sticky{ position:relative; height:auto; display:block; padding:30px 0 20px; }
+    .nx-story-grid{ grid-template-columns:1fr; gap:30px; }
+    .nx-nav{ overflow-x:auto; }
+    .nx-nav button{ flex-shrink:0; }
+    .nx-panels{ min-height:0; }
+    .nx-sp{ position:static; display:none; }
+    .nx-sp.on{ display:block; }
+    .nx-device{ transform:none; box-shadow:0 0 0 6px #141A16, 0 40px 80px -40px rgba(20,30,22,.6); }
+    .nx-screen{ height:360px; }
+    .nx-chipf.c1{ left:6px; top:-6px; } .nx-chipf.c2{ right:6px; bottom:0; }
+    .nx-flow{ grid-template-columns:1fr; gap:14px; }
+    .nx-wire{ width:2px; height:50px; margin:0 auto; background:repeating-linear-gradient(180deg,rgba(74,107,82,.35) 0 6px,transparent 6px 12px); }
+    .nx-wire i{ left:-3px; animation-name:nxPulseV; }
+    @keyframes nxPulseV{ 0%{ top:0; opacity:0 } 15%,85%{ opacity:1 } 100%{ top:calc(100% - 8px); opacity:0 } }
+    .nx-wvs-top{ grid-template-columns:1fr; gap:10px; margin-bottom:40px; }
+    .nx-stats{ grid-template-columns:1fr 1fr; }
+    .nx-stats > div{ border-right:0; margin-right:0; padding:24px 10px 20px 0; border-bottom:1px solid rgba(255,255,255,.12); }
+    .nx-line{ grid-template-columns:1fr; gap:34px; padding:0 0 0 46px; }
+    .nx-track{ top:0; bottom:0; left:13px; right:auto; width:2px; height:auto; }
+    .nx-track i{ width:100%; height:calc(var(--p,0) * 100%); }
+    .nx-pt span{ top:0; left:-46px; }
+  }
+  @media (max-width: 760px){
+    .nx-mani{ padding-top:90px; }
+    .nx-who{ padding:80px 0; }
+    .nx-svc{ padding-top:80px; }
+    .nx-screen{ height:330px; }
+    .nx-scr.s1{ grid-template-columns:40px 1fr; } .nx-scr.s1 aside i{ width:16px; height:16px; } .nx-scr.s1 aside b{ width:20px; height:20px; }
+    .nx-scr.s1 .main{ padding:12px; gap:10px; }
+    .kpis b{ font-size:20px; } .kpis em{ display:none; } .kpis div{ padding:9px 10px; }
+    .list .row{ padding:8px 0; font-size:12px; } .list .av{ width:26px; height:26px; }
+    .site-nav span{ display:none; } .site-hero{ height:200px; } .site-hero b{ font-size:22px; }
+    .nx-chipf{ font-size:11.5px; padding:8px 12px; }
+    .nx-btn{ width:100%; } .nx-btn span{ flex:1; justify-content:center; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .nx-geo, .nx-geo polygon, .nx-mq-in, .nx-wire i, .nx-chipf, .site-hero .silk{ animation:none !important; }
+    .nx-big .w{ color:#141E16; }
+  }
+  /* ajustes tras revisar */
+  .nx-mani-grid > .nx-label{ justify-self:start; }
+  .nx-sticky{ align-items:flex-start; padding-top:120px; box-sizing:border-box; }
+  .nx-story{ height:360vh; }
+  .nx-chipf.c2{ bottom:-14px; right:-24px; }
+  .bars{ height:72px; }
+  @media (max-width: 1080px){ .nx-sticky{ padding-top:30px; } .nx-chipf.c2{ right:6px; bottom:-6px; } }
+  .nx-story{ margin-top:-90px; }
+  /* Los rótulos del resto de secciones con el mismo estilo de etiqueta */
+  .nh-eyebrow{ font:600 12.5px/1 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; letter-spacing:.08em; color:#2F3B32; padding:8px 12px; border-radius:8px; background:rgba(20,30,22,.05); gap:10px; margin-bottom:18px; }
+  .nh-eyebrow::before{ width:9px; height:9px; border-radius:2px; background:#7BD89B; }
+  .nh-sec.dark .nh-eyebrow, .nh-sec.contact .nh-eyebrow{ color:rgba(255,255,255,.85); background:rgba(255,255,255,.08); }
+  @media (max-width: 1080px){ .nx-story{ margin-top:0; } }
+  @media (max-width: 1080px){
+    .nx-story{ height:auto; }
+    .nx-sticky{ padding-bottom:0; }
+    .nx-tiles{ margin-top:50px; }
+    /* Para quién en móvil: título → píldoras → detalle */
+    .nx-who-grid{ display:flex; flex-direction:column; align-items:stretch; gap:0; }
+    .nx-who-txt{ display:contents; }
+    .nx-who-txt > .nx-label{ align-self:flex-start; }
+    .nx-pills{ order:1; margin:26px 0 6px; }
+    .nx-who-detail{ order:2; margin-top:18px; min-height:0; }
+  }
+
+  /* ===== v6: servicios con fondo que cambia, proyectos en mosaico, planes en cápsulas, FAQ clara ===== */
+
+  /* --- Servicios: marco a pantalla completa, el fondo es el propio proyecto desenfocado --- */
+  .nx-svc2{ background:var(--bg-light); color:#fff; }
+  .nx-svc2 .nx-story{ height:420vh; margin-top:0; }
+  .nx-svc2 .nx-sticky{ position:sticky; top:0; height:100vh; padding:12px; display:block; box-sizing:border-box; overflow:visible; }
+  .nx-frame2{ position:relative; height:100%; border-radius:32px; overflow:hidden; isolation:isolate; display:flex; align-items:center; background:#0E2016; }
+  .nx-bgs{ position:absolute; inset:0; z-index:0; }
+  .nx-bg{ position:absolute; inset:0; opacity:0; transition:opacity .9s ease; }
+  .nx-bg.on{ opacity:1; }
+  .nx-bg img{ width:100%; height:100%; object-fit:cover; filter:blur(26px) saturate(1.15); transform:scale(1.25); }
+  .nx-bg::after{ content:''; position:absolute; inset:0; background:var(--tint); opacity:.74; }
+  .nx-frame2::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(100deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 55%); }
+  .nx-frame2 > .nx-story-grid{ position:relative; z-index:2; padding-top:60px; }
+  .nx-svc2 .nx-nav button{ color:rgba(255,255,255,.7); border-color:rgba(255,255,255,.25); }
+  .nx-svc2 .nx-nav span{ border-color:rgba(255,255,255,.35); }
+  .nx-svc2 .nx-nav button.on{ background:#fff; color:#141E16; border-color:#fff; }
+  .nx-svc2 .nx-sp p{ color:rgba(255,255,255,.78); }
+  .nx-svc2 .nx-feats li{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.18); color:#fff; backdrop-filter:blur(8px); }
+  .nx-svc2 .nx-link{ color:#fff; border-bottom-color:#7BD89B; }
+  .nx-svc2 .nx-panels{ min-height:330px; }
+  .nx-svc2 .nx-device{ box-shadow:0 0 0 10px rgba(10,14,11,.9), 0 0 0 11px rgba(255,255,255,.14), 0 70px 120px -40px rgba(0,0,0,.8); }
+  .nx-svc2 .nx-screen{ height:440px; background:#fff; }
+  .nx-svc2 .nx-scr img{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+  .nx-scr.on img{ animation:nxPan 9s ease-in-out both; }
+  @keyframes nxPan{ from{ transform:scale(1.06) } to{ transform:scale(1) } }
+  .nx-cap{ position:relative; height:20px; margin-top:34px; text-align:center; }
+  .nx-cap span{ position:absolute; inset:0; font:500 12.5px/20px ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; letter-spacing:.04em; color:rgba(255,255,255,.75); opacity:0; transform:translateY(6px); transition:opacity .5s, transform .5s; }
+  .nx-cap span.on{ opacity:1; transform:none; }
+  .nx-prog{ position:absolute; z-index:2; left:50%; bottom:26px; width:160px; margin-left:-80px; height:3px; border-radius:3px; background:rgba(255,255,255,.18); overflow:hidden; }
+  .nx-prog i{ display:block; height:100%; width:calc(var(--sp,0) * 100%); background:#7BD89B; }
+
+  /* --- Proyectos: mosaico oscuro con objeto 3D --- */
+  .nx-proj{ margin:12px; border-radius:32px; background:radial-gradient(60% 50% at 50% 0%,rgba(123,216,155,.08),transparent 70%),#080D09; color:#fff; padding:120px 0 110px; position:relative; overflow:hidden; }
+  .nx-proj-head{ text-align:center; margin-bottom:64px; }
+  .nx-pillabel{ display:inline-flex; align-items:center; gap:7px; padding:6px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.04); font-size:13.5px; color:rgba(255,255,255,.8); margin-bottom:18px; }
+  .nx-pillabel svg{ width:14px; height:14px; }
+  .nx-fade-h{ font-family:'Satoshi','Helvetica Neue',sans-serif; font-weight:700; font-size:clamp(38px,5vw,68px); line-height:1; letter-spacing:-.045em; margin:0 0 16px; }
+  .nx-fade-h span{ background:linear-gradient(90deg,#fff 0%,#fff 35%,rgba(255,255,255,.22) 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .nx-proj-head p{ color:rgba(255,255,255,.6); font-size:17px; margin:0; }
+  .nx-bento{ display:grid; grid-template-columns:1fr 1.75fr 1fr; grid-template-rows:170px 230px 300px; gap:16px; }
+  .nx-card{ position:relative; overflow:hidden; border-radius:24px; border:1px solid rgba(255,255,255,.08); background:#0F1611; color:#fff; text-decoration:none; display:block; transition:border-color .4s; }
+  .nx-card:hover{ border-color:rgba(123,216,155,.4); }
+  .nx-card img{ width:100%; height:100%; object-fit:cover; object-position:top center; display:block; transition:transform 1s cubic-bezier(.2,.8,.2,1); }
+  .nx-card:hover img{ transform:scale(1.05); }
+  .nx-card::after{ content:''; position:absolute; inset:auto 0 0 0; height:55%; background:linear-gradient(180deg,transparent,rgba(5,9,6,.88)); pointer-events:none; }
+  .nx-card .lbl{ position:absolute; left:20px; right:20px; bottom:18px; z-index:2; display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-weight:700; font-size:17px; transition:transform .4s; }
+  .nx-card:hover .lbl{ transform:translateY(-4px); }
+  .nx-card .lbl small{ flex-basis:100%; font-weight:500; font-size:13px; color:rgba(255,255,255,.65); }
+  .nx-card .lg{ width:26px; height:26px; border-radius:8px; background:#7BD89B; color:#0C1410; font-style:normal; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .nx-card .vf{ width:18px; height:18px; color:#7BD89B; }
+  .c-a{ grid-column:1; grid-row:1 / 3; }
+  .c-e{ grid-column:1; grid-row:3; }
+  .c-hero{ grid-column:2; grid-row:1 / 3; background:radial-gradient(60% 60% at 50% 45%,rgba(123,216,155,.14),transparent 70%),#050806; display:flex; align-items:center; justify-content:center; }
+  .c-b{ grid-column:2; grid-row:3; }
+  .c-cta{ grid-column:3; grid-row:1; display:flex; align-items:center; justify-content:center; background:#0B110C; }
+  .c-d{ grid-column:3; grid-row:2 / 4; }
+  .nx-cta-in{ display:inline-flex; align-items:center; gap:12px; padding:8px 8px 8px 20px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); font-weight:600; font-size:15.5px; box-shadow:inset 0 1px 0 rgba(255,255,255,.1); transition:background .3s; }
+  .nx-cta-in i{ width:34px; height:34px; border-radius:50%; background:#fff; color:#0C1410; display:flex; align-items:center; justify-content:center; transition:transform .3s; }
+  .nx-cta-in svg{ width:16px; height:16px; }
+  .c-cta:hover .nx-cta-in{ background:rgba(255,255,255,.12); } .c-cta:hover .nx-cta-in i{ transform:rotate(45deg); }
+  .c-cta::after, .c-hero::after{ display:none; }
+  /* Objeto 3D: la pieza FOREVENTOS en vidrio verde */
+  .nx-3d{ position:relative; perspective:900px; transform-style:preserve-3d; transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); transition:transform .4s ease-out; }
+  .nx-key{ position:relative; width:200px; height:200px; border-radius:54px; transform-style:preserve-3d; background:radial-gradient(120% 95% at 28% 12%,#E4FBEA 0%,#9CE3B2 30%,#4FAF73 62%,#1F5A35 100%);
+    box-shadow:inset 0 3px 1px rgba(255,255,255,.75), inset 0 -14px 26px rgba(10,40,20,.45), inset 10px 0 24px rgba(255,255,255,.18), 0 16px 0 #1A4A2B, 0 18px 0 #123620, 0 50px 70px -10px rgba(0,0,0,.75), 0 0 80px rgba(123,216,155,.25);
+    animation:nxKey 8s ease-in-out infinite; }
+  .nx-key::before{ content:''; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%); background-size:250% 100%; animation:nxSheen 5s ease-in-out infinite; mix-blend-mode:soft-light; }
+  .nx-key-top{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transform:translateZ(30px); }
+  .nx-key-top img{ width:104px; height:104px; filter:drop-shadow(0 6px 0 rgba(12,40,22,.55)) drop-shadow(0 14px 18px rgba(0,0,0,.35)); }
+  .nx-key-shadow{ position:absolute; left:50%; bottom:-70px; width:180px; height:30px; margin-left:-90px; border-radius:50%; background:radial-gradient(closest-side,rgba(123,216,155,.35),transparent); filter:blur(6px); animation:nxShadow 8s ease-in-out infinite; }
+  @keyframes nxKey{ 0%,100%{ transform:translateY(0) rotateX(18deg) rotateY(-22deg) rotateZ(-4deg) } 50%{ transform:translateY(-16px) rotateX(10deg) rotateY(22deg) rotateZ(3deg) } }
+  @keyframes nxShadow{ 0%,100%{ transform:scale(1); opacity:1 } 50%{ transform:scale(.8); opacity:.6 } }
+  @keyframes nxSheen{ 0%,100%{ background-position:120% 0 } 50%{ background-position:-20% 0 } }
+  .nx-orbit span{ position:absolute; padding:7px 13px; border-radius:999px; font-size:12.5px; font-weight:600; color:rgba(255,255,255,.85); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(8px); animation:nhFloat 6s ease-in-out infinite; }
+  .nx-orbit span:nth-child(1){ left:10%; top:18%; } .nx-orbit span:nth-child(2){ right:9%; top:24%; animation-delay:-1.5s }
+  .nx-orbit span:nth-child(3){ left:14%; bottom:20%; animation-delay:-3s } .nx-orbit span:nth-child(4){ right:12%; bottom:16%; animation-delay:-4.5s }
+  .nx-orbit span:nth-child(5){ left:50%; top:8%; transform:translateX(-50%); animation:none; opacity:.6 }
+  /* Entrada desenfocada (estilo dialedweb) */
+  html.js .blur-in{ opacity:0; filter:blur(14px); transform:translateY(24px) scale(.98); transition:opacity .9s ease, filter .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+  html.js .blur-in.in{ opacity:1; filter:none; transform:none; }
+  .blur-in.d1{ transition-delay:.05s } .blur-in.d2{ transition-delay:.15s } .blur-in.d3{ transition-delay:.25s } .blur-in.d4{ transition-delay:.35s }
+
+  /* --- Planes: cápsulas que se rellenan --- */
+  .nx-plans-head{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:end; margin-bottom:46px; }
+  .nx-offers{ display:grid; gap:16px; }
+  .nx-off{ --f:0; position:relative; isolation:isolate; display:grid; grid-template-columns:auto minmax(0,1.35fr) minmax(0,1fr) auto auto; align-items:center; gap:26px; min-height:116px; padding:8px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.02); color:#fff; text-decoration:none; overflow:hidden; transition:color .4s, border-color .4s; }
+  .nx-off::before{ content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,var(--c) 0%,var(--c) calc(var(--f) * 100% - 12%),transparent calc(var(--f) * 100% + 12%)); opacity:calc(.25 + var(--f) * .75); transition:opacity .3s; }
+  .nx-off:hover::before, .nx-off.full::before{ background:var(--c); opacity:1; }
+  .nx-off:hover, .nx-off.full{ color:#141A16; border-color:transparent; }
+  .nx-off.o1{ --c:#7BD89B } .nx-off.o2{ --c:#E2C98F } .nx-off.o3{ --c:#A9C7B0 } .nx-off.o4{ --c:#E8DFCC }
+  .nx-off .ic{ width:100px; height:100px; border-radius:50%; background:#141A16; color:var(--c); display:flex; align-items:center; justify-content:center; font:800 17px/1 'Satoshi',sans-serif; letter-spacing:-.02em; box-shadow:0 10px 24px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.1); }
+  .nx-off .ic svg{ width:34px; height:34px; }
+  .nx-off .tt small{ display:block; font:600 11.5px/1.3 ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace; letter-spacing:.06em; text-transform:uppercase; opacity:.7; margin-bottom:6px; }
+  .nx-off .tt b{ display:block; font-family:'Satoshi',sans-serif; font-weight:600; font-size:clamp(19px,1.8vw,25px); line-height:1.15; letter-spacing:-.02em; }
+  .nx-off .ds{ font-size:14px; line-height:1.45; opacity:.75; padding-left:22px; border-left:1px solid currentColor; }
+  .nx-off .pr{ text-align:right; white-space:nowrap; }
+  .nx-off .pr b{ display:block; font-family:'Satoshi',sans-serif; font-size:30px; letter-spacing:-.03em; line-height:1; }
+  .nx-off .pr small{ font-size:12.5px; opacity:.7; }
+  .nx-off .go{ display:inline-flex; align-items:center; gap:10px; height:100px; padding:0 34px; border-radius:999px; background:#141A16; color:#fff; font-weight:600; font-size:15px; white-space:nowrap; box-shadow:0 10px 24px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08); }
+  .nx-off .go svg{ width:17px; height:17px; transition:transform .3s; }
+  .nx-off:hover .go svg{ transform:translateX(4px); }
+  .nx-plans-note{ text-align:center; margin:30px 0 0; color:rgba(255,255,255,.65); font-size:15px; }
+  .nx-plans-note a{ color:#7BD89B; font-weight:700; }
+
+  /* --- FAQ en claro --- */
+  .nx-faq-l .nh-faq details{ border-bottom-color:rgba(20,30,22,.12); }
+  .nx-faq-l .nh-faq summary{ color:#141E16; font-size:18px; }
+  .nx-faq-l .nh-faq summary::after{ color:#2F7D4F; }
+  .nx-faq-l .nh-faq p{ color:var(--nh-muted); }
+  .nx-faq-l .nh-h2 em{ color:#8FA694; }
+
+  @media (max-width: 1080px){
+    .nx-svc2 .nx-story{ height:auto; }
+    .nx-svc2 .nx-sticky{ position:relative; height:auto; padding:8px; }
+    .nx-frame2{ display:block; padding:70px 0 50px; border-radius:24px; }
+    .nx-frame2 > .nx-story-grid{ padding-top:0; }
+    .nx-svc2 .nx-screen{ height:300px; }
+    .nx-prog{ display:none; }
+    .nx-cap{ margin-top:22px; }
+    .nx-proj{ margin:8px; border-radius:24px; padding:80px 0; }
+    .nx-bento{ grid-template-columns:1fr 1fr; grid-template-rows:auto; grid-auto-rows:240px; }
+    .c-hero{ grid-column:1 / 3; grid-row:1; height:300px; }
+    .c-a{ grid-column:1 / 3; grid-row:2; }
+    .c-b{ grid-column:1 / 3; grid-row:3; }
+    .c-d{ grid-column:1; grid-row:4 / 6; }
+    .c-e{ grid-column:2; grid-row:4; }
+    .c-cta{ grid-column:2; grid-row:5; }
+    .nx-key{ width:150px; height:150px; border-radius:40px; } .nx-key-top img{ width:78px; height:78px; }
+    .nx-plans-head{ grid-template-columns:1fr; gap:10px; }
+    .nx-off{ grid-template-columns:auto 1fr; grid-template-areas:"ic tt" "ds ds" "pr go"; gap:14px 16px; border-radius:28px; padding:14px; }
+    .nx-off .ic{ grid-area:ic; width:60px; height:60px; font-size:13px; } .nx-off .ic svg{ width:24px; height:24px; }
+    .nx-off .tt{ grid-area:tt; } .nx-off .ds{ grid-area:ds; padding-left:0; border-left:0; }
+    .nx-off .pr{ grid-area:pr; text-align:left; } .nx-off .pr b{ font-size:24px; }
+    .nx-off .go{ grid-area:go; justify-self:end; height:52px; padding:0 20px; }
+  }
+  @media (max-width: 760px){
+    .nx-bento{ grid-auto-rows:200px; gap:10px; }
+    .c-hero{ height:260px; }
+    .nx-orbit span{ font-size:11px; padding:5px 10px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .nx-key, .nx-key::before, .nx-key-shadow, .nx-orbit span, .nx-scr.on img{ animation:none !important; }
+    html.js .blur-in{ opacity:1; filter:none; transform:none; }
+  }
+  /* Cápsulas: se rellenan de una vez al aparecer (animando --f) */
+  @property --f{ syntax:'<number>'; inherits:true; initial-value:0; }
+  .nx-off{ transition:--f 1.1s cubic-bezier(.6,0,.2,1), color .45s ease .55s, border-color .4s; }
+  .nx-off.full{ --f:1.2; }
+  .nx-off.full::before{ background:linear-gradient(90deg,var(--c) 0%,var(--c) calc(var(--f) * 100% - 12%),transparent calc(var(--f) * 100% + 12%)); opacity:1; }
+  .nx-off:hover::before{ background:var(--c); }
+  .nx-off:not(.full):not(:hover){ color:#fff; }
+  .c-a img{ object-position:28% 0; }
+  .nx-card .lbl{ font-size:16px; }
+  @media (max-width: 760px){
+    .nx-card .lbl{ left:12px; right:12px; bottom:12px; font-size:14px; gap:6px; }
+    .c-d .lbl small, .c-e .lbl small{ display:none; }
+    .nx-card .lg{ width:22px; height:22px; font-size:11px; }
+  }
+
+  /* ===== v7: hero con el recorrido de una reserva, autoridad, «Elige por dónde empezar» ===== */
+
+  /* --- Autoridad bajo los botones --- */
+  .hx-auth{ display:flex; align-items:center; gap:14px; margin-top:6px; }
+  .hx-faces{ display:flex; flex-shrink:0; }
+  .hx-faces img, .hx-faces span{ width:40px; height:40px; border-radius:50%; object-fit:cover; object-position:top; border:2px solid #0E2016; margin-left:-10px; background:#fff; }
+  .hx-faces img:first-child{ margin-left:0; }
+  .hx-faces span{ display:flex; align-items:center; justify-content:center; background:#7BD89B; color:#0C1410; font-weight:800; font-size:15px; }
+  .hx-auth p{ margin:0; font-size:14px; line-height:1.45; color:rgba(255,255,255,.75); max-width:360px; }
+  .hx-auth p b{ color:#fff; }
+  .hx-auth p a{ color:#B8E6C6; font-weight:700; text-decoration:none; white-space:nowrap; }
+
+  /* --- La animación: tarjeta de cristal con 4 escenas --- */
+  .hx{ display:flex; justify-content:center; align-items:center; }
+  .hx-card{ width:min(460px,100%); padding:18px; border-radius:28px; background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06)); border:1px solid rgba(255,255,255,.28); backdrop-filter:blur(22px) saturate(140%); -webkit-backdrop-filter:blur(22px) saturate(140%); box-shadow:0 40px 90px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.35); }
+  .hx-steps{ list-style:none; margin:0 0 14px; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .hx-steps li{ font-size:11.5px; font-weight:700; color:rgba(255,255,255,.55); transition:color .3s; }
+  .hx-steps li i{ display:block; height:3px; border-radius:3px; background:rgba(255,255,255,.2); margin-bottom:7px; overflow:hidden; position:relative; }
+  .hx-steps li i::after{ content:''; position:absolute; inset:0; width:0; background:#7BD89B; }
+  .hx-steps li.done i::after{ width:100%; }
+  .hx-steps li.on{ color:#fff; }
+  .hx-steps li.on i::after{ animation:hxBar var(--hx-dur,4200ms) linear forwards; }
+  @keyframes hxBar{ to{ width:100% } }
+  .hx-stage{ position:relative; height:330px; border-radius:20px; background:#FAF9F6; color:#141E16; overflow:hidden; box-shadow:inset 0 0 0 1px rgba(20,30,22,.06); }
+  .hx-sc{ position:absolute; inset:0; padding:18px; opacity:0; visibility:hidden; transition:opacity .45s, visibility .45s; }
+  .hx-sc.on{ opacity:1; visibility:visible; }
+  .hx-sc *{ animation-play-state:paused; }
+  .hx-sc.on *{ animation-play-state:running; }
+
+  /* 1 · búsqueda */
+  .hx-search{ display:flex; align-items:center; gap:10px; height:46px; padding:0 16px; border-radius:999px; background:#fff; box-shadow:0 8px 24px -12px rgba(20,30,22,.35), 0 0 0 1px rgba(20,30,22,.08); font-size:14px; margin-bottom:14px; }
+  .hx-search svg{ width:16px; height:16px; color:#8A918B; flex-shrink:0; }
+  .hx-caret{ width:1.5px; height:18px; background:#141E16; margin-left:-8px; animation:hxBlink 1s steps(1) infinite; }
+  @keyframes hxBlink{ 50%{ opacity:0 } }
+  .hx-res{ padding:10px 12px; border-radius:12px; margin-bottom:6px; opacity:0; transform:translateY(8px); animation:hxIn .45s ease forwards; }
+  .hx-res small{ display:block; font-size:11px; color:#5F6B61; }
+  .hx-res b{ display:block; font-size:14.5px; color:#1A4E9A; font-weight:600; margin:1px 0; }
+  .hx-res span{ font-size:12px; color:#5F6B61; }
+  .hx-res.r1{ animation-delay:1.9s; } .hx-res.r2{ animation-delay:2.05s; } .hx-res.r3{ animation-delay:2.2s; }
+  .hx-res.r1{ animation:hxIn .45s ease 1.9s forwards, hxHit .4s ease 3.25s forwards; }
+  @keyframes hxIn{ to{ opacity:1; transform:none } }
+  @keyframes hxHit{ to{ background:#E2F2E7; box-shadow:0 0 0 2px #7BD89B } }
+  .hx-cursor{ position:absolute; width:22px; height:22px; left:78%; top:88%; opacity:0; filter:drop-shadow(0 3px 4px rgba(0,0,0,.3)); animation:hxCur 1.1s cubic-bezier(.4,0,.2,1) 2.4s forwards; }
+  @keyframes hxCur{ 0%{ opacity:0; left:78%; top:88% } 15%{ opacity:1 } 85%{ left:42%; top:32% } 92%{ transform:scale(.8) } 100%{ opacity:1; left:42%; top:32%; transform:scale(1) } }
+
+  /* 2 · solicitudes */
+  .hx-app{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .hx-app b{ font-family:'Satoshi',sans-serif; font-size:17px; }
+  .hx-app em{ font-style:normal; font-size:11px; font-weight:700; padding:4px 9px; border-radius:99px; background:#7BD89B; color:#0C1410; }
+  .hx-lead{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:14px; background:#fff; box-shadow:0 0 0 1px rgba(20,30,22,.06); margin-bottom:8px; font-size:13px; }
+  .hx-lead b{ display:block; } .hx-lead small{ color:#79857B; font-size:11.5px; }
+  .hx-lead .av{ width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:10.5px; font-weight:800; color:#fff; background:#4A6B52; }
+  .hx-lead .av.b{ background:#8A6A2E } .hx-lead .av.c{ background:#33506B }
+  .hx-lead i{ margin-left:auto; font-style:normal; font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:99px; background:#F6EEDD; color:#8A6A2E; }
+  .hx-lead.new{ box-shadow:0 0 0 2px #7BD89B, 0 14px 30px -16px rgba(20,30,22,.45); transform:translateY(-30px) scale(.96); opacity:0; animation:hxDrop .6s cubic-bezier(.2,.9,.3,1.3) .35s forwards; }
+  .hx-lead:not(.new){ opacity:0; animation:hxIn .4s ease .1s forwards; }
+  @keyframes hxDrop{ to{ transform:none; opacity:1 } }
+  .hx-reply{ display:flex; align-items:center; gap:8px; margin-top:12px; padding:10px 12px; border-radius:12px; background:#0E2016; color:#B8E6C6; font-size:12.5px; font-weight:600; opacity:0; transform:translateY(8px); animation:hxIn .45s ease 1.9s forwards; }
+  .hx-reply svg{ width:16px; height:16px; flex-shrink:0; }
+
+  /* 3 · visita */
+  .hx-cal{ display:grid; grid-template-columns:repeat(7,1fr); gap:5px; margin-bottom:12px; }
+  .hx-cal span{ font-size:10px; font-weight:700; color:#9AA39B; text-align:center; }
+  .hx-cal i{ height:30px; border-radius:8px; background:#F1EFE8; }
+  .hx-cal i.ok{ background:#F6EEDD; box-shadow:inset 0 0 0 1px #E9D9B5; }
+  .hx-cal i.pick{ animation:hxPick .4s ease .7s forwards; }
+  @keyframes hxPick{ to{ background:#0E2016; box-shadow:0 0 0 3px rgba(123,216,155,.5) } }
+  .hx-slots{ display:flex; gap:8px; margin-bottom:12px; }
+  .hx-slots span{ flex:1; text-align:center; padding:8px 0; border-radius:10px; border:1px solid rgba(20,30,22,.12); font-size:12.5px; font-weight:700; background:#fff; opacity:0; animation:hxIn .35s ease 1.1s forwards; }
+  .hx-slots span.pick{ animation:hxIn .35s ease 1.1s forwards, hxSlot .35s ease 1.8s forwards; }
+  @keyframes hxSlot{ to{ background:#7BD89B; border-color:#7BD89B; color:#0C1410 } }
+  .hx-toast{ display:flex; align-items:center; gap:10px; padding:11px 12px; border-radius:14px; background:#fff; box-shadow:0 14px 30px -14px rgba(20,30,22,.5), 0 0 0 1px rgba(20,30,22,.06); opacity:0; transform:translateY(10px); animation:hxIn .45s ease 2.4s forwards; }
+  .hx-toast svg{ width:30px; height:30px; padding:7px; border-radius:50%; background:#7BD89B; color:#0C1410; flex-shrink:0; box-sizing:border-box; }
+  .hx-toast b{ display:block; font-size:13.5px; } .hx-toast small{ font-size:11.5px; color:#79857B; }
+
+  /* 4 · reservada */
+  .hx-sc.s4{ background:radial-gradient(80% 70% at 50% 0%,#E2F2E7,#FAF9F6 70%); text-align:center; }
+  .hx-won{ padding-top:14px; }
+  .hx-heart{ width:62px; height:62px; margin:0 auto 12px; border-radius:50%; background:#0E2016; color:#7BD89B; display:flex; align-items:center; justify-content:center; transform:scale(0); animation:hxPop .55s cubic-bezier(.2,.9,.3,1.5) .2s forwards; box-shadow:0 0 0 8px rgba(123,216,155,.2); }
+  .hx-heart svg{ width:28px; height:28px; }
+  @keyframes hxPop{ to{ transform:scale(1) } }
+  .hx-won b{ display:block; font-family:'Satoshi',sans-serif; font-size:28px; letter-spacing:-.03em; opacity:0; animation:hxIn .4s ease .55s forwards; transform:translateY(8px); }
+  .hx-won small{ display:block; color:#5F6B61; font-size:13px; margin-top:4px; opacity:0; animation:hxIn .4s ease .7s forwards; }
+  .hx-checks{ list-style:none; margin:18px auto 0; padding:0; display:grid; gap:7px; max-width:260px; text-align:left; }
+  .hx-checks li{ display:flex; align-items:center; gap:9px; font-size:13.5px; font-weight:600; padding:8px 12px; border-radius:12px; background:#fff; box-shadow:0 0 0 1px rgba(20,30,22,.06); opacity:0; transform:translateX(-10px); animation:hxIn .4s ease forwards; }
+  .hx-checks li:nth-child(1){ animation-delay:1s } .hx-checks li:nth-child(2){ animation-delay:1.3s } .hx-checks li:nth-child(3){ animation-delay:1.6s }
+  .hx-checks svg{ width:18px; height:18px; padding:3px; border-radius:50%; background:#7BD89B; color:#0C1410; box-sizing:border-box; }
+  .hx-confetti i{ position:absolute; top:-10px; width:8px; height:14px; border-radius:2px; opacity:0; animation:hxConf 2.4s cubic-bezier(.2,.6,.4,1) .4s forwards; }
+  .hx-confetti i:nth-child(3n){ background:#7BD89B } .hx-confetti i:nth-child(3n+1){ background:#D4C29E } .hx-confetti i:nth-child(3n+2){ background:#8FAA94 }
+  .hx-confetti i:nth-child(1){ left:8% } .hx-confetti i:nth-child(2){ left:16%; animation-delay:.5s } .hx-confetti i:nth-child(3){ left:24%; animation-delay:.45s } .hx-confetti i:nth-child(4){ left:33%; animation-delay:.6s }
+  .hx-confetti i:nth-child(5){ left:41% } .hx-confetti i:nth-child(6){ left:50%; animation-delay:.55s } .hx-confetti i:nth-child(7){ left:58%; animation-delay:.42s } .hx-confetti i:nth-child(8){ left:66%; animation-delay:.65s }
+  .hx-confetti i:nth-child(9){ left:74% } .hx-confetti i:nth-child(10){ left:82%; animation-delay:.5s } .hx-confetti i:nth-child(11){ left:89%; animation-delay:.6s } .hx-confetti i:nth-child(12){ left:95%; animation-delay:.48s }
+  @keyframes hxConf{ 0%{ opacity:1; transform:translateY(0) rotate(0) } 100%{ opacity:0; transform:translateY(340px) rotate(540deg) } }
+
+  /* --- Elige por dónde empezar: cápsulas en claro --- */
+  .nx-offers.lite .nx-off{ grid-template-columns:auto minmax(0,1.1fr) minmax(0,1.2fr) auto; color:#141A16; border-color:rgba(20,30,22,.1); background:#fff; box-shadow:0 20px 50px -40px rgba(20,30,22,.5); }
+  .nx-offers.lite .nx-off::before{ opacity:1; }
+  .nx-offers.lite .nx-off:not(.full):not(:hover){ color:#141A16; }
+  .nx-offers.lite .nx-off .ic{ box-shadow:0 10px 24px -10px rgba(0,0,0,.45); }
+  .nx-offers.lite .nx-off .ds{ border-left-color:rgba(20,30,22,.25); opacity:.85; }
+  .nx-off.o5{ --c:#CFE3D3 }
+  .nx-offers.lite .nx-off .go{ height:84px; }
+  .nx-elige .nx-plans-head .nh-lead{ max-width:520px; }
+
+  /* --- Pantalla final del recorrido (dibujada con el estilo del panel) --- */
+  .nx-scr.s-won{ background:radial-gradient(70% 60% at 80% 0%,#E2F2E7,#FAF9F6 70%); display:flex; align-items:center; justify-content:center; }
+  .won-in{ width:78%; background:#fff; border-radius:18px; padding:22px 24px; box-shadow:0 30px 60px -30px rgba(20,30,22,.45), 0 0 0 1px rgba(20,30,22,.06); }
+  .won-top{ display:flex; align-items:center; justify-content:space-between; }
+  .won-top b{ font-family:'Satoshi',sans-serif; font-size:24px; letter-spacing:-.02em; }
+  .won-top em{ font-style:normal; font-size:12px; font-weight:800; padding:5px 11px; border-radius:99px; background:#7BD89B; color:#0C1410; }
+  .won-in > small{ display:block; color:#79857B; font-size:13px; margin:4px 0 16px; }
+  .won-rows div{ display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-top:1px solid #F1EEE7; font-size:14px; }
+  .won-rows span{ color:#5F6B61; } .won-rows b{ color:#2F7D4F; }
+
+  /* --- WVS: tres cifras --- */
+  .nx-stats.three{ grid-template-columns:repeat(3,1fr); }
+
+  @media (max-width: 1080px){
+    .hx{ margin-top:34px; }
+    .nx-offers.lite .nx-off{ grid-template-columns:auto 1fr; grid-template-areas:"ic tt" "ds ds" "go go"; }
+    .nx-offers.lite .nx-off .go{ height:52px; justify-self:start; }
+    .nx-stats.three{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 760px){
+    .hx-card{ padding:12px; border-radius:22px; }
+    .hx-stage{ height:310px; }
+    .hx-steps li span{ font-size:10px; }
+    .hx-auth{ align-items:flex-start; }
+    .won-in{ width:88%; padding:16px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hx-sc *, .hx-steps li i::after{ animation:none !important; opacity:1 !important; transform:none !important; }
+    .hx-confetti{ display:none; }
+  }
+
 </style>
 </head>
 <body>
@@ -3118,9 +3684,9 @@
     <div class="nav-links" id="navLinks">
       <span class="nav-pill" aria-hidden="true"></span>
       <a href="#que-hacemos">Qué hacemos</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#como-funciona">Cómo funciona</a>
       <a href="#weddingvenuesspain">weddingvenuesspain.com</a>
-      <a href="#planes">Planes</a>
+      <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Contacto</a>
     </div>
     <div class="nav-cta">
@@ -3144,10 +3710,10 @@
     </button>
   </div>
   <nav class="mm-links" aria-label="Menú móvil">
-    <a href="#para-quien"><span class="n">01</span><span>Para quién</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <a href="#servicios"><span class="n">02</span><span>Servicios</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#que-hacemos"><span class="n">01</span><span>Qué hacemos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#como-funciona"><span class="n">02</span><span>Cómo funciona</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="/plataforma"><span class="n">03</span><span>La plataforma</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <a href="#planes"><span class="n">04</span><span>Planes</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#proyectos"><span class="n">04</span><span>Proyectos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a href="#contacto"><span class="n">05</span><span>Contacto</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </nav>
   <div class="mm-foot">
@@ -3163,7 +3729,7 @@
 </div>
 
 <main>
-<!-- ============ HERO (marco con degradado sedoso + un solo objeto: el panel en vivo) ============ -->
+<!-- ============ HERO: mensaje claro + el recorrido de una reserva animado ============ -->
 <section class="nh-hero" data-bg="dark">
   <div class="nh-frame">
     <div class="nh-silk" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i></div>
@@ -3175,183 +3741,70 @@
         <p class="sub">Atraemos a las parejas y empresas que buscan lo que ofreces, y te damos las herramientas para cerrar cada evento. <strong>Para espacios, wedding planners y caterings.</strong></p>
         <div class="nh-ctas">
           <a href="#contacto" class="nh-btn light">Hablemos de tu negocio <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-          <a href="https://app.foreventos.com/demo" class="nh-btn glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg> Ver la plataforma</a>
+          <a href="#como-funciona" class="nh-btn glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg> Cómo funciona</a>
         </div>
-        <ul class="nh-trust">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Parejas de Reino Unido, Irlanda, EE. UU., Alemania y Países Bajos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Sin permanencia</li>
-        </ul>
+        <div class="hx-auth">
+          <div class="hx-faces" aria-hidden="true">
+            <img src="/proyectos/weddingvenuesspain-movil.jpg" alt="">
+            <img src="/proyectos/mercedes-serrano-movil.jpg" alt="">
+            <img src="/proyectos/stayforevents-movil.jpg" alt="">
+            <span>F</span>
+          </div>
+          <p><b>Webs, portales y plataformas</b> para el sector de bodas y eventos en España <a href="#proyectos">Ver proyectos →</a></p>
+        </div>
       </div>
 
-      <div class="nh-live" aria-hidden="true">
-        <div class="nh-live-card">
-          <div class="nh-live-head"><span class="dot"></span>Hoy en tu panel<b>Ahora</b></div>
-          <ol class="nh-feed">
-            <li class="k-new"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Nueva solicitud</b><small>Laura &amp; Marc · 120 invitados · desde weddingvenuesspain.com</small></span></li>
-            <li class="k-visit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>Visita reservada</b><small>Sophie &amp; Tom · sábado 11:30 · desde tu web</small></span></li>
-            <li class="k-quote"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg></span><span><b>Presupuesto aceptado</b><small>Grupo Nexa · evento de empresa · 180 pax</small></span></li>
-            <li class="k-won"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></span><span><b>¡Boda reservada!</b><small>Laura &amp; Marc · 12 de junio · señal cobrada</small></span></li>
+      <!-- El recorrido: 1 te encuentran · 2 te escriben · 3 te visitan · 4 reservan -->
+      <div class="hx" data-hx aria-hidden="true">
+        <div class="hx-card">
+          <ol class="hx-steps">
+            <li class="on"><i></i><span>Te encuentran</span></li>
+            <li><i></i><span>Te escriben</span></li>
+            <li><i></i><span>Te visitan</span></li>
+            <li><i></i><span>Reservan</span></li>
           </ol>
-          <div class="nh-live-foot"><span>Junio</span><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ QUÉ HACEMOS (en 3 pasos) ============ -->
-<section class="nh-sec white nh-what-sec" id="que-hacemos">
-  <div class="nh-wrap">
-    <div class="nh-head center reveal">
-      <span class="nh-eyebrow">Qué hacemos</span>
-      <h2 class="nh-h2">Te traemos clientes y te ayudamos a <em>cerrarlos</em></h2>
-      <p class="nh-lead">Un solo equipo para todo el camino: desde que alguien te busca hasta que reserva su evento.</p>
-    </div>
-    <ol class="nh-what">
-      <li class="reveal d1">
-        <span class="nh-what-n">1</span>
-        <h3>Atraemos clientes</h3>
-        <p>Web que convierte, SEO, Google Ads y tu ficha en weddingvenuesspain.com para que te encuentren las parejas y empresas que buscan lo que ofreces.</p>
-        <div class="nh-what-tags"><span>Webs</span><span>SEO</span><span>Google Ads</span><span>weddingvenuesspain.com</span></div>
-      </li>
-      <li class="reveal d2">
-        <span class="nh-what-n">2</span>
-        <h3>Los convertimos en reservas</h3>
-        <p>Todas las solicitudes llegan a tu plataforma: respondes rápido, la pareja reserva su visita sola y cierras con presupuesto, contrato y cobro online.</p>
-        <div class="nh-what-tags"><span>Solicitudes</span><span>Visitas</span><span>Calendario</span><span>Presupuestos y cobros</span></div>
-      </li>
-      <li class="reveal d3">
-        <span class="nh-what-n">3</span>
-        <h3>Lo adaptamos a tu negocio</h3>
-        <p>Si necesitas algo propio, lo construimos: portales para tus clientes, reservas con pago, integraciones con lo que ya usas y automatizaciones.</p>
-        <div class="nh-what-tags"><span>Desarrollo a medida</span><span>Integraciones</span><span>Automatizaciones</span></div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============ PARA QUIÉN ============ -->
-<section class="nh-sec light" id="para-quien">
-  <div class="nh-wrap">
-    <div class="nh-head reveal">
-      <span class="nh-eyebrow">Para quién</span>
-      <h2 class="nh-h2">Hecho para el sector de <em>bodas y eventos</em></h2>
-      <p class="nh-lead">No somos una agencia genérica: solo trabajamos con negocios de eventos, así que hablamos tu idioma y sabemos qué hace que una pareja o una empresa te elija.</p>
-    </div>
-    <div class="nh-who">
-      <article class="nh-who-card reveal d1">
-        <span class="nh-who-ic" style="background:#E2F2E7;color:#2F7D4F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span>
-        <h3>Espacios y hoteles</h3>
-        <p class="pain">«Las solicitudes llegan por todas partes, perdemos visitas y no sabemos de dónde vienen las reservas.»</p>
-        <ul>
-          <li>Tu web, conectada a un panel con todas las solicitudes</li>
-          <li>Visitas que las parejas reservan solas y calendario de fechas</li>
-          <li>Ficha en weddingvenuesspain.com para parejas internacionales</li>
-          <li>SEO y Google Ads para llenar las fechas que te interesan</li>
-        </ul>
-        <a href="#contacto">Quiero más bodas →</a>
-      </article>
-      <article class="nh-who-card reveal d2">
-        <span class="nh-who-ic" style="background:#F6EEDD;color:#8A6A2E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></span>
-        <h3>Wedding planners</h3>
-        <p class="pain">«Cada boda es un mundo de proveedores, presupuestos y correos, y la web no nos trae clientes.»</p>
-        <ul>
-          <li>Web de autor que transmite tu estilo y capta parejas</li>
-          <li>Clientes, presupuestos, contratos y pagos en un solo sitio</li>
-          <li>Portal para que cada pareja vea su boda y elija</li>
-          <li>Visibilidad en weddingvenuesspain.com y campañas</li>
-        </ul>
-        <a href="#contacto">Quiero organizarme mejor →</a>
-      </article>
-      <article class="nh-who-card reveal d3">
-        <span class="nh-who-ic" style="background:#EAF0F7;color:#33506B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M5 11a7 7 0 0 1 14 0M3 15h18M8 19h8"/></svg></span>
-        <h3>Caterings</h3>
-        <p class="pain">«Hacer cada propuesta de menú a mano nos quita horas, y cerrar el número final de invitados es un caos.»</p>
-        <ul>
-          <li>Cartas y menús que el cliente elige online</li>
-          <li>Presupuestos, señales y pagos sin Excel</li>
-          <li>Recordatorios automáticos de invitados y alergias</li>
-          <li>Web y campañas para eventos de empresa y bodas</li>
-        </ul>
-        <a href="#contacto">Quiero ahorrar tiempo →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICIOS (selector) ============ -->
-<section class="nh-sec dark" id="servicios" data-bg="dark">
-  <div class="nh-wrap">
-    <div class="nh-head reveal">
-      <span class="nh-eyebrow">Servicios</span>
-      <h2 class="nh-h2">Todo lo que necesitas para vender más, <em>en un solo equipo</em></h2>
-      <p class="nh-lead">Empieza por lo que más te urge y suma el resto cuando quieras. Todo está conectado.</p>
-    </div>
-    <div class="nh-tabs reveal" data-tabs>
-      <div class="nh-tablist" role="tablist" aria-label="Servicios">
-        <button role="tab" aria-selected="true" aria-controls="sv-1" id="st-1" class="nh-tab"><b>Plataforma</b><span>Solicitudes, visitas, presupuestos y cobros</span><i class="nh-tab-bar"></i></button>
-        <button role="tab" aria-selected="false" aria-controls="sv-2" id="st-2" class="nh-tab" tabindex="-1"><b>Webs</b><span>Diseño a medida que convierte</span><i class="nh-tab-bar"></i></button>
-        <button role="tab" aria-selected="false" aria-controls="sv-3" id="st-3" class="nh-tab" tabindex="-1"><b>Desarrollo a medida</b><span>Sistemas, portales e integraciones</span><i class="nh-tab-bar"></i></button>
-        <button role="tab" aria-selected="false" aria-controls="sv-4" id="st-4" class="nh-tab" tabindex="-1"><b>Marketing</b><span>SEO, Google Ads y weddingvenuesspain.com</span><i class="nh-tab-bar"></i></button>
-      </div>
-
-      <div class="nh-panes">
-        <div class="nh-pane is-on" role="tabpanel" id="sv-1" aria-labelledby="st-1">
-          <div class="nh-pane-txt">
-            <h3>Toda tu gestión comercial en un solo panel</h3>
-            <p>Las solicitudes de tu web, de weddingvenuesspain.com y de Google llegan a app.foreventos.com. Desde ahí respondes, agendas visitas y cierras la reserva.</p>
-            <ul class="nh-feats"><li>Bandeja única de solicitudes</li><li>Contactos y seguimiento</li><li>Calendario de fechas</li><li>Visitas con enlace de reserva</li><li>Propuestas y presupuestos</li><li>Contratos y cobros online</li></ul>
-            <a class="nh-svc-link" href="/plataforma">Ver la plataforma en detalle →</a>
-          </div>
-          <div class="nh-svc-vis" aria-hidden="true">
-            <div class="nh-mini"><h5>Pipeline <em>en directo</em></h5>
-              <div class="nh-pipe"><div>Nuevo<span></span><span></span></div><div>Visita<span></span></div><div>Presupuesto<span></span><span></span></div><div>Reservado<span class="g"></span></div></div>
+          <div class="hx-stage">
+            <!-- 1 · Te encuentran -->
+            <div class="hx-sc s1 on">
+              <div class="hx-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span class="hx-type" data-text="finca para bodas cerca de Girona"></span><b class="hx-caret"></b></div>
+              <div class="hx-res r1"><small>weddingvenuesspain.com › tu-finca</small><b>Tu finca · Wedding Venues Spain</b><span>Bodas de 60 a 220 invitados · Contacta directamente</span></div>
+              <div class="hx-res r2"><small>tufinca.com</small><b>Bodas en tu finca · Reserva tu visita</b><span>Ceremonia, banquete y fiesta en un solo lugar</span></div>
+              <div class="hx-res r3"><small>google.com › maps</small><b>Tu finca ★ 4,9</b><span>Abierto · Visitas los sábados</span></div>
+              <svg class="hx-cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.5L10 19z" fill="#fff" stroke="#141E16" stroke-width="1.5" stroke-linejoin="round"/></svg>
             </div>
-            <div class="nh-mini"><h5>Junio <em>3 bodas</em></h5>
-              <div class="nh-cal"><i></i><i></i><i class="v"></i><i></i><i></i><i class="b"></i><i></i><i></i><i class="n"></i><i></i><i></i><i></i><i class="b"></i><i></i><i></i><i></i><i class="v"></i><i></i><i class="n"></i><i class="b"></i><i></i><i></i><i></i><i></i><i class="v"></i><i></i><i class="b"></i><i></i></div>
+            <!-- 2 · Te escriben -->
+            <div class="hx-sc s2">
+              <div class="hx-app"><b>Solicitudes</b><em>3 nuevas</em></div>
+              <div class="hx-lead new"><span class="av">LM</span><span><b>Laura &amp; Marc</b><small>120 invitados · 12 jun 2027 · desde weddingvenuesspain.com</small></span><i>Nueva</i></div>
+              <div class="hx-lead"><span class="av b">ST</span><span><b>Sophie &amp; Tom</b><small>80 invitados · desde tu web</small></span></div>
+              <div class="hx-lead"><span class="av c">GN</span><span><b>Grupo Nexa</b><small>Evento de empresa · desde Google</small></span></div>
+              <div class="hx-reply"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Respondido en 4 min, con tu dosier y el enlace para visitar</div>
             </div>
-          </div>
-        </div>
-
-        <div class="nh-pane" role="tabpanel" id="sv-2" aria-labelledby="st-2" hidden>
-          <div class="nh-pane-txt">
-            <h3>Una web que enamora y trae solicitudes</h3>
-            <p>Diseñamos tu web a medida, rápida y bonita en móvil, con textos que venden y el formulario conectado a tu panel. Primero te enseñamos un borrador gratis: si te encanta, la publicamos.</p>
-            <ul class="nh-feats"><li>Diseño a medida, sin plantillas</li><li>Pensada para móvil</li><li>SEO desde el primer día</li><li>Varios idiomas</li><li>Formulario conectado al panel</li><li>Alojamiento y mantenimiento</li></ul>
-            <a class="nh-svc-link" href="#contacto">Quiero mi borrador gratis →</a>
-          </div>
-          <div class="nh-svc-vis" aria-hidden="true">
-            <div class="nh-browser"><div class="bar"><i></i><i></i><i></i><span>tuespacio.com</span></div><div class="hero"><b>Tu espacio, a tu manera</b></div><div class="cols"><i></i><i></i><i></i></div></div>
-            <div class="nh-score"><div><b>Móvil</b><small>primero</small></div><div><b>SEO</b><small>incluido</small></div><div><b>ES · EN</b><small>idiomas</small></div></div>
-          </div>
-        </div>
-
-        <div class="nh-pane" role="tabpanel" id="sv-3" aria-labelledby="st-3" hidden>
-          <div class="nh-pane-txt">
-            <h3>Sistemas hechos para cómo trabajas tú</h3>
-            <p>Cuando tu forma de trabajar no cabe en una herramienta estándar, la construimos: portales para tus clientes, reservas con pago, integraciones con lo que ya usas y automatizaciones que te quitan trabajo.</p>
-            <ul class="nh-feats"><li>Portales para tus clientes</li><li>Reservas y pagos online</li><li>Integraciones (Stripe, Holded, Google…)</li><li>Automatizaciones y avisos</li><li>Áreas privadas y equipos</li><li>Paneles de datos</li></ul>
-            <a class="nh-svc-link" href="#contacto">Cuéntanos tu idea →</a>
-          </div>
-          <div class="nh-svc-vis" aria-hidden="true">
-            <div class="nh-code"><span class="c">// Cuando una pareja reserva visita…</span><br><span class="k">al_reservar</span>(visita) {<br>&nbsp;&nbsp;calendario.<span class="k">bloquear</span>(visita.fecha)<br>&nbsp;&nbsp;email.<span class="k">enviar</span>(<span class="s">'confirmación'</span>)<br>&nbsp;&nbsp;crm.<span class="k">mover</span>(lead, <span class="s">'Visita'</span>)<br>}</div>
-            <div class="nh-int"><span>Stripe</span><span>Holded</span><span>Google Calendar</span><span>WhatsApp</span><span>Tu web</span></div>
-          </div>
-        </div>
-
-        <div class="nh-pane" role="tabpanel" id="sv-4" aria-labelledby="st-4" hidden>
-          <div class="nh-pane-txt">
-            <h3>Que te encuentren quienes buscan lo que ofreces</h3>
-            <p>Posicionamiento en Google, campañas de anuncios con presupuesto controlado y presencia en weddingvenuesspain.com. Y te enseñamos cada mes qué canal te trae solicitudes.</p>
-            <ul class="nh-feats"><li>SEO local e internacional</li><li>Google Ads</li><li>Ficha en weddingvenuesspain.com</li><li>Contenidos que posicionan</li><li>Medición de cada solicitud</li><li>Informes claros cada mes</li></ul>
-            <a class="nh-svc-link" href="#contacto">Quiero más visibilidad →</a>
-          </div>
-          <div class="nh-svc-vis" aria-hidden="true">
-            <div class="nh-serp">
-              <div class="q">🔍 finca para bodas cerca de Barcelona</div>
-              <div class="r"><small><span class="ad">Patrocinado</span>tuespacio.com</small><b>Tu finca para bodas · Visita esta semana</b><span>Bodas de 50 a 250 invitados, con alojamiento…</span></div>
-              <div class="r"><small>weddingvenuesspain.com › tu-espacio</small><b>Tu espacio · Wedding Venues Spain</b><span>Reserva una visita y recibe precios en 24 h…</span></div>
-              <div class="r"><small>tuespacio.com › bodas</small><b>Bodas en tu espacio</b><span>Ceremonia, banquete y fiesta en un solo lugar…</span></div>
+            <!-- 3 · Te visitan -->
+            <div class="hx-sc s3">
+              <div class="hx-app"><b>Reserva tu visita</b><em>Junio 2027</em></div>
+              <div class="hx-cal">
+                <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+                <i></i><i></i><i></i><i></i><i class="ok"></i><i class="ok pick"></i><i></i>
+                <i></i><i></i><i></i><i></i><i class="ok"></i><i class="ok"></i><i></i>
+                <i></i><i></i><i></i><i></i><i class="ok"></i><i class="ok"></i><i></i>
+              </div>
+              <div class="hx-slots"><span>10:00</span><span class="pick">11:30</span><span>17:00</span></div>
+              <div class="hx-toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span><b>Visita confirmada</b><small>Sábado 6 de junio · 11:30 · en tu calendario</small></span></div>
+            </div>
+            <!-- 4 · Reservan -->
+            <div class="hx-sc s4">
+              <div class="hx-won">
+                <div class="hx-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div>
+                <b>¡Boda reservada!</b>
+                <small>Laura &amp; Marc · 12 de junio de 2027</small>
+              </div>
+              <ul class="hx-checks">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Presupuesto aceptado</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Contrato firmado online</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Señal cobrada</li>
+              </ul>
+              <div class="hx-confetti"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
             </div>
           </div>
         </div>
@@ -3360,113 +3813,212 @@
   </div>
 </section>
 
-<!-- ============ TODO CONECTADO ============ -->
-<section class="nh-sec white" id="como-funciona">
+<!-- ============ ELIGE POR DÓNDE EMPEZAR ============ -->
+<section class="nh-sec light nx-elige" id="que-hacemos">
   <div class="nh-wrap">
-    <div class="nh-head center reveal">
-      <span class="nh-eyebrow">Todo conectado</span>
-      <h2 class="nh-h2">De la primera búsqueda a la <em>reserva confirmada</em></h2>
-      <p class="nh-lead">Cada canal trae solicitudes y todas acaban en el mismo sitio, sin copiar ni pegar nada.</p>
-    </div>
-    <div class="nh-flow reveal">
-      <div class="nh-flow-col">
-        <div class="nh-node"><span class="d" style="background:#E2F2E7;color:#2F7D4F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18"/></svg></span><span>Tu web<small>formulario y reservas</small></span></div>
-        <div class="nh-node"><span class="d" style="background:#F6EEDD;color:#8A6A2E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></span><span>weddingvenuesspain.com<small>parejas internacionales</small></span></div>
-        <div class="nh-node"><span class="d" style="background:#EAF0F7;color:#33506B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><span>Google<small>SEO y Ads</small></span></div>
+    <div class="nx-plans-head reveal">
+      <div>
+        <span class="nx-label"><i></i>Qué hacemos</span>
+        <h2 class="nh-h2">Elige por dónde <em>empezar</em></h2>
       </div>
-      <div class="nh-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="nh-hub"><img src="/foreventos-icon-cream.svg" alt="" /><b>Plataforma FOREVENTOS</b><span>Solicitudes, visitas, calendario, presupuestos y cobros</span></div>
-      <div class="nh-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="nh-flow-col">
-        <div class="nh-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Visitas agendadas</div>
-        <div class="nh-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h4"/></svg> Presupuestos firmados</div>
-        <div class="nh-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg> Eventos reservados</div>
+      <p class="nh-lead">Cinco servicios que funcionan solos o juntos. Empieza por lo que más te urge y suma el resto cuando quieras: todo acaba en el mismo panel.</p>
+    </div>
+    <div class="nx-offers lite">
+      <a class="nx-off o1" href="#contacto" data-interest="Aparecer en weddingvenuesspain.com">
+        <span class="ic">WVS</span>
+        <span class="tt"><small>Para espacios</small><b>Aparece en weddingvenuesspain.com</b></span>
+        <span class="ds">Tu ficha para parejas internacionales y sus solicitudes directas a tu panel, sin comisión.</span>
+        <span class="go">Quiero aparecer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="nx-off o2" href="#contacto" data-interest="Una web nueva">
+        <span class="ic">www.</span>
+        <span class="tt"><small>Espacios, planners y caterings</small><b>Una web que trae solicitudes</b></span>
+        <span class="ds">Diseño a medida, conectada a tu panel. Antes de decidir, te enseñamos un borrador gratis.</span>
+        <span class="go">Quiero mi borrador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="nx-off o3" href="https://app.foreventos.com/demo">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></span>
+        <span class="tt"><small>Para todos</small><b>La plataforma para cerrar reservas</b></span>
+        <span class="ds">Solicitudes, visitas, calendario, presupuestos, contratos y cobros en un solo sitio.</span>
+        <span class="go">Ver la demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="nx-off o4" href="#contacto" data-interest="SEO o Google Ads">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        <span class="tt"><small>Para todos</small><b>Más visibilidad en Google</b></span>
+        <span class="ds">SEO local e internacional y Google Ads, con un informe claro cada mes.</span>
+        <span class="go">Hablemos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="nx-off o5" href="#contacto" data-interest="Un sistema a medida">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+        <span class="tt"><small>Si necesitas algo propio</small><b>Un sistema hecho a tu medida</b></span>
+        <span class="ds">Portales para tus clientes, reservas con pago, integraciones y automatizaciones.</span>
+        <span class="go">Cuéntanos tu idea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA: un recorrido con scroll fijo; cambian fondo, texto y pantalla ============ -->
+<section class="nx-svc2" id="como-funciona" data-bg="dark">
+  <div class="nx-story" data-story>
+    <div class="nx-sticky">
+      <div class="nx-frame2">
+        <div class="nx-bgs" aria-hidden="true">
+          <div class="nx-bg on" style="--tint:#2B2416"><img src="/proyectos/weddingvenuesspain.jpg" alt="" loading="lazy" decoding="async"></div>
+          <div class="nx-bg" style="--tint:#0E2016"><img src="/proyectos/plataforma.jpg" alt="" loading="lazy" decoding="async"></div>
+          <div class="nx-bg" style="--tint:#3A2A12"><img src="/proyectos/visita.jpg" alt="" loading="lazy" decoding="async"></div>
+          <div class="nx-bg" style="--tint:#123A22"><img src="/proyectos/plataforma.jpg" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="nh-wrap nx-story-grid">
+          <div class="nx-story-txt">
+            <span class="nx-label dark"><i></i>Cómo funciona</span>
+            <div class="nx-nav" role="tablist" aria-label="Cómo funciona">
+              <button class="on" data-go="0" role="tab" aria-selected="true"><span>01</span><b>Te encuentran</b></button>
+              <button data-go="1" role="tab" aria-selected="false"><span>02</span><b>Te escriben</b></button>
+              <button data-go="2" role="tab" aria-selected="false"><span>03</span><b>Te visitan</b></button>
+              <button data-go="3" role="tab" aria-selected="false"><span>04</span><b>Reservan</b></button>
+            </div>
+            <div class="nx-panels">
+              <div class="nx-sp on">
+                <h3>Las parejas y empresas te encuentran</h3>
+                <p>Te ponemos donde buscan: en weddingvenuesspain.com, en Google y en tu propia web, bonita y pensada para que te escriban.</p>
+                <ul class="nx-feats"><li>weddingvenuesspain.com</li><li>Tu web</li><li>SEO</li><li>Google Ads</li></ul>
+              </div>
+              <div class="nx-sp">
+                <h3>Todas las solicitudes llegan a un solo sitio</h3>
+                <p>Da igual el canal: cada solicitud entra en tu panel con fecha, invitados y contacto, y te avisamos para que respondas en minutos.</p>
+                <ul class="nx-feats"><li>Bandeja única</li><li>Avisos al momento</li><li>Respuestas rápidas</li><li>Seguimiento</li></ul>
+              </div>
+              <div class="nx-sp">
+                <h3>Reservan la visita solas</h3>
+                <p>Les mandas tu enlace y eligen día y hora según tu horario. La visita aparece en tu calendario, sin llamadas ni correos de ida y vuelta.</p>
+                <ul class="nx-feats"><li>Enlace de visita</li><li>Tu horario</li><li>Recordatorios</li><li>Calendario de fechas</li></ul>
+              </div>
+              <div class="nx-sp">
+                <h3>Y cierras la reserva online</h3>
+                <p>Envías el presupuesto, lo aceptan, firman el contrato y pagan la señal sin salir del panel. Tú solo preparas el evento.</p>
+                <ul class="nx-feats"><li>Presupuestos</li><li>Contrato online</li><li>Cobro de la señal</li><li>Fecha bloqueada</li></ul>
+                <a class="nx-link" href="https://app.foreventos.com/demo">Probar la demo del panel →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nx-stage" aria-hidden="true">
+            <div class="nx-device">
+              <div class="nx-dbar"><i></i><i></i><i></i><span class="u">weddingvenuesspain.com</span></div>
+              <div class="nx-screen">
+                <div class="nx-scr on"><img src="/proyectos/weddingvenuesspain.jpg" alt="" loading="lazy" decoding="async"></div>
+                <div class="nx-scr"><img src="/proyectos/plataforma.jpg" alt="" loading="lazy" decoding="async"></div>
+                <div class="nx-scr"><img src="/proyectos/visita.jpg" alt="" loading="lazy" decoding="async"></div>
+                <div class="nx-scr s-won">
+                  <div class="won-in">
+                    <div class="won-top"><b>Laura &amp; Marc</b><em>Reservada</em></div>
+                    <small>Boda · 120 invitados · 12 de junio de 2027</small>
+                    <div class="won-rows">
+                      <div><span>Presupuesto</span><b>Aceptado</b></div>
+                      <div><span>Contrato</span><b>Firmado online</b></div>
+                      <div><span>Señal</span><b>Cobrada</b></div>
+                      <div><span>Fecha</span><b>Bloqueada en tu calendario</b></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nx-cap">
+              <span class="on">weddingvenuesspain.com · nuestro portal</span>
+              <span>Tu panel en app.foreventos.com · demo real</span>
+              <span>Página de reserva de visitas · real</span>
+              <span>La reserva, cerrada en el panel</span>
+            </div>
+          </div>
+        </div>
+        <div class="nx-prog" aria-hidden="true"><i></i></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ WEDDINGVENUESSPAIN ============ -->
-<section class="nh-sec light" id="weddingvenuesspain">
-  <div class="nh-wrap nh-wvs">
-    <div class="reveal">
-      <span class="nh-eyebrow">Nuestro portal</span>
-      <h2 class="nh-h2">Aparece donde te buscan las <em>parejas internacionales</em></h2>
-      <p class="nh-lead">weddingvenuesspain.com es el portal de bodas en España que gestionamos nosotros. Las parejas de fuera eligen ahí su espacio, su planner y sus actividades, y escriben directamente a cada negocio.</p>
-      <ul>
-        <li><i>1</i><span><b>Tu ficha completa</b>: fotos, capacidad, precios y ubicación, en español e inglés.</span></li>
-        <li><i>2</i><span><b>Solicitudes directas a tu panel</b>, con fecha, invitados y datos de contacto.</span></li>
-        <li><i>3</i><span><b>Sin comisión por reserva</b>: cada boda que cierras es tuya.</span></li>
-      </ul>
-      <a href="https://weddingvenuesspain.com" target="_blank" rel="noopener" class="nh-btn ghost">Ver weddingvenuesspain.com ↗</a>
+<!-- ============ WEDDINGVENUESSPAIN: cifras grandes ============ -->
+<section class="nh-sec dark nx-wvs" id="weddingvenuesspain" data-bg="dark">
+  <div class="nh-wrap">
+    <div class="nx-wvs-top reveal">
+      <div>
+        <span class="nx-label dark"><i></i>Nuestro portal</span>
+        <h2 class="nh-h2">Aparece donde te buscan las <em>parejas internacionales</em></h2>
+      </div>
+      <div>
+        <p class="nh-lead">weddingvenuesspain.com es el portal de bodas en España que gestionamos nosotros. Las parejas de fuera eligen ahí su espacio, su planner y sus actividades, y te escriben directamente.</p>
+        <a href="https://weddingvenuesspain.com" target="_blank" rel="noopener" class="nh-btn glass">Ver weddingvenuesspain.com ↗</a>
+      </div>
     </div>
-    <div class="nh-wvs-card reveal d2">
-      <div class="logo">Wedding Venues Spain</div>
-      <p>El portal de bodas en España para parejas internacionales, con la tecnología de FOREVENTOS.</p>
-      <div class="row"><span>Parejas de</span><b>UK · IE · US · DE · NL</b></div>
-      <div class="row"><span>Cómo contactan</span><b>Directo a tu panel</b></div>
-      <div class="row"><span>Comisión por reserva</span><b>Ninguna</b></div>
-      <div class="row"><span>Plan para espacios</span><b>49 €/mes + IVA</b></div>
+    <div class="nx-stats three">
+      <div class="reveal d1"><b><span data-count="5">5</span></b><p>países de origen de las parejas</p><small>UK · IE · US · DE · NL</small></div>
+      <div class="reveal d2"><b><span data-count="0">0</span><sup>%</sup></b><p>de comisión por reserva</p><small>cada boda que cierras es tuya</small></div>
+      <div class="reveal d3"><b><span data-count="2">2</span></b><p>idiomas en tu ficha</p><small>español e inglés</small></div>
     </div>
   </div>
 </section>
 
-<!-- ============ CÓMO TRABAJAMOS ============ -->
-<section class="nh-sec dark" data-bg="dark">
+<!-- ============ PROYECTOS: mosaico con objeto 3D ============ -->
+<section class="nx-proj" id="proyectos" data-bg="dark">
+  <div class="nh-wrap">
+    <div class="nx-proj-head blur-in">
+      <span class="nx-pillabel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Proyectos</span>
+      <h2 class="nx-fade-h">Lo que hemos <span>construido</span></h2>
+      <p>Webs, plataformas y portales que ya funcionan para el sector de bodas y eventos.</p>
+    </div>
+    <div class="nx-bento">
+      <a class="nx-card c-a blur-in d1" href="https://app.foreventos.com/demo">
+        <img src="/proyectos/plataforma.jpg" alt="Panel de la plataforma FOREVENTOS" loading="lazy" decoding="async">
+        <span class="lbl"><i class="lg">F</i>FOREVENTOS<svg class="vf" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.4 2.1 3.2-.4.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.4L12 22l-2.4-2.1-3.2.4-.9-3.1-2.8-1.6 1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.4z"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="#0E2016" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>Solicitudes, visitas y cobros</small></span>
+      </a>
+      <a class="nx-card c-b blur-in d2" href="https://weddingvenuesspain.com" target="_blank" rel="noopener">
+        <img src="/proyectos/weddingvenuesspain.jpg" alt="Portada de weddingvenuesspain.com" loading="lazy" decoding="async">
+        <span class="lbl"><i class="lg">W</i>Wedding Venues Spain<svg class="vf" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.4 2.1 3.2-.4.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.4L12 22l-2.4-2.1-3.2.4-.9-3.1-2.8-1.6 1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.4z"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="#0E2016" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>Portal para parejas internacionales</small></span>
+      </a>
+      <div class="nx-card c-hero blur-in d2" aria-hidden="true">
+        <div class="nx-3d" data-tilt>
+          <div class="nx-key">
+            <div class="nx-key-top"><img src="/foreventos-icon-cream.svg" alt=""></div>
+          </div>
+          <div class="nx-key-shadow"></div>
+        </div>
+        <div class="nx-orbit"><span>Webs</span><span>Plataforma</span><span>SEO</span><span>Google Ads</span><span>A medida</span></div>
+      </div>
+      <a class="nx-card c-cta blur-in d3" href="#contacto">
+        <span class="nx-cta-in">Hablemos de tu proyecto <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a>
+      <a class="nx-card c-d blur-in d4" href="https://stayforevents.com" target="_blank" rel="noopener">
+        <img src="/proyectos/stayforevents-movil.jpg" alt="Web de Stay For Events en móvil" loading="lazy" decoding="async">
+        <span class="lbl"><i class="lg">S</i>Stay For Events<svg class="vf" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.4 2.1 3.2-.4.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.4L12 22l-2.4-2.1-3.2.4-.9-3.1-2.8-1.6 1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.4z"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="#0E2016" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>Alojamiento y reservas para eventos</small></span>
+      </a>
+      <a class="nx-card c-e blur-in d4" href="https://mercedes-serrano-wedding-planner-topaz.vercel.app" target="_blank" rel="noopener">
+        <img src="/proyectos/mercedes-serrano.jpg" alt="Web de Mercedes Serrano, wedding planner" loading="lazy" decoding="async">
+        <span class="lbl"><i class="lg">M</i>Mercedes Serrano<svg class="vf" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.4 2.1 3.2-.4.9 3.1 2.8 1.6-1.2 3 1.2 3-2.8 1.6-.9 3.1-3.2-.4L12 22l-2.4-2.1-3.2.4-.9-3.1-2.8-1.6 1.2-3-1.2-3 2.8-1.6.9-3.1 3.2.4z"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="#0E2016" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><small>Web de wedding planner · Madrid y Toledo</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO TRABAJAMOS: línea que se rellena ============ -->
+<section class="nh-sec white nx-how">
   <div class="nh-wrap">
     <div class="nh-head reveal">
-      <span class="nh-eyebrow">Cómo trabajamos</span>
+      <span class="nx-label"><i></i>Cómo trabajamos</span>
       <h2 class="nh-h2">Contigo de principio a fin, <em>sin tecnicismos</em></h2>
     </div>
-    <div class="nh-steps">
-      <div class="nh-step reveal d1"><h4>Hablamos</h4><p>Nos cuentas tu negocio, cómo vendes hoy y qué quieres conseguir. Sin compromiso.</p></div>
-      <div class="nh-step reveal d2"><h4>Te proponemos</h4><p>Un plan claro: qué hacemos, en qué orden y cuánto cuesta. En webs, con un borrador gratis.</p></div>
-      <div class="nh-step reveal d3"><h4>Construimos y lanzamos</h4><p>Lo montamos, conectamos tus canales al panel y te enseñamos a usarlo.</p></div>
-      <div class="nh-step reveal d4"><h4>Medimos y mejoramos</h4><p>Vemos qué trae solicitudes y qué no, y vamos ajustando contigo.</p></div>
+    <div class="nx-line" data-line>
+      <div class="nx-track"><i></i></div>
+      <div class="nx-pt"><span>01</span><h4>Hablamos</h4><p>Nos cuentas tu negocio, cómo vendes hoy y qué quieres conseguir. Sin compromiso.</p></div>
+      <div class="nx-pt"><span>02</span><h4>Te proponemos</h4><p>Un plan claro: qué hacemos, en qué orden y cuánto cuesta. En webs, con un borrador gratis.</p></div>
+      <div class="nx-pt"><span>03</span><h4>Construimos y lanzamos</h4><p>Lo montamos, conectamos tus canales al panel y te enseñamos a usarlo.</p></div>
+      <div class="nx-pt"><span>04</span><h4>Medimos y mejoramos</h4><p>Vemos qué trae solicitudes y qué no, y vamos ajustando contigo.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ============ PLANES ============ -->
-<section class="nh-sec light" id="planes">
-  <div class="nh-wrap">
-    <div class="nh-head center reveal">
-      <span class="nh-eyebrow">Planes</span>
-      <h2 class="nh-h2">Empieza por lo que necesitas <em>hoy</em></h2>
-      <p class="nh-lead">Sin permanencia. Precios sin IVA.</p>
-    </div>
-    <div class="nh-plans">
-      <div class="nh-plan reveal d1">
-        <h4>Plan básico</h4><p class="for">Para espacios</p>
-        <div class="price">49 € <small>/ mes</small></div>
-        <ul><li>Ficha en weddingvenuesspain.com</li><li>Panel de solicitudes y contactos</li><li>Calendario y visitas online</li></ul>
-        <a href="#contacto">Empezar</a>
-      </div>
-      <div class="nh-plan hl reveal d2">
-        <h4>Web + panel</h4><p class="for">Espacios y planners</p>
-        <div class="price">Borrador gratis</div>
-        <ul><li>Web a medida conectada al panel</li><li>Si te encanta: 450 € de diseño</li><li>Mantenimiento 40 €/mes</li><li>SEO básico incluido</li></ul>
-        <a href="#contacto">Quiero mi borrador</a>
-      </div>
-      <div class="nh-plan reveal d3">
-        <h4>Plataforma a medida</h4><p class="for">Planners, caterings y venues</p>
-        <div class="price">A medida</div>
-        <ul><li>Presupuestos, contratos y cobros</li><li>Portal para tus clientes</li><li>Integraciones y automatizaciones</li></ul>
-        <a href="#contacto">Pedir propuesta</a>
-      </div>
-      <div class="nh-plan reveal d4">
-        <h4>Marketing</h4><p class="for">Para todos</p>
-        <div class="price">Según objetivos</div>
-        <ul><li>SEO local e internacional</li><li>Campañas de Google Ads</li><li>Informes mensuales</li></ul>
-        <a href="#contacto">Hablemos</a>
-      </div>
-    </div>
-    <p class="nh-plans-note">¿Quieres ver primero cómo funciona el panel? <a href="https://app.foreventos.com/demo" style="color:#2F7D4F;font-weight:700">Abre la demo</a> o mira <a href="/plataforma" style="color:#2F7D4F;font-weight:700">todo lo que hace la plataforma</a>.</p>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="nh-sec dark" id="faq" data-bg="dark">
+<section class="nh-sec light nx-faq-l" id="faq">
   <div class="nh-wrap">
     <div class="nh-head center reveal">
       <span class="nh-eyebrow">Preguntas frecuentes</span>
@@ -3475,26 +4027,10 @@
     <div class="nh-faq reveal">
       <details><summary>¿Tengo que contratarlo todo?</summary><p>No. Puedes empezar solo con la ficha en weddingvenuesspain.com y el panel, solo con la web o solo con marketing, y sumar lo demás cuando lo necesites.</p></details>
       <details><summary>¿Qué relación tenéis con weddingvenuesspain.com?</summary><p>Es nuestro portal. FOREVENTOS es la empresa de tecnología y marketing que lo gestiona, y la plataforma que usan los espacios para recibir y atender sus solicitudes.</p></details>
-      <details><summary>¿Cuánto cuesta una web?</summary><p>Te preparamos un borrador gratis y sin compromiso. Si te encanta, el diseño son 450 € + IVA y el mantenimiento 40 €/mes + IVA (alojamiento, seguridad, cambios de contenido y el formulario conectado al panel).</p></details>
+      <details><summary>¿Cuánto cuesta una web?</summary><p>Te preparamos un borrador gratis y sin compromiso. Si te encanta, te damos un precio cerrado antes de empezar, con el alojamiento, el mantenimiento y el formulario conectado a tu panel incluidos.</p></details>
       <details><summary>¿Trabajáis también con wedding planners y caterings?</summary><p>Sí. La plataforma tiene herramientas específicas para cada uno (clientes y proveedores para planners; cartas, menús y número de invitados para caterings), y también les hacemos webs, sistemas y campañas.</p></details>
       <details><summary>¿Hacéis SEO y Google Ads?</summary><p>Sí. Te proponemos un plan según tus objetivos y tu zona, con presupuesto de anuncios controlado y un informe claro cada mes de cuántas solicitudes llegan por cada canal.</p></details>
       <details><summary>¿Hay permanencia?</summary><p>No. Los planes son mensuales y puedes darte de baja cuando quieras.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ POR QUÉ ============ -->
-<section class="nh-sec white">
-  <div class="nh-wrap">
-    <div class="nh-head reveal">
-      <span class="nh-eyebrow">Por qué FOREVENTOS</span>
-      <h2 class="nh-h2">Un solo equipo para <em>web, sistema y marketing</em></h2>
-    </div>
-    <div class="nh-why">
-      <div class="reveal d1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></i><b>Solo eventos</b><p>Conocemos el sector: temporadas, visitas, señales, invitados y proveedores.</p></div>
-      <div class="reveal d2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18"/></svg></i><b>Tenemos nuestro propio portal</b><p>Gestionamos weddingvenuesspain.com: sabemos cómo buscan y deciden las parejas.</p></div>
-      <div class="reveal d3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M12 4v16"/></svg></i><b>Todo conectado</b><p>Web, campañas y panel hablan entre sí. Nada se pierde entre herramientas.</p></div>
-      <div class="reveal d4"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></i><b>Sin permanencia</b><p>Trato directo, precios claros y te quedas porque te funciona.</p></div>
     </div>
   </div>
 </section>
@@ -3546,7 +4082,7 @@
       <p class="footer-tag" style="opacity:.85;margin-top:6px;">La tecnología detrás de <a href="https://weddingvenuesspain.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">weddingvenuesspain.com</a></p>
     </div>
     <div class="footer-col"><h4>Servicios</h4><ul>
-      <li><a href="/plataforma">Plataforma</a></li><li><a href="#servicios">Webs</a></li><li><a href="#servicios">Desarrollo a medida</a></li><li><a href="#servicios">SEO y Google Ads</a></li>
+      <li><a href="/plataforma">Plataforma</a></li><li><a href="#que-hacemos">Webs</a></li><li><a href="#que-hacemos">Desarrollo a medida</a></li><li><a href="#que-hacemos">SEO y Google Ads</a></li>
     </ul></div>
     <div class="footer-col"><h4>Empresa</h4><ul>
       <li><a href="#contacto">Contacto</a></li><li><a href="mailto:info@foreventos.com">info@foreventos.com</a></li><li><a href="https://app.foreventos.com/demo">Ver la demo</a></li><li><a href="https://app.foreventos.com">Acceder</a></li>
@@ -3814,6 +4350,187 @@
   })();
 
   
+
+  // ===== v5: efectos de scroll =====
+  (function(){
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var clamp = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v };
+
+    // Frase grande: cada palabra se «enciende» al avanzar el scroll
+    var big = document.querySelector('[data-fill]'), words = [];
+    if (big){
+      big.innerHTML = big.textContent.trim().split(/\s+/).map(function(w){ return '<span class="w">' + w + '</span>' }).join(' ');
+      words = [].slice.call(big.querySelectorAll('.w'));
+    }
+
+    // Servicios: scroll fijo que cambia panel y pantalla
+    var story = document.querySelector('[data-story]');
+    var navs = story ? [].slice.call(story.querySelectorAll('.nx-nav button')) : [];
+    var sps = story ? [].slice.call(story.querySelectorAll('.nx-sp')) : [];
+    var scrs = story ? [].slice.call(story.querySelectorAll('.nx-scr')) : [];
+    var cur = -1;
+    var url = story && story.querySelector('.nx-dbar .u');
+    var urls = ['weddingvenuesspain.com', 'app.foreventos.com', 'app.foreventos.com/visita', 'app.foreventos.com'];
+    var bgs = story ? [].slice.call(story.querySelectorAll('.nx-bg')) : [];
+    var caps = story ? [].slice.call(story.querySelectorAll('.nx-cap span')) : [];
+    function setStep(i){
+      if (i === cur) return; cur = i;
+      navs.forEach(function(b, k){ b.classList.toggle('on', k === i); b.setAttribute('aria-selected', k === i) });
+      sps.forEach(function(p, k){ p.classList.toggle('on', k === i) });
+      scrs.forEach(function(s, k){ s.classList.toggle('on', k === i) });
+      bgs.forEach(function(s, k){ s.classList.toggle('on', k === i) });
+      caps.forEach(function(s, k){ s.classList.toggle('on', k === i) });
+      if (url) url.textContent = urls[i];
+    }
+    var sticky = function(){ return story && getComputedStyle(story.querySelector('.nx-sticky')).position === 'sticky' };
+    navs.forEach(function(b, k){
+      b.addEventListener('click', function(){
+        if (sticky()){
+          var top = story.getBoundingClientRect().top + scrollY, h = story.offsetHeight - innerHeight;
+          scrollTo({ top: top + h * (k + .5) / navs.length, behavior: reduce ? 'auto' : 'smooth' });
+        } else setStep(k);
+      });
+    });
+    if (story) setStep(0);
+
+    // Cómo trabajamos: línea que se rellena
+    var line = document.querySelector('[data-line]');
+    var pts = line ? [].slice.call(line.querySelectorAll('.nx-pt')) : [];
+
+    function onScroll(){
+      var vh = innerHeight;
+      if (words.length){
+        var r = big.getBoundingClientRect();
+        var p = reduce ? 1 : clamp((vh * .82 - r.top) / (r.height + vh * .3));
+        var n = Math.round(p * words.length);
+        words.forEach(function(w, k){ w.classList.toggle('on', k < n) });
+      }
+      if (story && sticky()){
+        var rs = story.getBoundingClientRect();
+        var ps = clamp(-rs.top / (rs.height - vh));
+        setStep(Math.min(navs.length - 1, Math.floor(ps * navs.length)));
+        story.style.setProperty('--sp', ps.toFixed(3));
+      }
+      if (line){
+        var rl = line.getBoundingClientRect();
+        var pl = reduce ? 1 : clamp((vh * .75 - rl.top) / (rl.height));
+        line.style.setProperty('--p', pl.toFixed(3));
+        pts.forEach(function(pt, k){ pt.classList.toggle('on', pl >= (k + .02) / pts.length || pl >= .98) });
+      }
+      offers.forEach(function(o){
+        var ro = o.getBoundingClientRect();
+        if (reduce || ro.top < vh * .82) o.classList.add('full');
+      });
+    }
+    var offers = [].slice.call(document.querySelectorAll('.nx-off'));
+    addEventListener('scroll', onScroll, { passive:true });
+    addEventListener('resize', onScroll);
+    onScroll();
+
+    // Para quién: píldoras
+    var pills = [].slice.call(document.querySelectorAll('.nx-pill'));
+    function pick(i, focus){
+      pills.forEach(function(p, k){
+        var on = k === i; p.setAttribute('aria-selected', on); p.tabIndex = on ? 0 : -1;
+        var pane = document.getElementById(p.getAttribute('aria-controls'));
+        pane.hidden = !on; pane.classList.toggle('on', on);
+      });
+      if (focus) pills[i].focus();
+    }
+    pills.forEach(function(p, k){
+      p.addEventListener('click', function(){ pick(k) });
+      p.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowRight'){ e.preventDefault(); pick((k + 1) % pills.length, true) }
+        if (e.key === 'ArrowLeft'){ e.preventDefault(); pick((k - 1 + pills.length) % pills.length, true) }
+      });
+    });
+    // El enlace de cada tipo deja el formulario ya elegido
+    [].slice.call(document.querySelectorAll('.nx-wd a[data-type]')).forEach(function(a){
+      a.addEventListener('click', function(){
+        var sel = document.querySelector('#contactForm select[name="business_type"]'); if (!sel) return;
+        [].slice.call(sel.options).forEach(function(o){ if (o.text === a.dataset.type || o.value === a.dataset.type) sel.value = o.value });
+      });
+    });
+
+    // Cifras que cuentan al aparecer
+    var nums = [].slice.call(document.querySelectorAll('[data-count]'));
+    if (nums.length && 'IntersectionObserver' in window && !reduce){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if (!e.isIntersecting) return; io.unobserve(e.target);
+          var el = e.target, to = +el.dataset.count, t0 = performance.now();
+          if (!to) return;
+          (function tick(t){ var k = clamp((t - t0) / 1400); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick) })(t0);
+        });
+      }, { threshold:.6 });
+      nums.forEach(function(n){ if (+n.dataset.count) n.textContent = '0'; io.observe(n) });
+    }
+
+    // Planes: la cápsula deja elegido el interés en el formulario
+    offers.forEach(function(a){
+      a.addEventListener('click', function(){
+        var sel = document.querySelector('#contactForm select[name="interest"]'); if (!sel) return;
+        [].slice.call(sel.options).forEach(function(o){ if (o.text === a.dataset.interest) sel.value = o.value });
+      });
+    });
+
+    // Objeto 3D: se inclina con el ratón
+    var tilt = document.querySelector('[data-tilt]');
+    if (tilt && !reduce && matchMedia('(hover: hover)').matches){
+      var card = tilt.closest('.nx-card');
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        tilt.style.setProperty('--ry', (x * 30).toFixed(1) + 'deg'); tilt.style.setProperty('--rx', (-y * 24).toFixed(1) + 'deg');
+      });
+      card.addEventListener('mouseleave', function(){ tilt.style.setProperty('--ry', '0deg'); tilt.style.setProperty('--rx', '0deg') });
+    }
+
+    // Entrada desenfocada
+    var blurs = [].slice.call(document.querySelectorAll('.blur-in'));
+    if ('IntersectionObserver' in window){
+      var bio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); bio.unobserve(e.target) } }) }, { threshold:.15 });
+      blurs.forEach(function(b){ bio.observe(b) });
+    } else blurs.forEach(function(b){ b.classList.add('in') });
+  })();
+
+  // ===== v7: hero, el recorrido de una reserva en 4 escenas =====
+  (function(){
+    var box = document.querySelector('[data-hx]'); if (!box) return;
+    var stage = box.querySelector('.hx-stage');
+    var steps = [].slice.call(box.querySelectorAll('.hx-steps li'));
+    var DUR = 4200, cur = -1, timer = null, typer = null, visible = true;
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    box.style.setProperty('--hx-dur', DUR + 'ms');
+    function scenes(){ return [].slice.call(stage.querySelectorAll('.hx-sc')) }
+    function type(sc){
+      var el = sc.querySelector('.hx-type'); if (!el) return;
+      var txt = el.getAttribute('data-text'), i = 0; el.textContent = '';
+      clearInterval(typer);
+      typer = setInterval(function(){ i++; el.textContent = txt.slice(0, i); if (i >= txt.length) clearInterval(typer) }, 42);
+    }
+    function show(i){
+      cur = i % 4;
+      var list = scenes();
+      // Se sustituye la escena por una copia para que sus animaciones empiecen de cero
+      var fresh = list[cur].cloneNode(true);
+      stage.replaceChild(fresh, list[cur]);
+      scenes().forEach(function(s, k){ s.classList.toggle('on', k === cur) });
+      steps.forEach(function(li, k){ li.classList.toggle('on', k === cur); li.classList.toggle('done', k < cur) });
+      if (cur === 0) type(fresh);
+      clearTimeout(timer);
+      timer = setTimeout(function(){ if (visible && !document.hidden) show(cur + 1); else waitVisible() }, cur === 3 ? DUR + 1200 : DUR);
+    }
+    function waitVisible(){ clearTimeout(timer); timer = setTimeout(function(){ if (visible && !document.hidden) show(cur + 1); else waitVisible() }, 600) }
+    if (reduce){
+      var all = scenes(); all.forEach(function(s, k){ s.classList.toggle('on', k === 3) });
+      steps.forEach(function(li){ li.classList.add('done') });
+      return;
+    }
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ visible = es[0].isIntersecting }, { threshold:.2 }).observe(box);
+    }
+    show(0);
+  })();
 </script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+
+  /* ===== v3: hero en marco con degradado sedoso verde y un único objeto (panel en vivo) ===== */
+  .nh-hero{ background:var(--bg-light); padding:12px; min-height:100vh; min-height:100svh; display:block; color:#fff; }
+  .nh-frame{ position:relative; overflow:hidden; border-radius:32px; min-height:calc(100vh - 24px); min-height:calc(100svh - 24px); display:flex; align-items:center; padding:120px 0 56px; background:#0E2016; isolation:isolate; }
+  .nh-frame > .nh-wrap{ position:relative; z-index:2; width:100%; }
+  /* Degradado «seda»: manchas grandes y difuminadas que se mueven despacio */
+  .nh-silk{ position:absolute; inset:-20%; z-index:0; filter:blur(60px) saturate(125%); }
+  .nh-silk i{ position:absolute; border-radius:50%; mix-blend-mode:normal; }
+  .nh-silk .b1{ width:62%; height:70%; left:38%; top:-6%; background:radial-gradient(closest-side,#8FAA94,rgba(143,170,148,0)); animation:nhDrift1 22s ease-in-out infinite alternate; }
+  .nh-silk .b2{ width:55%; height:60%; left:-6%; top:30%; background:radial-gradient(closest-side,#2F5A3C,rgba(47,90,60,0)); animation:nhDrift2 26s ease-in-out infinite alternate; }
+  .nh-silk .b3{ width:46%; height:50%; left:52%; top:48%; background:radial-gradient(closest-side,#D4C29E,rgba(212,194,158,0)); opacity:.75; animation:nhDrift3 30s ease-in-out infinite alternate; }
+  .nh-silk .b4{ width:40%; height:44%; left:20%; top:-10%; background:radial-gradient(closest-side,#4A6B52,rgba(74,107,82,0)); animation:nhDrift2 24s ease-in-out infinite alternate-reverse; }
+  @keyframes nhDrift1{ to{ transform:translate(-14%,12%) scale(1.15) } }
+  @keyframes nhDrift2{ to{ transform:translate(16%,-10%) scale(1.1) } }
+  @keyframes nhDrift3{ to{ transform:translate(-18%,-14%) scale(1.2) } }
+  /* Capa oscura para que el texto se lea siempre + grano fino */
+  .nh-frame::before{ content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(100deg,rgba(9,22,14,.7) 0%,rgba(9,22,14,.35) 45%,rgba(9,22,14,0) 100%); }
+  .nh-grain{ position:absolute; inset:0; z-index:1; opacity:.16; mix-blend-mode:overlay; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  .nh-hero .nh-chip{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.22); color:rgba(255,255,255,.85); box-shadow:none; backdrop-filter:blur(10px); text-decoration:none; }
+  .nh-hero .nh-chip b{ background:#7BD89B; color:#0C1410; }
+  .nh-hero .nh-h1{ color:#fff; }
+  .nh-hero .nh-rot-in span{ background:linear-gradient(100deg,#B8E6C6,#7BD89B 50%,#D4C29E); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .nh-hero p.sub{ color:rgba(255,255,255,.78); }
+  .nh-hero p.sub strong{ color:#fff; }
+  .nh-hero .nh-trust{ color:rgba(255,255,255,.7); }
+  .nh-hero .nh-trust svg{ color:#0C1410; background:#7BD89B; }
+  .nh-btn.glass{ background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.28); padding:0 22px; gap:8px; backdrop-filter:blur(10px); }
+  .nh-btn.glass:hover{ background:rgba(255,255,255,.16); }
+  .nh-btn.light i{ background:#0E2016; color:#7BD89B; }
+
+  /* El objeto: tarjeta de cristal con las novedades del día, una a una */
+  .nh-live{ display:flex; justify-content:center; align-items:center; }
+  .nh-live-card{ width:min(420px,100%); padding:20px; border-radius:26px; background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06)); border:1px solid rgba(255,255,255,.28); backdrop-filter:blur(22px) saturate(140%); -webkit-backdrop-filter:blur(22px) saturate(140%); box-shadow:0 40px 90px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.35); animation:nhFloat 8s ease-in-out infinite; }
+  .nh-live-head{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:rgba(255,255,255,.9); margin-bottom:14px; }
+  .nh-live-head .dot{ width:8px; height:8px; border-radius:50%; background:#7BD89B; box-shadow:0 0 0 0 rgba(123,216,155,.6); animation:nhPing 1.8s ease-out infinite; }
+  .nh-live-head b{ margin-left:auto; font-size:11px; font-weight:700; padding:3px 9px; border-radius:99px; background:rgba(255,255,255,.14); }
+  @keyframes nhPing{ 70%{ box-shadow:0 0 0 8px rgba(123,216,155,0) } 100%{ box-shadow:0 0 0 0 rgba(123,216,155,0) } }
+  .nh-feed{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  .nh-feed li{ display:flex; gap:12px; align-items:center; padding:12px 14px; border-radius:16px; background:#fff; color:#141E16; box-shadow:0 14px 30px -18px rgba(0,0,0,.6); opacity:0; transform:translateY(14px) scale(.98); animation:nhFeed 12s cubic-bezier(.2,.8,.2,1) infinite; }
+  .nh-feed li:nth-child(1){ animation-delay:0s } .nh-feed li:nth-child(2){ animation-delay:1.4s } .nh-feed li:nth-child(3){ animation-delay:2.8s } .nh-feed li:nth-child(4){ animation-delay:4.2s }
+  @keyframes nhFeed{ 0%{ opacity:0; transform:translateY(14px) scale(.98) } 6%,86%{ opacity:1; transform:none } 94%,100%{ opacity:0; transform:translateY(-6px) } }
+  .nh-feed .ic{ width:38px; height:38px; flex-shrink:0; border-radius:12px; display:flex; align-items:center; justify-content:center; }
+  .nh-feed .ic svg{ width:18px; height:18px; }
+  .nh-feed b{ display:block; font-size:14px; } .nh-feed small{ display:block; font-size:12px; color:#5F6B61; margin-top:1px; }
+  .nh-feed .k-new .ic{ background:#F6EEDD; color:#8A6A2E } .nh-feed .k-visit .ic{ background:#EAF0F7; color:#33506B }
+  .nh-feed .k-quote .ic{ background:#F2F1F8; color:#5F6196 } .nh-feed .k-won .ic{ background:#7BD89B; color:#0C1410 }
+  .nh-feed .k-won{ box-shadow:0 0 0 2px #7BD89B, 0 18px 36px -18px rgba(0,0,0,.6); }
+  .nh-live-foot{ display:flex; align-items:center; gap:5px; margin-top:14px; font-size:11px; font-weight:700; color:rgba(255,255,255,.75); }
+  .nh-live-foot span{ margin-right:6px; }
+  .nh-live-foot i{ flex:1; height:22px; border-radius:6px; background:rgba(255,255,255,.12); }
+  .nh-live-foot i.on{ background:linear-gradient(160deg,#7BD89B,#4A6B52); animation:nhFill2 .6s ease both 4.6s; }
+  @keyframes nhFill2{ from{ opacity:.2; transform:scaleY(.4) } }
+
+  /* El menú (píldora blanca) flota sobre el marco: sin cambios */
+  @media (max-width: 1080px){
+    .nh-hero{ min-height:0; }
+    .nh-frame{ min-height:0; padding:120px 0 48px; }
+    .nh-live{ margin-top:36px; }
+  }
+  @media (max-width: 760px){
+    .nh-hero{ padding:8px; }
+    .nh-frame{ border-radius:24px; padding:104px 0 32px; }
+    .nh-frame::before{ background:linear-gradient(180deg,rgba(9,22,14,.8) 0%,rgba(9,22,14,.55) 60%,rgba(9,22,14,.35) 100%); }
+    .nh-live-card{ padding:14px; } .nh-feed li{ padding:10px 12px; }
+    .nh-btn.glass{ justify-content:center; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .nh-silk i, .nh-live-card{ animation:none !important; }
+    .nh-feed li{ animation:none !important; opacity:1; transform:none; }
+  }
