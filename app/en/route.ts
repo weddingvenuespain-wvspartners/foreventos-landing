@@ -11,7 +11,7 @@ const EN_DESCRIPTION =
 export async function GET() {
   // El contenido del body lo traduce el script i18n del cliente (detecta /en);
   // aquí solo ajustamos el head para SEO: lang, title, description, canonical y og:locale.
-  const html = readFileSync(join(process.cwd(), 'app/page.html'), 'utf-8')
+  const html = readFileSync(join(process.cwd(), 'app/plataforma/page.html'), 'utf-8')
     .replace('<html lang="es" data-lang="es">', '<html lang="en" data-lang="en">')
     .replace(
       /<title>[^<]*<\/title>/,
@@ -22,7 +22,7 @@ export async function GET() {
       `$1${EN_DESCRIPTION}$2`
     )
     .replace(
-      '<link rel="canonical" href="https://foreventos.com/" />',
+      '<link rel="canonical" href="https://foreventos.com/plataforma" />',
       '<link rel="canonical" href="https://foreventos.com/en" />'
     )
     .replace(
