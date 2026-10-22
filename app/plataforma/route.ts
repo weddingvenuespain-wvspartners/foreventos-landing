@@ -2,10 +2,7 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 import { NextResponse } from 'next/server'
 
-// foreventos.com/plataforma — la presentación detallada de la plataforma
-// (app.foreventos.com): era la home hasta que FOREVENTOS pasó a presentarse como
-// empresa de tecnología y marketing para eventos (webs, plataforma, desarrollo,
-// SEO y Google Ads). Mismo HTML estático con su propio title y canonical.
+// Generado por sitio/build.cjs: sirve el HTML estático de la página.
 export const dynamic = 'force-static'
 
 export async function GET() {

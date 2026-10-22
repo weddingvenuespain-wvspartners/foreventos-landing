@@ -1,0 +1,46 @@
+<section class="ph contacto">
+  <div class="wrap ct-in">
+    <div class="ct-side">
+      <span class="tag rv">Contacto</span>
+      <h1 class="split">Hablemos de tu <em>negocio</em></h1>
+      <p class="lead rv" style="--d:3">Cuéntanos qué haces y qué quieres conseguir. Te respondemos en menos de 24 horas laborables con una propuesta clara y sin compromiso.</p>
+      <div class="ct-vias rv" style="--d:4">
+        <a href="https://wa.me/34687657367" target="_blank" rel="noopener"><span class="fi">{{i:whatsapp}}</span><span><small>WhatsApp</small><b>+34 687 657 367</b></span></a>
+        <a href="mailto:info@foreventos.com"><span class="fi">{{i:email}}</span><span><small>Email</small><b>info@foreventos.com</b></span></a>
+      </div>
+      <ol class="ct-pasos rv" style="--d:5">
+        <li><span>1</span>Nos escribes y te llamamos para entender tu negocio</li>
+        <li><span>2</span>Te enviamos un plan con qué hacer, en qué orden y su precio</li>
+        <li><span>3</span>Si es una web, te enseñamos un borrador gratis antes de decidir</li>
+      </ol>
+    </div>
+
+    <form class="form rv" style="--d:2" id="contactForm" method="post" novalidate>
+      <div class="f-grid">
+        <label class="f-field"><span>Nombre y apellidos</span><input type="text" name="name" required autocomplete="name" placeholder="María García"></label>
+        <label class="f-field"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="tu@tuempresa.com"></label>
+        <label class="f-field"><span>Teléfono</span><input type="tel" name="phone" autocomplete="tel" placeholder="600 000 000"></label>
+        <label class="f-field"><span>Tu negocio</span><input type="text" name="venue" required autocomplete="organization" placeholder="Finca Las Encinas"></label>
+        <label class="f-field"><span>Eres…</span>
+          <select name="business_type"><option>Espacio u hotel</option><option>Wedding planner</option><option>Catering</option><option>Otro negocio de eventos</option></select>
+        </label>
+        <label class="f-field"><span>Te interesa</span>
+          <select name="interest">
+            <option>No lo tengo claro, aconsejadme</option>
+            <option data-k="web">Una web nueva</option>
+            <option data-k="gestion">La gestión comercial (plataforma)</option>
+            <option data-k="google">Google o redes sociales</option>
+            <option data-k="medida">Un sistema a medida</option>
+          </select>
+        </label>
+        <label class="f-field f-wide"><span>Cuéntanos (opcional)</span><textarea name="message" placeholder="Qué te gustaría mejorar o conseguir…"></textarea></label>
+      </div>
+      <div class="f-trampa" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <p class="f-status" role="status" aria-live="polite"></p>
+      <div class="f-foot">
+        <p class="f-legal">Responsable: WVS Partners, S.L. Finalidad: responder a tu solicitud. Puedes ejercer tus derechos en info@foreventos.com. Más información en la <a href="https://app.foreventos.com/privacy" target="_blank" rel="noopener">Política de privacidad</a>.</p>
+        <button type="submit" class="btn btn-dark"><span>Enviar</span><i>{{i:flecha}}</i></button>
+      </div>
+    </form>
+  </div>
+</section>

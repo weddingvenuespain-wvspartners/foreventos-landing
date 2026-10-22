@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Servicios · FOREVENTOS</title>
+<meta name="description" content="Webs que traen solicitudes, gestión comercial para cerrar ventas, Google y redes sociales y sistemas a medida para el sector de bodas y eventos." />
+<link rel="canonical" href="https://foreventos.com/servicios" />
+<meta name="theme-color" content="#F4F2EC" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="FOREVENTOS" />
+<meta property="og:title" content="Servicios · FOREVENTOS" />
+<meta property="og:description" content="Webs que traen solicitudes, gestión comercial para cerrar ventas, Google y redes sociales y sistemas a medida para el sector de bodas y eventos." />
+<meta property="og:url" content="https://foreventos.com/servicios" />
+<meta property="og:image" content="https://foreventos.com/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_ES" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Servicios · FOREVENTOS" />
+<meta name="twitter:description" content="Webs que traen solicitudes, gestión comercial para cerrar ventas, Google y redes sociales y sistemas a medida para el sector de bodas y eventos." />
+<meta name="twitter:image" content="https://foreventos.com/og-cover.png" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preload" href="/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+<!--
+  Sin cookies ni recursos de terceros: las tipografías se sirven desde /fonts,
+  así que no hace falta banner de consentimiento. Si algún día se añade analítica
+  o cualquier script externo, hay que volver a pedir consentimiento antes de cargarlo.
+-->
+<script>
+  document.documentElement.classList.add('js');
+  window.FE_LEGAL = {
+    company: 'WVS Partners, S.L.',
+    cif: 'B23867617',
+    address: 'Carrer Espalter 38, 08870 Sitges (Barcelona)',
+    email: 'info@foreventos.com'
+  };
+  // Intro de marca: solo la primera vez por sesión, nunca con movimiento reducido
+  try {
+    if (document.querySelector && !sessionStorage.getItem('fe_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
+      document.documentElement.classList.add('con-intro');
+  } catch (e) {}
+</script>
+<style>
+/* ================= Tipografías (servidas desde /fonts, sin terceros) ================= */
+@font-face{ font-family:'Satoshi'; src:url('/fonts/satoshi-500.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face{ font-family:'Satoshi'; src:url('/fonts/satoshi-700.woff2') format('woff2'); font-weight:700; font-display:swap; }
+@font-face{ font-family:'Satoshi'; src:url('/fonts/satoshi-900.woff2') format('woff2'); font-weight:900; font-display:swap; }
+@font-face{ font-family:'Inter'; src:url('/fonts/inter-var-latin.woff2') format('woff2'); font-weight:400 700; font-display:swap; }
+
+/* ================= Tokens ================= */
+:root{
+  --ink:#121B14;          /* casi negro verdoso */
+  --forest:#16261A;       /* fondo oscuro principal */
+  --forest-2:#1F3324;
+  --green:#3FA868;        /* la clave del logo */
+  --green-soft:#7FC79A;   /* destacados sobre oscuro */
+  --gold:#7FC79A;         /* (nombre heredado) acento sobre oscuro: verde claro */
+  --gold-ink:#3FA868;     /* acento sobre claro: el verde de la clave */
+  --sage:#8FAA94;
+  --cream:#F4F2EC;        /* fondo claro */
+  --paper:#FBFAF7;
+  --sand:#E9E5DA;
+  --warm:#D9C7A0;
+  --text:#121B14;
+  --muted:#5E675F;
+  --line:rgba(18,27,20,.10);
+  --line-2:rgba(18,27,20,.16);
+  --on-dark:#F6F5F0;
+  --on-dark-dim:rgba(246,245,240,.66);
+  --line-dark:rgba(255,255,255,.12);
+  --r:22px; --r-lg:30px;
+  --nav-h:68px;
+  --gut:clamp(16px, 3.2vw, 40px);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --display:'Satoshi','Helvetica Neue',Arial,sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+
+/* ================= Base ================= */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; overflow-x:clip; scroll-behavior:smooth; }
+body{ margin:0; background:var(--cream); color:var(--text); font-family:var(--body); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x:clip; }
+img,svg,video{ display:block; max-width:100%; }
+img,video{ height:auto; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; padding:0; }
+h1,h2,h3,h4{ font-family:var(--display); font-weight:700; letter-spacing:-.025em; line-height:1.04; margin:0; }
+p{ margin:0; }
+.ic{ width:1em; height:1em; flex:none; }
+.wrap{ width:100%; max-width:1280px; margin:0 auto; padding:0 var(--gut); }
+.saltar{ position:absolute; left:12px; top:-60px; z-index:200; background:var(--ink); color:#fff; padding:10px 14px; border-radius:10px; }
+.saltar:focus{ top:12px; }
+:focus-visible{ outline:2px solid var(--green); outline-offset:3px; border-radius:6px; }
+::selection{ background:var(--green); color:#fff; }
+
+/* Etiqueta de sección */
+/* Etiqueta de sección: píldora con el arco del logo */
+.tag{ display:inline-flex; align-items:center; gap:10px; padding:6px 15px 6px 6px; border-radius:99px; background:#fff; box-shadow:0 0 0 1px var(--line), 0 6px 16px -10px rgba(18,27,20,.25); font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); }
+.tag::before{ content:''; width:24px; height:24px; border-radius:50%; background:var(--ink) url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'16%2012%2088%2098'%20fill%3D'%233FA868'%3E%3Cpath%20d%3D'M18.02%2060.75A42%2042%200%200%201%2021.64%2044.91L38.99%2052.64A23%2023%200%200%200%2037.01%2061.32Z'%2F%3E%3Cpath%20d%3D'M22.72%2042.66A42%2042%200%200%201%2032.85%2029.95L45.13%2044.45A23%2023%200%200%200%2039.58%2051.41Z'%2F%3E%3Cpath%20d%3D'M34.8%2028.4A42%2042%200%200%201%2049.44%2021.35L54.22%2039.74A23%2023%200%200%200%2046.2%2043.6Z'%2F%3E%3Cpath%20d%3D'M50.71%2014.91A48%2048%200%200%201%2069.29%2014.91L64.26%2040.42A22%2022%200%200%200%2055.74%2040.42Z'%2F%3E%3Cpath%20d%3D'M70.56%2021.35A42%2042%200%200%201%2085.2%2028.4L73.8%2043.6A23%2023%200%200%200%2065.78%2039.74Z'%2F%3E%3Cpath%20d%3D'M87.15%2029.95A42%2042%200%200%201%2097.28%2042.66L80.42%2051.41A23%2023%200%200%200%2074.87%2044.45Z'%2F%3E%3Cpath%20d%3D'M98.36%2044.91A42%2042%200%200%201%20101.98%2060.75L82.99%2061.32A23%2023%200%200%200%2081.01%2052.64Z'%2F%3E%3Crect%20x%3D'18'%20y%3D'63.93'%20width%3D'19'%20height%3D'44.07'%2F%3E%3Crect%20x%3D'83'%20y%3D'63.93'%20width%3D'19'%20height%3D'44.07'%2F%3E%3C%2Fsvg%3E") center 55% / 12px no-repeat; }
+.dark .tag{ background:rgba(255,255,255,.07); box-shadow:inset 0 0 0 1px var(--line-dark); color:var(--on-dark); }
+.dark .tag::before{ background:var(--gold) url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'16%2012%2088%2098'%20fill%3D'%23121B14'%3E%3Cpath%20d%3D'M18.02%2060.75A42%2042%200%200%201%2021.64%2044.91L38.99%2052.64A23%2023%200%200%200%2037.01%2061.32Z'%2F%3E%3Cpath%20d%3D'M22.72%2042.66A42%2042%200%200%201%2032.85%2029.95L45.13%2044.45A23%2023%200%200%200%2039.58%2051.41Z'%2F%3E%3Cpath%20d%3D'M34.8%2028.4A42%2042%200%200%201%2049.44%2021.35L54.22%2039.74A23%2023%200%200%200%2046.2%2043.6Z'%2F%3E%3Cpath%20d%3D'M50.71%2014.91A48%2048%200%200%201%2069.29%2014.91L64.26%2040.42A22%2022%200%200%200%2055.74%2040.42Z'%2F%3E%3Cpath%20d%3D'M70.56%2021.35A42%2042%200%200%201%2085.2%2028.4L73.8%2043.6A23%2023%200%200%200%2065.78%2039.74Z'%2F%3E%3Cpath%20d%3D'M87.15%2029.95A42%2042%200%200%201%2097.28%2042.66L80.42%2051.41A23%2023%200%200%200%2074.87%2044.45Z'%2F%3E%3Cpath%20d%3D'M98.36%2044.91A42%2042%200%200%201%20101.98%2060.75L82.99%2061.32A23%2023%200%200%200%2081.01%2052.64Z'%2F%3E%3Crect%20x%3D'18'%20y%3D'63.93'%20width%3D'19'%20height%3D'44.07'%2F%3E%3Crect%20x%3D'83'%20y%3D'63.93'%20width%3D'19'%20height%3D'44.07'%2F%3E%3C%2Fsvg%3E") center 55% / 12px no-repeat; }
+.h2{ font-size:clamp(30px, min(3.8vw, 6.6vh), 56px); }
+.h2 em{ font-style:normal; color:var(--gold-ink); }
+.dark .h2 em{ color:var(--gold); }
+.lead{ font-size:clamp(15.5px, 1.2vw, 18px); color:var(--muted); line-height:1.55; max-width:52ch; }
+.dark .lead{ color:var(--on-dark-dim); }
+.sec{ padding:clamp(76px, 14vh, 150px) 0; position:relative; }
+.sec-head{ display:grid; grid-template-columns:1.1fr .9fr; gap:32px 64px; align-items:end; margin-bottom:clamp(32px, 6vh, 64px); }
+.sec-head .tag{ margin-bottom:14px; }
+.sec-head.center{ grid-template-columns:1fr; text-align:center; justify-items:center; }
+.dark{ background:var(--forest); color:var(--on-dark); }
+@media (max-width:760px){ .sec-head{ grid-template-columns:1fr; gap:20px; } }
+
+/* ================= Botones ================= */
+/* Texto que rueda al pasar el ratón, círculo que se expande y llena el botón, y atracción magnética (JS) */
+.btn{ --bg:var(--ink); --fg:#fff; --fill:var(--green); --fill-fg:#fff; position:relative; display:inline-flex; align-items:center; gap:14px; height:54px; padding:0 7px 0 26px; border-radius:999px; background:var(--bg); color:var(--fg); font-weight:600; font-size:15px; letter-spacing:-.005em; white-space:nowrap; overflow:hidden; isolation:isolate; transition:transform .6s var(--ease), translate .5s var(--ease), box-shadow .6s var(--ease), color .45s; }
+.btn::before{ content:''; position:absolute; z-index:-1; right:7px; top:50%; width:40px; height:40px; margin-top:-20px; border-radius:50%; background:var(--fill); transform:scale(1); transition:transform .7s var(--ease-io); }
+.btn > span{ position:relative; display:block; overflow:hidden; height:1.3em; line-height:1.3em; }
+.btn > span > b{ display:block; font-weight:inherit; transition:transform .55s var(--ease); }
+.btn > span > b::after{ content:attr(data-t); display:block; }
+.btn i{ position:relative; display:grid; place-items:center; width:40px; height:40px; border-radius:50%; color:var(--fill-fg); font-size:17px; overflow:hidden; }
+.btn i .ic{ transition:transform .55s var(--ease); }
+.btn i .ic + .ic{ position:absolute; transform:translateX(-160%); }
+.btn:hover{ color:var(--fill-fg); box-shadow:0 18px 34px -16px rgba(18,27,20,.55); }
+.btn:hover::before{ transform:scale(var(--k, 9)); }
+.btn:hover > span > b{ transform:translateY(-1.3em); }
+.btn:hover i .ic:first-child{ transform:translateX(160%); }
+.btn:hover i .ic + .ic{ transform:none; }
+.btn-light{ --bg:#fff; --fg:var(--ink); }
+.btn-dark{ --bg:var(--ink); --fg:#fff; }
+.btn-sm{ height:42px; padding:0 6px 0 18px; font-size:14px; gap:10px; }
+.btn-sm::before{ right:5px; width:32px; height:32px; margin-top:-16px; }
+.btn-sm i{ width:32px; height:32px; font-size:14px; }
+.btn-ghost{ --bg:transparent; --fg:currentColor; --fill:#fff; --fill-fg:var(--ink); padding:0 24px; box-shadow:inset 0 0 0 1.5px currentColor; }
+.btn-ghost::before{ right:50%; margin-right:-20px; transform:scale(0); }
+.btn-ghost:hover::before{ transform:scale(9); }
+/* Brillo que recorre el botón principal cada pocos segundos */
+.btn-brillo::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%); transform:translateX(-120%); animation:brillo 5.5s var(--ease-io) 2.5s infinite; mix-blend-mode:soft-light; }
+@keyframes brillo{ 0%{ transform:translateX(-120%); } 22%, 100%{ transform:translateX(120%); } }
+.link{ display:inline-flex; align-items:center; gap:8px; font-weight:600; border-bottom:1.5px solid currentColor; padding-bottom:2px; }
+.link .ic{ transition:transform .4s var(--ease); }
+.link:hover .ic{ transform:translateX(4px); }
+
+@property --ang{ syntax:'<angle>'; inherits:false; initial-value:0deg; }
+.btn-luz{ border:1.5px solid transparent; background:linear-gradient(var(--bg), var(--bg)) padding-box, conic-gradient(from var(--ang), rgba(127,199,154,.15) 0 60%, var(--gold) 80%, #fff 86%, rgba(127,199,154,.15) 100%) border-box; animation:gira 4.5s linear infinite; box-shadow:0 0 0 0 rgba(63,168,104,0), 0 8px 22px -10px rgba(63,168,104,.55); }
+.btn-luz i .ic:first-child{ animation:empuja 4.5s var(--ease) infinite; }
+.btn-luz:hover{ animation-play-state:paused; }
+@keyframes gira{ to{ --ang:360deg; } }
+@keyframes empuja{ 0%, 80%, 100%{ transform:none; } 88%{ transform:translateX(3px); } 94%{ transform:translateX(-1px); } }
+
+/* ================= Menú (logo en el centro) =================
+   Arriba ocupa todo el ancho; al bajar se convierte en una píldora flotante más pequeña. */
+.nav{ position:sticky; top:0; z-index:60; height:var(--nav-h); pointer-events:none; }
+.nav::before{ content:''; position:absolute; inset:0; background:#fff; box-shadow:0 1px 0 var(--line); transition:opacity .5s, transform .6s var(--ease); }
+.nav.pegado::before{ opacity:0; transform:translateY(-100%); }
+body.mm-on .nav::before{ opacity:0; }
+.nav-in{ pointer-events:auto; position:relative; height:100%; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:0 var(--gut); max-width:1600px; margin:0 auto; border-radius:999px; transition:max-width .7s var(--ease), height .7s var(--ease), padding .7s var(--ease), transform .7s var(--ease), background .5s, box-shadow .5s; }
+.nav.pegado .nav-in{ max-width:940px; height:54px; padding:0 8px 0 26px; transform:translateY(8px); background:rgba(255,255,255,.86); -webkit-backdrop-filter:saturate(1.6) blur(16px); backdrop-filter:saturate(1.6) blur(16px); box-shadow:0 0 0 1px rgba(18,27,20,.07), 0 18px 40px -22px rgba(18,27,20,.45); }
+.nav-l{ display:flex; align-items:center; gap:clamp(14px, 2vw, 30px); transition:gap .7s var(--ease); }
+.nav.pegado .nav-l{ gap:20px; }
+.nav-l a{ position:relative; font-size:14px; font-weight:500; color:var(--text); opacity:.78; transition:opacity .25s, font-size .6s var(--ease); }
+.nav.pegado .nav-l a, .nav.pegado .nav-acc{ font-size:13.5px; }
+.nav-l a::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .45s var(--ease); }
+.nav-l a:hover, .nav-l a[aria-current]{ opacity:1; }
+.nav-l a:hover::after, .nav-l a[aria-current]::after{ transform:scaleX(1); transform-origin:left; }
+.nav-logo{ display:block; color:var(--ink); }
+.nav-logo .logo{ height:22px; width:auto; transition:height .7s var(--ease); }
+.nav.pegado .nav-logo .logo{ height:18px; }
+.nav-r{ display:flex; align-items:center; justify-content:flex-end; gap:20px; }
+.nav-acc{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; opacity:.78; transition:opacity .25s, font-size .6s var(--ease); }
+.nav-acc .ic{ font-size:15px; }
+.nav-acc:hover{ opacity:1; }
+.nav.pegado .nav-r .btn-sm{ height:40px; }
+.nav-burger{ display:none; width:40px; height:40px; border-radius:50%; position:relative; margin-left:-8px; }
+.nav-burger span{ position:absolute; left:11px; right:11px; height:1.7px; background:currentColor; border-radius:2px; transition:transform .45s var(--ease); }
+.nav-burger span:first-child{ top:16px; } .nav-burger span:last-child{ top:23px; }
+.nav-burger[aria-expanded="true"] span:first-child{ transform:translateY(3.5px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:last-child{ transform:translateY(-3.5px) rotate(-45deg); }
+@media (max-width:1020px){
+  .nav-l a{ display:none; }
+  .nav-burger{ display:block; }
+  .nav.pegado .nav-in{ max-width:none; margin:0 10px; padding:0 6px 0 14px; }
+}
+@media (max-width:620px){
+  :root{ --nav-h:60px; }
+  .nav-acc{ display:none; }
+  .nav-logo .logo, .nav.pegado .nav-logo .logo{ height:16px; }
+  .nav-r .btn-sm{ height:38px; padding-left:14px; font-size:13px; }
+  .nav.pegado .nav-in{ height:52px; }
+}
+
+/* Menú móvil a pantalla completa */
+.mm{ position:fixed; inset:0; z-index:55; background:var(--forest); color:var(--on-dark); padding:calc(var(--nav-h) + 24px) var(--gut) 28px; display:flex; flex-direction:column; justify-content:space-between; clip-path:inset(0 0 100% 0); transition:clip-path .7s var(--ease-io); }
+.mm.abierto{ clip-path:inset(0 0 0 0); }
+.mm-links{ display:flex; flex-direction:column; }
+.mm-links a{ display:flex; align-items:baseline; gap:16px; font-family:var(--display); font-weight:700; font-size:clamp(38px, 10vw, 64px); letter-spacing:-.03em; line-height:1.1; padding:6px 0; border-bottom:1px solid var(--line-dark); opacity:0; transform:translateY(24px); transition:opacity .5s, transform .7s var(--ease); }
+.mm-links small{ font-family:var(--body); font-size:12px; font-weight:500; color:var(--sage); letter-spacing:0; }
+.mm.abierto .mm-links a{ opacity:1; transform:none; }
+.mm.abierto .mm-links a:nth-child(2){ transition-delay:.05s } .mm.abierto .mm-links a:nth-child(3){ transition-delay:.1s } .mm.abierto .mm-links a:nth-child(4){ transition-delay:.15s } .mm.abierto .mm-links a:nth-child(5){ transition-delay:.2s }
+.mm-links a[aria-current]{ color:var(--green-soft); }
+.mm-foot{ display:grid; gap:16px; justify-items:start; }
+.mm-acc{ font-weight:600; border-bottom:1px solid currentColor; }
+.mm-foot p{ font-size:13px; color:var(--on-dark-dim); }
+body.mm-on{ overflow:hidden; }
+body.mm-on .nav{ color:var(--on-dark); }
+body.mm-on .nav .nav-in{ background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; }
+body.mm-on .nav .nav-logo, body.mm-on .nav-burger{ color:var(--on-dark); }
+body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
+
+/* ================= Entradas al hacer scroll ================= */
+.js .rv{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform 1.1s var(--ease); transition-delay:calc(var(--d, 0) * 90ms); }
+.js .rv.in{ opacity:1; transform:none; }
+/* El recorte va en los hijos: un elemento recortado entero no lo detecta IntersectionObserver */
+.js .rv-clip > *{ clip-path:inset(0 0 100% 0); transition:clip-path 1.2s var(--ease-io); transition-delay:calc(var(--d, 0) * 90ms); }
+.js .rv-clip > :nth-child(n+2){ transition-delay:calc(var(--d, 0) * 90ms + 250ms); }
+.js .rv-clip.in > *{ clip-path:inset(0 0 0 0); }
+/* Titulares que suben línea a línea */
+.js .split .w{ display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:.08em; margin-bottom:-.08em; }
+.js .split .w > span{ display:inline-block; transform:translateY(105%); transition:transform 1s var(--ease); transition-delay:calc(var(--i, 0) * 45ms + var(--d, 0) * 90ms); }
+.js .split.in .w > span{ transform:none; }
+
+/* ================= Cabecera de páginas interiores ================= */
+.ph{ padding:clamp(48px, 8vw, 110px) 0 clamp(40px, 6vw, 80px); }
+.ph .tag{ margin-bottom:22px; }
+.ph h1{ font-size:clamp(44px, 7.4vw, 112px); letter-spacing:-.04em; line-height:.98; max-width:14ch; }
+.ph h1 em{ font-style:normal; color:var(--gold-ink); }
+.ph .lead{ margin-top:26px; }
+.ph-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+
+
+/* ================= Cabecera de las páginas interiores: tarjeta oscura como la home, más baja ================= */
+.cab{ padding:0 12px; }
+.cab-in{ position:relative; isolation:isolate; overflow:hidden; border-radius:var(--r-lg); background:var(--forest); color:var(--on-dark); min-height:min(540px, calc(100svh - var(--nav-h) - 70px)); display:flex; align-items:center; padding:clamp(36px, 7vh, 72px) 0; }
+.cab-bg{ position:absolute; inset:0; z-index:-1; overflow:hidden; }
+.cab-bg i{ position:absolute; border-radius:50%; filter:blur(80px); opacity:.7; }
+.cab-bg .b1{ width:58vw; height:58vw; max-width:820px; max-height:820px; right:-14%; top:-40%; background:radial-gradient(closest-side, #2E6B44, transparent); animation:deriva-c 22s ease-in-out infinite alternate; }
+.cab-bg .b2{ width:40vw; height:40vw; max-width:560px; max-height:560px; left:-10%; bottom:-50%; background:radial-gradient(closest-side, rgba(217,199,160,.45), transparent); animation:deriva-c 26s ease-in-out infinite alternate-reverse; }
+@keyframes deriva-c{ to{ transform:translate(-8%, 10%) scale(1.1); } }
+.cab-grid{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:clamp(28px, 4vw, 64px); align-items:center; }
+.cab-txt .tag{ margin-bottom:18px; }
+.cab h1{ font-size:clamp(36px, min(4.6vw, 8.4vh), 72px); letter-spacing:-.04em; line-height:1; }
+.cab h1 em{ font-style:normal; color:var(--green-soft); }
+.cab .lead{ margin-top:18px; color:var(--on-dark-dim); max-width:40ch; }
+.cab-btns{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin-top:28px; }
+.cab-link{ display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px; }
+.cab-link .ic{ transition:transform .4s var(--ease); }
+.cab-link:hover .ic{ transform:translateX(4px); }
+.cab .tag{ background:rgba(255,255,255,.07); box-shadow:inset 0 0 0 1px var(--line-dark); color:var(--on-dark); }
+.cab-vis{ position:relative; }
+@media (max-width:900px){
+  .cab-grid{ grid-template-columns:1fr; }
+  .cab-in{ min-height:0; }
+}
+
+/* ================= Submenú fijo (página de servicios) ================= */
+.subnav{ position:sticky; top:calc(var(--nav-h) + 6px); z-index:50; display:flex; justify-content:center; gap:4px; width:max-content; max-width:calc(100% - 24px); margin:16px auto 0; padding:5px; border-radius:99px; background:rgba(255,255,255,.9); -webkit-backdrop-filter:saturate(1.6) blur(14px); backdrop-filter:saturate(1.6) blur(14px); box-shadow:0 0 0 1px var(--line), 0 14px 30px -20px rgba(18,27,20,.5); overflow-x:auto; scrollbar-width:none; }
+.subnav::-webkit-scrollbar{ display:none; }
+.subnav a{ display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:99px; font-size:13.5px; font-weight:600; color:var(--muted); white-space:nowrap; transition:background .35s, color .35s; }
+.subnav a i{ width:8px; height:8px; border-radius:50%; background:currentColor; }
+.subnav .d1{ background:#C99A55; } .subnav .d2{ background:#3FA868; } .subnav .d3{ background:#E2725B; } .subnav .d4{ background:#7B6CE6; }
+.subnav a:hover{ color:var(--ink); background:rgba(18,27,20,.05); }
+.subnav a.on{ color:#fff; background:var(--ink); }
+
+/* ================= Preguntas frecuentes ================= */
+.faq{ max-width:880px; margin:0 auto; border-top:1px solid var(--line-2); }
+.faq details{ border-bottom:1px solid var(--line-2); }
+.faq summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:clamp(16px, 2.6vh, 22px) 0; font-family:var(--display); font-weight:700; font-size:clamp(17px, 1.5vw, 20px); letter-spacing:-.015em; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary i{ flex:none; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; background:#fff; box-shadow:inset 0 0 0 1px var(--line); transition:transform .5s var(--ease), background .3s; }
+.faq details[open] summary i{ transform:rotate(45deg); background:var(--green); color:#fff; box-shadow:none; }
+.faq details p{ padding:0 60px 28px 0; color:var(--muted); max-width:70ch; }
+
+/* FAQ en dos columnas en pantallas anchas */
+@media (min-width:900px){
+  .faq-sec .wrap{ display:grid; grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr); gap:64px; align-items:start; }
+  .faq-sec .sec-head.center{ text-align:left; justify-items:start; margin:0; position:sticky; top:calc(var(--nav-h) + 30px); }
+  .faq-sec .faq{ margin:0; max-width:none; }
+}
+
+/* ================= Banda final de llamada a la acción ================= */
+.cta{ padding:clamp(24px, 4vh, 48px) 12px 12px; }
+.cta-in{ position:relative; overflow:hidden; border-radius:var(--r-lg); background:var(--forest); color:var(--on-dark); padding:clamp(48px, 10vh, 100px) var(--gut); text-align:center; isolation:isolate; }
+.cta-in::before{ content:''; position:absolute; inset:-30%; z-index:-1; background:radial-gradient(40% 50% at 50% 110%, rgba(63,168,104,.55), transparent 70%), radial-gradient(30% 40% at 15% 0%, rgba(217,199,160,.18), transparent 70%); }
+.cta h2{ font-size:clamp(34px, min(5vw, 9vh), 76px); letter-spacing:-.04em; max-width:15ch; margin:0 auto; }
+.cta h2 em{ font-style:normal; color:var(--green-soft); }
+.cta p{ margin:22px auto 34px; color:var(--on-dark-dim); max-width:48ch; }
+.cta-btns{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.cta-arco{ position:absolute; left:50%; bottom:-14%; width:min(560px, 80vw); transform:translateX(-50%); z-index:-1; opacity:.07; color:#fff; }
+
+/* ================= Formularios ================= */
+.form{ background:#fff; border-radius:var(--r-lg); padding:clamp(20px, 2.8vw, 34px); box-shadow:0 1px 0 var(--line), 0 30px 60px -40px rgba(18,27,20,.35); }
+.f-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px 14px; }
+.f-field{ display:grid; gap:5px; }
+.f-wide{ grid-column:1 / -1; }
+.f-field > span{ font-size:13px; font-weight:600; }
+.f-field input, .f-field select, .f-field textarea{ width:100%; font:inherit; font-size:15px; color:var(--text); background:var(--paper); border:1px solid var(--line-2); border-radius:12px; padding:10px 13px; transition:border-color .2s, box-shadow .2s, background .2s; }
+.f-field textarea{ min-height:76px; resize:vertical; }
+.f-field select{ appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121B14' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; background-size:16px; padding-right:40px; }
+.f-field input:focus, .f-field select:focus, .f-field textarea:focus{ outline:none; border-color:var(--green); background:#fff; box-shadow:0 0 0 4px rgba(63,168,104,.14); }
+.f-foot{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:16px; flex-wrap:wrap; }
+.f-legal{ font-size:12px; color:var(--muted); max-width:46ch; line-height:1.5; }
+.f-legal a{ text-decoration:underline; }
+.f-status{ margin-top:14px; font-size:14px; font-weight:500; }
+.f-status:empty{ display:none; }
+.f-status.ok{ color:#1F7A45; } .f-status.err{ color:#B3261E; }
+.f-trampa{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.form button[disabled]{ opacity:.6; pointer-events:none; }
+@media (max-width:640px){ .f-grid{ grid-template-columns:1fr; } }
+
+/* ================= Pie ================= */
+.pie{ background:var(--ink); color:var(--on-dark); padding:clamp(64px, 8vw, 100px) 0 0; overflow:hidden; }
+.pie-top{ display:grid; grid-template-columns:1fr 1.4fr; gap:48px; }
+.pie-logo{ display:inline-block; color:var(--on-dark); }
+.pie-logo .logo{ height:24px; width:auto; }
+.pie-marca p{ margin-top:18px; color:var(--on-dark-dim); max-width:34ch; font-size:15px; }
+.pie-cols{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+.pie h4{ font-family:var(--body); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); font-weight:600; margin-bottom:16px; }
+.pie ul{ list-style:none; margin:0; padding:0; display:grid; gap:10px; font-size:15px; }
+.pie ul a{ color:var(--on-dark-dim); transition:color .2s; }
+.pie ul a:hover{ color:#fff; }
+.pie-bot{ display:flex; justify-content:space-between; gap:12px 24px; flex-wrap:wrap; margin-top:64px; padding:22px 0; border-top:1px solid var(--line-dark); font-size:12.5px; color:var(--on-dark-dim); }
+.pie-grande{ color:rgba(255,255,255,.06); padding:0 var(--gut); margin-bottom:-1.2%; }
+.pie-grande .logo{ width:100%; height:auto; }
+.pie-grande .logo path[fill="#3FA868"]{ fill:rgba(63,168,104,.22); }
+@media (max-width:860px){ .pie-top{ grid-template-columns:1fr; } }
+@media (max-width:520px){ .pie-cols{ grid-template-columns:1fr 1fr; } }
+
+/* ================= Intro de marca ================= */
+.intro{ display:none; }
+.con-intro .intro{ --bg:var(--ink); --fg:var(--on-dark); --clave:var(--green); display:grid; position:fixed; inset:0; z-index:300; place-items:center; background:var(--bg); color:var(--fg); cursor:pointer; will-change:transform; }
+.con-intro body{ overflow:hidden; }
+.intro-in{ display:flex; align-items:center; gap:clamp(16px, 2.2vw, 28px); }
+.intro-marca{ position:relative; display:block; }
+.intro-arco{ width:clamp(70px, 8.5vw, 120px); height:auto; overflow:visible; }
+.intro-arco .dv, .intro-arco .pi{ fill:currentColor; transition:fill .25s; }
+.intro-arco .clave{ fill:var(--clave); }
+.intro-onda{ position:absolute; left:50%; top:22%; width:30px; height:30px; margin:-15px 0 0 -15px; border-radius:50%; border:1.5px solid var(--green); opacity:0; pointer-events:none; }
+.intro-nombre{ display:flex; font-family:var(--display); font-weight:700; font-size:clamp(30px, 4.8vw, 66px); letter-spacing:.05em; overflow:hidden; padding:.06em 0; }
+.intro-nombre span{ display:inline-block; transform:translateY(115%) rotate(8deg); }
+.intro-pie{ position:absolute; left:var(--gut); right:var(--gut); bottom:28px; display:flex; justify-content:space-between; align-items:flex-end; font-size:13px; opacity:0; transition:opacity .5s; }
+.intro-pie span{ opacity:.7; }
+.intro-pie b{ font-family:var(--display); font-size:clamp(34px, 5vw, 64px); font-weight:700; line-height:.9; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
+.intro-pie b::after{ content:'%'; font-size:.4em; margin-left:2px; vertical-align:top; }
+.intro.va .intro-pie{ opacity:1; }
+.intro.va .pi{ animation:pilar .55s var(--ease) both; transform-origin:50% 100%; transform-box:fill-box; }
+.intro.va .pi2{ animation-delay:.06s; }
+.intro.va .dv{ animation:dovela .6s var(--ease) both; transform-box:fill-box; transform-origin:50% 50%; }
+.intro.va .d1{ animation-delay:.14s } .intro.va .d7{ animation-delay:.2s } .intro.va .d2{ animation-delay:.26s } .intro.va .d6{ animation-delay:.32s } .intro.va .d3{ animation-delay:.38s } .intro.va .d5{ animation-delay:.44s }
+.intro.va .clave{ animation:clave .6s cubic-bezier(.34,1.56,.64,1) .62s both; }
+.intro.va .intro-onda{ animation:onda-intro 1s var(--ease) .95s both; }
+.intro.va .intro-nombre span{ animation:letra .75s var(--ease) both; animation-delay:calc(.82s + var(--k) * 34ms); }
+/* Cambio de color de golpe (como un flash) y salida en curva */
+.intro.swap{ --bg:var(--green); --fg:var(--ink); --clave:#fff; }
+.intro.swap .intro-in{ animation:golpe .5s var(--ease) both; }
+.intro.fin{ animation:sube-cortina .95s cubic-bezier(.76,0,.24,1) both; }
+.intro.fin .intro-in, .intro.fin .intro-pie{ animation:fuera .45s var(--ease) both; }
+@keyframes pilar{ from{ transform:scaleY(0); } }
+@keyframes dovela{ from{ opacity:0; transform:translateY(-70px) rotate(-18deg); } }
+@keyframes clave{ from{ opacity:0; transform:translateY(-110px) scale(.5); } }
+@keyframes onda-intro{ 0%{ opacity:1; transform:scale(.4); } 100%{ opacity:0; transform:scale(6); } }
+@keyframes letra{ to{ transform:none; } }
+@keyframes golpe{ 0%{ transform:scale(1.06); } 100%{ transform:none; } }
+@keyframes fuera{ to{ opacity:0; transform:translateY(-30px); } }
+@keyframes sube-cortina{ 0%{ transform:translateY(0); border-radius:0; } 100%{ transform:translateY(-110%); border-radius:0 0 50% 50% / 0 0 22vh 22vh; } }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  .js .rv, .js .rv-clip > *, .js .split .w > span{ opacity:1; transform:none; clip-path:none; }
+}
+/* ================= Piezas comunes de las páginas interiores ================= */
+.ph-row .lead{ max-width:44ch; }
+.ph-btns{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:28px; }
+.lista{ list-style:none; margin:26px 0 32px; padding:0; display:grid; gap:12px; }
+.lista li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; }
+.lista .ic{ flex:none; width:22px; height:22px; padding:4px; margin-top:1px; border-radius:50%; background:rgba(63,168,104,.14); color:#1F7A45; stroke-width:3; }
+.dark .lista .ic{ background:rgba(127,199,154,.18); color:var(--green-soft); }
+.fi{ flex:none; width:46px; height:46px; border-radius:14px; display:grid; place-items:center; font-size:21px; background:rgba(63,168,104,.12); color:#1F7A45; }
+.nav-mock{ height:28px; display:flex; align-items:center; gap:5px; padding:0 12px; border-radius:12px 12px 0 0; background:#fff; }
+.nav-mock i{ width:8px; height:8px; border-radius:50%; background:#E2DFD6; }
+.nav-mock span{ flex:1; margin:0 26px 0 12px; text-align:center; font-size:10.5px; color:var(--muted); background:#F2F0EA; border-radius:6px; padding:3px 0; }
+.marco{ border-radius:12px; overflow:hidden; box-shadow:0 0 0 1px var(--line), 0 40px 70px -36px rgba(18,27,20,.55); background:#fff; }
+.marco img{ width:100%; height:auto; }
+.movil{ position:absolute; width:24%; right:-3%; bottom:-8%; border-radius:22px; border:5px solid var(--ink); overflow:hidden; background:var(--ink); box-shadow:0 30px 50px -20px rgba(18,27,20,.6); }
+.movil img{ width:100%; height:auto; }
+
+/* Índice de servicios */
+.indice{ display:flex; flex-wrap:wrap; gap:8px; margin-top:44px; }
+.indice a{ display:inline-flex; align-items:center; gap:10px; padding:10px 18px 10px 10px; border-radius:99px; background:#fff; font-weight:600; font-size:14.5px; box-shadow:0 0 0 1px var(--line); transition:background .3s, color .3s, transform .4s var(--ease); }
+.indice a span{ width:28px; height:28px; border-radius:50%; display:grid; place-items:center; font-size:11px; background:var(--cream); }
+.indice a:hover{ background:var(--ink); color:#fff; transform:translateY(-2px); }
+.indice a:hover span{ background:var(--green); }
+
+/* ================= ¿Por dónde empiezo? ================= */
+.guia{ padding:0 0 clamp(40px, 5vw, 70px); }
+.guia-in{ display:grid; grid-template-columns:minmax(0, .8fr) repeat(3, minmax(0, 1fr)); gap:12px; align-items:stretch; }
+.guia-h{ padding:8px 12px 8px 0; }
+.guia-h p{ margin-top:12px; font-family:var(--display); font-weight:700; font-size:20px; letter-spacing:-.02em; line-height:1.2; }
+.gc{ position:relative; display:flex; flex-direction:column; gap:6px; padding:22px 22px 20px; border-radius:var(--r); background:#fff; box-shadow:0 0 0 1px var(--line); transition:background .45s, color .45s, transform .6s var(--ease); }
+.gc small{ font-size:12.5px; color:var(--muted); transition:color .45s; }
+.gc b{ font-family:var(--display); font-size:21px; letter-spacing:-.02em; line-height:1.15; }
+.gc span{ margin-top:auto; padding-top:16px; font-size:13px; font-weight:600; color:#1F7A45; transition:color .45s; }
+.gc > .ic{ position:absolute; right:20px; bottom:20px; font-size:18px; transition:transform .5s var(--ease); }
+.gc:hover{ background:var(--ink); color:#fff; transform:translateY(-4px); }
+.gc:hover small{ color:var(--on-dark-dim); } .gc:hover span{ color:var(--green-soft); }
+.gc:hover > .ic{ transform:translateX(4px); }
+
+/* ================= Bloques de servicio ================= */
+.srv{ padding:clamp(70px, 9vw, 130px) 0; scroll-margin-top:var(--nav-h); }
+.srv-redondo{ margin:0 12px; border-radius:var(--r-lg); }
+.srv-tinta{ background:var(--ink); color:var(--on-dark); margin:clamp(16px, 3vh, 32px) 12px 0; border-radius:var(--r-lg); }
+.srv-tinta .lead{ color:var(--on-dark-dim); }
+.srv-tinta .lista .ic{ background:rgba(127,199,154,.18); color:var(--green-soft); }
+.srv-in{ display:grid; grid-template-columns:minmax(0, .95fr) minmax(0, 1.05fr); gap:clamp(36px, 6vw, 96px); align-items:center; }
+.srv-in.inv .srv-txt{ order:2; }
+.srv-n{ display:block; font-size:13px; font-weight:600; color:var(--muted); margin-bottom:18px; }
+.dark .srv-n, .srv-tinta .srv-n{ color:var(--sage); }
+.srv h2{ font-size:clamp(34px, 4.2vw, 60px); letter-spacing:-.035em; }
+.srv h2 em, .pj h2 em{ font-style:normal; color:var(--gold-ink); }
+.srv.dark h2 em, .srv-tinta h2 em{ color:var(--green-soft); }
+.srv .lead{ margin-top:20px; }
+.srv-h3{ margin-top:30px; font-family:var(--body); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.dark .srv-h3, .srv-tinta .srv-h3{ color:var(--sage); }
+.srv .lista{ margin:14px 0 22px; }
+.lista.dos{ grid-template-columns:1fr 1fr; gap:11px 22px; }
+.lista.dos li{ font-size:14.5px; }
+.ideal{ margin:0 0 28px; padding:14px 16px; border-radius:14px; font-size:14.5px; background:rgba(63,168,104,.08); box-shadow:inset 3px 0 0 var(--green); }
+.ideal b{ color:#1F7A45; }
+.dark .ideal, .srv-tinta .ideal{ background:rgba(255,255,255,.05); color:var(--on-dark-dim); }
+.dark .ideal b, .srv-tinta .ideal b{ color:var(--green-soft); }
+.srv-vis{ position:relative; }
+.flota{ position:absolute; z-index:4; display:flex; align-items:center; gap:10px; padding:10px 16px 10px 10px; border-radius:16px; background:#fff; color:var(--ink); font-size:13px; box-shadow:0 24px 44px -18px rgba(0,0,0,.45); animation:flota 6s ease-in-out infinite; white-space:nowrap; }
+.flota b{ display:block; } .flota small{ color:var(--muted); }
+.flota .fi{ width:34px; height:34px; border-radius:11px; font-size:16px; }
+.flota .fi.ok{ background:var(--green); color:#fff; }
+.flota.f1{ left:-6%; top:0; } .flota.f2{ right:-4%; bottom:2%; animation-delay:-3s; }
+@keyframes flota{ 50%{ transform:translateY(-10px); } }
+.vis-plat{ padding:8% 0; }
+
+/* Web de un espacio (maqueta) */
+.vis-web{ padding:0 14% 12% 0; }
+.mk-br{ border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 0 0 1px var(--line), 0 40px 70px -36px rgba(18,27,20,.5); }
+.mk-bar{ height:28px; display:flex; align-items:center; gap:5px; padding:0 12px; background:#F2F0EA; }
+.mk-bar i{ width:8px; height:8px; border-radius:50%; background:#DCD8CE; }
+.mk-bar span{ flex:1; margin:0 26px 0 12px; text-align:center; font-size:10.5px; color:var(--muted); background:#fff; border-radius:6px; padding:3px 0; }
+.mk-site{ background:#FBF8F2; }
+.ms-nav{ display:flex; align-items:center; gap:16px; padding:12px 18px; font-size:11px; color:#5A4A38; }
+.ms-nav b{ font-family:Georgia, serif; font-weight:400; font-size:15px; margin-right:auto; color:#2E241A; }
+.ms-nav em{ font-style:normal; color:#fff; background:#2E241A; padding:6px 12px; border-radius:99px; }
+.ms-hero{ position:relative; height:200px; margin:0 12px; border-radius:12px; padding:22px; display:flex; flex-direction:column; justify-content:flex-end; color:#fff; background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.55)), radial-gradient(120% 120% at 75% 0%, #E2C99A, #8A6A44 55%, #3A2C1E); }
+.ms-hero small{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.85; }
+.ms-hero b{ font-family:Georgia, serif; font-weight:400; font-size:30px; line-height:1.05; margin:6px 0 12px; }
+.ms-hero em{ align-self:flex-start; font-style:normal; font-size:11px; font-weight:600; color:#2E241A; background:#fff; padding:7px 14px; border-radius:99px; }
+.ms-cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; padding:12px; font-size:11px; color:#5A4A38; }
+.ms-cards span{ display:grid; gap:6px; }
+.ms-cards i{ height:62px; border-radius:9px; }
+.ms-cards .c1{ background:linear-gradient(135deg, #C9B48E, #7E6748); } .ms-cards .c2{ background:linear-gradient(135deg, #D9C7A0, #A0703A); } .ms-cards .c3{ background:linear-gradient(135deg, #B9C7B0, #5E7A5A); }
+.mk-ph{ position:absolute; right:0; bottom:0; width:30%; aspect-ratio:9/18.5; padding:6px; border-radius:26px; background:var(--ink); box-shadow:0 30px 50px -20px rgba(18,27,20,.6); z-index:2; }
+.mk-ph-in{ height:100%; border-radius:21px; overflow:hidden; background:#FBF8F2; }
+.mp-hero{ height:38%; display:flex; align-items:flex-end; padding:10px; color:#fff; background:linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.55)), radial-gradient(120% 120% at 75% 0%, #E2C99A, #8A6A44 55%, #3A2C1E); }
+.mp-hero b{ font-family:Georgia, serif; font-weight:400; font-size:13px; line-height:1.1; }
+.mp-form{ margin:-8px 7px 0; position:relative; padding:9px; border-radius:11px; background:#fff; box-shadow:0 8px 18px -10px rgba(0,0,0,.35); display:grid; gap:5px; font-size:9px; }
+.mp-form b{ font-size:10px; }
+.mp-form span{ padding:5px 7px; border-radius:6px; border:1px solid #EAE5DA; white-space:nowrap; overflow:hidden; clip-path:inset(0 100% 0 0); transition:clip-path .8s var(--ease-io); }
+.vis-web.in .mp-form span{ clip-path:inset(0 0 0 0); }
+.vis-web.in .mp-form span:nth-of-type(2){ transition-delay:.5s; } .vis-web.in .mp-form span:nth-of-type(3){ transition-delay:1s; }
+.mp-form em{ font-style:normal; text-align:center; padding:6px; border-radius:99px; color:#fff; background:#2E241A; font-weight:600; transition:background .3s 1.6s; }
+.vis-web.in .mp-form em{ background:var(--green); }
+.flota.fw1{ left:-5%; bottom:6%; opacity:0; translate:0 14px; transition:opacity .5s 1.9s, translate .7s var(--ease) 1.9s; }
+.vis-web.in .flota.fw1{ opacity:1; translate:none; }
+.sello{ position:absolute; left:-30px; top:26%; z-index:3; width:92px; height:92px; border-radius:50%; display:grid; place-content:center; text-align:center; font-size:11px; line-height:1.15; color:var(--ink); background:var(--warm); transform:rotate(-12deg); box-shadow:0 14px 30px -12px rgba(0,0,0,.4); }
+.sello b{ font-family:var(--display); font-size:19px; }
+
+/* Google (maqueta de resultados reales: anuncio, mapa y fichas) */
+.vis-g{ padding:0 0 8% 0; }
+.serp{ border-radius:16px; background:#fff; padding:18px 20px 16px; font-family:Arial, Helvetica, sans-serif; color:#202124; box-shadow:0 0 0 1px var(--line), 0 40px 70px -36px rgba(18,27,20,.5); }
+.sp-top{ display:flex; align-items:center; gap:16px; }
+.sp-top .g-logo{ display:flex; font-size:26px; letter-spacing:-1px; }
+.sp-top .g-logo b{ font-weight:400; }
+.sp-top .g-logo b:nth-child(1), .sp-top .g-logo b:nth-child(4){ color:#4285F4; } .sp-top .g-logo b:nth-child(2), .sp-top .g-logo b:nth-child(6){ color:#EA4335; } .sp-top .g-logo b:nth-child(3){ color:#FBBC05; } .sp-top .g-logo b:nth-child(5){ color:#34A853; }
+.sp-bar{ flex:1; display:flex; align-items:center; gap:10px; padding:9px 14px; border-radius:99px; box-shadow:0 1px 6px rgba(32,33,36,.22); font-size:13px; }
+.sp-bar span{ flex:1; white-space:nowrap; overflow:hidden; }
+.sp-bar .ic{ color:#4285F4; font-size:15px; }
+.mic{ width:9px; height:14px; border-radius:6px; background:linear-gradient(#4285F4 0 30%, #EA4335 30% 55%, #FBBC05 55% 75%, #34A853 75%); }
+.sp-tabs{ display:flex; gap:18px; margin:14px 0 4px 2px; padding-bottom:8px; border-bottom:1px solid #ebebeb; font-size:12px; color:#70757a; }
+.sp-tabs .on{ color:#1a73e8; box-shadow:0 10px 0 -7px #1a73e8; }
+.sp-ad{ padding:12px 2px 10px; }
+.sp-ad > small{ font-size:11px; }
+.sp-site{ display:flex; align-items:center; gap:9px; margin:6px 0 4px; }
+.sp-site i{ width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:11px; font-weight:700; color:#1F7A45; background:#E8F0E9; }
+.sp-site b{ display:block; font-size:12.5px; font-weight:400; }
+.sp-site small{ font-size:11px; color:#4d5156; }
+.sp-ad a{ display:block; font-size:17px; color:#1a0dab; line-height:1.3; }
+.sp-ad p{ font-size:12px; color:#4d5156; line-height:1.45; margin-top:3px; }
+.sp-links{ display:flex; gap:8px; margin-top:8px; }
+.sp-links span{ font-size:11.5px; color:#1a0dab; padding:5px 11px; border-radius:99px; box-shadow:inset 0 0 0 1px #dadce0; }
+.sp-map{ margin-top:8px; border-radius:12px; overflow:hidden; box-shadow:inset 0 0 0 1px #ebebeb; }
+.map{ position:relative; height:78px; background:#E8EFE4; }
+.map svg{ position:absolute; inset:0; width:100%; height:100%; }
+.pin{ position:absolute; width:22px; height:22px; margin:-22px 0 0 -11px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); display:grid; place-items:center; font-style:normal; font-size:10px; font-weight:700; color:#fff; background:#EA4335; }
+.pin.p1{ left:44%; top:56%; background:#1F7A45; animation:salto 2.4s ease-in-out infinite; } .pin.p2{ left:70%; top:40%; } .pin.p3{ left:22%; top:72%; }
+@keyframes salto{ 50%{ margin-top:-28px; } }
+.sp-pl{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-top:1px solid #ebebeb; }
+.sp-pl > span{ flex:1; display:grid; gap:2px; }
+.sp-pl b{ font-size:13.5px; color:#1a0dab; font-weight:400; }
+.sp-pl small{ font-size:11px; color:#70757a; }
+.sp-pl small em{ font-style:normal; color:#202124; }
+.sp-pl .ab{ color:#188038; }
+.sp-pl.on{ background:#F1F8F3; }
+.sp-pl .th{ width:54px; height:42px; border-radius:8px; background:linear-gradient(135deg, #C9B48E, #7E6748); }
+.sp-pl:not(.on) .th{ background:#eceff1; }
+.ph-l{ display:block; height:9px; border-radius:4px; background:#eceff1; width:50%; }
+small.ph-l{ width:75%; height:7px; }
+.flota.fg1{ left:-6%; bottom:4%; animation-delay:-2s; }
+/* Anuncio de Instagram (maqueta) */
+.ig{ position:absolute; z-index:3; right:-6%; bottom:-6%; width:36%; border-radius:16px; overflow:hidden; background:#fff; font-family:Arial, Helvetica, sans-serif; color:#262626; box-shadow:0 0 0 1px var(--line), 0 30px 60px -24px rgba(18,27,20,.55); transform:rotate(3deg); animation:flota 7s ease-in-out infinite; }
+.ig-top{ display:flex; align-items:center; gap:8px; padding:9px 10px; }
+.ig-av{ width:28px; height:28px; padding:2px; border-radius:50%; background:conic-gradient(#FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5, #FEDA75); }
+.ig-av i{ width:100%; height:100%; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:10px; font-weight:700; color:#2E241A; background:#F5ECDD; box-shadow:0 0 0 2px #fff; }
+.ig-top b{ display:block; font-size:11.5px; } .ig-top small{ font-size:9.5px; color:#737373; }
+.ig-top em{ margin-left:auto; font-style:normal; color:#262626; font-size:11px; }
+.ig-img{ aspect-ratio:1; display:flex; align-items:flex-end; padding:14px; color:#fff; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.5)), radial-gradient(120% 120% at 75% 0%, #E2C99A, #8A6A44 55%, #3A2C1E); }
+.ig-img b{ font-family:Georgia, serif; font-weight:400; font-size:20px; line-height:1.1; }
+.ig-cta{ display:flex; justify-content:space-between; padding:9px 11px; font-size:11.5px; font-weight:700; color:#fff; background:#0095F6; }
+.ig-acc{ display:flex; gap:12px; padding:9px 11px 4px; }
+.ig-acc i{ width:16px; height:16px; border:1.8px solid #262626; }
+.ig-acc .h{ border-radius:50% 50% 0 50%; transform:rotate(45deg) scale(.8); border-color:#ED4956; background:#ED4956; }
+.ig-acc .c{ border-radius:50% 50% 50% 0; }
+.ig-acc .s{ border-width:1.8px 1.8px 0 0; transform:rotate(45deg) scale(.8); }
+.ig p{ padding:2px 11px 11px; font-size:10.5px; line-height:1.35; }
+.vis-g{ padding:0 16% 6% 0; }
+
+/* Portal privado de cliente (maqueta) */
+.vis-med{ padding:6% 0 10%; }
+.portal{ display:grid; grid-template-columns:150px 1fr; border-radius:16px; overflow:hidden; background:#FBFAF7; color:var(--ink); box-shadow:0 0 0 1px rgba(255,255,255,.12), 0 40px 80px -30px rgba(0,0,0,.7); }
+.portal aside{ display:flex; flex-direction:column; gap:4px; padding:18px 12px; background:#F1EFE8; font-size:12px; }
+.portal aside b{ font-family:var(--display); font-size:16px; margin:0 6px 12px; }
+.portal aside span{ display:flex; align-items:center; gap:8px; padding:8px 9px; border-radius:9px; color:var(--muted); }
+.portal aside span.on{ background:#fff; color:var(--ink); font-weight:600; box-shadow:0 1px 0 rgba(0,0,0,.04); }
+.po-main{ padding:20px 20px 18px; display:grid; gap:12px; }
+.po-main > small{ font-size:12px; color:var(--muted); }
+.po-h{ font-family:var(--display); font-size:22px; letter-spacing:-.025em; line-height:1.1; margin-top:-6px; }
+.po-h em{ font-style:normal; color:var(--gold-ink); }
+.po-card{ padding:12px 14px; border-radius:12px; background:#fff; box-shadow:0 0 0 1px var(--line); }
+.po-card h6{ font-family:var(--body); font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:0 0 8px; }
+.po-row{ display:grid; grid-template-columns:1fr auto auto; gap:12px; align-items:center; padding:7px 0; font-size:12.5px; border-top:1px solid #F0EEE7; }
+.po-row:first-of-type{ border-top:0; }
+.po-row b{ font-variant-numeric:tabular-nums; }
+.po-row i{ font-style:normal; font-size:10.5px; font-weight:700; color:#1F7A45; background:rgba(63,168,104,.14); padding:3px 8px; border-radius:99px; }
+.po-row i.pend{ color:#8A6A2C; background:rgba(217,199,160,.35); }
+.po-doc{ display:flex; align-items:center; gap:10px; padding:7px 0; font-size:12.5px; border-top:1px solid #F0EEE7; }
+.po-doc:first-of-type{ border-top:0; }
+.po-doc .ic{ color:var(--green); font-size:15px; }
+.po-doc span{ flex:1; }
+.po-doc em{ font-style:normal; font-size:10px; font-weight:700; color:var(--muted); }
+.flota.fm1{ left:-6%; bottom:2%; } .flota.fm2{ right:-4%; top:0; animation-delay:-3s; }
+
+/* Por qué nosotros */
+.porque{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; }
+.pq{ background:#fff; border-radius:var(--r); padding:26px 24px 28px; box-shadow:0 0 0 1px var(--line); }
+.pq h3{ font-size:20px; margin:22px 0 8px; }
+.pq p{ color:var(--muted); font-size:14.5px; }
+.srv-faq{ padding-top:0; }
+
+@media (max-width:1100px){
+  .guia-in{ grid-template-columns:1fr 1fr 1fr; }
+  .guia-h{ grid-column:1 / -1; }
+  .porque{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:1020px){
+  .vis-web, .vis-g{ padding-right:0; }
+  .flota.f1, .flota.fw1, .flota.fm1{ left:0; } .flota.f2, .flota.fg1, .flota.fm2{ right:0; }
+}
+@media (max-width:640px){
+  .guia-in{ grid-template-columns:1fr; }
+  .lista.dos{ grid-template-columns:1fr; }
+  .portal{ grid-template-columns:1fr; } .portal aside{ display:none; }
+  .ms-nav span{ display:none; }
+  .porque{ grid-template-columns:1fr; }
+  .flota{ display:none; }
+  .ig{ width:50%; right:0; transform:rotate(2deg); }
+  .srv{ overflow-x:clip; }
+  .sello{ left:4px; top:-18px; width:80px; height:80px; }
+}
+
+/* Cómo trabajamos */
+.trabajo{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; }
+.trabajo li{ background:#fff; border-radius:var(--r); padding:28px 24px 30px; box-shadow:0 0 0 1px var(--line); }
+.trabajo span{ display:block; font-family:var(--display); font-weight:900; font-size:44px; letter-spacing:-.04em; color:var(--green); line-height:1; margin-bottom:28px; }
+.trabajo h3{ font-size:22px; margin-bottom:10px; }
+.trabajo p{ color:var(--muted); font-size:15px; }
+
+/* ================= Plataforma ================= */
+.ph-plat{ padding-bottom:0; }
+.plat-shot{ margin-top:clamp(40px, 6vw, 80px); border-radius:18px; overflow:hidden; box-shadow:0 0 0 1px var(--line), 0 60px 100px -50px rgba(18,27,20,.55); }
+.plat-shot img{ width:100%; height:auto; }
+.feats{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; }
+.feat{ background:#fff; border-radius:var(--r); padding:18px 20px 20px; box-shadow:0 0 0 1px var(--line); transition:transform .6s var(--ease), box-shadow .6s var(--ease); }
+.feat:hover{ transform:translateY(-4px); box-shadow:0 0 0 1px var(--line), 0 30px 50px -34px rgba(18,27,20,.35); }
+.feat h3{ font-size:18px; margin:14px 0 6px; }
+.feat p{ color:var(--muted); font-size:14px; line-height:1.45; }
+
+.canales-sec{ overflow:hidden; }
+.canales{ display:grid; grid-template-columns:minmax(0, 1fr) minmax(60px, .55fr) minmax(0, .85fr); align-items:center; max-width:1000px; margin:0 auto; }
+.can-col{ display:grid; gap:14px; }
+.can{ display:flex; align-items:center; gap:14px; padding:10px 16px 10px 10px; border-radius:18px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px var(--line-dark); }
+.can b{ display:block; font-size:15px; } .can small{ font-size:12.5px; color:var(--on-dark-dim); }
+.can .ci{ flex:none; width:40px; height:40px; border-radius:12px; display:grid; place-items:center; font-size:18px; font-weight:800; }
+.ci.w{ background:rgba(255,255,255,.14); } .ci.v{ background:var(--warm); color:var(--ink); font-size:10px; } .ci.r{ background:var(--green); } .ci.x{ background:rgba(255,255,255,.08); }
+.can-cables{ width:100%; height:100%; min-height:230px; }
+.can-cables path{ stroke:var(--green-soft); stroke-opacity:.55; stroke-width:1.6; stroke-dasharray:4 7; vector-effect:non-scaling-stroke; animation:fluye 1.2s linear infinite; }
+.can-hub{ display:grid; justify-items:center; text-align:center; gap:8px; padding:36px 26px; border-radius:var(--r-lg); background:var(--green); color:#fff; box-shadow:0 0 80px -10px rgba(63,168,104,.7); }
+.hub-ic{ width:60px; height:60px; border-radius:18px; display:grid; place-items:center; font-size:28px; background:rgba(255,255,255,.18); margin-bottom:6px; }
+.can-hub b{ font-family:var(--display); font-size:24px; letter-spacing:-.02em; }
+.can-hub small{ font-size:13.5px; opacity:.85; max-width:24ch; }
+.can-nota{ text-align:center; margin-top:24px; color:var(--on-dark-dim); font-size:14.5px; }
+
+.negocios{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; }
+.neg{ background:#fff; border-radius:var(--r-lg); padding:clamp(20px, 2.4vw, 30px); box-shadow:0 0 0 1px var(--line); }
+.neg h3{ font-size:22px; margin:14px 0 6px; }
+.neg p{ color:var(--muted); }
+.neg .lista{ margin-bottom:0; }
+
+.demo-sec{ background:#fff; }
+.demo-in{ display:grid; grid-template-columns:minmax(0, .8fr) minmax(0, 1.2fr); gap:clamp(36px, 6vw, 90px); align-items:start; }
+.demo-txt{ position:sticky; top:calc(var(--nav-h) + 30px); }
+.demo-txt .lead{ margin-top:20px; }
+.demo-sec .form{ background:var(--cream); box-shadow:none; }
+.demo-sec .f-field input, .demo-sec .f-field select, .demo-sec .f-field textarea{ background:#fff; }
+
+/* ================= Proyectos ================= */
+.pj-lista .wrap{ display:grid; gap:clamp(80px, 11vw, 160px); padding-bottom:clamp(80px, 10vw, 140px); }
+.pj{ display:grid; grid-template-columns:minmax(0, 1.25fr) minmax(0, .75fr); gap:clamp(32px, 5vw, 80px); align-items:center; }
+.pj.inv{ grid-template-columns:minmax(0, .75fr) minmax(0, 1.25fr); }
+.pj.inv .pj-vis{ order:2; }
+.pj-vis{ position:relative; display:block; padding:7% 6% 9%; border-radius:var(--r-lg); background:linear-gradient(140deg, #EFE6D2, #DCC9A2); }
+.pj-plat .pj-vis{ background:var(--forest); padding:7% 12% 12% 6%; }
+.pj-stay .pj-vis{ background:#D9E3D6; }
+.pj-vis .marco{ transition:transform 1s var(--ease); }
+.pj-vis:hover .marco{ transform:translateY(-8px); }
+.pj-vis .movil{ right:3%; bottom:-6%; width:22%; }
+.pj-vis .marco.mini{ position:absolute; width:46%; right:4%; bottom:6%; }
+.pj-n{ display:block; font-size:13px; font-weight:600; color:var(--muted); margin-bottom:16px; }
+.pj h2{ font-size:clamp(32px, 3.6vw, 52px); letter-spacing:-.035em; }
+.pj-txt > p{ margin:18px 0 26px; color:var(--muted); font-size:16.5px; }
+.pj-dl{ margin:0 0 28px; display:grid; gap:14px; }
+.pj-dl div{ padding-top:14px; border-top:1px solid var(--line-2); }
+.pj-dl dt{ font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+.pj-dl dd{ margin:0; font-weight:500; }
+
+/* ================= Contacto ================= */
+.contacto{ padding:clamp(28px, 6vh, 64px) 0 clamp(48px, 8vh, 90px); }
+.ct-in{ display:grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr); gap:clamp(36px, 6vw, 90px); align-items:start; }
+.ct-side h1{ font-size:clamp(36px, min(4.6vw, 8.4vh), 72px); }
+.ct-vias{ display:grid; gap:8px; margin-top:24px; max-width:420px; }
+.ct-vias a{ display:flex; align-items:center; gap:14px; padding:12px 16px 12px 12px; border-radius:18px; background:#fff; box-shadow:0 0 0 1px var(--line); transition:transform .5s var(--ease), box-shadow .5s; }
+.ct-vias a:hover{ transform:translateX(4px); box-shadow:0 0 0 1px var(--green); }
+.ct-vias small{ display:block; font-size:12px; color:var(--muted); }
+.ct-vias b{ font-size:15.5px; }
+.ct-pasos{ list-style:none; margin:24px 0 0; padding:0; display:grid; gap:14px; max-width:420px; }
+.ct-pasos li{ display:flex; gap:14px; align-items:flex-start; color:var(--muted); font-size:15px; }
+.ct-pasos span{ flex:none; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:12px; font-weight:700; color:#fff; background:var(--ink); }
+
+@media (max-width:1020px){
+  .srv-in, .demo-in, .ct-in, .pj{ grid-template-columns:1fr; }
+  .srv-in.inv .srv-txt, .pj.inv .pj-vis{ order:0; }
+  .feats{ grid-template-columns:1fr 1fr; }
+  .trabajo{ grid-template-columns:1fr 1fr; }
+  .negocios{ grid-template-columns:1fr; }
+  .demo-txt{ position:static; }
+}
+@media (max-width:720px){
+  .canales{ grid-template-columns:1fr; gap:24px; }
+  .can-cables{ display:none; }
+  .srv-redondo, .srv-tinta{ margin-left:8px; margin-right:8px; }
+}
+@media (max-width:560px){
+  .feats, .trabajo{ grid-template-columns:1fr; }
+  .seo-graf{ margin-left:0; }
+}
+
+/* ================= Visuales de las cabeceras ================= */
+.cv-srv{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.cs{ --c:#3FA868; position:relative; display:grid; gap:4px; padding:20px 20px 18px; border-radius:20px; background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px var(--line-dark); transition:background .4s, transform .6s var(--ease); }
+.cs span{ width:44px; height:44px; border-radius:14px; display:grid; place-items:center; font-size:20px; color:#fff; background:var(--c); margin-bottom:12px; box-shadow:0 10px 24px -10px var(--c); }
+.cs b{ font-family:var(--display); font-size:19px; letter-spacing:-.02em; }
+.cs small{ font-size:13px; color:var(--on-dark-dim); }
+.cs:hover{ background:rgba(255,255,255,.11); transform:translateY(-4px); }
+.cs.c1{ --c:#C99A55; } .cs.c3{ --c:#E2725B; } .cs.c4{ --c:#7B6CE6; }
+.cv-srv .cs:nth-child(even){ transform:translateY(22px); }
+.cv-srv .cs:nth-child(even):hover{ transform:translateY(18px); }
+.cv-plat{ padding:6% 4% 8% 2%; }
+.cv-br{ border-radius:12px; overflow:hidden; box-shadow:0 0 0 1px rgba(255,255,255,.14), 0 40px 70px -30px rgba(0,0,0,.7); transform:perspective(1400px) rotateY(-8deg) rotateX(3deg); transition:transform 1s var(--ease); }
+.cv-plat:hover .cv-br{ transform:none; }
+.cv-br img{ width:100%; }
+.cv-proy{ height:clamp(260px, 44vh, 400px); }
+.cv-proy img{ position:absolute; width:72%; border-radius:12px; object-fit:cover; object-position:top; aspect-ratio:16/10; box-shadow:0 0 0 1px rgba(255,255,255,.14), 0 30px 60px -24px rgba(0,0,0,.7); transition:transform .9s var(--ease); }
+.cv-proy .p1{ left:0; top:6%; transform:rotate(-6deg); }
+.cv-proy .p2{ left:14%; top:20%; z-index:1; }
+.cv-proy .p3{ right:0; top:0; transform:rotate(5deg); }
+.cv-proy:hover .p1{ transform:rotate(-9deg) translate(-14px, 6px); }
+.cv-proy:hover .p3{ transform:rotate(8deg) translate(14px, -6px); }
+@media (max-width:900px){ .cv-srv .cs:nth-child(even){ transform:none; } .cv-proy{ height:260px; } }
+
+/* Secciones de servicios más compactas (caben en una pantalla de portátil) */
+.srv{ padding:clamp(76px, 14vh, 140px) 0; scroll-margin-top:calc(var(--nav-h) + 40px); }
+.srv h2{ font-size:clamp(30px, min(3.6vw, 6.6vh), 52px); }
+.srv .lead{ margin-top:14px; }
+.srv-n{ margin-bottom:12px; }
+.srv-h3{ margin-top:20px; }
+.srv .lista{ margin:10px 0 18px; }
+.lista.dos{ gap:7px 20px; }
+.lista.dos li{ font-size:14px; }
+.ideal{ margin:0 0 20px; padding:10px 14px; font-size:14px; }
+.guia{ padding-top:clamp(40px, 7vh, 72px); }
+.pj-lista .wrap{ gap:clamp(80px, 16vh, 160px); padding-top:clamp(76px, 14vh, 140px); padding-bottom:clamp(76px, 14vh, 140px); }
+.pj{ grid-template-columns:minmax(0, 1.05fr) minmax(0, .95fr); }
+.pj.inv{ grid-template-columns:minmax(0, .95fr) minmax(0, 1.05fr); }
+.pj-vis{ padding:5% 5% 7%; }
+.pj-plat .pj-vis{ padding:5% 10% 9% 5%; }
+.pj h2{ font-size:clamp(30px, min(3.4vw, 6.4vh), 48px); }
+.pj-txt > p{ margin:14px 0 20px; font-size:15.5px; }
+.pj-dl{ gap:10px; margin-bottom:22px; } .pj-dl div{ padding-top:10px; }
+
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <nav class="nav-l" aria-label="Principal">
+      <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuMovil"><span></span><span></span></button>
+      <a href="/servicios" aria-current="page">Servicios</a>
+      <a href="/plataforma">Plataforma</a>
+      <a href="/proyectos">Proyectos</a>
+    </nav>
+    <a href="/" class="nav-logo" aria-label="FOREVENTOS, inicio"><svg class="logo" role="img" aria-label="FOREVENTOS" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 966.65 126.42"><g transform="translate(-18.68 -13.64) scale(1.2598099999999999)"><path d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z" fill="currentColor"/><path d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z" fill="currentColor"/><path d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z" fill="currentColor"/><path d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z" fill="#3FA868"/><path d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z" fill="currentColor"/><path d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z" fill="currentColor"/><path d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z" fill="currentColor"/><rect x="18" y="63.93" width="19" height="44.07" rx="1.2" fill="currentColor"/><rect x="83" y="63.93" width="19" height="44.07" rx="1.2" fill="currentColor"/></g><path transform="translate(155.15 99.76)" fill="currentColor" d="M48.10-41.40L48.10-29.90L20.90-29.90L20.90 0L8.10 0L8.10-73.10L53.30-73.10L53.30-61.30L20.90-61.30L20.90-41.40L48.10-41.40ZM137.60-63.85Q147.50-53.30 147.50-36.60Q147.50-19.90 137.55-9.35Q127.60 1.20 111.90 1.20Q96.20 1.20 86.40-9.35Q76.60-19.90 76.60-36.60Q76.60-53.30 86.45-63.85Q96.30-74.40 112-74.40Q127.70-74.40 137.60-63.85ZM134-36.60L134-36.60Q134-48.30 128.05-55.20Q122.10-62.10 112-62.10Q101.90-62.10 95.95-55.20Q90-48.30 90-36.60Q90-24.90 95.95-18Q101.90-11.10 112-11.10L112-11.10Q122-11.10 128-18.05Q134-25 134-36.60ZM188.20-27.30L188.20 0L175.40 0L175.40-73.10L203.30-73.10Q215.80-73.10 222.70-67.10Q229.60-61.10 229.60-50.30L229.60-50.30Q229.60-35.40 216.40-30L216.40-30L230.30 0L216.30 0L203.90-27.30L188.20-27.30ZM203.30-61.70L188.20-61.70L188.20-38.60L203.30-38.60Q209.40-38.60 212.80-41.70Q216.20-44.80 216.20-50.30L216.20-50.30Q216.20-55.70 212.80-58.70Q209.40-61.70 203.30-61.70L203.30-61.70ZM303.80-11.80L303.80 0L258.40 0L258.40-73.10L303.80-73.10L303.80-61.30L271.20-61.30L271.20-42.50L300.40-42.50L300.40-31.20L271.20-31.20L271.20-11.80L303.80-11.80ZM367.40 0L354.20 0L326.60-73.10L340.20-73.10L356.20-31Q358.70-24.10 360.80-16.40L360.80-16.40Q363.20-24.90 365.50-31L365.50-31L381.30-73.10L394.60-73.10L367.40 0ZM465.10-11.80L465.10 0L419.70 0L419.70-73.10L465.10-73.10L465.10-61.30L432.50-61.30L432.50-42.50L461.70-42.50L461.70-31.20L432.50-31.20L432.50-11.80L465.10-11.80ZM507.60-51.80L507.60 0L495.00 0L495.00-73.10L507.70-73.10L542-21.30L542-73.10L554.60-73.10L554.60 0L542 0L507.60-51.80ZM601.80-61.30L580.40-61.30L580.40-73.10L636-73.10L636-61.30L614.60-61.30L614.60 0L601.80 0L601.80-61.30ZM718.60-63.85Q728.50-53.30 728.50-36.60Q728.50-19.90 718.55-9.35Q708.60 1.20 692.90 1.20Q677.20 1.20 667.40-9.35Q657.60-19.90 657.60-36.60Q657.60-53.30 667.45-63.85Q677.30-74.40 693-74.40Q708.70-74.40 718.60-63.85ZM715-36.60L715-36.60Q715-48.30 709.05-55.20Q703.10-62.10 693-62.10Q682.90-62.10 676.95-55.20Q671-48.30 671-36.60Q671-24.90 676.95-18Q682.90-11.10 693-11.10L693-11.10Q703-11.10 709-18.05Q715-25 715-36.60ZM752.20-52.70L752.20-52.70Q752.20-62.30 759.45-68.35Q766.70-74.40 778.20-74.40L778.20-74.40Q789.30-74.40 795.90-68.65Q802.50-62.90 802.80-53L802.80-53L790.00-53Q789.80-57.70 786.60-60.35Q783.40-63 778.00-63L778.00-63Q772.10-63 768.55-60.35Q765.00-57.70 765.00-53.10L765.00-53.10Q765.00-45.60 773.90-43.60L773.90-43.60L785.40-41.10Q804.00-37.10 804.00-21.10L804.00-21.10Q804.00-10.90 796.70-4.80Q789.40 1.30 777.30 1.30L777.30 1.30Q765.60 1.30 758.50-4.50Q751.40-10.30 751.20-20.10L751.20-20.10L764.00-20.10Q764.10-15.50 767.60-12.85Q771.10-10.20 777.30-10.20L777.30-10.20Q783.70-10.20 787.45-12.80Q791.20-15.40 791.20-20L791.20-20Q791.20-27.30 782.70-29.10L782.70-29.10L771.10-31.70Q752.20-35.80 752.20-52.70Z"/></svg></a>
+    <div class="nav-r">
+      <a href="https://app.foreventos.com/login" class="nav-acc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Iniciar sesión</a>
+      <a href="/contacto" class="btn btn-dark btn-sm btn-luz"><span><b data-t="Hablemos">Hablemos</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+  </div>
+</header>
+
+<div class="mm" id="menuMovil" aria-hidden="true" inert>
+  <nav class="mm-links" aria-label="Menú móvil">
+    <a href="/"><small>00</small>Inicio</a>
+    <a href="/servicios" aria-current="page"><small>01</small>Servicios</a>
+    <a href="/plataforma"><small>02</small>Plataforma</a>
+    <a href="/proyectos"><small>03</small>Proyectos</a>
+  </nav>
+  <div class="mm-foot">
+    <a href="/contacto" class="btn btn-light"><span><b data-t="Hablemos">Hablemos</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <a href="https://app.foreventos.com/login" class="mm-acc">Iniciar sesión</a>
+    <p>info@foreventos.com · +34 687 657 367</p>
+  </div>
+</div>
+<main id="contenido">
+<section class="cab">
+  <div class="cab-in">
+    <div class="cab-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i></div>
+    <div class="wrap cab-grid">
+      <div class="cab-txt">
+        <span class="tag rv">Servicios</span>
+        <h1 class="split">Tecnología y marketing para <em>vender más eventos</em></h1>
+        <p class="lead rv" style="--d:3">Cuatro servicios que funcionan solos o juntos, y todo acaba en el mismo panel.</p>
+      </div>
+      <div class="cab-vis cv-srv rv" style="--d:2">
+        <a class="cs c1" href="#webs"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 8h20M6 5.5h.01M9 5.5h.01"/></svg></span><b>Webs</b><small>que traen solicitudes</small></a>
+        <a class="cs c2" href="#gestion"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg></span><b>Gestión comercial</b><small>para cerrar ventas</small></a>
+        <a class="cs c3" href="#google"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><b>Google y redes</b><small>para que te vean</small></a>
+        <a class="cs c4" href="#a-medida"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span><b>A medida</b><small>si necesitas algo propio</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Submenú fijo de servicios -->
+<nav class="subnav" data-subnav aria-label="Servicios">
+  <a href="#webs"><i class="d1"></i>Webs</a>
+  <a href="#gestion"><i class="d2"></i>Gestión comercial</a>
+  <a href="#google"><i class="d3"></i>Google y redes</a>
+  <a href="#a-medida"><i class="d4"></i>A medida</a>
+</nav>
+
+<!-- ¿Por dónde empiezo? -->
+<section class="guia">
+  <div class="wrap">
+    <div class="guia-in">
+      <div class="guia-h rv"><span class="tag">¿Por dónde empiezo?</span><p>Dinos qué te pasa y te decimos qué te ayuda primero.</p></div>
+      <a class="gc rv" style="--d:1" href="#webs"><small>Si te escriben poco</small><b>Necesitas que te encuentren</b><span>Web + Google y redes</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="gc rv" style="--d:2" href="#gestion"><small>Si te escriben, pero se te escapan</small><b>Necesitas cerrar más</b><span>Gestión comercial</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="gc rv" style="--d:3" href="#a-medida"><small>Si lo que buscas no existe</small><b>Necesitas algo propio</b><span>Sistema a medida</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 · Webs -->
+<section class="srv" id="webs">
+  <div class="wrap srv-in">
+    <div class="srv-txt">
+      <span class="srv-n rv">01 · Espacios, planners y caterings</span>
+      <h2 class="split">Webs que traen <em>solicitudes</em></h2>
+      <p class="lead rv">Hecha a medida de tu marca y pensada para que te escriban. Antes de decidir, te enseñamos un borrador gratis.</p>
+      <h3 class="srv-h3 rv">Qué incluye</h3>
+      <ul class="lista dos rv">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Diseño a medida con tu marca</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Perfecta en el móvil</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Formulario conectado a tu panel</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Textos pensados para vender</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>SEO básico y Google Business</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>En español e inglés si lo necesitas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Alojamiento y seguridad</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Una ronda de cambios al mes</li>
+      </ul>
+      <p class="ideal rv"><b>Ideal si</b> tu web es antigua, no se ve bien en el móvil o casi no te llegan solicitudes desde ella.</p>
+      <a class="btn btn-dark rv" data-mag href="/contacto?interes=web"><span><b data-t="Quiero mi borrador gratis">Quiero mi borrador gratis</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <div class="srv-vis vis-web rv" style="--d:1" aria-hidden="true">
+      <div class="mk-br">
+        <div class="mk-bar"><i></i><i></i><i></i><span>tufinca.com</span></div>
+        <div class="mk-site">
+          <div class="ms-nav"><b>Tu finca</b><span>Espacios</span><span>Bodas</span><span>Galería</span><em>Reserva tu visita</em></div>
+          <div class="ms-hero"><small>Bodas y eventos en el Empordà</small><b>Bodas que se<br>recuerdan</b><em>Pide información</em></div>
+          <div class="ms-cards"><span><i class="c1"></i>Espacios</span><span><i class="c2"></i>Gastronomía</span><span><i class="c3"></i>Visitas</span></div>
+        </div>
+      </div>
+      <div class="mk-ph">
+        <div class="mk-ph-in">
+          <div class="mp-hero"><b>Bodas que se recuerdan</b></div>
+          <div class="mp-form"><b>Pide información</b><span>Laura &amp; Marc</span><span>12 jun 2027</span><span>120 invitados</span><em>Enviar</em></div>
+        </div>
+      </div>
+      <div class="flota fw1"><span class="fi ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><span><b>Nueva solicitud</b><small>desde tu web · llega a tu panel</small></span></div>
+      <div class="sello">Borrador<br><b>gratis</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · Gestión comercial -->
+<section class="srv dark srv-redondo" id="gestion">
+  <div class="wrap srv-in inv">
+    <div class="srv-txt">
+      <span class="srv-n rv">02 · Para todos</span>
+      <h2 class="split">Gestión comercial para <em>cerrar ventas</em></h2>
+      <p class="lead rv">Solicitudes, visitas, propuestas, contratos y cobros en un solo sitio, conectado a tus canales de venta como tu web o weddingvenuesspain.com.</p>
+      <h3 class="srv-h3 rv">Qué incluye</h3>
+      <ul class="lista dos rv">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Bandeja única de solicitudes</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Pipeline de ventas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Página de reserva de visitas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Propuestas con métricas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Presupuestos y firma online</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Cobro de la señal online</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Calendario de fechas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Te la dejamos configurada</li>
+      </ul>
+      <p class="ideal rv"><b>Ideal si</b> llevas las solicitudes entre el correo, WhatsApp y un Excel, y se te enfrían antes de cerrarlas.</p>
+      <a class="btn btn-light rv" data-mag href="/plataforma"><span><b data-t="Conoce la plataforma">Conoce la plataforma</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <div class="srv-vis vis-plat rv-clip" style="--d:1">
+      <div class="marco"><div class="nav-mock"><i></i><i></i><i></i><span>app.foreventos.com</span></div><img src="/proyectos/plataforma.jpg" alt="Panel de gestión comercial de FOREVENTOS" loading="lazy" width="1440" height="848"></div>
+      <div class="flota f1"><span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><span><b>Nueva solicitud</b><small>desde weddingvenuesspain.com</small></span></div>
+      <div class="flota f2"><span class="fi ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><span><b>Señal cobrada</b><small>contrato firmado online</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Google -->
+<section class="srv" id="google">
+  <div class="wrap srv-in">
+    <div class="srv-txt">
+      <span class="srv-n rv">03 · Para todos</span>
+      <h2 class="split">Más visibilidad en Google <em>y redes</em></h2>
+      <p class="lead rv">Que te encuentren en Google y te descubran en Instagram y Facebook. SEO y campañas, con un informe claro cada mes.</p>
+      <h3 class="srv-h3 rv">Qué incluye</h3>
+      <ul class="lista dos rv">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Ficha de Google Business</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>SEO local de tu zona</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>SEO internacional</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Campañas de Google Ads</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Anuncios en Instagram y Facebook</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Gestión de tus redes sociales</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Presupuesto de anuncios controlado</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Informe mensual por canal</li>
+      </ul>
+      <p class="ideal rv"><b>Ideal si</b> buscas tu tipo de espacio en tu zona y apareces por detrás de la competencia, o tus redes no te traen solicitudes.</p>
+      <a class="btn btn-dark rv" data-mag href="/contacto?interes=google"><span><b data-t="Quiero que me encuentren">Quiero que me encuentren</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <div class="srv-vis vis-g rv" style="--d:1" aria-hidden="true">
+      <div class="serp">
+        <div class="sp-top">
+          <span class="g-logo"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span>
+          <span class="sp-bar"><span>finca para bodas en Girona</span><i class="mic"></i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        </div>
+        <div class="sp-tabs"><span class="on">Todo</span><span>Maps</span><span>Imágenes</span><span>Noticias</span></div>
+        <div class="sp-ad">
+          <small><b>Patrocinado</b></small>
+          <div class="sp-site"><i>T</i><span><b>Tu finca</b><small>https://tufinca.com</small></span></div>
+          <a>Tu finca · Bodas en Girona · Reserva tu visita</a>
+          <p>Ceremonia, banquete y fiesta en un solo lugar. Hasta 220 invitados. Visitas los sábados.</p>
+          <div class="sp-links"><span>Espacios</span><span>Menús</span><span>Visitas</span></div>
+        </div>
+        <div class="sp-map">
+          <div class="map">
+            <svg viewBox="0 0 300 110" preserveAspectRatio="none"><path d="M0 70 C 60 60, 90 90, 150 72 S 250 40, 300 52" stroke="#fff" stroke-width="7" fill="none"/><path d="M110 0 C 120 40, 100 70, 130 110" stroke="#fff" stroke-width="5" fill="none"/><path d="M220 0 L 200 110" stroke="#fde293" stroke-width="5" fill="none"/></svg>
+            <i class="pin p1">1</i><i class="pin p2">2</i><i class="pin p3">3</i>
+          </div>
+          <div class="sp-pl on"><span><b>Tu finca</b><small><em>4,9</em> ★★★★★ · Espacio para bodas</small><small class="ab">Abierto · Visitas los sábados</small></span><i class="th"></i></div>
+          <div class="sp-pl"><span><b class="ph-l"></b><small class="ph-l"></small></span><i class="th"></i></div>
+        </div>
+      </div>
+      <div class="ig">
+        <div class="ig-top"><span class="ig-av"><i>T</i></span><span><b>tufinca</b><small>Publicidad</small></span><em>•••</em></div>
+        <div class="ig-img"><b>Bodas que se recuerdan</b></div>
+        <div class="ig-cta">Más información<span>›</span></div>
+        <div class="ig-acc"><i class="h"></i><i class="c"></i><i class="s"></i></div>
+        <p><b>tufinca</b> Abrimos fechas para 2027. Reserva tu visita.</p>
+      </div>
+      <div class="flota fg1"><span class="fi ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg></span><span><b>Informe del mes</b><small>solicitudes por canal</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · A medida -->
+<section class="srv srv-tinta" id="a-medida">
+  <div class="wrap srv-in inv">
+    <div class="srv-txt">
+      <span class="srv-n rv">04 · Si necesitas algo propio</span>
+      <h2 class="split">Sistemas hechos <em>a tu medida</em></h2>
+      <p class="lead rv">Cuando tu forma de vender no cabe en una herramienta estándar, la construimos contigo.</p>
+      <h3 class="srv-h3 rv">Lo que más construimos</h3>
+      <ul class="lista dos rv">
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Portales privados para clientes</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Reservas y pagos online</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Integraciones con tus herramientas</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Automatizaciones y avisos</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Webs con reservas o catálogo</li>
+        <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Mantenimiento y evolución</li>
+      </ul>
+      <p class="ideal rv"><b>Ideal si</b> repites tareas a mano cada semana o tienes una idea de producto para tus clientes.</p>
+      <a class="btn btn-light rv" data-mag href="/contacto?interes=medida"><span><b data-t="Cuéntanos tu idea">Cuéntanos tu idea</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+    <div class="srv-vis vis-med rv" style="--d:1" aria-hidden="true">
+      <div class="portal">
+        <aside><b>Tu boda</b><span class="on"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Inicio</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 17c1.5-2 3-2 4 0s2.5 1 4-1"/></svg>Documentos</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>Pagos</span><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Invitados</span></aside>
+        <div class="po-main">
+          <small>Hola, Laura y Marc</small>
+          <b class="po-h">Faltan <em>214</em> días para vuestra boda</b>
+          <div class="po-card">
+            <h6>Calendario de pagos</h6>
+            <div class="po-row ok"><span>Señal</span><b>5.040 €</b><i>Pagado</i></div>
+            <div class="po-row"><span>Segundo pago · 15 mar</span><b>5.880 €</b><i class="pend">Pendiente</i></div>
+            <div class="po-row"><span>Liquidación · 1 jun</span><b>5.880 €</b><i class="pend">Pendiente</i></div>
+          </div>
+          <div class="po-card">
+            <h6>Documentos</h6>
+            <div class="po-doc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 17c1.5-2 3-2 4 0s2.5 1 4-1"/></svg><span>Contrato firmado</span><em>PDF</em></div>
+            <div class="po-doc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2v8a2 2 0 0 0 2 2v10M11 2v8M3 2v8a2 2 0 0 0 2 2h0M17 22V2c-2 0-4 2-4 6v5h4"/></svg><span>Menú elegido</span><em>PDF</em></div>
+          </div>
+        </div>
+      </div>
+      <div class="flota fm1"><span class="fi ok"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><span><b>Recordatorio enviado</b><small>segundo pago · automático</small></span></div>
+      <div class="flota fm2"><span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span><span><b>Sincronizado</b><small>con tus herramientas</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Por qué nosotros -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag rv">Por qué FOREVENTOS</span>
+        <h2 class="h2 split">Un equipo que conoce <em>tu sector</em></h2>
+      </div>
+      <p class="lead rv" style="--d:2">No somos una agencia generalista. Trabajamos solo para bodas y eventos, y usamos lo que construimos.</p>
+    </div>
+    <div class="porque">
+      <article class="pq rv"><span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="6"/><circle cx="15" cy="14" r="6"/><path d="M10 4l2 2 2-2"/></svg></span><h3>Especialistas en eventos</h3><p>Somos el equipo detrás de weddingvenuesspain.com. Sabemos cómo buscan y cómo deciden las parejas y las empresas.</p></article>
+      <article class="pq rv" style="--d:1"><span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span><h3>Todo conectado</h3><p>La web, Google y tus canales de venta acaban en el mismo panel. Sabes de dónde viene cada reserva.</p></article>
+      <article class="pq rv" style="--d:2"><span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Un solo equipo</h3><p>Diseño, desarrollo y marketing bajo el mismo techo. Una persona de contacto y respuestas rápidas.</p></article>
+      <article class="pq rv" style="--d:3"><span class="fi"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Sin permanencia</h3><p>Precio cerrado antes de empezar y servicios mensuales que puedes dejar cuando quieras.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq-sec srv-faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="tag rv">Preguntas frecuentes</span>
+      <h2 class="h2 split">Sobre nuestros <em>servicios</em></h2>
+    </div>
+    <div class="faq rv">
+      <details><summary>¿Puedo contratar solo un servicio?<i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Sí. Cada servicio funciona por separado. Muchos clientes empiezan por la web o por la gestión comercial y suman el resto después.</p></details>
+      <details><summary>¿Cuánto cuesta?<i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Depende de lo que necesites. Te damos un precio cerrado antes de empezar y, en las webs, te enseñamos primero un borrador gratis.</p></details>
+      <details><summary>¿Cómo sé si funciona?<i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Cada solicitud entra en tu panel con su canal de origen, y cada mes te enviamos un informe claro de qué canal trae solicitudes y cuál no.</p></details>
+      <details><summary>¿Tengo que estar en weddingvenuesspain.com?<i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>No. Es un canal de venta más que puedes conectar a tu panel si te interesa, pero ninguno de nuestros servicios lo necesita.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-in">
+    <h2 class="split">¿Por dónde <em>empezamos?</em></h2>
+    <p class="rv">Cuéntanos tu negocio y te decimos qué te traería más solicitudes primero.</p>
+    <div class="cta-btns rv" style="--d:1">
+      <a href="/contacto" class="btn btn-light" data-mag><span><b data-t="Hablemos">Hablemos</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-top">
+      <div class="pie-marca">
+        <a href="/" class="pie-logo" aria-label="FOREVENTOS, inicio"><svg class="logo" role="img" aria-label="FOREVENTOS" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 966.65 126.42"><g transform="translate(-18.68 -13.64) scale(1.2598099999999999)"><path d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z" fill="currentColor"/><path d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z" fill="currentColor"/><path d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z" fill="currentColor"/><path d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z" fill="#3FA868"/><path d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z" fill="currentColor"/><path d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z" fill="currentColor"/><path d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z" fill="currentColor"/><rect x="18" y="63.93" width="19" height="44.07" rx="1.2" fill="currentColor"/><rect x="83" y="63.93" width="19" height="44.07" rx="1.2" fill="currentColor"/></g><path transform="translate(155.15 99.76)" fill="currentColor" d="M48.10-41.40L48.10-29.90L20.90-29.90L20.90 0L8.10 0L8.10-73.10L53.30-73.10L53.30-61.30L20.90-61.30L20.90-41.40L48.10-41.40ZM137.60-63.85Q147.50-53.30 147.50-36.60Q147.50-19.90 137.55-9.35Q127.60 1.20 111.90 1.20Q96.20 1.20 86.40-9.35Q76.60-19.90 76.60-36.60Q76.60-53.30 86.45-63.85Q96.30-74.40 112-74.40Q127.70-74.40 137.60-63.85ZM134-36.60L134-36.60Q134-48.30 128.05-55.20Q122.10-62.10 112-62.10Q101.90-62.10 95.95-55.20Q90-48.30 90-36.60Q90-24.90 95.95-18Q101.90-11.10 112-11.10L112-11.10Q122-11.10 128-18.05Q134-25 134-36.60ZM188.20-27.30L188.20 0L175.40 0L175.40-73.10L203.30-73.10Q215.80-73.10 222.70-67.10Q229.60-61.10 229.60-50.30L229.60-50.30Q229.60-35.40 216.40-30L216.40-30L230.30 0L216.30 0L203.90-27.30L188.20-27.30ZM203.30-61.70L188.20-61.70L188.20-38.60L203.30-38.60Q209.40-38.60 212.80-41.70Q216.20-44.80 216.20-50.30L216.20-50.30Q216.20-55.70 212.80-58.70Q209.40-61.70 203.30-61.70L203.30-61.70ZM303.80-11.80L303.80 0L258.40 0L258.40-73.10L303.80-73.10L303.80-61.30L271.20-61.30L271.20-42.50L300.40-42.50L300.40-31.20L271.20-31.20L271.20-11.80L303.80-11.80ZM367.40 0L354.20 0L326.60-73.10L340.20-73.10L356.20-31Q358.70-24.10 360.80-16.40L360.80-16.40Q363.20-24.90 365.50-31L365.50-31L381.30-73.10L394.60-73.10L367.40 0ZM465.10-11.80L465.10 0L419.70 0L419.70-73.10L465.10-73.10L465.10-61.30L432.50-61.30L432.50-42.50L461.70-42.50L461.70-31.20L432.50-31.20L432.50-11.80L465.10-11.80ZM507.60-51.80L507.60 0L495.00 0L495.00-73.10L507.70-73.10L542-21.30L542-73.10L554.60-73.10L554.60 0L542 0L507.60-51.80ZM601.80-61.30L580.40-61.30L580.40-73.10L636-73.10L636-61.30L614.60-61.30L614.60 0L601.80 0L601.80-61.30ZM718.60-63.85Q728.50-53.30 728.50-36.60Q728.50-19.90 718.55-9.35Q708.60 1.20 692.90 1.20Q677.20 1.20 667.40-9.35Q657.60-19.90 657.60-36.60Q657.60-53.30 667.45-63.85Q677.30-74.40 693-74.40Q708.70-74.40 718.60-63.85ZM715-36.60L715-36.60Q715-48.30 709.05-55.20Q703.10-62.10 693-62.10Q682.90-62.10 676.95-55.20Q671-48.30 671-36.60Q671-24.90 676.95-18Q682.90-11.10 693-11.10L693-11.10Q703-11.10 709-18.05Q715-25 715-36.60ZM752.20-52.70L752.20-52.70Q752.20-62.30 759.45-68.35Q766.70-74.40 778.20-74.40L778.20-74.40Q789.30-74.40 795.90-68.65Q802.50-62.90 802.80-53L802.80-53L790.00-53Q789.80-57.70 786.60-60.35Q783.40-63 778.00-63L778.00-63Q772.10-63 768.55-60.35Q765.00-57.70 765.00-53.10L765.00-53.10Q765.00-45.60 773.90-43.60L773.90-43.60L785.40-41.10Q804.00-37.10 804.00-21.10L804.00-21.10Q804.00-10.90 796.70-4.80Q789.40 1.30 777.30 1.30L777.30 1.30Q765.60 1.30 758.50-4.50Q751.40-10.30 751.20-20.10L751.20-20.10L764.00-20.10Q764.10-15.50 767.60-12.85Q771.10-10.20 777.30-10.20L777.30-10.20Q783.70-10.20 787.45-12.80Q791.20-15.40 791.20-20L791.20-20Q791.20-27.30 782.70-29.10L782.70-29.10L771.10-31.70Q752.20-35.80 752.20-52.70Z"/></svg></a>
+        <p>Tecnología y marketing para espacios de bodas, wedding planners y caterings.</p>
+      </div>
+      <div class="pie-cols">
+        <div><h4>Páginas</h4><ul>
+          <li><a href="/servicios">Servicios</a></li><li><a href="/plataforma">Plataforma</a></li><li><a href="/proyectos">Proyectos</a></li><li><a href="/contacto">Contacto</a></li>
+        </ul></div>
+        <div><h4>Hablemos</h4><ul>
+          <li><a href="mailto:info@foreventos.com">info@foreventos.com</a></li><li><a href="https://wa.me/34687657367" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://app.foreventos.com/login">Iniciar sesión</a></li>
+        </ul></div>
+        <div><h4>Legal</h4><ul>
+          <li><a href="https://app.foreventos.com/aviso-legal">Aviso legal</a></li><li><a href="https://app.foreventos.com/privacy">Privacidad</a></li><li><a href="https://app.foreventos.com/terminos">Términos</a></li><li><a href="https://app.foreventos.com/cookies">Cookies</a></li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="pie-bot"><span>© 2026 FOREVENTOS · WVS Partners, S.L.</span><span id="feLegal"></span></div>
+  </div>
+  <div class="pie-grande" aria-hidden="true"><svg class="logo" role="img" aria-label="FOREVENTOS" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 966.65 126.42"><g transform="translate(-18.68 -13.64) scale(1.2598099999999999)"><path d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z" fill="currentColor"/><path d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z" fill="currentColor"/><path d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z" fill="currentColor"/><path d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z" fill="#3FA868"/><path d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z" fill="currentColor"/><path d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z" fill="currentColor"/><path d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z" fill="currentColor"/><rect x="18" y="63.93" width="19" height="44.07" rx="1.2" fill="currentColor"/><rect x="83" y="63.93" width="19" height="44.07" rx="1.2" fill="currentColor"/></g><path transform="translate(155.15 99.76)" fill="currentColor" d="M48.10-41.40L48.10-29.90L20.90-29.90L20.90 0L8.10 0L8.10-73.10L53.30-73.10L53.30-61.30L20.90-61.30L20.90-41.40L48.10-41.40ZM137.60-63.85Q147.50-53.30 147.50-36.60Q147.50-19.90 137.55-9.35Q127.60 1.20 111.90 1.20Q96.20 1.20 86.40-9.35Q76.60-19.90 76.60-36.60Q76.60-53.30 86.45-63.85Q96.30-74.40 112-74.40Q127.70-74.40 137.60-63.85ZM134-36.60L134-36.60Q134-48.30 128.05-55.20Q122.10-62.10 112-62.10Q101.90-62.10 95.95-55.20Q90-48.30 90-36.60Q90-24.90 95.95-18Q101.90-11.10 112-11.10L112-11.10Q122-11.10 128-18.05Q134-25 134-36.60ZM188.20-27.30L188.20 0L175.40 0L175.40-73.10L203.30-73.10Q215.80-73.10 222.70-67.10Q229.60-61.10 229.60-50.30L229.60-50.30Q229.60-35.40 216.40-30L216.40-30L230.30 0L216.30 0L203.90-27.30L188.20-27.30ZM203.30-61.70L188.20-61.70L188.20-38.60L203.30-38.60Q209.40-38.60 212.80-41.70Q216.20-44.80 216.20-50.30L216.20-50.30Q216.20-55.70 212.80-58.70Q209.40-61.70 203.30-61.70L203.30-61.70ZM303.80-11.80L303.80 0L258.40 0L258.40-73.10L303.80-73.10L303.80-61.30L271.20-61.30L271.20-42.50L300.40-42.50L300.40-31.20L271.20-31.20L271.20-11.80L303.80-11.80ZM367.40 0L354.20 0L326.60-73.10L340.20-73.10L356.20-31Q358.70-24.10 360.80-16.40L360.80-16.40Q363.20-24.90 365.50-31L365.50-31L381.30-73.10L394.60-73.10L367.40 0ZM465.10-11.80L465.10 0L419.70 0L419.70-73.10L465.10-73.10L465.10-61.30L432.50-61.30L432.50-42.50L461.70-42.50L461.70-31.20L432.50-31.20L432.50-11.80L465.10-11.80ZM507.60-51.80L507.60 0L495.00 0L495.00-73.10L507.70-73.10L542-21.30L542-73.10L554.60-73.10L554.60 0L542 0L507.60-51.80ZM601.80-61.30L580.40-61.30L580.40-73.10L636-73.10L636-61.30L614.60-61.30L614.60 0L601.80 0L601.80-61.30ZM718.60-63.85Q728.50-53.30 728.50-36.60Q728.50-19.90 718.55-9.35Q708.60 1.20 692.90 1.20Q677.20 1.20 667.40-9.35Q657.60-19.90 657.60-36.60Q657.60-53.30 667.45-63.85Q677.30-74.40 693-74.40Q708.70-74.40 718.60-63.85ZM715-36.60L715-36.60Q715-48.30 709.05-55.20Q703.10-62.10 693-62.10Q682.90-62.10 676.95-55.20Q671-48.30 671-36.60Q671-24.90 676.95-18Q682.90-11.10 693-11.10L693-11.10Q703-11.10 709-18.05Q715-25 715-36.60ZM752.20-52.70L752.20-52.70Q752.20-62.30 759.45-68.35Q766.70-74.40 778.20-74.40L778.20-74.40Q789.30-74.40 795.90-68.65Q802.50-62.90 802.80-53L802.80-53L790.00-53Q789.80-57.70 786.60-60.35Q783.40-63 778.00-63L778.00-63Q772.10-63 768.55-60.35Q765.00-57.70 765.00-53.10L765.00-53.10Q765.00-45.60 773.90-43.60L773.90-43.60L785.40-41.10Q804.00-37.10 804.00-21.10L804.00-21.10Q804.00-10.90 796.70-4.80Q789.40 1.30 777.30 1.30L777.30 1.30Q765.60 1.30 758.50-4.50Q751.40-10.30 751.20-20.10L751.20-20.10L764.00-20.10Q764.10-15.50 767.60-12.85Q771.10-10.20 777.30-10.20L777.30-10.20Q783.70-10.20 787.45-12.80Q791.20-15.40 791.20-20L791.20-20Q791.20-27.30 782.70-29.10L782.70-29.10L771.10-31.70Q752.20-35.80 752.20-52.70Z"/></svg></div>
+</footer>
+<script>
+  var REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Intro de marca: el arco se forma dovela a dovela, cae la clave, aparece el nombre y el
+     contador llega a 100; el fondo cambia de golpe a verde y la cortina sube en curva.
+     Solo la primera vez por sesión (el <head> pone .con-intro). Clic = saltar. */
+  (function(){
+    var root = document.documentElement, el = document.getElementById('intro');
+    if (!el || !root.classList.contains('con-intro')){ root.classList.remove('con-intro'); window.FE_LISTO = true; return; }
+    try { sessionStorage.setItem('fe_intro', '1'); } catch(e) {}
+    [].forEach.call(el.querySelectorAll('.intro-nombre span'), function(s, k){ s.style.setProperty('--k', k); });
+    var t = [], cuenta = el.querySelector('[data-cuenta]'), t0 = performance.now(), hecho = false;
+    (function cuenta100(now){
+      var p = Math.min(1, (now - t0) / 1550);
+      cuenta.textContent = Math.round(100 * (p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2));
+      if (p < 1 && !hecho) requestAnimationFrame(cuenta100);
+    })(t0);
+    function fin(){
+      if (hecho) return; hecho = true;
+      t.forEach(clearTimeout);
+      el.classList.add('fin');
+      window.FE_LISTO = true;
+      document.dispatchEvent(new Event('fe:listo'));
+      setTimeout(function(){ el.remove(); root.classList.remove('con-intro'); }, 1000);
+    }
+    requestAnimationFrame(function(){ el.classList.add('va'); });
+    t.push(setTimeout(function(){ el.classList.add('swap'); }, 1650));
+    t.push(setTimeout(fin, 2150));
+    el.addEventListener('click', fin);
+  })();
+
+  /* Menú: fondo al hacer scroll */
+  (function(){
+    var nav = document.getElementById('nav'); if (!nav) return;
+    function on(){ nav.classList.toggle('pegado', window.scrollY > 8); }
+    window.addEventListener('scroll', on, { passive:true }); on();
+  })();
+
+  /* Menú móvil */
+  (function(){
+    var b = document.querySelector('.nav-burger'), mm = document.getElementById('menuMovil');
+    if (!b || !mm) return;
+    function set(v){
+      mm.classList.toggle('abierto', v);
+      mm.setAttribute('aria-hidden', v ? 'false' : 'true');
+      if (v) mm.removeAttribute('inert'); else mm.setAttribute('inert', '');
+      b.setAttribute('aria-expanded', v ? 'true' : 'false');
+      b.setAttribute('aria-label', v ? 'Cerrar menú' : 'Abrir menú');
+      document.body.classList.toggle('mm-on', v);
+    }
+    b.addEventListener('click', function(){ set(!mm.classList.contains('abierto')); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && mm.classList.contains('abierto')){ set(false); b.focus(); } });
+    mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ set(false); }); });
+    var path = location.pathname.replace(/\/$/, '') || '/';
+    mm.querySelectorAll('a[href^="/"]').forEach(function(a){ if (a.getAttribute('href') === path) a.setAttribute('aria-current', 'page'); });
+  })();
+
+  /* Titulares .split: se parten en palabras para que suban una a una */
+  (function(){
+    [].forEach.call(document.querySelectorAll('.split'), function(h){
+      var i = 0, last = null;
+      (function walk(node){
+        [].slice.call(node.childNodes).forEach(function(n){
+          if (n.nodeType === 3){
+            var frag = document.createDocumentFragment(), txt = n.textContent;
+            // La puntuación pegada a la palabra anterior («negocio?») no se separa de ella
+            var p = txt.match(/^[?!.,:;]+/);
+            if (p && last){ last.textContent += p[0]; txt = txt.slice(p[0].length); }
+            txt.split(/(\s+)/).forEach(function(part){
+              if (!part) return;
+              if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+              var w = document.createElement('span'); w.className = 'w';
+              var s = document.createElement('span'); s.textContent = part; s.style.setProperty('--i', i++); last = s;
+              w.appendChild(s); frag.appendChild(w);
+            });
+            n.parentNode.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && !n.hasAttribute('data-nosplit')) walk(n);
+        });
+      })(h);
+    });
+  })();
+
+  /* Entradas al hacer scroll (.rv, .rv-clip, .split → .in) */
+  (function(){
+    var els = document.querySelectorAll('.rv, .rv-clip, .split');
+    function go(){
+      if (!('IntersectionObserver' in window)){ [].forEach.call(els, function(e){ e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { rootMargin:'0px 0px -8% 0px', threshold:.12 });
+      [].forEach.call(els, function(e){ io.observe(e); });
+    }
+    // Con intro, lo de arriba espera a que se abra la web
+    if (window.FE_LISTO) go(); else document.addEventListener('fe:listo', go, { once:true });
+  })();
+
+  /* Botones: el círculo de la flecha crece lo justo para llenar el botón;
+     los [data-mag] además se dejan atraer un poco por el ratón */
+  [].forEach.call(document.querySelectorAll('.btn'), function(b){
+    b.addEventListener('pointerenter', function(){ b.style.setProperty('--k', Math.ceil(b.offsetWidth * 2.2 / 40)); });
+    if (!b.hasAttribute('data-mag') || REDUCE || !matchMedia('(hover: hover)').matches) return;
+    b.addEventListener('pointermove', function(e){
+      var r = b.getBoundingClientRect();
+      b.style.translate = ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px ' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px';
+    });
+    b.addEventListener('pointerleave', function(){ b.style.translate = ''; });
+  });
+
+  /* Formularios → API de app.foreventos.com (contacto y demo) */
+  (function(){
+    var FORMS = {
+      contactForm: {
+        api:'https://app.foreventos.com/api/public/contact',
+        ok:'¡Mensaje recibido! Te respondemos en menos de 24 horas laborables.',
+        err:'No se ha podido enviar. Te abrimos tu correo para que nos escribas directamente.',
+        body:function(v){ return { name:v('name'), company:v('venue'), email:v('email'), website:v('website'), lang:'es',
+          message:['Tipo: '+v('business_type'), 'Le interesa: '+v('interest'), v('phone') ? 'Teléfono: '+v('phone') : '', v('message')].filter(Boolean).join('\n') }; },
+        mailto:true
+      },
+      demoForm: {
+        api:'https://app.foreventos.com/api/public/demo-request',
+        ok:'¡Solicitud recibida! La revisamos y te enviamos por email tu enlace personal a la demo.',
+        err:'No se ha podido enviar. Escríbenos a info@foreventos.com y te la enviamos.',
+        body:function(v){ return { name:v('name'), email:v('email'), phone:v('phone'), business_type:v('business_type'), venue_name:v('venue_name'),
+          company:v('company'), city:v('city'), website_url:v('website_url'), message:v('message'), website:v('website'), lang:'es' }; }
+      }
+    };
+    Object.keys(FORMS).forEach(function(id){
+      var f = document.getElementById(id); if (!f) return;
+      var cfg = FORMS[id], btn = f.querySelector('button[type=submit]'), st = f.querySelector('.f-status');
+      function v(n){ return ((f.elements[n] && f.elements[n].value) || '').trim(); }
+      function show(k, m){ if (st){ st.textContent = m; st.className = 'f-status ' + k; } }
+      f.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (!f.reportValidity()) return;
+        var label = btn && btn.querySelector('span'), orig = label ? label.textContent : '';
+        if (btn) btn.disabled = true; if (label) label.textContent = 'Enviando…';
+        fetch(cfg.api, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(cfg.body(v)) })
+          .then(function(r){ if (!r.ok){ var er = new Error('HTTP ' + r.status); er.status = r.status; throw er; } return r.json(); })
+          .then(function(){ show('ok', cfg.ok); f.reset(); })
+          .catch(function(er){
+            if (er && er.status === 400){ show('err', 'Revisa los datos: falta alguno o el email no parece válido.'); return; }
+            if (er && er.status === 429){ show('err', 'Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos a info@foreventos.com.'); return; }
+            show('err', cfg.err);
+            if (cfg.mailto) setTimeout(function(){
+              location.href = 'mailto:info@foreventos.com?subject=' + encodeURIComponent('Contacto FOREVENTOS · ' + v('venue')) +
+                '&body=' + encodeURIComponent('Nombre: ' + v('name') + '\nNegocio: ' + v('venue') + '\nEmail: ' + v('email') + '\nLe interesa: ' + v('interest') + '\n\n' + v('message'));
+            }, 900);
+          })
+          .finally(function(){ if (btn) btn.disabled = false; if (label) label.textContent = orig; });
+      });
+    });
+    // /contacto?interes=… preselecciona lo que le interesa
+    var sel = document.querySelector('#contactForm select[name=interest]'), q = new URLSearchParams(location.search).get('interes');
+    if (sel && q) [].forEach.call(sel.options, function(o){ if (o.getAttribute('data-k') === q) sel.value = o.value; });
+  })();
+
+  /* Submenú fijo de servicios: marca la sección en la que estás */
+  (function(){
+    var nav = document.querySelector('[data-subnav]'); if (!nav) return;
+    var links = [].slice.call(nav.querySelectorAll('a')), secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    var tick = false;
+    function on(){
+      tick = false;
+      var cur = -1;
+      secs.forEach(function(s, i){ if (s && s.getBoundingClientRect().top < innerHeight * .45) cur = i; });
+      links.forEach(function(a, i){ a.classList.toggle('on', i === cur); });
+      if (cur >= 0 && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left:links[cur].offsetLeft - 20, behavior:'smooth' });
+    }
+    addEventListener('scroll', function(){ if (!tick){ tick = true; requestAnimationFrame(on); } }, { passive:true });
+    on();
+  })();
+
+  /* Datos legales (LSSI art. 10) en el pie */
+  (function(){
+    var L = window.FE_LEGAL || {}, el = document.getElementById('feLegal');
+    if (el) el.textContent = [L.company, 'NIF ' + L.cif, L.address].filter(Boolean).join(' · ');
+  })();
+
+</script>
+</body>
+</html>

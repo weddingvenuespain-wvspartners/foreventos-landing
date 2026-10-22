@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}" />
+<link rel="canonical" href="{{url}}" />
+<meta name="theme-color" content="#F4F2EC" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="FOREVENTOS" />
+<meta property="og:title" content="{{title}}" />
+<meta property="og:description" content="{{desc}}" />
+<meta property="og:url" content="{{url}}" />
+<meta property="og:image" content="https://foreventos.com/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_ES" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{title}}" />
+<meta name="twitter:description" content="{{desc}}" />
+<meta name="twitter:image" content="https://foreventos.com/og-cover.png" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preload" href="/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+<!--
+  Sin cookies ni recursos de terceros: las tipografías se sirven desde /fonts,
+  así que no hace falta banner de consentimiento. Si algún día se añade analítica
+  o cualquier script externo, hay que volver a pedir consentimiento antes de cargarlo.
+-->
+<script>
+  document.documentElement.classList.add('js');
+  window.FE_LEGAL = {
+    company: 'WVS Partners, S.L.',
+    cif: 'B23867617',
+    address: 'Carrer Espalter 38, 08870 Sitges (Barcelona)',
+    email: 'info@foreventos.com'
+  };
+  // Intro de marca: solo la primera vez por sesión, nunca con movimiento reducido
+  try {
+    if (document.querySelector && !sessionStorage.getItem('fe_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
+      document.documentElement.classList.add('con-intro');
+  } catch (e) {}
+</script>
+<style>
+{{css}}
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>

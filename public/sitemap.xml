@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://foreventos.com/</loc>
-  </url>
-  <url>
-    <loc>https://foreventos.com/plataforma</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://foreventos.com/plataforma"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://foreventos.com/en"/>
-  </url>
-  <url>
-    <loc>https://foreventos.com/en</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://foreventos.com/plataforma"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://foreventos.com/en"/>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://foreventos.com/</loc></url>
+  <url><loc>https://foreventos.com/servicios</loc></url>
+  <url><loc>https://foreventos.com/plataforma</loc></url>
+  <url><loc>https://foreventos.com/proyectos</loc></url>
+  <url><loc>https://foreventos.com/contacto</loc></url>
+  <url><loc>https://foreventos.com/en</loc></url>
 </urlset>
