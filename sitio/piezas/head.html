@@ -43,6 +43,11 @@
   try {
     if (document.querySelector && !sessionStorage.getItem('fe_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
       document.documentElement.classList.add('con-intro');
+    // Llegamos desde otra página de la web: la cortina empieza cerrada y se abre (base.js)
+    if (sessionStorage.getItem('fe_cortina')) {
+      sessionStorage.removeItem('fe_cortina');
+      if (!document.documentElement.classList.contains('con-intro')) document.documentElement.classList.add('con-cortina');
+    }
   } catch (e) {}
 </script>
 <style>

@@ -43,6 +43,11 @@
   try {
     if (document.querySelector && !sessionStorage.getItem('fe_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
       document.documentElement.classList.add('con-intro');
+    // Llegamos desde otra página de la web: la cortina empieza cerrada y se abre (base.js)
+    if (sessionStorage.getItem('fe_cortina')) {
+      sessionStorage.removeItem('fe_cortina');
+      if (!document.documentElement.classList.contains('con-intro')) document.documentElement.classList.add('con-cortina');
+    }
   } catch (e) {}
 </script>
 <style>
@@ -369,7 +374,23 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 @keyframes fuera{ to{ opacity:0; transform:translateY(-30px); } }
 @keyframes sube-cortina{ 0%{ transform:translateY(0); border-radius:0; } 100%{ transform:translateY(-110%); border-radius:0 0 50% 50% / 0 0 22vh 22vh; } }
 
+/* ================= Cortina entre páginas ================= */
+:root{ --grano:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.cortina{ position:fixed; inset:0; z-index:250; display:grid; place-items:center; overflow:hidden; isolation:isolate; background:var(--forest); color:rgba(255,255,255,.9); pointer-events:none; visibility:hidden; transform:translateY(105%); }
+.cortina-grano{ position:absolute; inset:-50%; z-index:-1; opacity:.14; mix-blend-mode:overlay; background-image:var(--grano); }
+.cortina .arco{ width:clamp(64px, 8vw, 104px); height:auto; }
+.cortina .arco .clave{ fill:var(--green); }
+.cortina.cubre{ visibility:visible; pointer-events:auto; animation:cortina-entra .56s cubic-bezier(.76,0,.24,1) both; }
+.cortina.cubre .arco{ animation:cortina-arco .5s var(--ease) .18s both; }
+.con-cortina .cortina{ visibility:visible; transform:none; }
+.con-cortina .cortina.abre{ animation:cortina-sale .9s cubic-bezier(.76,0,.24,1) both; }
+.con-cortina .cortina.abre .arco{ animation:fuera .4s var(--ease) both; }
+@keyframes cortina-entra{ from{ transform:translateY(105%); border-radius:50% 50% 0 0 / 22vh 22vh 0 0; } to{ transform:none; border-radius:0; } }
+@keyframes cortina-arco{ from{ opacity:0; transform:translateY(30px) scale(.8); } }
+@keyframes cortina-sale{ from{ transform:none; border-radius:0; } to{ transform:translateY(-110%); border-radius:0 0 50% 50% / 0 0 22vh 22vh; } }
+
 @media (prefers-reduced-motion: reduce){
+  .cortina{ display:none; }
   *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
   .js .rv, .js .rv-clip > *, .js .split .w > span{ opacity:1; transform:none; clip-path:none; }
 }
@@ -731,6 +752,9 @@ small.ph-l{ width:75%; height:7px; }
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
+<!-- Cortina entre páginas: sube en curva al salir y se retira hacia arriba al llegar -->
+<div class="cortina" aria-hidden="true"><span class="cortina-grano"></span><svg class="ic arco" viewBox="16 12 88 98" fill="currentColor" aria-hidden="true"><path d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z"/><path d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z"/><path d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z"/><path class="clave" d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z"/><path d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z"/><path d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z"/><path d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z"/><rect x="18" y="63.93" width="19" height="44.07"/><rect x="83" y="63.93" width="19" height="44.07"/></svg></div>
+
 <header class="nav" id="nav">
   <div class="nav-in">
     <nav class="nav-l" aria-label="Principal">
@@ -936,7 +960,13 @@ small.ph-l{ width:75%; height:7px; }
      Solo la primera vez por sesión (el <head> pone .con-intro). Clic = saltar. */
   (function(){
     var root = document.documentElement, el = document.getElementById('intro');
-    if (!el || !root.classList.contains('con-intro')){ root.classList.remove('con-intro'); window.FE_LISTO = true; return; }
+    if (!el || !root.classList.contains('con-intro')){
+      root.classList.remove('con-intro');
+      // Con cortina, las entradas esperan a que empiece a abrirse
+      if (!root.classList.contains('con-cortina')){ window.FE_LISTO = true; return; }
+      setTimeout(function(){ window.FE_LISTO = true; document.dispatchEvent(new Event('fe:listo')); }, 380);
+      return;
+    }
     try { sessionStorage.setItem('fe_intro', '1'); } catch(e) {}
     [].forEach.call(el.querySelectorAll('.intro-nombre span'), function(s, k){ s.style.setProperty('--k', k); });
     var t = [], cuenta = el.querySelector('[data-cuenta]'), t0 = performance.now(), hecho = false;
@@ -957,6 +987,30 @@ small.ph-l{ width:75%; height:7px; }
     t.push(setTimeout(function(){ el.classList.add('swap'); }, 1650));
     t.push(setTimeout(fin, 2150));
     el.addEventListener('click', fin);
+  })();
+
+  /* Cortina entre páginas: al pulsar un enlace interno sube la cortina verde con el arco y luego
+     se navega; en la página nueva (head.html pone .con-cortina) se retira hacia arriba */
+  (function(){
+    var c = document.querySelector('.cortina'), root = document.documentElement; if (!c) return;
+    if (root.classList.contains('con-cortina')){
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('abre'); }); });
+      setTimeout(function(){ root.classList.remove('con-cortina'); c.classList.remove('abre'); }, 1100);
+    }
+    if (REDUCE) return;
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+      if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target || a.hasAttribute('download')) return;
+      var u = new URL(a.href, location.href);
+      // Solo otras páginas de esta web (las anclas de la misma página se quedan como están)
+      if (u.origin !== location.origin || u.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '')) return;
+      e.preventDefault();
+      try { sessionStorage.setItem('fe_cortina', '1'); } catch (er) {}
+      c.classList.add('cubre');
+      setTimeout(function(){ location.href = u.href; }, 560);
+    });
+    // Al volver atrás desde la caché del navegador, la cortina no puede quedarse puesta
+    addEventListener('pageshow', function(e){ if (e.persisted){ c.classList.remove('cubre', 'abre'); root.classList.remove('con-cortina'); } });
   })();
 
   /* Menú: fondo al hacer scroll */

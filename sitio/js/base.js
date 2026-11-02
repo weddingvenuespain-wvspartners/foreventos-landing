@@ -5,7 +5,13 @@
      Solo la primera vez por sesión (el <head> pone .con-intro). Clic = saltar. */
   (function(){
     var root = document.documentElement, el = document.getElementById('intro');
-    if (!el || !root.classList.contains('con-intro')){ root.classList.remove('con-intro'); window.FE_LISTO = true; return; }
+    if (!el || !root.classList.contains('con-intro')){
+      root.classList.remove('con-intro');
+      // Con cortina, las entradas esperan a que empiece a abrirse
+      if (!root.classList.contains('con-cortina')){ window.FE_LISTO = true; return; }
+      setTimeout(function(){ window.FE_LISTO = true; document.dispatchEvent(new Event('fe:listo')); }, 380);
+      return;
+    }
     try { sessionStorage.setItem('fe_intro', '1'); } catch(e) {}
     [].forEach.call(el.querySelectorAll('.intro-nombre span'), function(s, k){ s.style.setProperty('--k', k); });
     var t = [], cuenta = el.querySelector('[data-cuenta]'), t0 = performance.now(), hecho = false;
@@ -26,6 +32,30 @@
     t.push(setTimeout(function(){ el.classList.add('swap'); }, 1650));
     t.push(setTimeout(fin, 2150));
     el.addEventListener('click', fin);
+  })();
+
+  /* Cortina entre páginas: al pulsar un enlace interno sube la cortina verde con el arco y luego
+     se navega; en la página nueva (head.html pone .con-cortina) se retira hacia arriba */
+  (function(){
+    var c = document.querySelector('.cortina'), root = document.documentElement; if (!c) return;
+    if (root.classList.contains('con-cortina')){
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ c.classList.add('abre'); }); });
+      setTimeout(function(){ root.classList.remove('con-cortina'); c.classList.remove('abre'); }, 1100);
+    }
+    if (REDUCE) return;
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+      if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target || a.hasAttribute('download')) return;
+      var u = new URL(a.href, location.href);
+      // Solo otras páginas de esta web (las anclas de la misma página se quedan como están)
+      if (u.origin !== location.origin || u.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '')) return;
+      e.preventDefault();
+      try { sessionStorage.setItem('fe_cortina', '1'); } catch (er) {}
+      c.classList.add('cubre');
+      setTimeout(function(){ location.href = u.href; }, 560);
+    });
+    // Al volver atrás desde la caché del navegador, la cortina no puede quedarse puesta
+    addEventListener('pageshow', function(e){ if (e.persisted){ c.classList.remove('cubre', 'abre'); root.classList.remove('con-cortina'); } });
   })();
 
   /* Menú: fondo al hacer scroll */

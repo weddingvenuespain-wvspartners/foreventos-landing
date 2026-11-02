@@ -32,4 +32,7 @@ module.exports = {
   'enlace': svg('<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>'),
   'escudo': svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>'),
   'estrella': svg('<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'),
+  'instagram': svg('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>'),
+  // El arco del logo, relleno (la clave lleva su propia clase para darle color)
+  'arco': '<svg class="ic arco" viewBox="16 12 88 98" fill="currentColor" aria-hidden="true"><path d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z"/><path d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z"/><path d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z"/><path class="clave" d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z"/><path d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z"/><path d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z"/><path d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z"/><rect x="18" y="63.93" width="19" height="44.07"/><rect x="83" y="63.93" width="19" height="44.07"/></svg>',
 }

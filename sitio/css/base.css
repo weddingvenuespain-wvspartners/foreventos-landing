@@ -321,7 +321,23 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 @keyframes fuera{ to{ opacity:0; transform:translateY(-30px); } }
 @keyframes sube-cortina{ 0%{ transform:translateY(0); border-radius:0; } 100%{ transform:translateY(-110%); border-radius:0 0 50% 50% / 0 0 22vh 22vh; } }
 
+/* ================= Cortina entre páginas ================= */
+:root{ --grano:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.cortina{ position:fixed; inset:0; z-index:250; display:grid; place-items:center; overflow:hidden; isolation:isolate; background:var(--forest); color:rgba(255,255,255,.9); pointer-events:none; visibility:hidden; transform:translateY(105%); }
+.cortina-grano{ position:absolute; inset:-50%; z-index:-1; opacity:.14; mix-blend-mode:overlay; background-image:var(--grano); }
+.cortina .arco{ width:clamp(64px, 8vw, 104px); height:auto; }
+.cortina .arco .clave{ fill:var(--green); }
+.cortina.cubre{ visibility:visible; pointer-events:auto; animation:cortina-entra .56s cubic-bezier(.76,0,.24,1) both; }
+.cortina.cubre .arco{ animation:cortina-arco .5s var(--ease) .18s both; }
+.con-cortina .cortina{ visibility:visible; transform:none; }
+.con-cortina .cortina.abre{ animation:cortina-sale .9s cubic-bezier(.76,0,.24,1) both; }
+.con-cortina .cortina.abre .arco{ animation:fuera .4s var(--ease) both; }
+@keyframes cortina-entra{ from{ transform:translateY(105%); border-radius:50% 50% 0 0 / 22vh 22vh 0 0; } to{ transform:none; border-radius:0; } }
+@keyframes cortina-arco{ from{ opacity:0; transform:translateY(30px) scale(.8); } }
+@keyframes cortina-sale{ from{ transform:none; border-radius:0; } to{ transform:translateY(-110%); border-radius:0 0 50% 50% / 0 0 22vh 22vh; } }
+
 @media (prefers-reduced-motion: reduce){
+  .cortina{ display:none; }
   *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
   .js .rv, .js .rv-clip > *, .js .split .w > span{ opacity:1; transform:none; clip-path:none; }
 }
