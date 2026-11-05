@@ -1,18 +1,15 @@
-<!-- ============ HERO: mensaje + el pipeline comercial en directo ============ -->
+<!-- ============ HERO: mensaje + el proceso de venta, fase a fase ============ -->
 <section class="hero">
   <div class="hero-card">
     <div class="hero-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="luz"></i><span class="grano"></span></div>
     <div class="hero-grid">
       <div class="hero-txt">
-        <a class="chip rv" href="https://weddingvenuesspain.com" target="_blank" rel="noopener">
-          <span class="chip-dot" aria-hidden="true"></span>
-          <span>Del equipo de <b>weddingvenuesspain.com</b></span>
-          {{i:flecha-diag}}
-        </a>
-        <h1 class="hero-h1 split" style="--d:1">Llenamos tu calendario de <span class="rot" data-nosplit aria-label="bodas, eventos y celebraciones"><span class="rot-in" aria-hidden="true"><span>bodas.</span><span>eventos.</span><span>celebraciones.</span><span>bodas.</span></span></span></h1>
-        <p class="hero-sub rv" style="--d:4">Hacemos que te encuentren, te escriban y te reserven. <b>Para espacios, wedding planners y caterings.</b></p>
+        <p class="hero-kicker rv">Agencia de marketing digital y tecnología</p>
+        <!-- "caos" sale con las letras desordenadas y caen en su sitio -->
+        <h1 class="hero-h1 split" style="--d:1" aria-label="Más reservas, menos caos.">Más reservas,<br> <em>menos <span class="caos" data-nosplit aria-hidden="true"><i style="--k:0; --x:-.18em; --y:-.42em; --r:-24deg">c</i><i style="--k:1; --x:.12em; --y:.3em; --r:18deg">a</i><i style="--k:2; --x:-.1em; --y:-.5em; --r:-12deg">o</i><i style="--k:3; --x:.22em; --y:.26em; --r:30deg">s</i><i style="--k:4; --x:.3em; --y:-.3em; --r:-40deg">.</i></span></em></h1>
+        <p class="hero-sub rv" style="--d:4">Webs, visibilidad y sistemas que ordenan tu proceso de venta, de la primera búsqueda al día del evento. <b>Para espacios, wedding planners y caterings.</b></p>
         <div class="hero-ctas rv" style="--d:5">
-          <a href="/contacto" class="btn btn-light btn-brillo" data-mag><span>Quiero llenar mi calendario</span><i>{{i:flecha}}</i></a>
+          <a href="/contacto" class="btn btn-hero" data-mag><span>Quiero más reservas</span><i>{{i:flecha}}</i></a>
           <a href="/servicios" class="hero-link">Ver servicios {{i:flecha}}</a>
         </div>
         <a class="hero-prueba rv" style="--d:6" href="/proyectos">
@@ -25,42 +22,39 @@
         </a>
       </div>
 
-      <!-- Tu temporada se llena: entra una solicitud por un canal (tu web, Google, Instagram o
-           weddingvenuesspain.com), llegan los avisos (visita, firma, señal), el día se reserva y sube lo
-           reservado. En el teléfono, solo el calendario y los avisos; en el portátil, también los canales y la cifra -->
+      <!-- Mini vídeo de tu proceso de venta, como unas historias: cinco escenas de 7 s con una barra de
+           progreso por fase, el título dentro y una sola pantalla protagonista en cada una. Se monta con CSS
+           al encender cada escena (.on); hero.js las va pasando y escala el lienzo de 440 × 440 al hueco -->
       <div class="hero-stage rv" style="--d:3">
-        <div class="hm" data-hm aria-hidden="true">
-          <template data-hm-ico>{{i:arco}}</template>
-          <div class="hm-fuentes">
-            <small>Te llegan solicitudes desde</small>
-            <span data-canal="tu web">{{i:web}}<b>Tu web</b></span>
-            <span data-canal="Google">{{i:buscar}}<b>Google</b></span>
-            <span data-canal="Instagram">{{i:instagram}}<b>Instagram</b></span>
-            <span data-canal="weddingvenuesspain.com">{{i:anillos}}<b>weddingvenuesspain.com</b></span>
-          </div>
-          <div class="hm-avisos"></div>
-          <div class="hm-cal">
-            <div class="hm-cab">
-              <span><small>Tu calendario</small><b>Junio 2027</b></span>
-              <span class="hm-tot"><small>Reservado</small><b data-hm-total>41.200 €</b></span>
-            </div>
-            <div class="hm-dow"><i>L</i><i>M</i><i>X</i><i>J</i><i>V</i><i>S</i><i>D</i></div>
-            <div class="hm-dias"></div>
-            <div class="hm-pie"><span><i class="ya"></i>Reservado</span><span><i class="nuevo"></i>Nueva reserva</span><b data-hm-libres>27 días libres</b></div>
-          </div>
-          <div class="hm-kpi">
-            <small>Reservado esta temporada</small>
-            <b data-hm-total>41.200 €</b>
-            <div class="hm-barras"><i style="--h:34%"><em>Ene</em></i><i style="--h:42%"><em>Feb</em></i><i style="--h:38%"><em>Mar</em></i><i style="--h:55%"><em>Abr</em></i><i style="--h:63%"><em>May</em></i><i class="hoy" data-hm-barra style="--h:40%"><em>Jun</em></i></div>
-          </div>
-          <i class="hm-dot"></i>
+        <!-- Vídeo hecho con Remotion (proyecto aparte, C:/dev/foreventos-video): 35 s en bucle, sin sonido -->
+        <div class="vd" data-escena>
+          <div class="vd-marco"><video class="vd-vid" src="/video/hero.mp4" poster="/video/hero-poster.jpg" width="810" height="810" autoplay muted loop playsinline preload="auto" aria-label="Del primer contacto al día de la boda: te encuentran en Google, te escriben desde tu web, respondes con tu dossier, firman y pagan en su portal y les acompañas hasta el evento"></video></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ QUÉ HACEMOS: los cuatro servicios en lista ============ -->
+<!-- ============ TRABAJO REAL: una tira de piezas de distinto ancho dentro de un marco claro que pasa sola
+     despacio (se para con el ratón). Cada pieza, un proyecto nuestro bien presentado; encima, un aviso fijo ============ -->
+<section class="casos" id="proyectos" aria-label="Proyectos reales">
+  <div class="casos-marco rv">
+    <div class="casos-ventana">
+      <div class="casos-pista" data-casos>
+        <figure class="cz cz-color" aria-hidden="true"><span class="cz-luz"></span></figure>
+        <figure class="cz cz-tel"><div class="cz-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async" alt="weddingvenuesspain.com en el móvil"></div><figcaption>Wedding Venues Spain</figcaption></figure>
+        <figure class="cz cz-ambiente"><img class="cz-fondo" src="/finca/finca.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async" alt="Portada de weddingvenuesspain.com"></div><figcaption>Web · Diseño · SEO</figcaption></figure>
+        <figure class="cz cz-plat"><img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848" loading="lazy" decoding="async" alt="Panel de la plataforma FOREVENTOS"><div class="cz-card"><div class="cz-card-top"><b><i></i>Nueva solicitud</b><small>hace 2 min</small></div><p>«¿Tenéis libre el 12 de junio? Somos 120 invitados.»</p><div class="cz-quien"><i>LM</i><span>Laura y Marc<small>desde tu web</small></span></div></div></figure>
+        <figure class="cz cz-stay"><div class="cz-nav"><img src="/proyectos/stayforevents.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async" alt="Portada de Stay For Events"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/stayforevents-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Stay For Events</figcaption></figure>
+        <figure class="cz cz-visita"><img src="/proyectos/visita.jpg" alt="" width="1140" height="712" loading="lazy" decoding="async" alt="Página de reserva de visitas"><figcaption>Reserva de visitas</figcaption></figure>
+      </div>
+    </div>
+    <a class="cz-borrador" href="/contacto"><span class="cz-prev" aria-hidden="true"><img class="p1" src="/boceto/escritorio.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"><img class="p2" src="/boceto/movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span><span><small>Sin compromiso</small><b>Pide tu boceto web gratis</b><em>Te diseñamos la primera versión de tu web antes de decidir nada.</em><i>Pedir mi boceto {{i:flecha}}</i></span></a>
+  </div>
+  <div class="wrap casos-pie rv" style="--d:1"><p>Proyectos reales para negocios de bodas y eventos.</p><a class="link" href="/proyectos">Ver proyectos {{i:flecha}}</a></div>
+</section>
+
+<!-- ============ QUÉ HACEMOS: cuatro servicios, cada uno con su color y su pantalla ============ -->
 <section class="sec" id="que-hacemos">
   <div class="wrap">
     <div class="sec-head">
@@ -71,134 +65,31 @@
       <p class="lead rv" style="--d:2">Funcionan solos o juntos. Empieza por lo que más te urge.</p>
     </div>
 
-    <div class="servicios" data-servicios>
-      <a class="sv rv" href="/servicios#webs">
-        <span class="sv-ic">{{i:web}}</span>
-        <span class="sv-t"><small>01 · Espacios, planners y caterings</small><b>Webs que traen solicitudes</b></span>
-        <span class="sv-d">Diseño a medida, rápida y conectada a tu panel. Antes de decidir, te enseñamos un borrador gratis.</span>
-        <span class="sv-go">Quiero mi borrador {{i:flecha}}</span>
+    <div class="bento">
+      <a class="bn bn-web rv" href="/servicios#webs">
+        <div class="bn-txt"><span class="bn-tag"><i>{{i:web}}</i>Webs</span><h3>Webs con esencia que traen solicitudes</h3><p>Diseño a medida, rápida y conectada a tu panel. Antes de decidir, te enseñamos un boceto gratis.</p><span class="bn-go">Quiero mi boceto {{i:flecha}}</span></div>
+        <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900" loading="lazy"></div><div class="bn-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy"></div></div>
       </a>
-      <a class="sv rv" style="--d:1" href="/plataforma">
-        <span class="sv-ic">{{i:columnas}}</span>
-        <span class="sv-t"><small>02 · Para todos</small><b>Plataforma de gestión comercial para cerrar ventas</b></span>
-        <span class="sv-d">Solicitudes, visitas, contratos y cobros en un sitio, conectado a canales como weddingvenuesspain.com.</span>
-        <span class="sv-go">Ver la plataforma {{i:flecha}}</span>
+      <a class="bn bn-plat rv" style="--d:1" href="/plataforma">
+        <div class="bn-txt"><span class="bn-tag"><i>{{i:columnas}}</i>Plataforma</span><h3>Plataforma de gestión comercial para cerrar ventas</h3><p>Todas tus solicitudes en un mismo sitio, con más control y menos esfuerzo, y herramientas que facilitan la comunicación con tus clientes y te ayudan a cerrar más ventas.</p><span class="bn-go">Ver la plataforma {{i:flecha}}</span></div>
+        <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>app.foreventos.com</span></div><img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848" loading="lazy"></div></div>
       </a>
-      <a class="sv rv" style="--d:2" href="/servicios#google">
-        <span class="sv-ic">{{i:buscar}}</span>
-        <span class="sv-t"><small>03 · Para todos</small><b>Más visibilidad en Google y redes</b></span>
-        <span class="sv-d">SEO, Google Ads y campañas en Instagram y Facebook, con un informe claro cada mes.</span>
-        <span class="sv-go">Quiero que me vean {{i:flecha}}</span>
+      <a class="bn bn-seo rv" style="--d:2" href="/servicios#google">
+        <div class="bn-txt"><span class="bn-tag"><i>{{i:buscar}}</i>Visibilidad</span><h3>Más visibilidad ante tus clientes ideales</h3><p>Te ponemos delante de quien busca lo que ofreces, en Google y en redes: más oportunidades de que te conozcan y te contraten.</p><span class="bn-go">Quiero que me vean {{i:flecha}}</span></div>
+        <div class="bn-pant" aria-hidden="true">
+          <div class="seo-g"><span class="seo-bar">{{i:buscar}}finca para bodas en Barcelona</span><span class="seo-r"><small>Tu web</small><b>Tu finca · Bodas y eventos</b></span></div>
+          <div class="seo-graf"><small>Solicitudes por canal</small><span style="--h:46%"><i>Google</i></span><span style="--h:72%"><i>Web</i></span><span style="--h:58%"><i>Instagram</i></span><span style="--h:88%"><i>Total</i></span></div>
+        </div>
       </a>
-      <a class="sv rv" style="--d:3" href="/servicios#a-medida">
-        <span class="sv-ic">{{i:codigo}}</span>
-        <span class="sv-t"><small>04 · Si necesitas algo propio</small><b>Sistemas hechos a tu medida</b></span>
-        <span class="sv-d">Portales para tus clientes, reservas con pago, integraciones y automatizaciones.</span>
-        <span class="sv-go">Cuéntanos tu idea {{i:flecha}}</span>
+      <a class="bn bn-med rv" style="--d:3" href="/servicios#a-medida">
+        <div class="bn-txt"><span class="bn-tag"><i>{{i:codigo}}</i>A medida</span><h3>Sistemas a medida para olvidarte del papeleo</h3><p>Menos horas en Excel, emails y tareas repetitivas: automatizamos lo administrativo para que te dediques a tus clientes.</p><span class="bn-go">Cuéntanos tu idea {{i:flecha}}</span></div>
+        <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>reservas</span></div><img src="/proyectos/visita.jpg" alt="" width="1140" height="712" loading="lazy"></div><span class="med-chip med-a">{{i:tarjeta}}Pago online</span><span class="med-chip med-b">{{i:enchufe}}Integraciones</span></div>
       </a>
-      <div class="sv-prev" aria-hidden="true">
-        <img src="/proyectos/stayforevents.jpg" alt="" loading="lazy" width="1440" height="900">
-        <img src="/proyectos/plataforma.jpg" alt="" loading="lazy" width="1440" height="848">
-        <div class="svp-g"><div class="g-logo"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></div><div class="svp-bar">{{i:buscar}}finca para bodas cerca de mí</div><div class="svp-r"><small>Patrocinado · tufinca.com</small><b>Tu finca · Bodas y eventos</b></div><div class="svp-r o"><i></i><i></i></div></div>
-        <img src="/proyectos/visita.jpg" alt="" loading="lazy" width="1140" height="712">
-      </div>
+    </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ASÍ TRABAJAMOS: qué pasa desde que nos escribes ============ -->
-<!-- En escritorio la sección se queda fija y los pasos pasan de lado al bajar (hero.js) -->
-<section class="sec dark como" id="como-trabajamos">
-  <div class="wrap como-pin">
-    <div class="sec-head">
-      <div>
-        <span class="tag rv">Así trabajamos</span>
-        <h2 class="h2 split">De la primera llamada <em>a los resultados</em></h2>
-      </div>
-      <p class="lead rv" style="--d:2">Un solo equipo, sin tecnicismos ni sorpresas.</p>
-    </div>
-
-    <ol class="pasos" data-pasos>
-      <li class="paso rv">
-        <div class="paso-n"><span>01</span><b>Hablamos</b></div>
-        <div class="paso-vis t1" aria-hidden="true">
-          <div class="chat a">Hola, tenemos una finca y nos llegan pocas solicitudes…</div>
-          <div class="chat b">¡Cuéntanos! ¿Cómo os encuentran ahora?</div>
-        </div>
-        <p>Nos cuentas tu negocio, cómo vendes hoy y qué quieres conseguir. Te escuchamos antes de proponer nada.</p>
-        <ul class="paso-con"><li>Sin compromiso</li></ul>
-      </li>
-      <li class="paso rv" style="--d:1">
-        <div class="paso-n"><span>02</span><b>Te proponemos</b></div>
-        <div class="paso-vis t2" aria-hidden="true">
-          <div class="doc"><b>Tu plan</b><span><i></i>Web nueva</span><span><i></i>Gestión comercial</span><span><i></i>SEO local</span><em>Precio cerrado</em></div>
-        </div>
-        <p>Un plan claro: qué hacemos, en qué orden y cuánto cuesta. Si es una web, te enseñamos un borrador gratis.</p>
-        <ul class="paso-con"><li>Precio cerrado</li><li>Borrador gratis</li></ul>
-      </li>
-      <li class="paso rv" style="--d:2">
-        <div class="paso-n"><span>03</span><b>Lo construimos</b></div>
-        <div class="paso-vis t3" aria-hidden="true">
-          <div class="obra"><div class="ob-bar"><i></i><i></i><i></i></div><div class="ob-in"><i class="x1"></i><i class="x2"></i><i class="x3"></i><i class="x4"></i></div><div class="ob-prog"><i></i></div></div>
-        </div>
-        <p>Lo montamos, conectamos tus canales de venta al panel y te enseñamos a usarlo. Tú sigues con tu día a día.</p>
-        <ul class="paso-con"><li>Te lo dejamos montado</li></ul>
-      </li>
-      <li class="paso rv" style="--d:3">
-        <div class="paso-n"><span>04</span><b>Medimos y mejoramos</b></div>
-        <div class="paso-vis t4" aria-hidden="true">
-          <div class="graf"><small>Solicitudes al mes</small><div class="gb"><i style="--h:28%"></i><i style="--h:36%"></i><i style="--h:44%"></i><i style="--h:58%"></i><i style="--h:70%"></i><i style="--h:88%"></i></div></div>
-        </div>
-        <p>Vemos qué canal trae solicitudes y cuál no, y vamos ajustando contigo con un informe claro cada mes.</p>
-        <ul class="paso-con"><li>Informe mensual</li><li>Sin permanencia</li></ul>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============ PROYECTOS: vitrina. A la izquierda los proyectos (pasan solos, con su barra de
-     progreso, o al pulsar); a la derecha cada uno en grande, en su navegador y su móvil ============ -->
-<section class="sec vitrina" id="proyectos">
-  <div class="wrap">
-    <div class="proy-head">
-      <div>
-        <span class="tag rv">Proyectos</span>
-        <h2 class="h2 split">Lo que hemos <em>construido</em></h2>
-      </div>
-      <a class="link rv" href="/proyectos">Ver todos los proyectos {{i:flecha}}</a>
-    </div>
-    <div class="vt rv" data-vitrina>
-    <div class="vt-lista" role="tablist" aria-label="Proyectos">
-      <button type="button" class="vt-tab on" role="tab" aria-selected="true" aria-controls="vt-wvs" id="vt-tab-wvs">
-        <small>01 · Portal · Diseño · SEO</small><b>Wedding Venues Spain</b><span>El portal de bodas en España para parejas internacionales. Cada solicitud llega directa al panel de cada negocio.</span><i class="vt-prog"></i>
-      </button>
-      <button type="button" class="vt-tab" role="tab" aria-selected="false" aria-controls="vt-plat" id="vt-tab-plat">
-        <small>02 · Producto · Pagos · Firma online</small><b>Plataforma FOREVENTOS</b><span>Nuestro software de gestión comercial: solicitudes, visitas, propuestas, contratos y cobros en un solo sitio.</span><i class="vt-prog"></i>
-      </button>
-      <button type="button" class="vt-tab" role="tab" aria-selected="false" aria-controls="vt-stay" id="vt-tab-stay">
-        <small>03 · Web · Reservas</small><b>Stay For Events</b><span>Alojamiento para los invitados de bodas y eventos, con disponibilidad y reservas online.</span><i class="vt-prog"></i>
-      </button>
-    </div>
-    <div class="vt-escena">
-      <div class="vt-slide vt-wvs on" id="vt-wvs" role="tabpanel" aria-labelledby="vt-tab-wvs">
-        <div class="vt-br"><div class="nav-mock"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><div class="vt-pant"><img src="/proyectos/weddingvenuesspain.jpg" alt="Portada de weddingvenuesspain.com" loading="lazy" width="1440" height="900"></div></div>
-        <div class="vt-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="weddingvenuesspain.com en el móvil" loading="lazy" width="600" height="1298"></div>
-        <a class="vt-ir" href="https://weddingvenuesspain.com" target="_blank" rel="noopener">Visitar la web {{i:flecha-diag}}</a>
-      </div>
-      <div class="vt-slide vt-plat" id="vt-plat" role="tabpanel" aria-labelledby="vt-tab-plat">
-        <div class="vt-br"><div class="nav-mock"><i></i><i></i><i></i><span>app.foreventos.com</span></div><div class="vt-pant"><img src="/proyectos/plataforma.jpg" alt="Panel de la plataforma FOREVENTOS" loading="lazy" width="1440" height="848"></div></div>
-        <div class="vt-mini"><div class="nav-mock"><i></i><i></i><i></i><span>reservas</span></div><img src="/proyectos/visita.jpg" alt="Página de reserva de visitas" loading="lazy" width="1140" height="712"></div>
-        <a class="vt-ir" href="/plataforma">Conocer la plataforma {{i:flecha}}</a>
-      </div>
-      <div class="vt-slide vt-stay" id="vt-stay" role="tabpanel" aria-labelledby="vt-tab-stay">
-        <div class="vt-br"><div class="nav-mock"><i></i><i></i><i></i><span>stayforevents.com</span></div><div class="vt-pant"><img src="/proyectos/stayforevents.jpg" alt="Portada de Stay For Events" loading="lazy" width="1440" height="900"></div></div>
-        <div class="vt-movil"><img src="/proyectos/stayforevents-movil.jpg" alt="Stay For Events en el móvil" loading="lazy" width="600" height="1298"></div>
-        <a class="vt-ir" href="https://stayforevents.com" target="_blank" rel="noopener">Visitar la web {{i:flecha-diag}}</a>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ TESTIMONIOS (carrusel tipo superpower) ============
      PENDIENTE: sustituir cada tarjeta data-pendiente por material real del cliente

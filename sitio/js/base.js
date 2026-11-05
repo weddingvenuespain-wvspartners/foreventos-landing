@@ -116,7 +116,8 @@
       if (!('IntersectionObserver' in window)){ [].forEach.call(els, function(e){ e.classList.add('in'); }); return; }
       var io = new IntersectionObserver(function(es){
         es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-      }, { rootMargin:'0px 0px -8% 0px', threshold:.12 });
+      // Se activa un poco antes de que el elemento entre: al bajar rápido no se ven huecos vacíos
+      }, { rootMargin:'0px 0px 8% 0px', threshold:0 });
       [].forEach.call(els, function(e){ io.observe(e); });
     }
     // Con intro, lo de arriba espera a que se abra la web

@@ -6,7 +6,7 @@
       <path d="M168 128 H148"/>
       <path d="M168 198 H102"/>
     </g>
-    <circle cx="120" cy="128" r="9" fill="#7BD89B"/>
+    <circle cx="120" cy="128" r="9" fill="#7DD4A8"/>
   </svg>
   <text x="76" y="49" font-size="34" font-weight="500" letter-spacing="3" fill="#F5F4EE">FOREVENTOS</text>
 </svg>
