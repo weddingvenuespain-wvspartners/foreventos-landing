@@ -4,33 +4,21 @@
     <div class="hero-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="luz"></i><span class="grano"></span></div>
     <div class="hero-grid">
       <div class="hero-txt">
-        <p class="hero-kicker rv">Agencia de marketing digital y tecnología</p>
-        <!-- "caos" sale con las letras desordenadas y caen en su sitio -->
-        <h1 class="hero-h1 split" style="--d:1" aria-label="Más reservas, menos caos.">Más reservas,<br> <em>menos <span class="caos" data-nosplit aria-hidden="true"><i style="--k:0; --x:-.18em; --y:-.42em; --r:-24deg">c</i><i style="--k:1; --x:.12em; --y:.3em; --r:18deg">a</i><i style="--k:2; --x:-.1em; --y:-.5em; --r:-12deg">o</i><i style="--k:3; --x:.22em; --y:.26em; --r:30deg">s</i><i style="--k:4; --x:.3em; --y:-.3em; --r:-40deg">.</i></span></em></h1>
-        <p class="hero-sub rv" style="--d:4">Webs, visibilidad y sistemas que ordenan tu proceso de venta, de la primera búsqueda al día del evento. <b>Para espacios, wedding planners y caterings.</b></p>
-        <div class="hero-ctas rv" style="--d:5">
-          <a href="/contacto" class="btn btn-hero" data-mag><span>Quiero más reservas</span><i>{{i:flecha}}</i></a>
+        <p class="hero-kicker">Agencia de marketing digital y tecnología</p>
+        <!-- Visible desde el primer momento: sin animaciones que dependan de JavaScript -->
+        <h1 class="hero-h1">Más reservas,<br> <em>menos caos.</em></h1>
+        <p class="hero-sub">Webs, visibilidad y sistemas que ordenan tu proceso de venta, de la primera búsqueda al día del evento. <b>Para espacios, wedding planners y caterings.</b></p>
+        <div class="hero-ctas">
+          <a href="/contacto" class="hero-cta">Hablemos de tu negocio {{i:flecha}}</a>
           <a href="/servicios" class="hero-link">Ver servicios {{i:flecha}}</a>
         </div>
-        <a class="hero-prueba rv" style="--d:6" href="/proyectos">
-          <span class="hp-fan" aria-hidden="true">
-            <img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900">
-            <img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848">
-            <img src="/proyectos/stayforevents.jpg" alt="" width="1440" height="900">
-          </span>
-          <span class="hp-txt"><b>Webs, portales y plataformas</b> para el sector de bodas y eventos <u>Ver proyectos</u></span>
-        </a>
-      </div>
-
-      <!-- Mini vídeo de tu proceso de venta, como unas historias: cinco escenas de 7 s con una barra de
-           progreso por fase, el título dentro y una sola pantalla protagonista en cada una. Se monta con CSS
-           al encender cada escena (.on); hero.js las va pasando y escala el lienzo de 440 × 440 al hueco -->
-      <div class="hero-stage rv" style="--d:3">
-        <!-- Vídeo hecho con Remotion (proyecto aparte, C:/dev/foreventos-video): 35 s en bucle, sin sonido -->
-        <div class="vd" data-escena>
-          <div class="vd-marco"><video class="vd-vid" src="/video/hero.mp4" poster="/video/hero-poster.jpg" width="810" height="810" autoplay muted loop playsinline preload="auto" aria-label="Del primer contacto al día de la boda: te encuentran en Google, te escriben desde tu web, respondes con tu dossier, firman y pagan en su portal y les acompañas hasta el evento"></video></div>
+        <!-- Clientes reales (logos de sus marcas) y una frase cortísima de la reseña de Mercedes -->
+        <div class="hero-social">
+          <span class="hs-caras" aria-hidden="true"><img src="/clientes/mercedes-logo.jpg" alt="" width="160" height="160"><img src="/clientes/nura.jpg" alt="" width="160" height="160"><img src="/clientes/wvs.jpg" alt="" width="160" height="160"><img src="/clientes/stay.jpg" alt="" width="160" height="160"></span>
+          <span class="hs-txt"><span class="hs-estrellas" role="img" aria-label="5 de 5 estrellas">★★★★★</span><span class="hs-cita">«Entendieron exactamente lo que quería transmitir.»</span><span class="hs-quien"><b>Mercedes Serrano</b>, wedding planner</span></span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -42,11 +30,15 @@
     <div class="casos-ventana">
       <div class="casos-pista" data-casos>
         <figure class="cz cz-color" aria-hidden="true"><span class="cz-luz"></span></figure>
-        <figure class="cz cz-tel"><div class="cz-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async" alt="weddingvenuesspain.com en el móvil"></div><figcaption>Wedding Venues Spain</figcaption></figure>
-        <figure class="cz cz-ambiente"><img class="cz-fondo" src="/finca/finca.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async" alt="Portada de weddingvenuesspain.com"></div><figcaption>Web · Diseño · SEO</figcaption></figure>
-        <figure class="cz cz-plat"><img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848" loading="lazy" decoding="async" alt="Panel de la plataforma FOREVENTOS"><div class="cz-card"><div class="cz-card-top"><b><i></i>Nueva solicitud</b><small>hace 2 min</small></div><p>«¿Tenéis libre el 12 de junio? Somos 120 invitados.»</p><div class="cz-quien"><i>LM</i><span>Laura y Marc<small>desde tu web</small></span></div></div></figure>
-        <figure class="cz cz-stay"><div class="cz-nav"><img src="/proyectos/stayforevents.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async" alt="Portada de Stay For Events"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/stayforevents-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Stay For Events</figcaption></figure>
-        <figure class="cz cz-visita"><img src="/proyectos/visita.jpg" alt="" width="1140" height="712" loading="lazy" decoding="async" alt="Página de reserva de visitas"><figcaption>Reserva de visitas</figcaption></figure>
+        <figure class="cz cz-merc"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>mercedes-serrano.wedding</span></div><img src="/proyectos/mercedes-serrano.jpg" alt="Portada de la web de Mercedes Serrano, wedding planner" width="1440" height="900" loading="lazy" decoding="async"></div>
+          <!-- Reseña de Mercedes (WhatsApp, 6-11-2026), resumida con su permiso: «ponlo tú como quieras, no tiene que ser literal» -->
+          <div class="cz-card cz-resena"><div class="cz-card-top"><span class="cz-estrellas" aria-label="5 de 5">★★★★★</span><small>Web nueva · 2026</small></div><p>«Me daba miedo cambiar de web por malas experiencias con otros proveedores. Con vosotros sentí confianza: entendisteis lo que quería transmitir, tuvisteis paciencia con cada cambio y acerté.»</p><div class="cz-quien"><i>MS</i><span>Mercedes Serrano<small>Wedding planner · Madrid y Toledo</small></span></div></div>
+        </figure>
+        <figure class="cz cz-tel"><div class="cz-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Wedding Venues Spain</figcaption></figure>
+        <figure class="cz cz-nura"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>nuraeventos.com</span></div><img src="/proyectos/nura-eventos.jpg" alt="Portada de la web de Nura Eventos" width="1440" height="900" loading="lazy" decoding="async"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/nura-eventos-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Nura Eventos</figcaption></figure>
+        <figure class="cz cz-ambiente"><img class="cz-fondo" src="/finca/finca.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="Portada de weddingvenuesspain.com" width="1440" height="900" loading="lazy" decoding="async"></div><figcaption>Web · Diseño · SEO</figcaption></figure>
+        <figure class="cz cz-tel cz-tel-claro"><div class="cz-movil"><img src="/proyectos/mercedes-serrano-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Mercedes Serrano</figcaption></figure>
+        <figure class="cz cz-stay"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>stayforevents.com</span></div><img src="/proyectos/stayforevents.jpg" alt="Portada de Stay For Events" width="1440" height="900" loading="lazy" decoding="async"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/stayforevents-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Stay For Events</figcaption></figure>
       </div>
     </div>
     <a class="cz-borrador" href="/contacto"><span class="cz-prev" aria-hidden="true"><img class="p1" src="/boceto/escritorio.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"><img class="p2" src="/boceto/movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span><span><small>Sin compromiso</small><b>Pide tu boceto web gratis</b><em>Te diseñamos la primera versión de tu web antes de decidir nada.</em><i>Pedir mi boceto {{i:flecha}}</i></span></a>
@@ -70,9 +62,17 @@
         <div class="bn-txt"><span class="bn-tag"><i>{{i:web}}</i>Webs</span><h3>Webs con esencia que traen solicitudes</h3><p>Diseño a medida, rápida y conectada a tu panel. Antes de decidir, te enseñamos un boceto gratis.</p><span class="bn-go">Quiero mi boceto {{i:flecha}}</span></div>
         <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900" loading="lazy"></div><div class="bn-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy"></div></div>
       </a>
-      <a class="bn bn-plat rv" style="--d:1" href="/plataforma">
-        <div class="bn-txt"><span class="bn-tag"><i>{{i:columnas}}</i>Plataforma</span><h3>Plataforma de gestión comercial para cerrar ventas</h3><p>Todas tus solicitudes en un mismo sitio, con más control y menos esfuerzo, y herramientas que facilitan la comunicación con tus clientes y te ayudan a cerrar más ventas.</p><span class="bn-go">Ver la plataforma {{i:flecha}}</span></div>
-        <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>app.foreventos.com</span></div><img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848" loading="lazy"></div></div>
+      <a class="bn bn-plat rv" style="--d:1" href="/servicios#gestion">
+        <div class="bn-txt"><span class="bn-tag"><i>{{i:columnas}}</i>Método comercial</span><h3>Un método comercial para cerrar más ventas</h3><p>Ordenamos tu proceso de venta de principio a fin: cómo respondes, cómo haces seguimiento, las visitas y las propuestas. Y te damos las herramientas para aplicarlo cada día.</p><span class="bn-go">Cómo lo hacemos {{i:flecha}}</span></div>
+        <div class="bn-pant" aria-hidden="true">
+          <ol class="met">
+            <li><span>01</span><b>Respuesta en minutos</b><small>Cada solicitud, contestada al momento</small></li>
+            <li><span>02</span><b>Seguimiento sin olvidos</b><small>Sabes a quién escribir y cuándo</small></li>
+            <li><span>03</span><b>Visita que enamora</b><small>Agenda online y dossier preparado</small></li>
+            <li><span>04</span><b>Propuesta clara</b><small>Precio, condiciones y firma en un paso</small></li>
+            <li class="ok"><span>{{i:check}}</span><b>Fecha reservada</b><small>Señal cobrada y cliente feliz</small></li>
+          </ol>
+        </div>
       </a>
       <a class="bn bn-seo rv" style="--d:2" href="/servicios#google">
         <div class="bn-txt"><span class="bn-tag"><i>{{i:buscar}}</i>Visibilidad</span><h3>Más visibilidad ante tus clientes ideales</h3><p>Te ponemos delante de quien busca lo que ofreces, en Google y en redes: más oportunidades de que te conozcan y te contraten.</p><span class="bn-go">Quiero que me vean {{i:flecha}}</span></div>
@@ -91,54 +91,22 @@
 </section>
 
 
-<!-- ============ TESTIMONIOS (carrusel tipo superpower) ============
-     PENDIENTE: sustituir cada tarjeta data-pendiente por material real del cliente
-     (foto o vídeo vertical, su frase literal, nombre y negocio). No publicar con huecos. -->
+<!-- ============ TESTIMONIOS: un testimonio destacado, vídeo vertical del cliente + su frase literal ============
+     PENDIENTE (por eso no se publica): poner el vídeo de Mercedes en public/testimonios/mercedes.mp4, su póster
+     (un fotograma) en mercedes.jpg y una frase literal suya sacada del vídeo; después quitar data-pendiente.
+     El enlace a su web va solo si nos da permiso para enseñarla como proyecto. -->
 <section class="sec testi" id="testimonios">
-  <div class="wrap testi-head">
-    <h2 class="h2 split">Usado por espacios, planners y caterings <em>como el tuyo</em></h2>
-    <div class="testi-nav">
-      <button type="button" class="tn" data-dir="-1" aria-label="Anteriores">{{i:izq}}</button>
-      <button type="button" class="tn" data-dir="1" aria-label="Siguientes">{{i:flecha}}</button>
+  <div class="wrap testi-in">
+    <figure class="tv rv" data-pendiente>
+      <video class="tv-vid" src="/testimonios/mercedes.mp4" poster="/testimonios/mercedes.jpg" playsinline preload="none" aria-label="Vídeo de Mercedes Serrano contando su experiencia con FOREVENTOS"></video>
+      <button type="button" class="tv-play" aria-label="Reproducir el vídeo">{{i:play}}</button>
+    </figure>
+    <div class="tc">
+      <span class="tag rv">Lo que dicen nuestros clientes</span>
+      <blockquote class="tc-cita split">Habéis entendido exactamente lo que quería transmitir: que el cliente vea mi página y enseguida sepa quién soy y cuál es mi trabajo.</blockquote>
+      <div class="tc-quien rv" style="--d:2"><b>Mercedes Serrano</b><small>Wedding planner · Madrid y Toledo</small></div>
+      <a class="link rv" style="--d:3" href="https://www.mercedes-serrano.wedding" target="_blank" rel="noopener">Ver su web {{i:flecha-diag}}</a>
     </div>
-  </div>
-  <div class="testi-track" data-testi tabindex="0" aria-label="Testimonios de clientes">
-    <article class="t t-video" data-pendiente>
-      <div class="t-media"><span class="t-hueco">Vídeo vertical del cliente</span></div>
-      <button type="button" class="t-play" aria-label="Reproducir">{{i:play}}</button>
-      <div class="t-pie"><b>[Nombre del cliente]</b><small>[Finca o negocio · ciudad]</small></div>
-    </article>
-    <article class="t t-ancha" data-pendiente>
-      <div class="t-media"><span class="t-hueco">Foto del cliente o de su espacio</span></div>
-      <div class="t-pie grande"><p>“[Frase real del cliente sobre lo que ha cambiado en su negocio]”</p><small>[Nombre] · [Negocio]</small></div>
-    </article>
-    <article class="t t-video" data-pendiente>
-      <div class="t-media"><span class="t-hueco">Vídeo vertical del cliente</span></div>
-      <button type="button" class="t-play" aria-label="Reproducir">{{i:play}}</button>
-      <div class="t-pie"><b>[Nombre del cliente]</b><small>[Wedding planner · ciudad]</small></div>
-    </article>
-    <div class="t-pila">
-      <article class="t t-mini" data-pendiente><div class="t-media"><span class="t-hueco">Foto</span></div><div class="t-pie"><b>[Nombre]</b></div></article>
-      <article class="t t-cita" data-pendiente><p>“[Frase corta y concreta del cliente]”</p><span class="t-firma">[Negocio]</span></article>
-    </div>
-    <article class="t t-video" data-pendiente>
-      <div class="t-media"><span class="t-hueco">Vídeo vertical del cliente</span></div>
-      <button type="button" class="t-play" aria-label="Reproducir">{{i:play}}</button>
-      <div class="t-pie"><b>[Nombre del cliente]</b><small>[Catering · ciudad]</small></div>
-    </article>
-    <article class="t t-cita alta" data-pendiente>
-      <p>“[Frase del cliente: qué tenía antes, qué tiene ahora]”</p>
-      <span class="t-firma">[Nombre] · [Negocio]</span>
-    </article>
-    <article class="t t-ancha" data-pendiente>
-      <div class="t-media"><span class="t-hueco">Foto del cliente o de su espacio</span></div>
-      <div class="t-pie grande"><p>“[Frase real del cliente]”</p><small>[Nombre] · [Negocio]</small></div>
-    </article>
-    <article class="t t-video" data-pendiente>
-      <div class="t-media"><span class="t-hueco">Vídeo vertical del cliente</span></div>
-      <button type="button" class="t-play" aria-label="Reproducir">{{i:play}}</button>
-      <div class="t-pie"><b>[Nombre del cliente]</b><small>[Negocio · ciudad]</small></div>
-    </article>
   </div>
 </section>
 

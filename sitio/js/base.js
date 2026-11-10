@@ -61,8 +61,10 @@
   /* Menú: fondo al hacer scroll */
   (function(){
     var nav = document.getElementById('nav'); if (!nav) return;
-    function on(){ nav.classList.toggle('pegado', window.scrollY > 8); }
-    window.addEventListener('scroll', on, { passive:true }); on();
+    // Con margen (entra a 40 px, sale a 10 px) para que no parpadee al rozar el borde
+    var pegado = false, tick = false;
+    function on(){ tick = false; var y = window.scrollY; if (!pegado && y > 40){ pegado = true; nav.classList.add('pegado'); } else if (pegado && y < 10){ pegado = false; nav.classList.remove('pegado'); } }
+    window.addEventListener('scroll', function(){ if (!tick){ tick = true; requestAnimationFrame(on); } }, { passive:true }); on();
   })();
 
   /* Menú móvil */

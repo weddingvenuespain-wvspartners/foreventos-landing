@@ -39,14 +39,11 @@
     address: 'Carrer Espalter 38, 08870 Sitges (Barcelona)',
     email: 'info@foreventos.com'
   };
-  // Intro de marca: solo la primera vez por sesión, nunca con movimiento reducido
   try {
-    if (document.querySelector && !sessionStorage.getItem('fe_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
-      document.documentElement.classList.add('con-intro');
     // Llegamos desde otra página de la web: la cortina empieza cerrada y se abre (base.js)
     if (sessionStorage.getItem('fe_cortina')) {
       sessionStorage.removeItem('fe_cortina');
-      if (!document.documentElement.classList.contains('con-intro')) document.documentElement.classList.add('con-cortina');
+      document.documentElement.classList.add('con-cortina');
     }
   } catch (e) {}
 </script>
@@ -152,17 +149,13 @@ h2 em{ position:relative; display:inline-block; font-style:normal; color:var(--g
 .btn-ghost{ --bg:transparent; --fg:currentColor; --fill:#fff; --fill-fg:var(--ink); padding:0 24px; box-shadow:inset 0 0 0 1.5px currentColor; }
 .btn-ghost::before{ right:50%; margin-right:-20px; transform:scale(0); }
 @media (hover:hover){ .btn-ghost:hover::before{ transform:scale(9); } }
-/* Botón principal del hero: verde, con un destello suave que lo recorre de vez en cuando.
-   Al pasar el ratón se llena de blanco (el círculo de la flecha crece) */
-.btn-hero{ --bg:var(--green); --fg:#fff; --fill:#fff; --fill-fg:var(--ink); height:58px; padding:0 8px 0 26px; font-size:15.5px; font-weight:700; background:var(--bg);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 12px 28px -14px rgba(65,159,112,.75); }
+/* Botón principal del hero: claro y sólido sobre el verde, con la flecha en un círculo verde.
+   Al pasar el ratón el círculo crece y lo llena de verde */
+.btn-hero{ --bg:#F6F5F0; --fg:var(--ink); --fill:var(--green); --fill-fg:#fff; height:60px; padding:0 8px 0 28px; font-size:16px; font-weight:700; background:var(--bg); box-shadow:0 14px 30px -14px rgba(0,0,0,.55); }
 .btn-hero > span{ height:1.4em; line-height:1.4em; }
-.btn-hero i{ width:42px; height:42px; color:var(--green); }
-.btn-hero::before{ right:8px; width:42px; height:42px; margin-top:-21px; }
-.btn-hero::after{ content:''; position:absolute; top:0; bottom:0; left:-40%; width:30%; z-index:1; pointer-events:none; background:linear-gradient(100deg, transparent, rgba(255,255,255,.32), transparent); transform:skewX(-18deg) translateX(-100%); animation:destello 7s ease-in-out 2.5s infinite; }
-@keyframes destello{ 0%{ transform:skewX(-18deg) translateX(-100%); } 18%, 100%{ transform:skewX(-18deg) translateX(520%); } }
-@media (hover:hover){ .btn-hero:hover::after{ opacity:0; } }
-@media (prefers-reduced-motion: reduce){ .btn-hero::after{ animation:none; } }
+.btn-hero i{ width:44px; height:44px; color:#fff; }
+.btn-hero::before{ right:8px; width:44px; height:44px; margin-top:-22px; }
+
 /* Brillo que recorre el botón principal cada pocos segundos */
 .btn-brillo::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%); transform:translateX(-120%); animation:brillo 5.5s var(--ease-io) 2.5s infinite; mix-blend-mode:soft-light; }
 @keyframes brillo{ 0%{ transform:translateX(-120%); } 22%, 100%{ transform:translateX(120%); } }
@@ -180,26 +173,24 @@ h2 em{ position:relative; display:inline-block; font-style:normal; color:var(--g
 /* ================= Menú (logo en el centro) =================
    Arriba ocupa todo el ancho; al bajar se convierte en una píldora flotante más pequeña. */
 .nav{ position:sticky; top:0; z-index:60; height:var(--nav-h); pointer-events:none; }
-.nav::before{ content:''; position:absolute; inset:0; background:#fff; box-shadow:0 1px 0 var(--line); transition:opacity .5s, transform .6s var(--ease); }
-.nav.pegado::before{ opacity:0; transform:translateY(-100%); }
+.nav::before{ content:''; position:absolute; inset:0; background:#fff; box-shadow:0 1px 0 var(--line); transition:opacity .35s ease; }
+.nav.pegado::before{ opacity:0; }
 body.mm-on .nav::before{ opacity:0; }
-.nav-in{ pointer-events:auto; position:relative; height:100%; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:0 var(--gut); max-width:1600px; margin:0 auto; border-radius:999px; transition:max-width .7s var(--ease), height .7s var(--ease), padding .7s var(--ease), transform .7s var(--ease), background .5s, box-shadow .5s; }
-.nav.pegado .nav-in{ max-width:940px; height:54px; padding:0 8px 0 26px; transform:translateY(8px); background:rgba(255,255,255,.86); -webkit-backdrop-filter:saturate(1.6) blur(16px); backdrop-filter:saturate(1.6) blur(16px); box-shadow:0 0 0 1px rgba(20,26,23,.07), 0 18px 40px -22px rgba(20,26,23,.45); }
+/* La cápsula del menú tiene siempre la misma forma; al bajar solo se le pone fondo (sin cambiar tamaños,
+   que era lo que daba saltos) */
+.nav-in{ pointer-events:auto; position:relative; top:6px; height:calc(var(--nav-h) - 12px); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:0 8px 0 max(18px, calc(var(--gut) - 6px)); max-width:min(1240px, calc(100% - 20px)); margin:0 auto; border-radius:999px; background:rgba(255,255,255,0); box-shadow:0 0 0 1px rgba(20,26,23,0); transition:background-color .35s ease, box-shadow .35s ease, -webkit-backdrop-filter .35s, backdrop-filter .35s; }
+.nav.pegado .nav-in{ background:rgba(255,255,255,.88); -webkit-backdrop-filter:saturate(1.6) blur(16px); backdrop-filter:saturate(1.6) blur(16px); box-shadow:0 0 0 1px rgba(20,26,23,.07), 0 18px 40px -22px rgba(20,26,23,.45); }
 .nav-l{ display:flex; align-items:center; gap:clamp(14px, 2vw, 30px); transition:gap .7s var(--ease); }
-.nav.pegado .nav-l{ gap:20px; }
-.nav-l a{ position:relative; font-size:14px; font-weight:500; color:var(--text); opacity:.78; transition:opacity .25s, font-size .6s var(--ease); }
-.nav.pegado .nav-l a, .nav.pegado .nav-acc{ font-size:13.5px; }
+.nav-l a{ position:relative; font-size:14px; font-weight:500; color:var(--text); opacity:.78; transition:opacity .25s; }
 .nav-l a::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .45s var(--ease); }
 .nav-l a:hover, .nav-l a[aria-current]{ opacity:1; }
 .nav-l a:hover::after, .nav-l a[aria-current]::after{ transform:scaleX(1); transform-origin:left; }
 .nav-logo{ display:block; color:var(--ink); }
-.nav-logo .logo{ height:22px; width:auto; transition:height .7s var(--ease); }
-.nav.pegado .nav-logo .logo{ height:18px; }
+.nav-logo .logo{ height:20px; width:auto; }
 .nav-r{ display:flex; align-items:center; justify-content:flex-end; gap:20px; }
-.nav-acc{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; opacity:.78; transition:opacity .25s, font-size .6s var(--ease); }
+.nav-acc{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; opacity:.78; transition:opacity .25s; }
 .nav-acc .ic{ font-size:15px; }
 .nav-acc:hover{ opacity:1; }
-.nav.pegado .nav-r .btn-sm{ height:40px; }
 .nav-burger{ display:none; width:40px; height:40px; border-radius:50%; position:relative; margin-left:-8px; }
 .nav-burger span{ position:absolute; left:11px; right:11px; height:1.7px; background:currentColor; border-radius:2px; transition:transform .45s var(--ease); }
 .nav-burger span:first-child{ top:16px; } .nav-burger span:last-child{ top:23px; }
@@ -208,7 +199,7 @@ body.mm-on .nav::before{ opacity:0; }
 @media (max-width:1020px){
   .nav-l a{ display:none; }
   .nav-burger{ display:block; }
-  .nav.pegado .nav-in{ max-width:none; margin:0 10px; padding:0 6px 0 14px; }
+  .nav-in{ padding:0 6px 0 14px; }
 }
 /* En tablet no caben "Iniciar sesión" y "Hablemos" junto al logo: se partía en dos líneas y el botón
    quedaba cortado. "Iniciar sesión" sigue en el menú desplegable */
@@ -217,9 +208,8 @@ body.mm-on .nav::before{ opacity:0; }
 @media (max-width:620px){
   :root{ --nav-h:60px; }
   .nav-acc{ display:none; }
-  .nav-logo .logo, .nav.pegado .nav-logo .logo{ height:16px; }
+  .nav-logo .logo{ height:16px; }
   .nav-r .btn-sm{ height:38px; padding-left:14px; font-size:13px; }
-  .nav.pegado .nav-in{ height:52px; }
 }
 
 /* Menú móvil a pantalla completa */
@@ -1040,8 +1030,10 @@ small.ph-l{ width:75%; height:7px; }
   /* Menú: fondo al hacer scroll */
   (function(){
     var nav = document.getElementById('nav'); if (!nav) return;
-    function on(){ nav.classList.toggle('pegado', window.scrollY > 8); }
-    window.addEventListener('scroll', on, { passive:true }); on();
+    // Con margen (entra a 40 px, sale a 10 px) para que no parpadee al rozar el borde
+    var pegado = false, tick = false;
+    function on(){ tick = false; var y = window.scrollY; if (!pegado && y > 40){ pegado = true; nav.classList.add('pegado'); } else if (pegado && y < 10){ pegado = false; nav.classList.remove('pegado'); } }
+    window.addEventListener('scroll', function(){ if (!tick){ tick = true; requestAnimationFrame(on); } }, { passive:true }); on();
   })();
 
   /* Menú móvil */

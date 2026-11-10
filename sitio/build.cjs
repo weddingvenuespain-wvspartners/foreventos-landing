@@ -99,7 +99,6 @@ for (const p of PAGES) {
     .replace('{{css}}', baseCss + p.css.map((f) => rd('css', f)).join('\n'))
   const js = baseJs + p.js.map((f) => rd('js', f)).join('\n')
   const html = head
-    + (p.path === '/' ? rd('piezas', 'intro.html') : '')
     + fill(nav)
     + '<main id="contenido">\n' + fill(body) + '\n</main>\n'
     + fill(rd('piezas', 'pie.html'))

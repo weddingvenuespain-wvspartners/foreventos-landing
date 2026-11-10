@@ -39,14 +39,11 @@
     address: 'Carrer Espalter 38, 08870 Sitges (Barcelona)',
     email: 'info@foreventos.com'
   };
-  // Intro de marca: solo la primera vez por sesión, nunca con movimiento reducido
   try {
-    if (document.querySelector && !sessionStorage.getItem('fe_intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches)
-      document.documentElement.classList.add('con-intro');
     // Llegamos desde otra página de la web: la cortina empieza cerrada y se abre (base.js)
     if (sessionStorage.getItem('fe_cortina')) {
       sessionStorage.removeItem('fe_cortina');
-      if (!document.documentElement.classList.contains('con-intro')) document.documentElement.classList.add('con-cortina');
+      document.documentElement.classList.add('con-cortina');
     }
   } catch (e) {}
 </script>
@@ -152,17 +149,13 @@ h2 em{ position:relative; display:inline-block; font-style:normal; color:var(--g
 .btn-ghost{ --bg:transparent; --fg:currentColor; --fill:#fff; --fill-fg:var(--ink); padding:0 24px; box-shadow:inset 0 0 0 1.5px currentColor; }
 .btn-ghost::before{ right:50%; margin-right:-20px; transform:scale(0); }
 @media (hover:hover){ .btn-ghost:hover::before{ transform:scale(9); } }
-/* Botón principal del hero: verde, con un destello suave que lo recorre de vez en cuando.
-   Al pasar el ratón se llena de blanco (el círculo de la flecha crece) */
-.btn-hero{ --bg:var(--green); --fg:#fff; --fill:#fff; --fill-fg:var(--ink); height:58px; padding:0 8px 0 26px; font-size:15.5px; font-weight:700; background:var(--bg);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 12px 28px -14px rgba(65,159,112,.75); }
+/* Botón principal del hero: claro y sólido sobre el verde, con la flecha en un círculo verde.
+   Al pasar el ratón el círculo crece y lo llena de verde */
+.btn-hero{ --bg:#F6F5F0; --fg:var(--ink); --fill:var(--green); --fill-fg:#fff; height:60px; padding:0 8px 0 28px; font-size:16px; font-weight:700; background:var(--bg); box-shadow:0 14px 30px -14px rgba(0,0,0,.55); }
 .btn-hero > span{ height:1.4em; line-height:1.4em; }
-.btn-hero i{ width:42px; height:42px; color:var(--green); }
-.btn-hero::before{ right:8px; width:42px; height:42px; margin-top:-21px; }
-.btn-hero::after{ content:''; position:absolute; top:0; bottom:0; left:-40%; width:30%; z-index:1; pointer-events:none; background:linear-gradient(100deg, transparent, rgba(255,255,255,.32), transparent); transform:skewX(-18deg) translateX(-100%); animation:destello 7s ease-in-out 2.5s infinite; }
-@keyframes destello{ 0%{ transform:skewX(-18deg) translateX(-100%); } 18%, 100%{ transform:skewX(-18deg) translateX(520%); } }
-@media (hover:hover){ .btn-hero:hover::after{ opacity:0; } }
-@media (prefers-reduced-motion: reduce){ .btn-hero::after{ animation:none; } }
+.btn-hero i{ width:44px; height:44px; color:#fff; }
+.btn-hero::before{ right:8px; width:44px; height:44px; margin-top:-22px; }
+
 /* Brillo que recorre el botón principal cada pocos segundos */
 .btn-brillo::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%); transform:translateX(-120%); animation:brillo 5.5s var(--ease-io) 2.5s infinite; mix-blend-mode:soft-light; }
 @keyframes brillo{ 0%{ transform:translateX(-120%); } 22%, 100%{ transform:translateX(120%); } }
@@ -180,26 +173,24 @@ h2 em{ position:relative; display:inline-block; font-style:normal; color:var(--g
 /* ================= Menú (logo en el centro) =================
    Arriba ocupa todo el ancho; al bajar se convierte en una píldora flotante más pequeña. */
 .nav{ position:sticky; top:0; z-index:60; height:var(--nav-h); pointer-events:none; }
-.nav::before{ content:''; position:absolute; inset:0; background:#fff; box-shadow:0 1px 0 var(--line); transition:opacity .5s, transform .6s var(--ease); }
-.nav.pegado::before{ opacity:0; transform:translateY(-100%); }
+.nav::before{ content:''; position:absolute; inset:0; background:#fff; box-shadow:0 1px 0 var(--line); transition:opacity .35s ease; }
+.nav.pegado::before{ opacity:0; }
 body.mm-on .nav::before{ opacity:0; }
-.nav-in{ pointer-events:auto; position:relative; height:100%; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:0 var(--gut); max-width:1600px; margin:0 auto; border-radius:999px; transition:max-width .7s var(--ease), height .7s var(--ease), padding .7s var(--ease), transform .7s var(--ease), background .5s, box-shadow .5s; }
-.nav.pegado .nav-in{ max-width:940px; height:54px; padding:0 8px 0 26px; transform:translateY(8px); background:rgba(255,255,255,.86); -webkit-backdrop-filter:saturate(1.6) blur(16px); backdrop-filter:saturate(1.6) blur(16px); box-shadow:0 0 0 1px rgba(20,26,23,.07), 0 18px 40px -22px rgba(20,26,23,.45); }
+/* La cápsula del menú tiene siempre la misma forma; al bajar solo se le pone fondo (sin cambiar tamaños,
+   que era lo que daba saltos) */
+.nav-in{ pointer-events:auto; position:relative; top:6px; height:calc(var(--nav-h) - 12px); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:0 8px 0 max(18px, calc(var(--gut) - 6px)); max-width:min(1240px, calc(100% - 20px)); margin:0 auto; border-radius:999px; background:rgba(255,255,255,0); box-shadow:0 0 0 1px rgba(20,26,23,0); transition:background-color .35s ease, box-shadow .35s ease, -webkit-backdrop-filter .35s, backdrop-filter .35s; }
+.nav.pegado .nav-in{ background:rgba(255,255,255,.88); -webkit-backdrop-filter:saturate(1.6) blur(16px); backdrop-filter:saturate(1.6) blur(16px); box-shadow:0 0 0 1px rgba(20,26,23,.07), 0 18px 40px -22px rgba(20,26,23,.45); }
 .nav-l{ display:flex; align-items:center; gap:clamp(14px, 2vw, 30px); transition:gap .7s var(--ease); }
-.nav.pegado .nav-l{ gap:20px; }
-.nav-l a{ position:relative; font-size:14px; font-weight:500; color:var(--text); opacity:.78; transition:opacity .25s, font-size .6s var(--ease); }
-.nav.pegado .nav-l a, .nav.pegado .nav-acc{ font-size:13.5px; }
+.nav-l a{ position:relative; font-size:14px; font-weight:500; color:var(--text); opacity:.78; transition:opacity .25s; }
 .nav-l a::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .45s var(--ease); }
 .nav-l a:hover, .nav-l a[aria-current]{ opacity:1; }
 .nav-l a:hover::after, .nav-l a[aria-current]::after{ transform:scaleX(1); transform-origin:left; }
 .nav-logo{ display:block; color:var(--ink); }
-.nav-logo .logo{ height:22px; width:auto; transition:height .7s var(--ease); }
-.nav.pegado .nav-logo .logo{ height:18px; }
+.nav-logo .logo{ height:20px; width:auto; }
 .nav-r{ display:flex; align-items:center; justify-content:flex-end; gap:20px; }
-.nav-acc{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; opacity:.78; transition:opacity .25s, font-size .6s var(--ease); }
+.nav-acc{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; opacity:.78; transition:opacity .25s; }
 .nav-acc .ic{ font-size:15px; }
 .nav-acc:hover{ opacity:1; }
-.nav.pegado .nav-r .btn-sm{ height:40px; }
 .nav-burger{ display:none; width:40px; height:40px; border-radius:50%; position:relative; margin-left:-8px; }
 .nav-burger span{ position:absolute; left:11px; right:11px; height:1.7px; background:currentColor; border-radius:2px; transition:transform .45s var(--ease); }
 .nav-burger span:first-child{ top:16px; } .nav-burger span:last-child{ top:23px; }
@@ -208,7 +199,7 @@ body.mm-on .nav::before{ opacity:0; }
 @media (max-width:1020px){
   .nav-l a{ display:none; }
   .nav-burger{ display:block; }
-  .nav.pegado .nav-in{ max-width:none; margin:0 10px; padding:0 6px 0 14px; }
+  .nav-in{ padding:0 6px 0 14px; }
 }
 /* En tablet no caben "Iniciar sesión" y "Hablemos" junto al logo: se partía en dos líneas y el botón
    quedaba cortado. "Iniciar sesión" sigue en el menú desplegable */
@@ -217,9 +208,8 @@ body.mm-on .nav::before{ opacity:0; }
 @media (max-width:620px){
   :root{ --nav-h:60px; }
   .nav-acc{ display:none; }
-  .nav-logo .logo, .nav.pegado .nav-logo .logo{ height:16px; }
+  .nav-logo .logo{ height:16px; }
   .nav-r .btn-sm{ height:38px; padding-left:14px; font-size:13px; }
-  .nav.pegado .nav-in{ height:52px; }
 }
 
 /* Menú móvil a pantalla completa */
@@ -419,11 +409,10 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
   .js .rv, .js .rv-clip > *, .js .split .w > span{ opacity:1; transform:none; clip-path:none; }
 }
 /* ================= HERO ================= */
-.hero{ padding:0 12px; }
-.hero-card{ position:relative; isolation:isolate; overflow:hidden; border-radius:var(--r-lg); background:var(--forest); color:var(--on-dark);
-  height:calc(100svh - var(--nav-h) + 40px); min-height:580px; max-height:980px; }
-.js .hero-card{ clip-path:inset(3% 2.5% 0 2.5% round var(--r-lg)); transition:clip-path 1.3s var(--ease-io); }
-.js .hero.on .hero-card{ clip-path:inset(0 0 0 0 round var(--r-lg)); }
+/* El verde ocupa todo el ancho, con los bordes rectos */
+.hero{ padding:0; }
+.hero-card{ position:relative; isolation:isolate; overflow:hidden; border-radius:0; background:var(--forest); color:var(--on-dark);
+  min-height:min(680px, 78svh); }
 
 /* Fondo sedoso que se mueve despacio */
 .hero-bg{ position:absolute; inset:0; z-index:-1; overflow:hidden; }
@@ -453,16 +442,17 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
   50%{ transform:translate(-14%, 8%); } 60%{ transform:translate(12%, 2%); } 70%{ transform:translate(2%, 12%); } 80%{ transform:translate(-2%, -12%); } 90%{ transform:translate(10%, 6%); }
 }
 
-/* Titular letra a letra en 3D */
-.js .hero-h1.letras .w{ overflow:visible; }
-.js .hero-h1.letras .w > span{ transform:none; transition:none; perspective:700px; }
-.hero-h1.letras .l{ display:inline-block; font-style:normal; transform-origin:50% 100%; opacity:0; transform:translateY(.45em) rotateX(-100deg); filter:blur(6px);
-  transition:transform 1.2s cubic-bezier(.2,1.25,.3,1), opacity .6s ease, filter .8s ease, translate .5s var(--pop, ease); transition-delay:calc(.2s + var(--j) * 40ms); }
-.hero-h1.letras.in .l{ opacity:1; transform:none; filter:none; }
-@media (hover:hover){ .hero-h1.letras.in .l:hover{ translate:0 -.09em; transition-delay:0s; } }
-@media (prefers-reduced-motion: reduce){ .hero-h1.letras .l{ opacity:1; transform:none; filter:none; } }
-.hero-grid{ height:100%; display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); align-items:center; gap:clamp(20px, 2.6vw, 48px); padding:clamp(24px, 4.4vh, 60px) clamp(24px, 3.6vw, 60px); }
-.hero-txt{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start; }
+/* Todo centrado: antetítulo, titular, texto, botón y clientes */
+.hero-grid{ position:relative; min-height:min(720px, calc(100svh - var(--nav-h))); display:grid; grid-template-columns:minmax(0, 1fr); align-items:center; justify-items:center; text-align:center; gap:clamp(20px, 2.6vw, 48px); padding:clamp(24px, 4.4vh, 60px) clamp(24px, 3.6vw, 60px); }
+.hero-txt{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; max-width:1000px; }
+.hero-txt .hero-sub{ margin-left:auto; margin-right:auto; }
+.hero-txt .hero-ctas{ justify-content:center; }
+/* Botón del hero: sencillo, verde de la marca con texto blanco y la flecha al lado */
+.hero-cta{ display:inline-flex; align-items:center; gap:12px; height:58px; padding:0 30px; border-radius:999px; font-size:16px; font-weight:700; letter-spacing:-.01em; color:#fff; background:var(--green); box-shadow:0 12px 28px -14px rgba(65,159,112,.75); transition:background .3s, gap .4s var(--ease), transform .3s; }
+.hero-cta .ic{ font-size:18px; }
+@media (hover:hover){ .hero-cta:hover{ background:#4DB07F; gap:16px; } }
+.hero-cta:active{ transform:scale(.97); }
+
 
 .chip{ display:inline-flex; align-items:center; gap:10px; padding:7px 14px 7px 10px; border-radius:999px; font-size:13px; color:var(--on-dark-dim); background:rgba(255,255,255,.06); box-shadow:inset 0 0 0 1px rgba(255,255,255,.12); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); transition:background .3s, color .3s; }
 .chip b{ color:var(--on-dark); font-weight:600; }
@@ -476,15 +466,8 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 /* Antetítulo: qué somos, en pequeño encima del titular */
 /* Antetítulo: una línea de texto, sin forma de botón */
 .hero-kicker{ margin:0 0 clamp(14px, 2.2vh, 22px); font-size:clamp(15px, 1.15vw, 17px); font-weight:500; letter-spacing:-.005em; color:var(--green-soft); }
-.hero-h1{ margin:0; font-size:clamp(46px, min(6.6vw, 12vh), 124px); line-height:.96; letter-spacing:-.05em; font-weight:900; }
-/* "menos caos.", en verde. Las letras de "caos" salen desordenadas y caen en su sitio con un rebote
-   (cuando el hero se abre, .hero.on) */
+.hero-h1{ margin:0; font-size:clamp(48px, min(8.4vw, 15vh), 150px); line-height:.96; letter-spacing:-.05em; font-weight:900; }
 .hero-h1 em{ position:relative; display:inline-block; font-style:normal; color:var(--green-soft); padding-bottom:.08em; }
-.caos{ display:inline-block; white-space:nowrap; }
-.caos i{ display:inline-block; font-style:normal; transform:translate(var(--x), var(--y)) rotate(var(--r)); opacity:.55; }
-.hero.on .caos i{ animation:a-su-sitio .9s cubic-bezier(.34,1.56,.64,1) both; animation-delay:calc(1.1s + var(--k) * 90ms); }
-@keyframes a-su-sitio{ 0%{ transform:translate(var(--x), var(--y)) rotate(var(--r)); opacity:.55; } 100%{ transform:none; opacity:1; } }
-@media (prefers-reduced-motion: reduce){ .caos i{ transform:none; opacity:1; } }
 .hero-sub{ margin-top:clamp(16px, 2.6vh, 26px); font-size:clamp(16px, 1.35vw, 20px); color:var(--on-dark-dim); max-width:46ch; }
 .hero-sub b{ color:var(--on-dark); font-weight:600; }
 .hero-ctas{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:clamp(22px, 3.4vh, 34px); }
@@ -492,6 +475,17 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 .hero-link .ic{ transition:transform .4s var(--ease); }
 .hero-link:hover .ic{ transform:translateX(4px); }
 
+/* Clientes: sus caras/logos, cinco estrellas y quiénes son */
+.hero-social{ display:flex; align-items:center; gap:16px; margin-top:clamp(28px, 4.6vh, 46px); text-align:left; }
+.hs-caras{ display:flex; flex:none; }
+.hs-caras img{ width:52px; height:52px; border-radius:50%; object-fit:cover; margin-left:-6px; box-shadow:0 0 0 3px var(--forest), 0 8px 18px -8px rgba(0,0,0,.6); }
+.hs-caras img:first-child{ margin-left:0; }
+.hs-txt{ display:flex; flex-direction:column; gap:4px; max-width:390px; font-size:14px; line-height:1.4; color:var(--on-dark-dim); }
+.hs-txt b{ color:var(--on-dark); font-weight:600; }
+.hs-estrellas{ font-size:16px; letter-spacing:3px; color:#F2C14E; }
+.hs-cita{ font-size:15.5px; font-weight:500; color:var(--on-dark); }
+.hs-quien{ font-size:13px; }
+@media (max-width:620px){ .hero-social{ flex-direction:column; text-align:center; gap:12px; } .hs-txt{ align-items:center; } }
 /* Prueba social: tres pantallas en abanico */
 .hero-prueba{ display:flex; align-items:center; gap:16px; margin-top:clamp(24px, 4.4vh, 44px); padding-top:clamp(18px, 2.8vh, 26px); border-top:1px solid var(--line-dark); max-width:440px; }
 .hp-fan{ display:flex; flex:none; padding-left:6px; }
@@ -542,8 +536,11 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
   .hero-sub{ margin-top:12px; font-size:15px; line-height:1.45; }
   .hero-ctas{ margin-top:18px; width:100%; }
   .hero-ctas .btn{ width:100%; justify-content:space-between; }
-  /* El vídeo va con su lienzo escalado: sin esto, la columna centrada lo deja sin ancho */
-  .hero-stage{ align-self:stretch; }
+  /* En el móvil, sin vídeo: el hero es solo el mensaje y el botón */
+  .hero-stage{ display:none; }
+  .hero-card, .hero-grid{ min-height:0; }
+  .hero-grid{ padding:36px 18px 40px; gap:30px; }
+  .hero-cta{ width:100%; justify-content:center; }
 }
 
 /* ================= TRABAJO REAL (justo después del hero) =================
@@ -576,26 +573,29 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 .cz-bar{ display:flex; align-items:center; gap:5px; height:24px; padding:0 11px; background:#F2F0EA; }
 .cz-bar i{ width:7px; height:7px; border-radius:50%; background:#D9D5CB; }
 .cz-bar span{ margin-left:10px; font-size:10px; color:var(--muted); }
-/* La plataforma, con una solicitud entrando */
-.cz-plat{ width:calc(var(--h) * 1.45); background:#E3EAE5; }
-.cz-plat > img{ left:8%; top:10%; width:118%; }
-.cz-card{ position:absolute; right:14px; bottom:14px; z-index:2; width:min(310px, 74%); padding:16px 18px; border-radius:20px; background:#FBFAF7; box-shadow:0 26px 50px -22px rgba(20,26,23,.5); }
+/* Mercedes Serrano: su web y, encima, su reseña */
+.cz-merc{ width:calc(var(--h) * 1.85); background:#EDE7E0; }
+.cz-merc .cz-nav{ left:5%; right:34%; top:10%; }
+.cz-merc .cz-card{ top:50%; bottom:auto; translate:0 -50%; right:5%; width:42%; }
+.cz-merc .cz-card p{ font-size:14.5px; }
+.cz-card{ position:absolute; right:14px; bottom:14px; z-index:2; width:min(320px, 74%); padding:16px 18px; border-radius:20px; background:#FBFAF7; box-shadow:0 26px 50px -22px rgba(20,26,23,.5); }
 .cz-card-top{ display:flex; justify-content:space-between; align-items:center; }
-.cz-card-top b{ display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; color:#22734A; }
-.cz-card-top b i{ width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px rgba(65,159,112,.18); }
-.cz-card-top small{ font-size:11.5px; color:var(--muted); }
+.cz-estrellas{ font-size:17px; letter-spacing:2px; color:#1A1A1A; }
+.cz-card-top small{ font-size:12px; color:var(--muted); }
 .cz-card p{ margin:9px 0 12px; font-size:15.5px; line-height:1.4; color:var(--ink); }
 .cz-quien{ display:flex; align-items:center; gap:10px; }
-.cz-quien > i{ width:32px; height:32px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:11px; font-weight:700; color:#fff; background:linear-gradient(135deg, #82C4A3, #22734A); }
-.cz-quien span{ font-size:14px; font-weight:600; color:var(--ink); line-height:1.2; }
-.cz-quien small{ display:block; font-size:11px; font-weight:400; color:var(--muted); }
+.cz-quien > i{ width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:12px; font-weight:700; color:#fff; background:linear-gradient(135deg, #C9A86A, #8C6A35); }
+.cz-quien span{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.2; }
+.cz-quien small{ display:block; font-size:12px; font-weight:400; color:var(--muted); }
+/* Nura Eventos */
+.cz-nura{ width:calc(var(--h) * 1.35); background:#E4E6DF; }
+.cz-nura .cz-nav{ left:8%; right:24%; top:12%; }
+/* Móvil sobre fondo claro (Mercedes) */
+.cz-tel-claro{ background:radial-gradient(70% 60% at 50% 40%, #F4EFE9, #E2D9CE); }
 /* Stay For Events */
 .cz-stay{ width:calc(var(--h) * 1.3); background:#EDE4D3; }
 .cz-stay .cz-nav{ left:8%; right:24%; top:12%; }
 .cz-movil-p{ position:absolute; right:7%; bottom:-14%; width:27%; rotate:5deg; }
-/* Reserva de visitas */
-.cz-visita{ width:calc(var(--h) * 1.1); background:#DCE7DF; }
-.cz-visita > img{ left:10%; top:12%; width:112%; }
 /* Tarjeta fija del boceto web gratis: papel, sin cristal ni iconos. A la izquierda, dos pantallas reales
    apiladas (escritorio y móvil) como un borrador sobre la mesa; a la derecha, la promesa y el enlace */
 /* Asoma por encima del marco (pisa el borde del hero) y solo pisa un poco los proyectos */
@@ -656,12 +656,24 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 .bn-movil{ position:absolute; right:42px; bottom:-60px; width:120px; padding:5px; border-radius:22px; background:#0E1311; box-shadow:0 30px 50px -20px rgba(0,0,0,.6); rotate:4deg; transition:transform .9s var(--ease); }
 .bn-movil img{ display:block; width:100%; border-radius:17px; }
 .bn:hover .bn-movil{ transform:translateY(-14px); }
-.bn-plat .bn-br{ left:32px; right:-60px; }
 .bn-med .bn-br{ left:auto; right:32px; width:72%; }
 .med-chip{ position:absolute; z-index:2; display:inline-flex; align-items:center; gap:7px; padding:8px 14px 8px 9px; border-radius:99px; font-size:12.5px; font-weight:700; color:var(--ink); background:#fff; box-shadow:0 16px 30px -14px rgba(0,0,0,.5); }
 .med-chip .ic{ color:var(--green); font-size:15px; }
 .med-chip.med-a{ left:32px; top:30px; }
 .med-chip.med-b{ left:60px; top:84px; }
+/* Método comercial: los pasos, uno debajo de otro, hasta la fecha reservada */
+.bn-plat .bn-pant{ min-height:0; }
+.met{ position:relative; list-style:none; margin:0 32px 32px; padding:0; display:grid; gap:8px; }
+.met li{ display:grid; grid-template-columns:30px 1fr; column-gap:14px; align-items:center; padding:11px 16px; border-radius:14px; background:rgba(255,255,255,.05); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
+.met span{ grid-row:span 2; width:30px; height:30px; border-radius:50%; display:grid; place-items:center; font-size:11.5px; font-weight:700; color:var(--green-soft); box-shadow:inset 0 0 0 1.5px rgba(130,196,163,.45); }
+.met b{ font-family:var(--display); font-size:15.5px; font-weight:700; letter-spacing:-.01em; color:#fff; }
+.met small{ font-size:12.5px; color:var(--on-dark-dim); }
+.met .ok{ background:rgba(65,159,112,.18); box-shadow:inset 0 0 0 1px rgba(130,196,163,.5); }
+.met .ok span{ color:#fff; background:var(--green); box-shadow:none; font-size:14px; }
+.bn-plat.rv .met li{ opacity:0; transform:translateY(12px); transition:opacity .5s, transform .7s var(--ease); }
+.bn-plat.in .met li{ opacity:1; transform:none; }
+.bn-plat.in .met li:nth-child(2){ transition-delay:.08s; } .bn-plat.in .met li:nth-child(3){ transition-delay:.16s; } .bn-plat.in .met li:nth-child(4){ transition-delay:.24s; } .bn-plat.in .met li:nth-child(5){ transition-delay:.36s; }
+@media (prefers-reduced-motion: reduce){ .bn-plat.rv .met li{ opacity:1; transform:none; } }
 .seo-g{ position:absolute; left:32px; right:32px; top:0; display:flex; flex-direction:column; gap:10px; padding:14px; border-radius:18px; background:#fff; box-shadow:0 20px 40px -24px rgba(20,26,23,.45); font-family:Arial, Helvetica, sans-serif; }
 .seo-bar{ display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:99px; font-size:12px; color:#202124; box-shadow:0 1px 5px rgba(32,33,36,.2); }
 .seo-bar .ic{ color:#9AA0A6; }
@@ -692,43 +704,22 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 }
 @media (prefers-reduced-motion: reduce){ .seo-graf span{ transform:none; } }
 
-/* ================= TESTIMONIOS ================= */
-.testi{ background:#fff; overflow:hidden; }
-.testi-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:clamp(32px, 6vh, 60px); }
-.testi-head h2{ max-width:26ch; }
-.testi-nav{ display:flex; gap:8px; flex:none; }
-.tn{ width:50px; height:50px; border-radius:50%; display:grid; place-items:center; font-size:18px; box-shadow:inset 0 0 0 1px var(--line-2); transition:background .3s, color .3s, opacity .3s; }
-.tn:hover{ background:var(--ink); color:#fff; box-shadow:none; }
-.tn[disabled]{ opacity:.3; pointer-events:none; }
-.testi-track{ --pl:12px; display:flex; align-items:stretch; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-left:var(--pl); padding:0 var(--pl) 6px; scrollbar-width:none; cursor:grab; overscroll-behavior-x:contain; }
-.testi-track::-webkit-scrollbar{ display:none; }
-.testi-track.arrastra{ cursor:grabbing; scroll-snap-type:none; }
-.testi-track.arrastra *{ pointer-events:none; }
-.t{ position:relative; flex:none; height:clamp(360px, 52vh, 520px); border-radius:18px; overflow:hidden; scroll-snap-align:start; background:#EEEBE3; }
-.t-video{ width:clamp(270px, 22vw, 340px); } .t-ancha{ width:clamp(420px, 36vw, 580px); }
-.t-pila{ flex:none; width:clamp(300px, 24vw, 360px); height:clamp(360px, 52vh, 520px); display:flex; flex-direction:column; gap:14px; scroll-snap-align:start; }
-.t-pila .t{ height:auto; } .t-pila .t-mini{ flex:1.2; } .t-pila .t-cita{ flex:1; }
-.t-mini{ height:180px; }
-.t-cita{ height:246px; padding:28px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:#F5F3EE; }
-.t-cita.alta{ width:clamp(300px, 24vw, 360px); }
-.t-cita p{ font-family:var(--display); font-weight:600; font-size:19px; line-height:1.3; letter-spacing:-.01em; }
-.t-firma{ margin-top:20px; font-family:var(--display); font-weight:900; font-size:17px; color:var(--muted); }
-.t-media{ position:absolute; inset:0; background:linear-gradient(165deg, #44584A, #1C2621); }
-.t-media img, .t-media video{ width:100%; height:100%; object-fit:cover; }
-.t-hueco{ position:absolute; inset:14px; display:grid; place-items:start center; padding:56px 20px 20px; text-align:center; font-size:12px; color:rgba(255,255,255,.72); border:1.5px dashed rgba(255,255,255,.32); border-radius:12px; }
-.t-video::after, .t-ancha::after, .t-mini::after{ content:''; position:absolute; inset:auto 0 0; height:60%; background:linear-gradient(transparent, rgba(0,0,0,.62)); pointer-events:none; }
-.t-play{ position:absolute; left:50%; top:50%; z-index:2; width:58px; height:58px; margin:-29px 0 0 -29px; border-radius:50%; display:grid; place-items:center; font-size:20px; color:#fff; background:rgba(255,255,255,.22); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); transition:transform .5s var(--ease), background .3s; }
-.t-play:hover{ transform:scale(1.1); background:rgba(255,255,255,.34); }
-.t.sonando .t-play{ opacity:0; }
-.t-pie{ position:absolute; left:20px; right:20px; bottom:18px; z-index:2; color:#fff; }
-.t-pie b{ display:block; font-family:var(--display); font-size:16px; font-weight:700; }
-.t-pie small{ font-size:12.5px; color:rgba(255,255,255,.72); }
-.t-pie.grande p{ font-family:var(--display); font-size:21px; line-height:1.25; font-weight:600; letter-spacing:-.01em; margin-bottom:12px; }
-[data-pendiente]::before{ content:'Pendiente'; position:absolute; top:12px; left:12px; z-index:3; font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); background:#FFD84D; padding:3px 8px; border-radius:99px; }
-@media (max-width:620px){
-  .testi-head{ flex-direction:column; align-items:flex-start; }
-  .t{ height:400px; } .t-video{ width:240px; } .t-ancha{ width:320px; }
-  .t-cita.alta{ height:400px; } .t-pila .t-mini{ height:160px; } .t-pila .t-cita{ height:226px; }
+/* ================= TESTIMONIOS: uno destacado =================
+   A la izquierda el vídeo vertical del cliente (con sonido al pulsar), a la derecha su frase literal en
+   grande, nombre y negocio. Mismos colores y letras que el resto de la web */
+.testi-in{ display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:clamp(30px, 6vw, 96px); align-items:center; }
+.tv{ position:relative; margin:0; aspect-ratio:9 / 16; max-height:78vh; border-radius:var(--r-lg); overflow:hidden; background:var(--ink); }
+.tv-vid{ width:100%; height:100%; object-fit:cover; }
+.tv-play{ position:absolute; left:50%; top:50%; width:76px; height:76px; margin:-38px 0 0 -38px; border-radius:50%; display:grid; place-items:center; font-size:22px; color:var(--ink); background:var(--cream); transition:transform .5s var(--ease), opacity .3s; }
+.tv-play:hover{ transform:scale(1.06); }
+.tv.suena .tv-play{ opacity:0; pointer-events:none; }
+.tc{ display:flex; flex-direction:column; align-items:flex-start; gap:26px; }
+.tc-cita{ margin:0; font-family:var(--display); font-weight:700; font-size:clamp(28px, 3.2vw, 46px); line-height:1.12; letter-spacing:-.04em; color:var(--ink); text-wrap:balance; }
+.tc-quien b{ display:block; font-weight:700; font-size:18px; letter-spacing:-.02em; }
+.tc-quien small{ font-size:15px; color:var(--muted); }
+@media (max-width:860px){
+  .testi-in{ grid-template-columns:1fr; }
+  .tv{ max-width:360px; width:100%; margin:0 auto; }
 }
 
 /* ================= FAQ y llamada final ================= */
@@ -768,28 +759,6 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
-<!-- Intro de marca (una vez por sesión): las dovelas forman el arco, cae la clave, aparece el nombre,
-     el fondo cambia de golpe a verde y la cortina sube en curva para abrir la web -->
-<div class="intro" id="intro" aria-hidden="true">
-  <div class="intro-in">
-    <span class="intro-marca">
-      <i class="intro-onda"></i>
-      <svg class="intro-arco" viewBox="16 12 88 98">
-        <rect class="pi pi1" x="18" y="63.93" width="19" height="44.07" rx="1.2"/>
-        <rect class="pi pi2" x="83" y="63.93" width="19" height="44.07" rx="1.2"/>
-        <path class="dv d1" d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z"/>
-        <path class="dv d2" d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z"/>
-        <path class="dv d3" d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z"/>
-        <path class="dv d5" d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z"/>
-        <path class="dv d6" d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z"/>
-        <path class="dv d7" d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z"/>
-        <path class="dv clave" d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z"/>
-      </svg>
-    </span>
-    <span class="intro-nombre"><span>F</span><span>O</span><span>R</span><span>E</span><span>V</span><span>E</span><span>N</span><span>T</span><span>O</span><span>S</span></span>
-  </div>
-  <div class="intro-pie"><span>Tecnología y marketing para vender más eventos</span><b data-cuenta>0</b></div>
-</div>
 <!-- Cortina entre páginas: sube en curva al salir y se retira hacia arriba al llegar -->
 <div class="cortina" aria-hidden="true"><span class="cortina-grano"></span><svg class="ic arco" viewBox="16 12 88 98" fill="currentColor" aria-hidden="true"><path d="M18.02 60.75A42 42 0 0 1 21.64 44.91L38.99 52.64A23 23 0 0 0 37.01 61.32Z"/><path d="M22.72 42.66A42 42 0 0 1 32.85 29.95L45.13 44.45A23 23 0 0 0 39.58 51.41Z"/><path d="M34.8 28.4A42 42 0 0 1 49.44 21.35L54.22 39.74A23 23 0 0 0 46.2 43.6Z"/><path class="clave" d="M50.71 14.91A48 48 0 0 1 69.29 14.91L64.26 40.42A22 22 0 0 0 55.74 40.42Z"/><path d="M70.56 21.35A42 42 0 0 1 85.2 28.4L73.8 43.6A23 23 0 0 0 65.78 39.74Z"/><path d="M87.15 29.95A42 42 0 0 1 97.28 42.66L80.42 51.41A23 23 0 0 0 74.87 44.45Z"/><path d="M98.36 44.91A42 42 0 0 1 101.98 60.75L82.99 61.32A23 23 0 0 0 81.01 52.64Z"/><rect x="18" y="63.93" width="19" height="44.07"/><rect x="83" y="63.93" width="19" height="44.07"/></svg></div>
 
@@ -829,33 +798,21 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
     <div class="hero-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="luz"></i><span class="grano"></span></div>
     <div class="hero-grid">
       <div class="hero-txt">
-        <p class="hero-kicker rv">Agencia de marketing digital y tecnología</p>
-        <!-- "caos" sale con las letras desordenadas y caen en su sitio -->
-        <h1 class="hero-h1 split" style="--d:1" aria-label="Más reservas, menos caos.">Más reservas,<br> <em>menos <span class="caos" data-nosplit aria-hidden="true"><i style="--k:0; --x:-.18em; --y:-.42em; --r:-24deg">c</i><i style="--k:1; --x:.12em; --y:.3em; --r:18deg">a</i><i style="--k:2; --x:-.1em; --y:-.5em; --r:-12deg">o</i><i style="--k:3; --x:.22em; --y:.26em; --r:30deg">s</i><i style="--k:4; --x:.3em; --y:-.3em; --r:-40deg">.</i></span></em></h1>
-        <p class="hero-sub rv" style="--d:4">Webs, visibilidad y sistemas que ordenan tu proceso de venta, de la primera búsqueda al día del evento. <b>Para espacios, wedding planners y caterings.</b></p>
-        <div class="hero-ctas rv" style="--d:5">
-          <a href="/contacto" class="btn btn-hero" data-mag><span><b data-t="Quiero más reservas">Quiero más reservas</b></span><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <p class="hero-kicker">Agencia de marketing digital y tecnología</p>
+        <!-- Visible desde el primer momento: sin animaciones que dependan de JavaScript -->
+        <h1 class="hero-h1">Más reservas,<br> <em>menos caos.</em></h1>
+        <p class="hero-sub">Webs, visibilidad y sistemas que ordenan tu proceso de venta, de la primera búsqueda al día del evento. <b>Para espacios, wedding planners y caterings.</b></p>
+        <div class="hero-ctas">
+          <a href="/contacto" class="hero-cta">Hablemos de tu negocio <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="/servicios" class="hero-link">Ver servicios <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <a class="hero-prueba rv" style="--d:6" href="/proyectos">
-          <span class="hp-fan" aria-hidden="true">
-            <img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900">
-            <img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848">
-            <img src="/proyectos/stayforevents.jpg" alt="" width="1440" height="900">
-          </span>
-          <span class="hp-txt"><b>Webs, portales y plataformas</b> para el sector de bodas y eventos <u>Ver proyectos</u></span>
-        </a>
-      </div>
-
-      <!-- Mini vídeo de tu proceso de venta, como unas historias: cinco escenas de 7 s con una barra de
-           progreso por fase, el título dentro y una sola pantalla protagonista en cada una. Se monta con CSS
-           al encender cada escena (.on); hero.js las va pasando y escala el lienzo de 440 × 440 al hueco -->
-      <div class="hero-stage rv" style="--d:3">
-        <!-- Vídeo hecho con Remotion (proyecto aparte, C:/dev/foreventos-video): 35 s en bucle, sin sonido -->
-        <div class="vd" data-escena>
-          <div class="vd-marco"><video class="vd-vid" src="/video/hero.mp4" poster="/video/hero-poster.jpg" width="810" height="810" autoplay muted loop playsinline preload="auto" aria-label="Del primer contacto al día de la boda: te encuentran en Google, te escriben desde tu web, respondes con tu dossier, firman y pagan en su portal y les acompañas hasta el evento"></video></div>
+        <!-- Clientes reales (logos de sus marcas) y una frase cortísima de la reseña de Mercedes -->
+        <div class="hero-social">
+          <span class="hs-caras" aria-hidden="true"><img src="/clientes/mercedes-logo.jpg" alt="" width="160" height="160"><img src="/clientes/nura.jpg" alt="" width="160" height="160"><img src="/clientes/wvs.jpg" alt="" width="160" height="160"><img src="/clientes/stay.jpg" alt="" width="160" height="160"></span>
+          <span class="hs-txt"><span class="hs-estrellas" role="img" aria-label="5 de 5 estrellas">★★★★★</span><span class="hs-cita">«Entendieron exactamente lo que quería transmitir.»</span><span class="hs-quien"><b>Mercedes Serrano</b>, wedding planner</span></span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -867,11 +824,15 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
     <div class="casos-ventana">
       <div class="casos-pista" data-casos>
         <figure class="cz cz-color" aria-hidden="true"><span class="cz-luz"></span></figure>
-        <figure class="cz cz-tel"><div class="cz-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async" alt="weddingvenuesspain.com en el móvil"></div><figcaption>Wedding Venues Spain</figcaption></figure>
-        <figure class="cz cz-ambiente"><img class="cz-fondo" src="/finca/finca.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async" alt="Portada de weddingvenuesspain.com"></div><figcaption>Web · Diseño · SEO</figcaption></figure>
-        <figure class="cz cz-plat"><img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848" loading="lazy" decoding="async" alt="Panel de la plataforma FOREVENTOS"><div class="cz-card"><div class="cz-card-top"><b><i></i>Nueva solicitud</b><small>hace 2 min</small></div><p>«¿Tenéis libre el 12 de junio? Somos 120 invitados.»</p><div class="cz-quien"><i>LM</i><span>Laura y Marc<small>desde tu web</small></span></div></div></figure>
-        <figure class="cz cz-stay"><div class="cz-nav"><img src="/proyectos/stayforevents.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async" alt="Portada de Stay For Events"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/stayforevents-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Stay For Events</figcaption></figure>
-        <figure class="cz cz-visita"><img src="/proyectos/visita.jpg" alt="" width="1140" height="712" loading="lazy" decoding="async" alt="Página de reserva de visitas"><figcaption>Reserva de visitas</figcaption></figure>
+        <figure class="cz cz-merc"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>mercedes-serrano.wedding</span></div><img src="/proyectos/mercedes-serrano.jpg" alt="Portada de la web de Mercedes Serrano, wedding planner" width="1440" height="900" loading="lazy" decoding="async"></div>
+          <!-- Reseña de Mercedes (WhatsApp, 6-11-2026), resumida con su permiso: «ponlo tú como quieras, no tiene que ser literal» -->
+          <div class="cz-card cz-resena"><div class="cz-card-top"><span class="cz-estrellas" aria-label="5 de 5">★★★★★</span><small>Web nueva · 2026</small></div><p>«Me daba miedo cambiar de web por malas experiencias con otros proveedores. Con vosotros sentí confianza: entendisteis lo que quería transmitir, tuvisteis paciencia con cada cambio y acerté.»</p><div class="cz-quien"><i>MS</i><span>Mercedes Serrano<small>Wedding planner · Madrid y Toledo</small></span></div></div>
+        </figure>
+        <figure class="cz cz-tel"><div class="cz-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Wedding Venues Spain</figcaption></figure>
+        <figure class="cz cz-nura"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>nuraeventos.com</span></div><img src="/proyectos/nura-eventos.jpg" alt="Portada de la web de Nura Eventos" width="1440" height="900" loading="lazy" decoding="async"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/nura-eventos-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Nura Eventos</figcaption></figure>
+        <figure class="cz cz-ambiente"><img class="cz-fondo" src="/finca/finca.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="Portada de weddingvenuesspain.com" width="1440" height="900" loading="lazy" decoding="async"></div><figcaption>Web · Diseño · SEO</figcaption></figure>
+        <figure class="cz cz-tel cz-tel-claro"><div class="cz-movil"><img src="/proyectos/mercedes-serrano-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Mercedes Serrano</figcaption></figure>
+        <figure class="cz cz-stay"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>stayforevents.com</span></div><img src="/proyectos/stayforevents.jpg" alt="Portada de Stay For Events" width="1440" height="900" loading="lazy" decoding="async"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/stayforevents-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Stay For Events</figcaption></figure>
       </div>
     </div>
     <a class="cz-borrador" href="/contacto"><span class="cz-prev" aria-hidden="true"><img class="p1" src="/boceto/escritorio.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"><img class="p2" src="/boceto/movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></span><span><small>Sin compromiso</small><b>Pide tu boceto web gratis</b><em>Te diseñamos la primera versión de tu web antes de decidir nada.</em><i>Pedir mi boceto <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></a>
@@ -895,9 +856,17 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
         <div class="bn-txt"><span class="bn-tag"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 8h20M6 5.5h.01M9 5.5h.01"/></svg></i>Webs</span><h3>Webs con esencia que traen solicitudes</h3><p>Diseño a medida, rápida y conectada a tu panel. Antes de decidir, te enseñamos un boceto gratis.</p><span class="bn-go">Quiero mi boceto <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="" width="1440" height="900" loading="lazy"></div><div class="bn-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy"></div></div>
       </a>
-      <a class="bn bn-plat rv" style="--d:1" href="/plataforma">
-        <div class="bn-txt"><span class="bn-tag"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg></i>Plataforma</span><h3>Plataforma de gestión comercial para cerrar ventas</h3><p>Todas tus solicitudes en un mismo sitio, con más control y menos esfuerzo, y herramientas que facilitan la comunicación con tus clientes y te ayudan a cerrar más ventas.</p><span class="bn-go">Ver la plataforma <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        <div class="bn-pant" aria-hidden="true"><div class="bn-br"><div class="mk-bar"><i></i><i></i><i></i><span>app.foreventos.com</span></div><img src="/proyectos/plataforma.jpg" alt="" width="1440" height="848" loading="lazy"></div></div>
+      <a class="bn bn-plat rv" style="--d:1" href="/servicios#gestion">
+        <div class="bn-txt"><span class="bn-tag"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg></i>Método comercial</span><h3>Un método comercial para cerrar más ventas</h3><p>Ordenamos tu proceso de venta de principio a fin: cómo respondes, cómo haces seguimiento, las visitas y las propuestas. Y te damos las herramientas para aplicarlo cada día.</p><span class="bn-go">Cómo lo hacemos <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="bn-pant" aria-hidden="true">
+          <ol class="met">
+            <li><span>01</span><b>Respuesta en minutos</b><small>Cada solicitud, contestada al momento</small></li>
+            <li><span>02</span><b>Seguimiento sin olvidos</b><small>Sabes a quién escribir y cuándo</small></li>
+            <li><span>03</span><b>Visita que enamora</b><small>Agenda online y dossier preparado</small></li>
+            <li><span>04</span><b>Propuesta clara</b><small>Precio, condiciones y firma en un paso</small></li>
+            <li class="ok"><span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><b>Fecha reservada</b><small>Señal cobrada y cliente feliz</small></li>
+          </ol>
+        </div>
       </a>
       <a class="bn bn-seo rv" style="--d:2" href="/servicios#google">
         <div class="bn-txt"><span class="bn-tag"><i><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></i>Visibilidad</span><h3>Más visibilidad ante tus clientes ideales</h3><p>Te ponemos delante de quien busca lo que ofreces, en Google y en redes: más oportunidades de que te conozcan y te contraten.</p><span class="bn-go">Quiero que me vean <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
@@ -1038,8 +1007,10 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
   /* Menú: fondo al hacer scroll */
   (function(){
     var nav = document.getElementById('nav'); if (!nav) return;
-    function on(){ nav.classList.toggle('pegado', window.scrollY > 8); }
-    window.addEventListener('scroll', on, { passive:true }); on();
+    // Con margen (entra a 40 px, sale a 10 px) para que no parpadee al rozar el borde
+    var pegado = false, tick = false;
+    function on(){ tick = false; var y = window.scrollY; if (!pegado && y > 40){ pegado = true; nav.classList.add('pegado'); } else if (pegado && y < 10){ pegado = false; nav.classList.remove('pegado'); } }
+    window.addEventListener('scroll', function(){ if (!tick){ tick = true; requestAnimationFrame(on); } }, { passive:true }); on();
   })();
 
   /* Menú móvil */
@@ -1183,18 +1154,6 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
     var L = window.FE_LEGAL || {}, el = document.getElementById('feLegal');
     if (el) el.textContent = [L.company, 'NIF ' + L.cif, L.address].filter(Boolean).join(' · ');
   })();
-  /* Titular del hero: además de por palabras (base.js), se parte en letras, que entran girando en 3D
-     una a una; con el ratón encima, cada letra salta un poco */
-  (function(){
-    var h = document.querySelector('.hero-h1'); if (!h) return;
-    var j = 0;
-    [].forEach.call(h.querySelectorAll('.w > span'), function(s){
-      var t = s.textContent; s.textContent = '';
-      t.split('').forEach(function(ch){ var l = document.createElement('i'); l.className = 'l'; l.textContent = ch; l.style.setProperty('--j', j++); s.appendChild(l); });
-    });
-    h.classList.add('letras');
-  })();
-
   /* Hero: entrada al abrirse la web */
   (function(){
     var h = document.querySelector('.hero'); if (!h) return;
@@ -1215,14 +1174,6 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
     pasos.forEach(function(p){ io.observe(p); });
   })();
 
-  /* Vídeo del hero: solo se reproduce mientras se ve; con movimiento reducido se queda en el póster */
-  (function(){
-    var v = document.querySelector('.vd-vid'); if (!v) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
-    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){
-      if (es[0].isIntersecting){ var p = v.play(); if (p && p.catch) p.catch(function(){}); } else v.pause();
-    }).observe(v);
-  })();
 
   /* Hero vivo: la luz sigue al ratón con retardo; sin ratón (móvil) pasea sola en curvas.
      Al bajar, el fondo se queda atrás (paralaje) y, en el portátil, el texto sube y se apaga
@@ -1317,50 +1268,12 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
     });
   })();
 
-  /* Testimonios: carrusel horizontal con flechas, arrastre con ratón y vídeos al tocar */
+  /* Testimonio en vídeo: al pulsar se reproduce con sonido y controles */
   (function(){
-    var track = document.querySelector('[data-testi]'); if (!track) return;
-    var btns = [].slice.call(document.querySelectorAll('.testi-nav .tn'));
-    function estado(){
-      var max = track.scrollWidth - track.clientWidth - 2;
-      btns[0].disabled = track.scrollLeft <= 2;
-      btns[1].disabled = track.scrollLeft >= max;
-    }
-    btns.forEach(function(b){
-      b.addEventListener('click', function(){
-        track.scrollBy({ left:+b.getAttribute('data-dir') * Math.max(280, track.clientWidth * .7), behavior:'smooth' });
-      });
-    });
-    track.addEventListener('scroll', function(){ requestAnimationFrame(estado); }, { passive:true });
-    addEventListener('resize', estado); estado();
-
-    // Arrastrar con el ratón (en táctil ya se desliza solo)
-    var down = false, moved = false, x0 = 0, s0 = 0;
-    track.addEventListener('pointerdown', function(e){
-      if (e.pointerType !== 'mouse' || e.button !== 0) return;
-      down = true; moved = false; x0 = e.clientX; s0 = track.scrollLeft;
-    });
-    addEventListener('pointermove', function(e){
-      if (!down) return;
-      var dx = e.clientX - x0;
-      if (!moved && Math.abs(dx) > 5){ moved = true; track.classList.add('arrastra'); }
-      if (moved) track.scrollLeft = s0 - dx;
-    });
-    addEventListener('pointerup', function(){
-      if (!down) return; down = false;
-      if (moved) setTimeout(function(){ track.classList.remove('arrastra'); }, 0);
-    });
-
-    // Vídeos: <video> dentro de .t-media; el botón lo reproduce con sonido
-    [].forEach.call(track.querySelectorAll('.t-play'), function(b){
-      var t = b.closest('.t'), v = t.querySelector('video');
-      if (!v){ b.disabled = true; return; }
-      b.addEventListener('click', function(){
-        if (v.paused){ v.muted = false; v.play(); t.classList.add('sonando'); }
-        else { v.pause(); t.classList.remove('sonando'); }
-      });
-      v.addEventListener('click', function(){ v.pause(); t.classList.remove('sonando'); });
-      v.addEventListener('ended', function(){ t.classList.remove('sonando'); });
+    [].forEach.call(document.querySelectorAll('.tv'), function(t){
+      var v = t.querySelector('video'), b = t.querySelector('.tv-play'); if (!v || !b) return;
+      b.addEventListener('click', function(){ v.controls = true; v.muted = false; var p = v.play(); if (p && p.catch) p.catch(function(){}); t.classList.add('suena'); });
+      v.addEventListener('ended', function(){ t.classList.remove('suena'); v.controls = false; });
     });
   })();
 

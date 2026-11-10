@@ -1,15 +1,3 @@
-  /* Titular del hero: además de por palabras (base.js), se parte en letras, que entran girando en 3D
-     una a una; con el ratón encima, cada letra salta un poco */
-  (function(){
-    var h = document.querySelector('.hero-h1'); if (!h) return;
-    var j = 0;
-    [].forEach.call(h.querySelectorAll('.w > span'), function(s){
-      var t = s.textContent; s.textContent = '';
-      t.split('').forEach(function(ch){ var l = document.createElement('i'); l.className = 'l'; l.textContent = ch; l.style.setProperty('--j', j++); s.appendChild(l); });
-    });
-    h.classList.add('letras');
-  })();
-
   /* Hero: entrada al abrirse la web */
   (function(){
     var h = document.querySelector('.hero'); if (!h) return;
@@ -30,14 +18,6 @@
     pasos.forEach(function(p){ io.observe(p); });
   })();
 
-  /* Vídeo del hero: solo se reproduce mientras se ve; con movimiento reducido se queda en el póster */
-  (function(){
-    var v = document.querySelector('.vd-vid'); if (!v) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.pause(); return; }
-    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){
-      if (es[0].isIntersecting){ var p = v.play(); if (p && p.catch) p.catch(function(){}); } else v.pause();
-    }).observe(v);
-  })();
 
   /* Hero vivo: la luz sigue al ratón con retardo; sin ratón (móvil) pasea sola en curvas.
      Al bajar, el fondo se queda atrás (paralaje) y, en el portátil, el texto sube y se apaga
