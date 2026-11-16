@@ -585,10 +585,11 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 .cz-bar i{ width:7px; height:7px; border-radius:50%; background:#D9D5CB; }
 .cz-bar span{ margin-left:10px; font-size:10px; color:var(--muted); }
 /* Mercedes Serrano: su web y, encima, su reseña */
-.cz-merc{ width:calc(var(--h) * 1.85); background:#EDE7E0; }
-.cz-merc .cz-nav{ left:5%; right:34%; top:10%; }
-.cz-merc .cz-card{ top:50%; bottom:auto; translate:0 -50%; right:5%; width:42%; }
-.cz-merc .cz-card p{ font-size:14.5px; }
+.cz-merc, .cz-nura-r{ width:calc(var(--h) * 1.85); background:#EDE7E0; }
+.cz-nura-r{ background:#E4E6DF; }
+.cz-merc .cz-nav, .cz-nura-r .cz-nav{ left:5%; right:34%; top:10%; }
+.cz-merc .cz-card, .cz-nura-r .cz-card{ top:50%; bottom:auto; translate:0 -50%; right:5%; width:42%; }
+.cz-merc .cz-card p, .cz-nura-r .cz-card p{ font-size:14.5px; }
 .cz-card{ position:absolute; right:14px; bottom:14px; z-index:2; width:min(320px, 74%); padding:16px 18px; border-radius:20px; background:#FBFAF7; box-shadow:0 26px 50px -22px rgba(20,26,23,.5); }
 .cz-card-top{ display:flex; justify-content:space-between; align-items:center; }
 .cz-estrellas{ font-size:17px; letter-spacing:2px; color:#1A1A1A; }
@@ -597,6 +598,7 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 .cz-quien{ display:flex; align-items:center; gap:10px; }
 .cz-quien > i{ width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:12px; font-weight:700; color:#fff; background:linear-gradient(135deg, #C9A86A, #8C6A35); }
 .cz-quien span{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.2; }
+.cz-quien > img{ width:34px; height:34px; border-radius:50%; object-fit:cover; flex:none; }
 .cz-quien small{ display:block; font-size:12px; font-weight:400; color:var(--muted); }
 /* Nura Eventos */
 .cz-nura{ width:calc(var(--h) * 1.35); background:#E4E6DF; }
@@ -842,7 +844,10 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
           <div class="cz-card cz-resena"><div class="cz-card-top"><span class="cz-estrellas" aria-label="5 de 5">★★★★★</span><small>Web nueva · 2026</small></div><p>«Me daba miedo cambiar de web por malas experiencias con otros proveedores. Con vosotros sentí confianza: entendisteis lo que quería transmitir, tuvisteis paciencia con cada cambio y acerté.»</p><div class="cz-quien"><i>MS</i><span>Mercedes Serrano<small>Wedding planner · Madrid y Toledo</small></span></div></div>
         </figure>
         <figure class="cz cz-tel"><div class="cz-movil"><img src="/proyectos/weddingvenuesspain-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Wedding Venues Spain</figcaption></figure>
-        <figure class="cz cz-nura"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>nuraeventos.com</span></div><img src="/proyectos/nura-eventos.jpg" alt="Portada de la web de Nura Eventos" width="1440" height="900" loading="lazy" decoding="async"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/nura-eventos-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Nura Eventos</figcaption></figure>
+        <figure class="cz cz-nura-r"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>nuraeventos.com</span></div><img src="/proyectos/nura-eventos.jpg" alt="Portada de la web de Nura Eventos" width="1440" height="900" loading="lazy" decoding="async"></div>
+          <!-- Reseña real de Nura Eventos (pasada por el usuario, 16-11-2026). Extracto literal: dos frases enteras -->
+          <div class="cz-card cz-resena"><div class="cz-card-top"><span class="cz-estrellas" aria-label="5 de 5">★★★★★</span><small>Web nueva</small></div><p>«Desde el primer momento captaron mi atención ofreciéndome una pequeña prueba de cómo podría quedar mi web. […] Lo que más valoro es lo fácil y fluido que han hecho todo el proceso.»</p><div class="cz-quien"><img src="/clientes/nura.jpg" alt="" width="160" height="160" loading="lazy" decoding="async"><span>Nura Eventos<small>Wedding planner</small></span></div></div>
+        </figure>
         <figure class="cz cz-ambiente"><img class="cz-fondo" src="/finca/finca.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>weddingvenuesspain.com</span></div><img src="/proyectos/weddingvenuesspain.jpg" alt="Portada de weddingvenuesspain.com" width="1440" height="900" loading="lazy" decoding="async"></div><figcaption>Web · Diseño · SEO</figcaption></figure>
         <figure class="cz cz-tel cz-tel-claro"><div class="cz-movil"><img src="/proyectos/mercedes-serrano-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Mercedes Serrano</figcaption></figure>
         <figure class="cz cz-stay"><div class="cz-nav"><div class="cz-bar"><i></i><i></i><i></i><span>stayforevents.com</span></div><img src="/proyectos/stayforevents.jpg" alt="Portada de Stay For Events" width="1440" height="900" loading="lazy" decoding="async"></div><div class="cz-movil cz-movil-p"><img src="/proyectos/stayforevents-movil.jpg" alt="" width="600" height="1298" loading="lazy" decoding="async"></div><figcaption>Stay For Events</figcaption></figure>

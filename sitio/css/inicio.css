@@ -164,10 +164,11 @@
 .cz-bar i{ width:7px; height:7px; border-radius:50%; background:#D9D5CB; }
 .cz-bar span{ margin-left:10px; font-size:10px; color:var(--muted); }
 /* Mercedes Serrano: su web y, encima, su reseña */
-.cz-merc{ width:calc(var(--h) * 1.85); background:#EDE7E0; }
-.cz-merc .cz-nav{ left:5%; right:34%; top:10%; }
-.cz-merc .cz-card{ top:50%; bottom:auto; translate:0 -50%; right:5%; width:42%; }
-.cz-merc .cz-card p{ font-size:14.5px; }
+.cz-merc, .cz-nura-r{ width:calc(var(--h) * 1.85); background:#EDE7E0; }
+.cz-nura-r{ background:#E4E6DF; }
+.cz-merc .cz-nav, .cz-nura-r .cz-nav{ left:5%; right:34%; top:10%; }
+.cz-merc .cz-card, .cz-nura-r .cz-card{ top:50%; bottom:auto; translate:0 -50%; right:5%; width:42%; }
+.cz-merc .cz-card p, .cz-nura-r .cz-card p{ font-size:14.5px; }
 .cz-card{ position:absolute; right:14px; bottom:14px; z-index:2; width:min(320px, 74%); padding:16px 18px; border-radius:20px; background:#FBFAF7; box-shadow:0 26px 50px -22px rgba(20,26,23,.5); }
 .cz-card-top{ display:flex; justify-content:space-between; align-items:center; }
 .cz-estrellas{ font-size:17px; letter-spacing:2px; color:#1A1A1A; }
@@ -176,6 +177,7 @@
 .cz-quien{ display:flex; align-items:center; gap:10px; }
 .cz-quien > i{ width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-style:normal; font-size:12px; font-weight:700; color:#fff; background:linear-gradient(135deg, #C9A86A, #8C6A35); }
 .cz-quien span{ font-size:14.5px; font-weight:600; color:var(--ink); line-height:1.2; }
+.cz-quien > img{ width:34px; height:34px; border-radius:50%; object-fit:cover; flex:none; }
 .cz-quien small{ display:block; font-size:12px; font-weight:400; color:var(--muted); }
 /* Nura Eventos */
 .cz-nura{ width:calc(var(--h) * 1.35); background:#E4E6DF; }
