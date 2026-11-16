@@ -141,6 +141,10 @@ body.mm-on .nav::before{ opacity:0; }
 .nav-acc{ display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500; opacity:.78; transition:opacity .25s; }
 .nav-acc .ic{ font-size:15px; }
 .nav-acc:hover{ opacity:1; }
+/* Cambio de idioma ES/EN: discreto, como Iniciar sesión (en móvil va en el menú desplegable) */
+.nav-lang{ font-size:13px; font-weight:600; letter-spacing:.04em; opacity:.6; transition:opacity .25s; }
+.nav-lang:hover{ opacity:1; }
+@media (max-width:860px){ .nav-lang{ display:none; } }
 .nav-burger{ display:none; width:40px; height:40px; border-radius:50%; position:relative; margin-left:-8px; }
 .nav-burger span{ position:absolute; left:11px; right:11px; height:1.7px; background:currentColor; border-radius:2px; transition:transform .45s var(--ease); }
 .nav-burger span:first-child{ top:16px; } .nav-burger span:last-child{ top:23px; }
@@ -174,6 +178,7 @@ body.mm-on .nav::before{ opacity:0; }
 .mm-foot{ display:grid; gap:16px; justify-items:start; }
 .mm-acc{ font-weight:600; border-bottom:1px solid currentColor; }
 .mm-foot p{ font-size:13px; color:var(--on-dark-dim); }
+.mm-lang{ font-size:14px; color:var(--on-dark-dim); }
 body.mm-on{ overflow:hidden; }
 body.mm-on .nav{ color:var(--on-dark); }
 body.mm-on .nav .nav-in{ background:transparent; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; }
@@ -294,6 +299,8 @@ body.mm-on .nav-r .btn{ --bg:#fff; --fg:var(--ink); }
 .pie ul a{ color:var(--on-dark-dim); transition:color .2s; }
 .pie ul a:hover{ color:#fff; }
 .pie-bot{ display:flex; justify-content:space-between; gap:12px 24px; flex-wrap:wrap; margin-top:64px; padding:22px 0; border-top:1px solid var(--line-dark); font-size:12.5px; color:var(--on-dark-dim); }
+.pie-lang{ color:var(--on-dark-dim); transition:color .2s; }
+.pie-lang:hover{ color:#fff; }
 .pie-grande{ color:rgba(255,255,255,.06); padding:0 var(--gut); margin-bottom:-1.2%; }
 .pie-grande .logo{ width:100%; height:auto; }
 .pie-grande .logo path[fill="#419F70"]{ fill:rgba(65,159,112,.22); }

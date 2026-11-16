@@ -1,0 +1,34 @@
+<!-- Cortina entre páginas: sube en curva al salir y se retira hacia arriba al llegar -->
+<div class="cortina" aria-hidden="true"><span class="cortina-grano"></span>{{i:arco}}</div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <nav class="nav-l" aria-label="Main">
+      <button class="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuMovil"><span></span><span></span></button>
+      <a href="/en/services">Services</a>
+      <a href="/en/platform">Platform</a>
+      <a href="/en/projects">Projects</a>
+    </nav>
+    <a href="/en" class="nav-logo" aria-label="FOREVENTOS, home">{{logo}}</a>
+    <div class="nav-r">
+      <a href="{{otro}}" class="nav-lang" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+      <a href="https://app.foreventos.com/login" class="nav-acc">{{i:usuario}}Log in</a>
+      <a href="/en/contact" class="btn btn-dark btn-sm btn-luz"><span>Let’s talk</span><i>{{i:flecha}}</i></a>
+    </div>
+  </div>
+</header>
+
+<div class="mm" id="menuMovil" aria-hidden="true" inert>
+  <nav class="mm-links" aria-label="Mobile menu">
+    <a href="/en"><small>00</small>Home</a>
+    <a href="/en/services"><small>01</small>Services</a>
+    <a href="/en/platform"><small>02</small>Platform</a>
+    <a href="/en/projects"><small>03</small>Projects</a>
+  </nav>
+  <div class="mm-foot">
+    <a href="/en/contact" class="btn btn-light"><span>Let’s talk</span><i>{{i:flecha}}</i></a>
+    <a href="https://app.foreventos.com/login" class="mm-acc">Log in</a>
+    <a href="{{otro}}" class="mm-lang" hreflang="es" lang="es">Español</a>
+    <p>info@foreventos.com · +34 687 657 367</p>
+  </div>
+</div>

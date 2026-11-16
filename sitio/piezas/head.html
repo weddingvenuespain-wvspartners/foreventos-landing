@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{lang}}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{title}}</title>
 <meta name="description" content="{{desc}}" />
 <link rel="canonical" href="{{url}}" />
+{{alternates}}
 <meta name="theme-color" content="#F4F2EC" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="FOREVENTOS" />
@@ -15,7 +16,8 @@
 <meta property="og:image" content="https://foreventos.com/og-cover.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:locale" content="es_ES" />
+<meta property="og:locale" content="{{locale}}" />
+<meta property="og:locale:alternate" content="{{locale_alt}}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{title}}" />
 <meta name="twitter:description" content="{{desc}}" />
@@ -52,4 +54,4 @@
 </style>
 </head>
 <body>
-<a class="saltar" href="#contenido">Saltar al contenido</a>
+<a class="saltar" href="#contenido">{{saltar}}</a>

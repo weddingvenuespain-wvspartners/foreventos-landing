@@ -1,4 +1,23 @@
   var REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Textos que pone el script: en inglés si la página es /en (<html lang="en">)
+  var EN = document.documentElement.lang === 'en';
+  var TX = EN ? {
+    abrir:'Open menu', cerrar:'Close menu', enviando:'Sending…',
+    contactOk:'Message received! We’ll reply within 24 working hours.',
+    contactErr:'We couldn’t send it. We’re opening your email so you can write to us directly.',
+    demoOk:'Request received! We’ll review it and email you your personal demo link.',
+    demoErr:'We couldn’t send it. Email us at info@foreventos.com and we’ll send it over.',
+    e400:'Please check your details: something is missing or the email doesn’t look right.',
+    e429:'You’ve sent several messages in a row. Wait a few minutes or email us at info@foreventos.com.'
+  } : {
+    abrir:'Abrir menú', cerrar:'Cerrar menú', enviando:'Enviando…',
+    contactOk:'¡Mensaje recibido! Te respondemos en menos de 24 horas laborables.',
+    contactErr:'No se ha podido enviar. Te abrimos tu correo para que nos escribas directamente.',
+    demoOk:'¡Solicitud recibida! La revisamos y te enviamos por email tu enlace personal a la demo.',
+    demoErr:'No se ha podido enviar. Escríbenos a info@foreventos.com y te la enviamos.',
+    e400:'Revisa los datos: falta alguno o el email no parece válido.',
+    e429:'Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos a info@foreventos.com.'
+  };
 
   /* Intro de marca: el arco se forma dovela a dovela, cae la clave, aparece el nombre y el
      contador llega a 100; el fondo cambia de golpe a verde y la cortina sube en curva.
@@ -76,7 +95,7 @@
       mm.setAttribute('aria-hidden', v ? 'false' : 'true');
       if (v) mm.removeAttribute('inert'); else mm.setAttribute('inert', '');
       b.setAttribute('aria-expanded', v ? 'true' : 'false');
-      b.setAttribute('aria-label', v ? 'Cerrar menú' : 'Abrir menú');
+      b.setAttribute('aria-label', v ? TX.cerrar : TX.abrir);
       document.body.classList.toggle('mm-on', v);
     }
     b.addEventListener('click', function(){ set(!mm.classList.contains('abierto')); });
@@ -143,18 +162,18 @@
     var FORMS = {
       contactForm: {
         api:'https://app.foreventos.com/api/public/contact',
-        ok:'¡Mensaje recibido! Te respondemos en menos de 24 horas laborables.',
-        err:'No se ha podido enviar. Te abrimos tu correo para que nos escribas directamente.',
-        body:function(v){ return { name:v('name'), company:v('venue'), email:v('email'), website:v('website'), lang:'es',
+        ok:TX.contactOk,
+        err:TX.contactErr,
+        body:function(v){ return { name:v('name'), company:v('venue'), email:v('email'), website:v('website'), lang:EN ? 'en' : 'es',
           message:['Tipo: '+v('business_type'), 'Le interesa: '+v('interest'), v('phone') ? 'Teléfono: '+v('phone') : '', v('message')].filter(Boolean).join('\n') }; },
         mailto:true
       },
       demoForm: {
         api:'https://app.foreventos.com/api/public/demo-request',
-        ok:'¡Solicitud recibida! La revisamos y te enviamos por email tu enlace personal a la demo.',
-        err:'No se ha podido enviar. Escríbenos a info@foreventos.com y te la enviamos.',
+        ok:TX.demoOk,
+        err:TX.demoErr,
         body:function(v){ return { name:v('name'), email:v('email'), phone:v('phone'), business_type:v('business_type'), venue_name:v('venue_name'),
-          company:v('company'), city:v('city'), website_url:v('website_url'), message:v('message'), website:v('website'), lang:'es' }; }
+          company:v('company'), city:v('city'), website_url:v('website_url'), message:v('message'), website:v('website'), lang:EN ? 'en' : 'es' }; }
       }
     };
     Object.keys(FORMS).forEach(function(id){
@@ -166,13 +185,13 @@
         e.preventDefault();
         if (!f.reportValidity()) return;
         var label = btn && btn.querySelector('span'), orig = label ? label.textContent : '';
-        if (btn) btn.disabled = true; if (label) label.textContent = 'Enviando…';
+        if (btn) btn.disabled = true; if (label) label.textContent = TX.enviando;
         fetch(cfg.api, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(cfg.body(v)) })
           .then(function(r){ if (!r.ok){ var er = new Error('HTTP ' + r.status); er.status = r.status; throw er; } return r.json(); })
           .then(function(){ show('ok', cfg.ok); f.reset(); })
           .catch(function(er){
-            if (er && er.status === 400){ show('err', 'Revisa los datos: falta alguno o el email no parece válido.'); return; }
-            if (er && er.status === 429){ show('err', 'Has enviado varios mensajes seguidos. Espera unos minutos o escríbenos a info@foreventos.com.'); return; }
+            if (er && er.status === 400){ show('err', TX.e400); return; }
+            if (er && er.status === 429){ show('err', TX.e429); return; }
             show('err', cfg.err);
             if (cfg.mailto) setTimeout(function(){
               location.href = 'mailto:info@foreventos.com?subject=' + encodeURIComponent('Contacto FOREVENTOS · ' + v('venue')) +

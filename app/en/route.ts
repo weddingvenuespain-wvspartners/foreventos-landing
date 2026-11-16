@@ -2,53 +2,11 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 import { NextResponse } from 'next/server'
 
+// Generado por sitio/build.cjs: sirve el HTML estático de la página.
 export const dynamic = 'force-static'
 
-const EN_TITLE = 'FOREVENTOS — Less admin. More events closed.'
-const EN_DESCRIPTION =
-  'The sales platform for venues, caterings and event organizers: centralize inquiries, digitalize your commercial portal and close quotes with online signature and payment.'
-
 export async function GET() {
-  // El contenido del body lo traduce el script i18n del cliente (detecta /en);
-  // aquí solo ajustamos el head para SEO: lang, title, description, canonical y og:locale.
   const html = readFileSync(join(process.cwd(), 'app/en/page.html'), 'utf-8')
-    .replace('<html lang="es" data-lang="es">', '<html lang="en" data-lang="en">')
-    .replace(
-      /<title>[^<]*<\/title>/,
-      `<title>${EN_TITLE}</title>`
-    )
-    .replace(
-      /(<meta name="description" content=")[^"]*(" \/>)/,
-      `$1${EN_DESCRIPTION}$2`
-    )
-    .replace(
-      '<link rel="canonical" href="https://foreventos.com/plataforma" />',
-      '<link rel="canonical" href="https://foreventos.com/en" />'
-    )
-    .replace(
-      /(<meta property="og:title" content=")[^"]*(" \/>)/,
-      `$1${EN_TITLE}$2`
-    )
-    .replace(
-      '<meta property="og:url" content="https://foreventos.com/" />',
-      '<meta property="og:url" content="https://foreventos.com/en" />'
-    )
-    .replace(
-      '<meta property="og:locale" content="es_ES" />',
-      '<meta property="og:locale" content="en_US" />'
-    )
-    .replace(
-      /(<meta property="og:description" content=")[^"]*(" \/>)/,
-      `$1${EN_DESCRIPTION}$2`
-    )
-    .replace(
-      /(<meta name="twitter:title" content=")[^"]*(" \/>)/,
-      `$1${EN_TITLE}$2`
-    )
-    .replace(
-      /(<meta name="twitter:description" content=")[^"]*(" \/>)/,
-      `$1${EN_DESCRIPTION}$2`
-    )
   return new NextResponse(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',

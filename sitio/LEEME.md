@@ -12,4 +12,4 @@ Las páginas (`app/**/page.html`) se generan desde esta carpeta. No edites los `
 - Marcadores: `{{logo}}` (logo en línea) y `{{i:nombre}}` (iconos de `iconos.cjs`).
 - Tipografías en `public/fonts` (sin Google Fonts ni Fontshare, por eso no hay banner de cookies).
 - Testimonios: cada tarjeta con `data-pendiente` es un hueco. El build avisa mientras quede alguno; no publicar con huecos.
-- `/en` sirve la versión antigua de la landing (`app/en/page.html`), traducida en el navegador.
+- Inglés: `sitio/en/paginas` y `sitio/en/piezas` (menú y pie) son la traducción de cada página; el build genera `/en`, `/en/services`, `/en/platform`, `/en/projects` y `/en/contact`. Rutas, títulos y descripciones en inglés, en el campo `en` de `PAGES`. Al cambiar un texto en español, cámbialo también en `sitio/en/`. Los textos de `base.js` (formularios, menú) se eligen por `<html lang>`. El build pone hreflang es/en y el enlace ES/EN del menú y del pie (`{{otro}}`), y falla si una página en inglés enlaza a una ruta en español.
